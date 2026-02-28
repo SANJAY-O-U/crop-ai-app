@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+env/
+
+# Node
+node_modules/
+
+# Models
+*.pth
+
+# Environment
+.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Datasets
+backend/dataset/
+backend/dataset_potato/
+backend/dataset_pepper/
+backend/PlantVillage
+
+# Model weights
+backend/*.pt
+
+# Zip files
+backend/*.zip
