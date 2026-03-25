@@ -1,8 +1,12 @@
 from fastapi import FastAPI
-from app.routes.detect import router
 from fastapi.middleware.cors import CORSMiddleware
+from app.routes.detect import router
 
-app = FastAPI()
+app = FastAPI(
+    title="CropAI API",
+    description="Real-time crop disease detection using YOLO + ResNet18 + Grad-CAM",
+    version="1.0.0"
+)
 
 app.add_middleware(
     CORSMiddleware,
@@ -11,4 +15,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(router)
+app.include_router(router, prefix="/api")
+
+
+@app.get("/")
+async def root():
+    return {"status": "CropAI API running 🌱", "docs": "/docs"}

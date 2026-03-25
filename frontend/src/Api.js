@@ -1,16 +1,26 @@
-export async function detectDisease(imageFile, crop) {
-  const formData = new FormData();
-  formData.append("file", imageFile);
-  formData.append("crop", crop);
+import axios from "axios";
 
-  const response = await fetch("http://127.0.0.1:8000/detect", {
-    method: "POST",
-    body: formData
+const API = axios.create({
+  baseURL: "http://localhost:8000", // backend
+});
+
+export const detectDisease = async (file) => {
+  const formData = new FormData();
+  formData.append("image", file);
+
+  const res = await API.post("/api/v1/detect", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
   });
 
-  if (!response.ok) {
-    throw new Error("Detection failed");
-  }
+  return res.data;
+};
 
-  return response.json();
-}
+export const getHistory = async () => {
+  const res = await API.get("/api/v1/history");
+  return res.data;
+};
+
+export const getMedicines = async (disease) => {
+  const res = await API.get(`/api/v1/medicines?disease=${disease}`);
+  return res.data;
+};
