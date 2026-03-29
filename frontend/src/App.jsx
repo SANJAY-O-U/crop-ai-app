@@ -7,8 +7,8 @@ const MEDICINES = [
     id:"m01", name:"Mancozeb 75% WP", brand:"Dithane M-45", company:"Dow AgroSciences",
     category:"Fungicide", type:"chemical", price:220, mrp:280, unit:"250g",
     rating:4.6, reviews:1284, badge:"BESTSELLER", badgeColor:"#2d7a31", emoji:"🟡",
-    diseases:["Leaf Blight","Early Blight","Late Blight","Spot"],
-    crops:["tomato","potato","pepper"],
+    diseases:["Leaf Blight","Early Blight","Late Blight","Spot","Brown Spot","Cordana Leaf Spot","Leaf Spot","Purple Blotch"],
+    crops:["tomato","potato","pepper","banana","cotton","onion","rice","wheat"],
     dosage:"2.5 g/L water", frequency:"Every 7–10 days",
     description:"Broad-spectrum protective fungicide. Controls early & late blight, leaf spots. Mix with water and spray on foliage.",
     featured:true, inStock:true, effectiveness:92,
@@ -20,7 +20,7 @@ const MEDICINES = [
     id:"m02", name:"Propiconazole 25% EC", brand:"Tilt 250 EC", company:"Syngenta",
     category:"Fungicide", type:"chemical", price:480, mrp:520, unit:"100 ml",
     rating:4.8, reviews:876, badge:"TOP RATED", badgeColor:"#1e5c21", emoji:"🔵",
-    diseases:["Rust","Leaf Blight","Spot"], crops:["tomato","potato"],
+    diseases:["Rust","Leaf Blight","Spot","Brown Rust","Yellow Rust","Sigatoka","Anthracnose","Smut"], crops:["tomato","potato","wheat","rice","banana","mango","sugarcane"],
     dosage:"1 ml/L water", frequency:"Every 14 days",
     description:"Systemic curative + protective fungicide. Highly effective against rust and blight. Absorbed through leaves.",
     featured:true, inStock:true, effectiveness:96,
@@ -32,9 +32,9 @@ const MEDICINES = [
     id:"m03", name:"Metalaxyl + Mancozeb", brand:"Ridomil Gold MZ", company:"Syngenta",
     category:"Fungicide", type:"chemical", price:640, mrp:720, unit:"500g",
     rating:4.7, reviews:543, badge:"LATE BLIGHT SPECIAL", badgeColor:"#dc2626", emoji:"🔴",
-    diseases:["Late Blight","Early Blight"], crops:["tomato","potato"],
+    diseases:["Late Blight","Early Blight","Downy Mildew"], crops:["tomato","potato","onion"],
     dosage:"2.5 g/L water", frequency:"Every 10 days",
-    description:"Systemic + contact action. Gold standard for late blight. Metalaxyl provides internal protection with Mancozeb surface coverage.",
+    description:"Systemic + contact action. Gold standard for late blight and downy mildew. Metalaxyl provides internal protection with Mancozeb surface coverage.",
     featured:true, inStock:true, effectiveness:98,
     tags:["systemic","contact","late-blight","premium"],
     activeIngredient:"Metalaxyl 8% + Mancozeb 64%", formulation:"WP",
@@ -44,7 +44,7 @@ const MEDICINES = [
     id:"m04", name:"Copper Oxychloride 50% WP", brand:"Blitox-50", company:"TATA Rallis",
     category:"Fungicide + Bactericide", type:"chemical", price:195, mrp:240, unit:"250g",
     rating:4.4, reviews:2108, badge:"VALUE PICK", badgeColor:"#c4923a", emoji:"🟤",
-    diseases:["Bacterial Spot","Leaf Blight","Spot"], crops:["tomato","potato","pepper"],
+    diseases:["Bacterial Spot","Leaf Blight","Spot","Bacterial Blight","Bacterial Canker","Leaf Scald","Bacterial Leaf Blight"], crops:["tomato","potato","pepper","cotton","mango","onion","rice","sugarcane"],
     dosage:"3 g/L water", frequency:"Every 10–14 days",
     description:"Multi-purpose copper fungicide + bactericide. Controls fungal and bacterial diseases. Safe residue profile.",
     featured:false, inStock:true, effectiveness:85,
@@ -56,7 +56,7 @@ const MEDICINES = [
     id:"m05", name:"Tebuconazole 25.9% EC", brand:"Folicur EC", company:"Bayer CropScience",
     category:"Fungicide", type:"chemical", price:560, mrp:610, unit:"100 ml",
     rating:4.5, reviews:389, badge:null, badgeColor:null, emoji:"🟠",
-    diseases:["Rust","Mildew"], crops:["tomato","potato"],
+    diseases:["Rust","Mildew","Brown Rust","Yellow Rust","Powdery Mildew"], crops:["tomato","potato","wheat","mango"],
     dosage:"1 ml/L water", frequency:"Every 14 days",
     description:"Triazole systemic fungicide. Excellent against rust, mildew and leaf spot. Long residual protection.",
     featured:false, inStock:true, effectiveness:90,
@@ -68,7 +68,7 @@ const MEDICINES = [
     id:"m06", name:"Azoxystrobin 23% SC", brand:"Amistar", company:"Syngenta",
     category:"Fungicide", type:"chemical", price:820, mrp:950, unit:"100 ml",
     rating:4.9, reviews:712, badge:"PREMIUM", badgeColor:"#7c3aed", emoji:"🟣",
-    diseases:["Early Blight","Late Blight","Spot","Mildew"], crops:["tomato","potato","pepper"],
+    diseases:["Early Blight","Late Blight","Spot","Mildew","Sheath Blight","Brown Spot","Anthracnose","Sigatoka"], crops:["tomato","potato","pepper","rice","wheat","mango","banana","onion"],
     dosage:"1 ml/L water", frequency:"Every 10–14 days",
     description:"Strobilurin broad-spectrum fungicide with preventive and curative action. Enhances plant health and yield.",
     featured:true, inStock:true, effectiveness:97,
@@ -80,7 +80,7 @@ const MEDICINES = [
     id:"m07", name:"Sulfur 80% WDG", brand:"Microthiol Disperss", company:"United Phosphorus",
     category:"Fungicide", type:"organic-approved", price:160, mrp:180, unit:"500g",
     rating:4.3, reviews:987, badge:"ORGANIC APPROVED", badgeColor:"#16a34a", emoji:"🟡",
-    diseases:["Mildew","Rust"], crops:["tomato","potato","pepper"],
+    diseases:["Mildew","Rust","Powdery Mildew","Brown Rust","Yellow Rust","Smut"], crops:["tomato","potato","pepper","wheat","mango"],
     dosage:"3 g/L water", frequency:"Every 7–10 days",
     description:"Wettable sulfur approved for organic farming. Controls powdery mildew and rust effectively with no harmful residues.",
     featured:false, inStock:true, effectiveness:82,
@@ -92,7 +92,7 @@ const MEDICINES = [
     id:"m08", name:"Neem Oil 10000 PPM", brand:"Neemazal T/S", company:"Sumitomo Chemical",
     category:"Bio-Pesticide", type:"organic", price:280, mrp:320, unit:"250 ml",
     rating:4.2, reviews:3241, badge:"100% ORGANIC", badgeColor:"#16a34a", emoji:"🌿",
-    diseases:["Mildew","Spot","Leaf Blight"], crops:["tomato","potato","pepper"],
+    diseases:["Mildew","Spot","Leaf Blight","Sooty Mould","Banana Mosaic","Grassy Shoot","Leaf Spot"], crops:["tomato","potato","pepper","banana","cotton","mango","onion","rice","sugarcane","wheat"],
     dosage:"3 ml/L + 0.5 ml soap", frequency:"Every 5–7 days",
     description:"Cold-pressed neem oil with azadirachtin. Controls fungal diseases, insects and mites. Safe for pollinators.",
     featured:true, inStock:true, effectiveness:75,
@@ -104,7 +104,7 @@ const MEDICINES = [
     id:"m09", name:"Copper Hydroxide 77% WP", brand:"Kocide 3000", company:"FMC Corporation",
     category:"Bactericide + Fungicide", type:"chemical", price:410, mrp:460, unit:"250g",
     rating:4.6, reviews:521, badge:"BACTERIA SPECIALIST", badgeColor:"#0284c7", emoji:"🔵",
-    diseases:["Bacterial Spot","Leaf Blight"], crops:["tomato","pepper"],
+    diseases:["Bacterial Spot","Leaf Blight","Bacterial Canker","Bacterial Leaf Blight","Leaf Scald"], crops:["tomato","pepper","mango","rice","sugarcane"],
     dosage:"3 g/L water", frequency:"Every 7–10 days",
     description:"Premium copper bactericide. Best-in-class for bacterial spot in tomato and pepper. Low phytotoxicity.",
     featured:true, inStock:true, effectiveness:93,
@@ -116,7 +116,7 @@ const MEDICINES = [
     id:"m10", name:"Cymoxanil + Mancozeb", brand:"Curzate M8", company:"DuPont",
     category:"Fungicide", type:"chemical", price:380, mrp:420, unit:"250g",
     rating:4.5, reviews:298, badge:null, badgeColor:null, emoji:"⚪",
-    diseases:["Late Blight","Early Blight"], crops:["tomato","potato"],
+    diseases:["Late Blight","Early Blight","Downy Mildew"], crops:["tomato","potato","onion"],
     dosage:"2 g/L water", frequency:"Every 7 days",
     description:"Combination fungicide with contact + systemic action. Excellent curative + preventive late blight control.",
     featured:false, inStock:false, effectiveness:91,
@@ -128,7 +128,7 @@ const MEDICINES = [
     id:"m11", name:"Streptomycin Sulfate 90% SP", brand:"Agrimycin-17", company:"Nufarm",
     category:"Bactericide", type:"chemical", price:320, mrp:360, unit:"100g",
     rating:4.4, reviews:176, badge:"ANTIBIOTIC", badgeColor:"#0284c7", emoji:"💉",
-    diseases:["Bacterial Spot"], crops:["tomato","pepper"],
+    diseases:["Bacterial Spot","Bacterial Blight","Bacterial Canker","Leaf Scald","Bacterial Leaf Blight"], crops:["tomato","pepper","cotton","mango","rice","sugarcane"],
     dosage:"200 ppm (0.2 g/L)", frequency:"Every 5–7 days",
     description:"Antibiotic bactericide for bacterial spot. Systemic activity. Use sparingly to prevent resistance.",
     featured:false, inStock:true, effectiveness:88,
@@ -140,17 +140,57 @@ const MEDICINES = [
     id:"m12", name:"Bordeaux Mixture 2%", brand:"BordeauxMix Classic", company:"Home Blend",
     category:"Fungicide + Bactericide", type:"organic-approved", price:120, mrp:140, unit:"500g powder",
     rating:4.0, reviews:4521, badge:"DIY CLASSIC", badgeColor:"#c4923a", emoji:"🌊",
-    diseases:["Leaf Blight","Spot","Bacterial Spot"], crops:["tomato","potato","pepper"],
+    diseases:["Leaf Blight","Spot","Bacterial Spot","Cordana Leaf Spot","Anthracnose","Purple Blotch","Stemphylium Blight"], crops:["tomato","potato","pepper","banana","mango","onion"],
     dosage:"20 g/L water", frequency:"Every 14 days",
     description:"Traditional copper-lime mixture. Excellent preventive spray. Cost-effective, organic-approved, broad-spectrum.",
     featured:false, inStock:true, effectiveness:78,
     tags:["organic","diy","budget","preventive"],
     activeIngredient:"Copper sulfate + Calcium hydroxide", formulation:"Powder",
     phi:"7 days", safetyLevel:"Low"
+  },
+  {
+    id:"m13", name:"Carbendazim 50% WP", brand:"Bavistin", company:"BASF India",
+    category:"Fungicide", type:"chemical", price:290, mrp:340, unit:"250g",
+    rating:4.5, reviews:1876, badge:"SOIL FUNGICIDE", badgeColor:"#2d7a31", emoji:"🟢",
+    diseases:["Fusarium Wilt","Red Rot","Sheath Blight","Loose Smut"],
+    crops:["cotton","sugarcane","rice","wheat","banana"],
+    dosage:"1 g/L water (foliar) / 2 g/L (soil drench)", frequency:"Every 10–14 days",
+    description:"Systemic benzimidazole fungicide. Excellent against soil-borne and vascular wilt diseases. Also used as seed treatment.",
+    featured:true, inStock:true, effectiveness:91,
+    tags:["systemic","wilt","soil-borne","seed-treatment"],
+    activeIngredient:"Carbendazim 50%", formulation:"WP",
+    phi:"3 days", safetyLevel:"Moderate"
+  },
+  {
+    id:"m14", name:"Imidacloprid 17.8% SL", brand:"Confidor", company:"Bayer CropScience",
+    category:"Insecticide (Vector Control)", type:"chemical", price:360, mrp:420, unit:"100 ml",
+    rating:4.6, reviews:1123, badge:"VIRUS VECTOR CONTROL", badgeColor:"#0284c7", emoji:"🔷",
+    diseases:["Curl Virus","Banana Mosaic","Sooty Mould","Grassy Shoot"],
+    crops:["cotton","banana","mango","sugarcane"],
+    dosage:"0.3 ml/L water", frequency:"Every 10–15 days",
+    description:"Systemic neonicotinoid insecticide. Controls whitefly, aphids, and leafhoppers that transmit viral diseases. Seed and soil drench use possible.",
+    featured:false, inStock:true, effectiveness:89,
+    tags:["insecticide","vector-control","virus","whitefly"],
+    activeIngredient:"Imidacloprid 17.8%", formulation:"SL (Soluble Liquid)",
+    phi:"21 days", safetyLevel:"High"
+  },
+  {
+    id:"m15", name:"Tricyclazole 75% WP", brand:"Beam 75 WP", company:"Dow AgroSciences",
+    category:"Fungicide", type:"chemical", price:440, mrp:500, unit:"100g",
+    rating:4.7, reviews:654, badge:"BLAST SPECIALIST", badgeColor:"#2d7a31", emoji:"🌱",
+    diseases:["Blast","Anthracnose","Red Rot","Smut"],
+    crops:["rice","mango","sugarcane","wheat"],
+    dosage:"0.6 g/L water", frequency:"Every 14 days",
+    description:"Highly effective melanin biosynthesis inhibitor. Best-in-class for rice blast. Also controls anthracnose and smut diseases in multiple crops.",
+    featured:true, inStock:true, effectiveness:95,
+    tags:["blast","melanin-inhibitor","rice-specialist","premium"],
+    activeIngredient:"Tricyclazole 75%", formulation:"WP",
+    phi:"5 days", safetyLevel:"Moderate"
   }
 ];
 
 const DISEASE_MEDICINES = {
+  // Existing
   "Leaf Blight":    ["m01","m02","m04","m08","m12"],
   "Early Blight":   ["m01","m03","m06","m08"],
   "Late Blight":    ["m03","m10","m01"],
@@ -158,7 +198,41 @@ const DISEASE_MEDICINES = {
   "Rust":           ["m02","m05","m07"],
   "Spot":           ["m04","m01","m06","m08","m12"],
   "Bacterial Spot": ["m09","m11","m04","m12"],
-  "Healthy":        ["m08","m07","m12"]
+  "Healthy":        ["m08","m07","m12"],
+  // Banana
+  "Cordana Leaf Spot": ["m01","m06","m08"],
+  "Panama Wilt":       ["m13","m08"],
+  "Sigatoka":          ["m02","m01","m07"],
+  "Banana Mosaic":     ["m08","m14"],
+  // Cotton
+  "Bacterial Blight":  ["m09","m04","m12"],
+  "Curl Virus":        ["m14","m08"],
+  "Fusarium Wilt":     ["m13","m08"],
+  "Leaf Spot":         ["m01","m06","m08"],
+  // Mango
+  "Anthracnose":       ["m15","m06","m04"],
+  "Powdery Mildew":    ["m07","m05","m08"],
+  "Sooty Mould":       ["m08","m14"],
+  "Bacterial Canker":  ["m09","m04","m11"],
+  // Onion
+  "Purple Blotch":      ["m01","m06","m08"],
+  "Stemphylium Blight": ["m04","m01","m12"],
+  "Downy Mildew":       ["m03","m06","m08"],
+  // Rice
+  "Blast":                  ["m15","m06","m01"],
+  "Brown Spot":             ["m01","m02","m08"],
+  "Sheath Blight":          ["m13","m06","m04"],
+  "Bacterial Leaf Blight":  ["m09","m04","m11"],
+  // Sugarcane
+  "Red Rot":      ["m13","m15","m04"],
+  "Smut":         ["m15","m02","m07"],
+  "Grassy Shoot": ["m14","m08"],
+  "Leaf Scald":   ["m09","m04","m11"],
+  // Wheat
+  "Brown Rust":     ["m02","m05","m07"],
+  "Yellow Rust":    ["m02","m05","m06"],
+  "Loose Smut":     ["m15","m13","m01"],
+  "Powdery Mildew": ["m07","m05","m08"],
 };
 
 const PROMOTED_IDS  = ["m06","m03","m09","m08"];
@@ -166,6 +240,7 @@ const FLASH_SALE_IDS = ["m01","m04","m07","m12"];
 
 // ─── DISEASE INFO ─────────────────────────────────────────────────────────────
 const DISEASE_INFO = {
+  // ── Existing diseases ──────────────────────────────────────────────────
   "Healthy":        { severity:"none",     description:"Your crop appears healthy! No signs of disease detected.", causes:"Good agricultural practices are maintaining plant health.", remedies:{ prevention:["Continue regular irrigation","Maintain proper plant spacing","Apply balanced NPK fertilizer every 3–4 weeks","Monitor regularly for early signs of disease"] } },
   "Leaf Blight":    { severity:"moderate", description:"Leaf blight causes dark brown lesions that rapidly spread, leading to premature leaf drop and reduced yield.", causes:"Alternaria solani fungus. Thrives in warm (24–29°C), humid conditions.", remedies:{ organic:["Neem oil (3 ml/L) every 7 days","Copper-based Bordeaux mixture (1%)","Remove and destroy infected leaves","Mulch around base"], chemical:["Mancozeb 75% WP at 2.5 g/L every 7–10 days","Propiconazole 25% EC at 1 ml/L","Chlorothalonil 75% WP at 2 g/L"], prevention:["Use certified disease-resistant seeds","Maintain 60 cm plant spacing","Use drip irrigation","Rotate crops annually"] } },
   "Mildew":         { severity:"mild",     description:"Powdery mildew appears as white powdery patches on leaves. Reduces photosynthesis and weakens the plant.", causes:"Erysiphe spp. fungi. Spreads in dry weather with high humidity nights.", remedies:{ organic:["Baking soda solution (1 tsp/L + dish soap)","Diluted milk spray (1:9 ratio) weekly","Neem oil + garlic extract spray"], chemical:["Sulfur fungicide (3 g/L) every 14 days","Tebuconazole 25.9% EC at 1 ml/L"], prevention:["Improve ventilation","Water in the morning","Avoid excess nitrogen fertilization"] } },
@@ -173,7 +248,48 @@ const DISEASE_INFO = {
   "Spot":           { severity:"mild",     description:"Leaf spot manifests as circular brown spots with yellow halos, causing premature defoliation.", causes:"Multiple fungal/bacterial pathogens. Spreads through water splash.", remedies:{ organic:["Copper hydroxide spray (3 g/L)","Neem oil every 10 days"], chemical:["Copper oxychloride 50% WP at 3 g/L","Azoxystrobin 23% SC at 1 ml/L"], prevention:["Avoid working in wet fields","Mulch to reduce splash-back"] } },
   "Early Blight":   { severity:"moderate", description:"Early blight causes dark concentric-ring lesions on older leaves first, moving upward.", causes:"Alternaria solani fungus. Warm (24–29°C) humid conditions.", remedies:{ organic:["Neem oil (3 ml/L) every 7 days","Bordeaux mixture weekly"], chemical:["Mancozeb 75% WP 2.5 g/L","Azoxystrobin 23% SC 1 ml/L"], prevention:["Avoid overhead irrigation","Crop rotation every season"] } },
   "Late Blight":    { severity:"severe",   description:"Late blight is devastating — water-soaked lesions spread rapidly across the entire plant within days.", causes:"Phytophthora infestans. Spreads explosively in cool (10–20°C), wet weather.", remedies:{ organic:["Remove and destroy all infected tissue immediately","Copper sulfate spray"], chemical:["Metalaxyl + Mancozeb WP at 2.5 g/L","Cymoxanil + Mancozeb at 2 g/L"], prevention:["Plant only certified disease-free tubers","Scout fields twice weekly"] } },
-  "Bacterial Spot": { severity:"moderate", description:"Bacterial spot causes water-soaked lesions that turn dark and scabby, affecting leaves and fruit.", causes:"Xanthomonas vesicatoria bacteria. Warm, wet, windy conditions.", remedies:{ organic:["Copper-based bactericide spray weekly","Remove heavily infected plants"], chemical:["Copper hydroxide 77% WP at 3 g/L","Streptomycin sulfate at 200 ppm"], prevention:["Use pathogen-free certified seed","Two-year crop rotation"] } }
+  "Bacterial Spot": { severity:"moderate", description:"Bacterial spot causes water-soaked lesions that turn dark and scabby, affecting leaves and fruit.", causes:"Xanthomonas vesicatoria bacteria. Warm, wet, windy conditions.", remedies:{ organic:["Copper-based bactericide spray weekly","Remove heavily infected plants"], chemical:["Copper hydroxide 77% WP at 3 g/L","Streptomycin sulfate at 200 ppm"], prevention:["Use pathogen-free certified seed","Two-year crop rotation"] } },
+
+  // ── Banana ────────────────────────────────────────────────────────────────
+  "Cordana Leaf Spot": { severity:"mild",     description:"Oval brown spots with yellow halo on older leaves. Reduces photosynthetic area progressively.", causes:"Cordana musae fungus. Spreads in humid environments, especially during rainy season.", remedies:{ organic:["Remove badly infected leaves immediately","Neem oil (3 ml/L) every 10 days"], chemical:["Carbendazim 50% WP at 1 g/L","Mancozeb 75% WP at 2 g/L"], prevention:["Improve drainage around plants","Space plants to improve air circulation","Remove crop debris after harvest"] } },
+  "Panama Wilt":       { severity:"severe",   description:"Banana Panama wilt (Fusarium wilt) causes yellowing, wilting, and complete collapse of the plant. No cure once infected.", causes:"Fusarium oxysporum f.sp. cubense fungus. Spreads through infected soil and planting material.", remedies:{ organic:["Remove and destroy infected plants with roots","Apply Trichoderma bio-fungicide to soil","Do not replant banana in infected soil for 5+ years"], chemical:["Soil drenching with Carbendazim 1g/L","Propiconazole 1 ml/L as preventive"], prevention:["Use certified disease-free tissue culture plants","Disinfect farming tools between plants","Grow resistant varieties (Cavendish)"] } },
+  "Sigatoka":          { severity:"severe",   description:"Yellow Sigatoka and Black Sigatoka cause leaf streaks that expand into large necrotic patches, reducing yield up to 50%.", causes:"Mycosphaerella musicola / fijiensis fungus. Favors warm, humid, windy conditions.", remedies:{ organic:["Remove and destroy infected leaves weekly","Spray Bordeaux mixture every 14 days","Ensure adequate potassium nutrition"], chemical:["Propiconazole 25% EC at 1 ml/L","Mancozeb 75% WP at 2.5 g/L every 10 days"], prevention:["Use resistant varieties","Maintain proper spacing","Avoid waterlogging"] } },
+  "Banana Mosaic":     { severity:"moderate", description:"Mosaic pattern on leaves — yellow and green mottling — stunts plant growth and severely reduces fruit yield.", causes:"Banana bract mosaic virus (BBrMV). Transmitted by aphids and infected planting material.", remedies:{ organic:["Remove and destroy infected plants immediately","Control aphid vectors with neem oil spray"], chemical:["No curative chemical — use systemic insecticides (Imidacloprid 0.5 ml/L) to control aphid vectors"], prevention:["Use certified virus-free tissue culture plants","Rogue out infected plants immediately","Control aphid population with yellow sticky traps"] } },
+
+  // ── Cotton ────────────────────────────────────────────────────────────────
+  "Bacterial Blight":  { severity:"severe",   description:"Angular water-soaked spots on leaves turning brown; severe infection causes premature defoliation and boll rot.", causes:"Xanthomonas axonopodis pv. malvacearum. Spreads through infected seeds and rain splash.", remedies:{ organic:["Remove infected plant debris","Apply Bordeaux mixture (1%) preventively","Avoid overhead irrigation"], chemical:["Streptomycin 90 SP at 200 ppm","Copper oxychloride 3 g/L every 10 days"], prevention:["Use certified disease-free seeds","Treat seeds with Streptocycline before sowing","Crop rotation with non-host crops"] } },
+  "Curl Virus":        { severity:"severe",   description:"Leaves curl upward, become thick and leathery, turn yellow-green. Stunts plant severely. Can cause 100% yield loss if early infection.", causes:"Cotton leaf curl virus (CLCuV). Transmitted by whitefly (Bemisia tabaci). No cure once infected.", remedies:{ organic:["Remove and destroy infected plants early","Use yellow sticky traps for whitefly","Spray neem oil to control whitefly"], chemical:["Imidacloprid 17.8 SL at 0.3 ml/L for whitefly control","Thiamethoxam 25 WG at 0.3 g/L"], prevention:["Plant CLCuV-resistant varieties","Early sowing to avoid peak whitefly season","Remove alternate host weeds from field borders"] } },
+  "Fusarium Wilt":     { severity:"severe",   description:"Yellowing and wilting of lower leaves progressing upward. Internal stem shows brown discolouration. Plant collapses.", causes:"Fusarium oxysporum f.sp. vasinfectum fungus. Soil-borne. Favors warm, humid soils.", remedies:{ organic:["Apply Trichoderma viride 4 g/kg seed as biocontrol","Soil solarisation in summer before sowing"], chemical:["Carbendazim 50% WP soil drench (1 g/L)","Seed treatment with Captan 75% WS (3 g/kg)"], prevention:["Use wilt-resistant certified varieties","Avoid waterlogging","Long crop rotation (4+ years) with cereals"] } },
+  "Leaf Spot":         { severity:"mild",     description:"Circular to irregular brown spots on leaves with dark margins. Causes premature defoliation reducing photosynthesis.", causes:"Alternaria macrospora / Cercospora gossypina. Spreads in humid, warm conditions.", remedies:{ organic:["Remove infected leaves","Neem oil spray (3 ml/L) every 7 days"], chemical:["Mancozeb 75% WP at 2.5 g/L","Carbendazim 50% WP at 1 g/L"], prevention:["Avoid overhead irrigation","Balanced potassium fertilisation","Crop rotation"] } },
+
+  // ── Mango ─────────────────────────────────────────────────────────────────
+  "Anthracnose":      { severity:"moderate", description:"Dark sunken spots on leaves, flowers, and fruits. Causes premature fruit drop and post-harvest fruit rot.", causes:"Colletotrichum gloeosporioides fungus. Thrives in warm, wet, humid conditions especially at flowering.", remedies:{ organic:["Bordeaux mixture (1%) spray at bud break and fruit set","Remove infected plant parts","Improve canopy ventilation"], chemical:["Carbendazim 50% WP at 1 g/L pre- and post-bloom","Mancozeb 75% WP at 2.5 g/L"], prevention:["Prune trees for better air circulation","Avoid overhead irrigation","Apply protective sprays before monsoon"] } },
+  "Powdery Mildew":   { severity:"mild",     description:"White powdery coating on young leaves, panicles, and fruits. Causes early flower and fruit drop.", causes:"Oidium mangiferae fungus. Spreads rapidly in dry weather with cool nights and warm days.", remedies:{ organic:["Sulfur dust (3 g/L) spray on affected parts","Wettable sulfur 80% WDG at 3 g/L"], chemical:["Dinocap 48% EC at 1 ml/L","Hexaconazole 5% EC at 1 ml/L"], prevention:["Prune dense canopy for air circulation","Spray preventively at panicle emergence","Avoid excessive nitrogen fertilizer"] } },
+  "Sooty Mould":      { severity:"mild",     description:"Black sooty coating on leaf surfaces blocking sunlight. Weakens plant but does not directly infect tissue.", causes:"Capnodium mangiferae fungus growing on honeydew secreted by mealybugs and scale insects.", remedies:{ organic:["Control mealybugs with neem oil spray","Wash leaves with soap water to remove sooty mould","Release ladybird beetles as biological control"], chemical:["Spray Imidacloprid 0.3 ml/L to control sucking pests","Starch spray (2%) to physically remove mould"], prevention:["Regular inspection and pest monitoring","Control mealybugs and scale insects","Prune to improve air circulation"] } },
+  "Bacterial Canker":  { severity:"severe",   description:"Water-soaked lesions on leaves, stems, and fruits turning yellow and cracking. Causes severe yield loss.", causes:"Xanthomonas campestris pv. mangiferaeindicae. Spreads through rain splash, tools, and infected nursery material.", remedies:{ organic:["Remove infected branches 15 cm below visible infection","Apply Bordeaux paste on cut surfaces","Avoid working in orchards when wet"], chemical:["Copper hydroxide 77% WP at 3 g/L","Streptomycin sulfate 90 SP at 200 ppm"], prevention:["Use certified disease-free nursery plants","Disinfect pruning tools with 1% bleach","Apply copper spray after pruning"] } },
+
+  // ── Onion ─────────────────────────────────────────────────────────────────
+  "Purple Blotch":       { severity:"moderate", description:"Water-soaked lesions turning white with purple centre on leaves. Severe infection collapses the entire foliage.", causes:"Alternaria porri fungus. Favors warm, humid weather with frequent dews.", remedies:{ organic:["Neem oil (3 ml/L) spray every 10 days","Remove infected crop debris immediately"], chemical:["Mancozeb 75% WP at 2.5 g/L","Iprodione 50% WP at 2 g/L","Hexaconazole 5 EC at 1 ml/L"], prevention:["Use certified healthy sets / transplants","Avoid excessive irrigation","Crop rotation with non-allium crops for 2+ years"] } },
+  "Stemphylium Blight":  { severity:"mild",     description:"Small oval yellowish spots on leaf tips that enlarge and cause dieback of foliage. Coexists often with Purple Blotch.", causes:"Stemphylium vesicarium fungus. Favors warm humid conditions with high relative humidity.", remedies:{ organic:["Bordeaux mixture spray (0.5%)","Remove infected leaves"], chemical:["Chlorothalonil 75% WP at 2 g/L","Mancozeb 2.5 g/L + Iprodione 2 g/L tank mix"], prevention:["Avoid dense planting","Balanced nitrogen fertilisation","Avoid overhead irrigation"] } },
+  "Downy Mildew":        { severity:"severe",   description:"Pale greenish-yellow patches on upper leaf surface with violet-grey fuzzy growth on the underside. Causes collapse of foliage.", causes:"Peronospora destructor oomycete. Spreads in cool, moist, foggy conditions.", remedies:{ organic:["Remove infected plants immediately","Spray Bordeaux mixture (1%) every 7 days"], chemical:["Metalaxyl + Mancozeb at 2.5 g/L","Cymoxanil 8% + Mancozeb 64% at 2 g/L"], prevention:["Plant in well-drained fields","Avoid late evening irrigation","Use resistant cultivars"] } },
+
+  // ── Rice ──────────────────────────────────────────────────────────────────
+  "Blast":                  { severity:"severe",   description:"Diamond-shaped grey-white lesions with brown margins on leaves. Node blast causes culm collapse. Can destroy entire crop.", causes:"Magnaporthe oryzae fungus. Spreads by wind-borne spores. Favors humid, cool nights and nitrogen-rich fields.", remedies:{ organic:["Spray Pseudomonas fluorescens biocontrol (5 g/L)","Silicon application strengthens cell walls"], chemical:["Tricyclazole 75% WP at 0.6 g/L","Isoprothiolane 40% EC at 1.5 ml/L"], prevention:["Use blast-resistant varieties","Avoid excess nitrogen","Split nitrogen application","Drain fields intermittently"] } },
+  "Brown Spot":             { severity:"moderate", description:"Oval to circular brown spots on leaves with yellow halo. Causes significant grain discolouration and yield loss.", causes:"Helminthosporium oryzae fungus. Associated with nutrient-deficient soils, especially low potassium.", remedies:{ organic:["Apply adequate potassium and zinc fertilizer","Seed treatment with Pseudomonas fluorescens (10 g/kg)"], chemical:["Mancozeb 75% WP at 2 g/L","Propiconazole 25% EC at 1 ml/L"], prevention:["Balanced NPK fertilisation","Use certified healthy seeds","Seed treatment before sowing"] } },
+  "Sheath Blight":          { severity:"moderate", description:"Water-soaked irregular lesions on leaf sheath with grey-white centre and brown border. Causes lodging and grain sterility.", causes:"Rhizoctonia solani fungus. Favors dense planting, high humidity, and high nitrogen levels.", remedies:{ organic:["Apply Trichoderma viride 4 kg/acre as bio-fungicide","Spray Pseudomonas fluorescens"], chemical:["Validamycin 3% L at 2 ml/L","Hexaconazole 5% EC at 1 ml/L"], prevention:["Maintain recommended plant spacing","Avoid excess nitrogen application","Drain fields to reduce humidity"] } },
+  "Bacterial Leaf Blight":  { severity:"severe",   description:"Water-soaked to yellowish stripe along leaf margins progressing to whitish-grey. Causes kresek (wilting) in young plants.", causes:"Xanthomonas oryzae pv. oryzae bacteria. Spreads through water, wind, and infected transplants.", remedies:{ organic:["Remove infected plants in nursery immediately","Avoid flood irrigation during outbreak"], chemical:["Copper oxychloride 50% WP at 3 g/L","Streptomycin 90 SP + Copper hydroxide tank mix"], prevention:["Use resistant varieties","Avoid transplanting during typhoon season","Balanced nitrogen nutrition"] } },
+
+  // ── Sugarcane ─────────────────────────────────────────────────────────────
+  "Red Rot":       { severity:"severe",   description:"Stalk shows red discolouration with white patches inside. Leaves dry up, plant dies rapidly. Major cause of cane quality loss.", causes:"Colletotrichum falcatum fungus. Spreads through infected seed cane, waterlogged soil, high humidity.", remedies:{ organic:["Rogue out infected clumps and destroy","Hot water seed treatment (52°C for 30 min)"], chemical:["Carbendazim seed sett treatment (1 g/L for 5 min)","Tridemorph 81% EC as preventive foliar"], prevention:["Use disease-free certified seed cane","Select resistant varieties","Avoid waterlogging — improve drainage"] } },
+  "Smut":          { severity:"moderate", description:"Black whip-like sorus emerging from growing point. Infected plants are stunted and produce no cane.", causes:"Sporisorium scitamineum fungus. Wind-borne spores infect developing buds during germination.", remedies:{ organic:["Rogue infected plants immediately","Hot water treatment of seed setts (52°C, 30 min)"], chemical:["Carbendazim 50% WP sett treatment","Propiconazole foliar spray as preventive"], prevention:["Plant smut-resistant varieties","Use disease-free planting material","Rogue smutted plants before tasseling"] } },
+  "Grassy Shoot":  { severity:"severe",   description:"Excessive tiller production of thin, pale-yellow shoots resembling grass. No harvestable cane produced. Entire plant is sterile.", causes:"Sugarcane grassy shoot phytoplasma (MLO). Transmitted by leafhopper (Pyrilla perpusilla) insect vector.", remedies:{ organic:["Rogue out infected plants immediately — no cure","Control leafhopper with neem oil spray (3 ml/L)"], chemical:["Imidacloprid 0.3 ml/L for leafhopper vector control","No chemical cure for the phytoplasma itself"], prevention:["Use disease-free tissue culture plants","Control leafhopper population","Hot water treatment of seed setts"] } },
+  "Leaf Scald":    { severity:"moderate", description:"White pencil-line streaks on leaves extending from tip. Advanced infection causes leaf tip scorch and stalk rot.", causes:"Xanthomonas albilineans bacteria. Spreads through infected seed cane and tools.", remedies:{ organic:["Hot water treatment of seed setts (50°C for 2 hours)","Rogue infected plants"], chemical:["Streptomycin 90 SP at 200 ppm sett soak","Copper oxychloride 3 g/L foliar spray"], prevention:["Use certified disease-free seed cane","Disinfect harvesting tools with bleach","Avoid ratoon from infected crop"] } },
+
+  // ── Wheat ─────────────────────────────────────────────────────────────────
+  "Brown Rust":   { severity:"severe",   description:"Orange-brown oval pustules on leaf surfaces, mainly on upper side. Rapid spread reduces grain filling causing shrivelled grains.", causes:"Puccinia triticina fungus. Wind-borne spores. Spreads explosively in warm (15–22°C), humid conditions.", remedies:{ organic:["Sulfur dust (3 g/L) at first sign","Remove volunteer wheat plants from surrounding areas"], chemical:["Propiconazole 25% EC at 1 ml/L","Tebuconazole 25.9% EC at 1 ml/L","Hexaconazole 5% EC at 2 ml/L"], prevention:["Plant brown rust–resistant varieties","Early sowing to avoid peak rust season","Use balanced potassium fertiliser"] } },
+  "Yellow Rust":  { severity:"severe",   description:"Yellow-orange pustules arranged in stripes along the leaf. Very rapid spread in cool conditions. Can cause near-complete yield loss.", causes:"Puccinia striiformis fungus. Wind-borne. Favors cool (10–15°C), moist conditions. New virulent races spread very fast.", remedies:{ organic:["Remove and destroy heavily infected crop early","Sulfur-based fungicide as protective measure"], chemical:["Propiconazole 25% EC at 1 ml/L — spray immediately at first sign","Tebuconazole + Trifloxystrobin combination"], prevention:["Plant yellow rust–resistant varieties","Monitor fields weekly during February–March","Early timely sowing"] } },
+  "Loose Smut":   { severity:"moderate", description:"Grain is replaced by a mass of brown-black powdery spores. Entire head turns into a sooty mass that disperses early in the season.", causes:"Ustilago tritici fungus. Seed-borne. Infects the embryo at flowering stage. Spreads through wind.", remedies:{ organic:["Hot water seed treatment (49°C for 20 min)","Biocontrol — Trichoderma seed treatment (4 g/kg)"], chemical:["Carboxin 37.5% + Thiram 37.5% DS seed treatment (3 g/kg)","Carbendazim 50% WP seed treatment (2.5 g/kg)"], prevention:["Use certified smut-free seeds","Seed treatment is the most effective control","Rogue infected plants before spore dispersal"] } },
+  "Powdery Mildew": { severity:"mild",   description:"White powdery growth on upper leaf surfaces progressing to all green parts. Causes early senescence and yield loss in severe cases.", causes:"Blumeria graminis f.sp. tritici fungus. Spreads in cool, humid conditions with poor air circulation.", remedies:{ organic:["Sulfur WDG spray (3 g/L) every 14 days"], chemical:["Propiconazole 25% EC at 1 ml/L","Fenbuconazole 24% SC at 1 ml/L"], prevention:["Avoid excess nitrogen","Plant resistant varieties","Adequate spacing for air movement"] } },
 };
 
 const SEVERITY_CONFIG = {
@@ -187,7 +303,40 @@ const TYPE_CONFIG = {
   organic:            { label:"Organic",           color:"#16a34a", bg:"rgba(22,163,74,0.1)"  },
   "organic-approved": { label:"Organic Approved", color:"#16a34a", bg:"rgba(22,163,74,0.1)"  }
 };
-const CROP_EMOJIS = { tomato:"🍅", potato:"🥔", pepper:"🌶️" };
+const CROP_EMOJIS = {
+  tomato:"🍅", potato:"🥔", pepper:"🌶️",
+  banana:"🍌", cotton:"🌸", mango:"🥭",
+  onion:"🧅",  rice:"🌾",   sugarcane:"🎋", wheat:"🌾"
+};
+
+// Category groups for the crop grid
+const CROP_GROUPS = [
+  {
+    label: "Vegetables",
+    crops: [
+      { key:"tomato",   name:"Tomato",    diseases:"Blight · Mildew · Rust · Spot" },
+      { key:"potato",   name:"Potato",    diseases:"Early Blight · Late Blight" },
+      { key:"pepper",   name:"Pepper",    diseases:"Bacterial Spot" },
+      { key:"onion",    name:"Onion",     diseases:"Purple Blotch · Downy Mildew" },
+    ]
+  },
+  {
+    label: "Fruits",
+    crops: [
+      { key:"mango",    name:"Mango",     diseases:"Anthracnose · Powdery Mildew" },
+      { key:"banana",   name:"Banana",    diseases:"Sigatoka · Panama Wilt" },
+    ]
+  },
+  {
+    label: "Field Crops",
+    crops: [
+      { key:"rice",       name:"Rice",       diseases:"Blast · Brown Spot · Sheath Blight" },
+      { key:"wheat",      name:"Wheat",      diseases:"Brown Rust · Yellow Rust · Smut" },
+      { key:"sugarcane",  name:"Sugarcane",  diseases:"Red Rot · Smut · Grassy Shoot" },
+      { key:"cotton",     name:"Cotton",     diseases:"Blight · Curl Virus · Fusarium Wilt" },
+    ]
+  }
+];
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 async function runDetection(file, crop) {
@@ -475,7 +624,7 @@ function HomePage({ onStart, onMedicines, cart }) {
           <button className="btn btn-ghost btn-lg" onClick={onMedicines}>💊 Browse Medicines</button>
         </div>
         <div className="fade-up" style={{ display:"flex", gap:40, marginTop:56, animationDelay:"0.4s" }}>
-          {[["3","Crops"],["10","Diseases"],["12","Medicines"],["99%","Accuracy*"]].map(([n,l])=>(
+          {[["10","Crops"],["30+","Diseases"],["15","Medicines"],["94%","Accuracy*"]].map(([n,l])=>(
             <div key={l} style={{ textAlign:"center" }}>
               <div style={{ fontFamily:"var(--display)", fontSize:"2rem", fontWeight:800, color:"var(--green)" }}>{n}</div>
               <div style={{ fontSize:12, color:"var(--text3)", letterSpacing:1 }}>{l}</div>
@@ -793,16 +942,41 @@ function DetectPage({ onResult }) {
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:32, alignItems:"start" }}>
         {/* LEFT PANEL */}
         <div>
-          {/* Crop selector */}
-          <div style={{ marginBottom:20 }}>
+          {/* Crop selector — 10 crops in grouped grid */}
+          <div style={{ marginBottom:16 }}>
             <label style={{ fontSize:13, fontWeight:600, color:"var(--text2)", display:"block", marginBottom:10 }}>SELECT CROP</label>
-            <div style={{ display:"flex", gap:10 }}>
-              {["tomato","potato","pepper"].map(c => (
-                <button key={c} onClick={() => setCrop(c)} style={{ flex:1, padding:"12px 8px", borderRadius:10, cursor:"pointer", border:`2px solid ${crop===c?"var(--green)":"var(--border)"}`, background:crop===c?"rgba(76,175,80,0.1)":"var(--bg2)", color:crop===c?"var(--green)":"var(--text2)", fontFamily:"var(--body)", fontWeight:crop===c?700:400, transition:"all .2s", fontSize:13 }}>
-                  {CROP_EMOJIS[c]}<br /><span style={{display:"block",marginTop:4}}>{c.charAt(0).toUpperCase()+c.slice(1)}</span>
-                </button>
+            <div style={{ background:"var(--bg2)", borderRadius:12, border:"1px solid var(--border)", padding:"12px" }}>
+              {CROP_GROUPS.map(group => (
+                <div key={group.label} style={{ marginBottom:10 }}>
+                  <div style={{ fontSize:9, fontWeight:700, letterSpacing:2, textTransform:"uppercase", color:"var(--text3)", marginBottom:6 }}>
+                    {group.label}
+                  </div>
+                  <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(74px,1fr))", gap:6 }}>
+                    {group.crops.map(c => (
+                      <button key={c.key} onClick={() => setCrop(c.key)}
+                        style={{ padding:"8px 4px", borderRadius:8, cursor:"pointer", textAlign:"center",
+                          border:`2px solid ${crop===c.key?"var(--green)":"var(--border)"}`,
+                          background:crop===c.key?"rgba(76,175,80,0.12)":"var(--bg)",
+                          color:crop===c.key?"var(--green)":"var(--text2)",
+                          fontFamily:"var(--body)", fontWeight:crop===c.key?700:400,
+                          transition:"all .2s", fontSize:11 }}>
+                        <div style={{ fontSize:"1.3rem", marginBottom:2 }}>{CROP_EMOJIS[c.key]}</div>
+                        {c.name}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
+            {/* Selected crop info strip */}
+            {(() => {
+              const info = CROP_GROUPS.flatMap(g=>g.crops).find(c=>c.key===crop);
+              return info ? (
+                <div style={{ marginTop:8, padding:"6px 12px", borderRadius:8, background:"rgba(76,175,80,0.06)", border:"1px solid rgba(76,175,80,0.2)", fontSize:11, color:"var(--text3)" }}>
+                  <strong style={{color:"var(--green)"}}>{CROP_EMOJIS[crop]} {info.name}</strong> — detects: {info.diseases}
+                </div>
+              ) : null;
+            })()}
           </div>
 
           {/* Input mode toggle */}
@@ -933,107 +1107,205 @@ function DetectPage({ onResult }) {
 function ResultPage({ result, onBack, onNewScan, onMedicines, onBuy, cart }) {
   const [imgMode,setImgMode]=useState("original");
   const [remedyTab,setRemedyTab]=useState("organic");
-  const info=DISEASE_INFO[result.disease]||{};
-  const remedies=info.remedies||{};
-  const tabs=Object.keys(remedies);
-  const curTab=remedies[remedyTab]?remedyTab:tabs[0];
-  const imgSrc=imgMode==="gradcam"?`data:image/jpeg;base64,${result.grad_cam}`:imgMode==="boxed"?`data:image/jpeg;base64,${result.boxed_image}`:null;
-  const diseaseMeds=(DISEASE_MEDICINES[result.disease]||[]).map(id=>MEDICINES.find(m=>m.id===id)).filter(Boolean);
-  const isSevere=DISEASE_INFO[result.disease]?.severity==="severe";
+
+  // ── Normalise disease name: "Leaf_Curl" → "Curl Virus", "Bacterial_Blight" → "Bacterial Blight"
+  // Model folder names may use underscores; map them to the DISEASE_INFO space-key
+  function normaliseDisease(raw) {
+    if (!raw) return raw;
+    const withSpaces = raw.replace(/_/g, " ").trim();
+    // Direct match first
+    if (DISEASE_INFO[withSpaces]) return withSpaces;
+    // Case-insensitive fallback
+    const lower = withSpaces.toLowerCase();
+    const found = Object.keys(DISEASE_INFO).find(k => k.toLowerCase() === lower);
+    return found || withSpaces;
+  }
+
+  const disease = normaliseDisease(result.disease);
+  const info    = DISEASE_INFO[disease] || {};
+  const remedies= info.remedies || {};
+  const tabs    = Object.keys(remedies);
+  const curTab  = remedies[remedyTab] ? remedyTab : (tabs[0] || "organic");
+  const imgSrc  = imgMode==="gradcam"
+    ? `data:image/jpeg;base64,${result.grad_cam}`
+    : imgMode==="boxed"
+      ? `data:image/jpeg;base64,${result.boxed_image}`
+      : null;
+  const diseaseMeds = (DISEASE_MEDICINES[disease]||[]).map(id=>MEDICINES.find(m=>m.id===id)).filter(Boolean);
+  const isSevere    = DISEASE_INFO[disease]?.severity === "severe";
 
   return (
-    <div style={{ maxWidth:1100, margin:"0 auto", padding:"60px 5%" }}>
-      <div className="fade-up" style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:40, gap:20, flexWrap:"wrap" }}>
+    <div style={{ maxWidth:1100, margin:"0 auto", padding:"clamp(20px,5vw,60px) clamp(12px,5%,48px)" }}>
+
+      {/* ── Header ─────────────────────────────────────────────── */}
+      <div className="fade-up" style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:"clamp(20px,4vw,40px)", gap:16, flexWrap:"wrap" }}>
         <div>
-          <button onClick={onBack} style={{ background:"none", border:"1px solid var(--border)", color:"var(--text2)", padding:"6px 14px", borderRadius:8, cursor:"pointer", fontFamily:"var(--body)", fontSize:13, marginBottom:16 }}>← Back</button>
-          <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:8 }}>
-            <span style={{fontSize:"2rem"}}>{CROP_EMOJIS[result.crop?.toLowerCase()]||"🌿"}</span>
-            <h1 style={{ fontFamily:"var(--display)", fontSize:"clamp(1.8rem,4vw,2.6rem)", fontWeight:800, letterSpacing:"-1px", lineHeight:1.1 }}>{result.disease}</h1>
+          <button onClick={onBack} style={{ background:"none", border:"1px solid var(--border)", color:"var(--text2)", padding:"6px 14px", borderRadius:8, cursor:"pointer", fontFamily:"var(--body)", fontSize:13, marginBottom:14 }}>← Back</button>
+          <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:8, flexWrap:"wrap" }}>
+            <span style={{fontSize:"clamp(1.5rem,4vw,2rem)"}}>{CROP_EMOJIS[result.crop?.toLowerCase()]||"🌿"}</span>
+            <h1 style={{ fontFamily:"var(--display)", fontSize:"clamp(1.5rem,5vw,2.6rem)", fontWeight:800, letterSpacing:"-1px", lineHeight:1.1 }}>{disease}</h1>
           </div>
           <div style={{ display:"flex", gap:10, flexWrap:"wrap", alignItems:"center" }}>
-            <SeverityBadge disease={result.disease} />
+            <SeverityBadge disease={disease} />
             <span style={{ fontFamily:"var(--mono)", fontWeight:700, fontSize:14, color:result.confidence>80?"var(--green)":"#ca8a04" }}>{result.confidence.toFixed(1)}% confidence</span>
             <span style={{ fontSize:13, color:"var(--text3)" }}>· {result.crop}</span>
           </div>
         </div>
-        <button className="btn btn-primary" onClick={onNewScan} style={{ whiteSpace:"nowrap" }}>+ New Scan</button>
+        <button className="btn btn-primary" onClick={onNewScan} style={{ whiteSpace:"nowrap", flexShrink:0 }}>+ New Scan</button>
       </div>
 
-      <div style={{ display:"grid", gridTemplateColumns:"1fr 1.1fr", gap:32 }}>
+      {/* ── Two-column grid (stacks on mobile) ─────────────────── */}
+      <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(min(100%,320px),1fr))", gap:"clamp(16px,3vw,32px)" }}>
+
+        {/* ── LEFT: Image viewer + predictions ────────────────── */}
         <div className="fade-up" style={{ animationDelay:"0.1s" }}>
+          {/* Image toggle buttons */}
           <div style={{ display:"flex", gap:6, marginBottom:14 }}>
-            {[{key:"original",label:"📷 Original"},{key:"boxed",label:"🎯 YOLO Box",show:!!result.boxed_image},{key:"gradcam",label:"🌡️ Grad-CAM",show:!!result.grad_cam}].filter(t=>t.show!==false).map(t=>(
-              <button key={t.key} onClick={()=>setImgMode(t.key)} style={{ flex:1, padding:"8px 4px", borderRadius:8, fontSize:12, fontWeight:600, cursor:"pointer", fontFamily:"var(--body)", background:imgMode===t.key?"var(--green)":"var(--bg2)", color:imgMode===t.key?"#fff":"var(--text2)", border:`1px solid ${imgMode===t.key?"var(--green)":"var(--border)"}`, transition:"all .2s" }}>{t.label}</button>
+            {[
+              {key:"original", label:"📷 Original"},
+              {key:"boxed",    label:"🎯 YOLO Box",  show:!!result.boxed_image},
+              {key:"gradcam",  label:"🌡️ Grad-CAM",  show:!!result.grad_cam},
+            ].filter(t=>t.show!==false).map(t=>(
+              <button key={t.key} onClick={()=>setImgMode(t.key)}
+                style={{ flex:1, padding:"8px 4px", borderRadius:8, fontSize:11, fontWeight:600, cursor:"pointer", fontFamily:"var(--body)",
+                  background:imgMode===t.key?"var(--green)":"var(--bg2)",
+                  color:imgMode===t.key?"#fff":"var(--text2)",
+                  border:`1px solid ${imgMode===t.key?"var(--green)":"var(--border)"}`,
+                  transition:"all .2s" }}>
+                {t.label}
+              </button>
             ))}
           </div>
-          <div className="card" style={{ padding:0, overflow:"hidden" }}>
-            {imgSrc?<img src={imgSrc} alt={imgMode} style={{ width:"100%", display:"block", borderRadius:14 }} />
-              :<div style={{ aspectRatio:"4/3", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", background:"var(--bg2)", color:"var(--text3)", fontSize:13 }}><div style={{fontSize:"2.5rem",marginBottom:10}}>{CROP_EMOJIS[result.crop?.toLowerCase()]||"🌿"}</div>View YOLO Box or Grad-CAM above</div>}
+
+          {/* Image box */}
+          <div className="card" style={{ padding:0, overflow:"hidden", marginBottom:14 }}>
+            {imgSrc
+              ? <img src={imgSrc} alt={imgMode} style={{ width:"100%", display:"block", borderRadius:14 }} />
+              : <div style={{ aspectRatio:"4/3", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", background:"var(--bg2)", color:"var(--text3)", fontSize:13, padding:20, textAlign:"center" }}>
+                  <div style={{fontSize:"2.5rem",marginBottom:10}}>{CROP_EMOJIS[result.crop?.toLowerCase()]||"🌿"}</div>
+                  Select YOLO Box or Grad-CAM above
+                </div>}
           </div>
-          {imgMode==="gradcam"&&<div style={{ marginTop:10, padding:"10px 14px", borderRadius:8, fontSize:12, lineHeight:1.6, background:"rgba(76,175,80,0.07)", border:"1px solid rgba(76,175,80,0.2)", color:"var(--text2)" }}><strong style={{color:"var(--green)"}}>Grad-CAM:</strong> Warm colours show the regions the model focused on most.</div>}
-          <div className="card" style={{ padding:22, marginTop:16 }}>
-            <div style={{ fontSize:13, fontWeight:700, marginBottom:16, color:"var(--text2)", letterSpacing:0.5 }}>TOP PREDICTIONS</div>
-            {result.top_predictions?.map((p,i)=><ConfBar key={i} label={p.label} value={p.confidence} color={i===0?"var(--green)":i===1?"#ca8a04":"#94a3b8"} delay={i*0.1} />)}
+
+          {imgMode==="gradcam" && (
+            <div style={{ marginBottom:14, padding:"10px 14px", borderRadius:8, fontSize:12, lineHeight:1.6, background:"rgba(76,175,80,0.07)", border:"1px solid rgba(76,175,80,0.2)", color:"var(--text2)" }}>
+              <strong style={{color:"var(--green)"}}>Grad-CAM:</strong> Warm colours (red/orange) show the infected regions the model focused on.
+            </div>
+          )}
+
+          {/* Top predictions */}
+          <div className="card" style={{ padding:22 }}>
+            <div style={{ fontSize:11, fontWeight:700, marginBottom:16, color:"var(--text2)", letterSpacing:1, textTransform:"uppercase" }}>Top Predictions</div>
+            {result.top_predictions?.map((p,i)=>(
+              <ConfBar key={i}
+                label={p.label.replace(/_/g," ")}
+                value={p.confidence}
+                color={i===0?"var(--green)":i===1?"#ca8a04":"#94a3b8"}
+                delay={i*0.1} />
+            ))}
           </div>
         </div>
 
-        <div className="fade-up" style={{ animationDelay:"0.15s" }}>
-          {info.description&&(
-            <div className="card" style={{ padding:22, marginBottom:16 }}>
-              <div style={{ fontSize:13, fontWeight:700, color:"var(--text2)", letterSpacing:0.5, marginBottom:14 }}>DIAGNOSIS</div>
-              <p style={{ fontSize:"0.9rem", color:"var(--text2)", lineHeight:1.75, marginBottom:12 }}>{info.description}</p>
-              {info.causes&&<div style={{ fontSize:13, color:"var(--text3)", padding:"10px 14px", background:"var(--bg3)", borderRadius:8, borderLeft:"3px solid var(--green)" }}><strong style={{color:"var(--text2)"}}>Causes: </strong>{info.causes}</div>}
+        {/* ── RIGHT: Diagnosis + Treatment ────────────────────── */}
+        <div className="fade-up" style={{ animationDelay:"0.15s", display:"flex", flexDirection:"column", gap:16 }}>
+
+          {/* Healthy banner */}
+          {result.is_healthy && (
+            <div style={{ padding:"20px 22px", borderRadius:14, background:"rgba(22,163,74,0.08)", border:"1px solid rgba(22,163,74,0.25)" }}>
+              <div style={{fontSize:"1.6rem",marginBottom:8}}>🎉</div>
+              <div style={{fontWeight:700,color:"#16a34a",fontSize:"1rem",marginBottom:6}}>Your crop looks healthy!</div>
+              <div style={{fontSize:13,color:"var(--text2)",lineHeight:1.6}}>No signs of disease detected. Continue current practices and monitor regularly.</div>
             </div>
           )}
-          {tabs.length>0&&(
-            <div className="card" style={{ padding:22, marginBottom:16 }}>
-              <div style={{ fontSize:13, fontWeight:700, color:"var(--text2)", letterSpacing:0.5, marginBottom:16 }}>TREATMENT PLAN</div>
-              <div style={{ display:"flex", gap:6, marginBottom:18 }}>
-                {tabs.map(t=><button key={t} onClick={()=>setRemedyTab(t)} style={{ padding:"7px 14px", borderRadius:8, fontSize:12, fontWeight:600, cursor:"pointer", fontFamily:"var(--body)", background:curTab===t?"var(--green)":"var(--bg3)", color:curTab===t?"#fff":"var(--text2)", border:`1px solid ${curTab===t?"var(--green)":"var(--border)"}`, transition:"all .2s", textTransform:"capitalize" }}>{t}</button>)}
+
+          {/* Diagnosis card */}
+          {info.description && (
+            <div className="card" style={{ padding:22 }}>
+              <div style={{ fontSize:11, fontWeight:700, color:"var(--text2)", letterSpacing:1, textTransform:"uppercase", marginBottom:14 }}>Diagnosis</div>
+              <p style={{ fontSize:"0.88rem", color:"var(--text2)", lineHeight:1.8, marginBottom:14 }}>{info.description}</p>
+              {info.causes && (
+                <div style={{ fontSize:13, color:"var(--text3)", padding:"10px 14px", background:"var(--bg3)", borderRadius:8, borderLeft:"3px solid var(--green)", lineHeight:1.6 }}>
+                  <strong style={{color:"var(--text2)"}}>Causes: </strong>{info.causes}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Treatment plan card */}
+          {tabs.length > 0 && (
+            <div className="card" style={{ padding:22 }}>
+              <div style={{ fontSize:11, fontWeight:700, color:"var(--text2)", letterSpacing:1, textTransform:"uppercase", marginBottom:16 }}>Treatment Plan</div>
+              {/* Tab row */}
+              <div style={{ display:"flex", gap:6, marginBottom:18, flexWrap:"wrap" }}>
+                {tabs.map(t=>(
+                  <button key={t} onClick={()=>setRemedyTab(t)}
+                    style={{ padding:"7px 16px", borderRadius:8, fontSize:12, fontWeight:600, cursor:"pointer", fontFamily:"var(--body)",
+                      background:curTab===t?"var(--green)":"var(--bg3)",
+                      color:curTab===t?"#fff":"var(--text2)",
+                      border:`1px solid ${curTab===t?"var(--green)":"var(--border)"}`,
+                      transition:"all .2s", textTransform:"capitalize" }}>
+                    {t==="organic"?"🌿 Organic":t==="chemical"?"⚗️ Chemical":"🛡️ Prevention"}
+                  </button>
+                ))}
               </div>
+              {/* Remedy list */}
               <ul style={{ listStyle:"none", margin:0, padding:0 }}>
-                {(remedies[curTab]||[]).map((r,i)=><li key={i} style={{ display:"flex", gap:10, padding:"10px 0", borderBottom:i<(remedies[curTab]||[]).length-1?"1px solid var(--border)":"none", fontSize:"0.85rem", color:"var(--text2)", lineHeight:1.6 }}><span style={{color:"var(--green)",fontWeight:700,marginTop:2,flexShrink:0}}>→</span>{r}</li>)}
+                {(remedies[curTab]||[]).map((r,i)=>(
+                  <li key={i} style={{ display:"flex", gap:10, padding:"10px 0",
+                    borderBottom:i<(remedies[curTab]||[]).length-1?"1px solid var(--border)":"none",
+                    fontSize:"0.84rem", color:"var(--text2)", lineHeight:1.65 }}>
+                    <span style={{color:"var(--green)",fontWeight:700,marginTop:2,flexShrink:0}}>→</span>
+                    {r}
+                  </li>
+                ))}
               </ul>
             </div>
           )}
-          {result.is_healthy&&(
-            <div style={{ padding:"20px 22px", borderRadius:14, marginBottom:16, background:"rgba(22,163,74,0.08)", border:"1px solid rgba(22,163,74,0.25)" }}>
-              <div style={{fontSize:"1.5rem",marginBottom:8}}>🎉</div>
-              <div style={{fontWeight:700,color:"#16a34a",marginBottom:6}}>Your crop looks healthy!</div>
-              <div style={{fontSize:13,color:"var(--text2)",lineHeight:1.6}}>No signs of disease. Continue current practices and monitor regularly.</div>
+
+          {/* No disease info fallback */}
+          {!info.description && !result.is_healthy && (
+            <div className="card" style={{ padding:22 }}>
+              <div style={{ fontSize:11, fontWeight:700, color:"var(--text2)", letterSpacing:1, textTransform:"uppercase", marginBottom:10 }}>Diagnosis</div>
+              <p style={{ fontSize:"0.88rem", color:"var(--text2)", lineHeight:1.8 }}>
+                Disease <strong>{disease}</strong> detected with {result.confidence.toFixed(1)}% confidence.
+                Please consult a local agricultural extension officer for treatment advice specific to your region.
+              </p>
             </div>
           )}
         </div>
       </div>
 
       {/* ══ RECOMMENDED MEDICINES ══ */}
-      {diseaseMeds.length>0&&(
-        <div style={{ marginTop:72, paddingTop:40, borderTop:"2px solid var(--border)" }}>
-          {/* Section header */}
+      {diseaseMeds.length > 0 && (
+        <div style={{ marginTop:"clamp(36px,5vw,72px)", paddingTop:"clamp(20px,4vw,40px)", borderTop:"2px solid var(--border)" }}>
           <div style={{ display:"flex", alignItems:"flex-end", justifyContent:"space-between", marginBottom:20, flexWrap:"wrap", gap:12 }}>
             <div>
               <div style={{ fontSize:11, fontWeight:700, letterSpacing:3, textTransform:"uppercase", color:"var(--green)", marginBottom:8 }}>
-                {result.is_healthy?"Preventive Care":"Recommended Medicines"}
+                {result.is_healthy ? "Preventive Care" : "Recommended Medicines"}
               </div>
-              <h2 style={{ fontFamily:"var(--display)", fontSize:"clamp(1.5rem,3vw,2rem)", fontWeight:800, letterSpacing:"-0.5px" }}>
-                {result.is_healthy?"Keep your crop healthy 🌿":`Best treatments for ${result.disease}`}
+              <h2 style={{ fontFamily:"var(--display)", fontSize:"clamp(1.2rem,3vw,2rem)", fontWeight:800, letterSpacing:"-0.5px" }}>
+                {result.is_healthy ? "Keep your crop healthy 🌿" : `Best treatments for ${disease}`}
               </h2>
-              {!result.is_healthy&&<p style={{ fontSize:13, color:"var(--text2)", marginTop:6 }}>Matched to <strong>{result.disease}</strong> in {result.crop} · sorted by effectiveness</p>}
+              {!result.is_healthy && (
+                <p style={{ fontSize:13, color:"var(--text2)", marginTop:6 }}>
+                  Matched to <strong>{disease}</strong> in {result.crop} · sorted by effectiveness
+                </p>
+              )}
             </div>
-            <button className="btn btn-ghost" onClick={onMedicines} style={{ fontSize:13 }}>Browse all 12 products →</button>
+            <button className="btn btn-ghost" onClick={onMedicines} style={{ fontSize:13 }}>
+              Browse all products →
+            </button>
           </div>
 
-          {/* Urgency banner for severe */}
-          {isSevere&&(
-            <div style={{ padding:"14px 20px", borderRadius:10, marginBottom:20, background:"rgba(220,38,38,0.07)", border:"1px solid rgba(220,38,38,0.2)", display:"flex", gap:12, alignItems:"center" }}>
-              <span style={{fontSize:"1.3rem"}}>⚠️</span>
+          {isSevere && (
+            <div style={{ padding:"14px 20px", borderRadius:10, marginBottom:20, background:"rgba(220,38,38,0.07)", border:"1px solid rgba(220,38,38,0.2)", display:"flex", gap:12, alignItems:"flex-start" }}>
+              <span style={{fontSize:"1.3rem",flexShrink:0}}>⚠️</span>
               <div style={{ fontSize:13, color:"var(--text2)", lineHeight:1.5 }}>
                 <strong style={{color:"#dc2626"}}>Severe disease detected.</strong> Begin treatment within 24–48 hours to prevent spread. Start with the highest-effectiveness product below.
               </div>
             </div>
           )}
 
-          {/* Promo strip */}
           <div style={{ padding:"11px 18px", borderRadius:8, marginBottom:20, background:"rgba(76,175,80,0.06)", border:"1px solid rgba(76,175,80,0.2)", display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:10 }}>
             <div style={{ fontSize:13, color:"var(--text2)" }}>
               🎁 Code <strong style={{fontFamily:"var(--mono)",color:"var(--green)"}}>CROPAI10</strong> — 10% off first order · Free delivery above ₹500
@@ -1041,14 +1313,17 @@ function ResultPage({ result, onBack, onNewScan, onMedicines, onBuy, cart }) {
             <span style={{ fontSize:11, fontWeight:700, color:"var(--green)" }}>Limited time</span>
           </div>
 
-          {/* Effectiveness-sorted cards */}
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(290px,1fr))", gap:20 }}>
-            {[...diseaseMeds].sort((a,b)=>b.effectiveness-a.effectiveness).slice(0,4).map(med=><MedicineCard key={med.id} med={med} onBuy={onBuy} onAddCart={cart.add} />)}
+          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(min(100%,280px),1fr))", gap:20 }}>
+            {[...diseaseMeds].sort((a,b)=>b.effectiveness-a.effectiveness).slice(0,4).map(med=>(
+              <MedicineCard key={med.id} med={med} onBuy={onBuy} onAddCart={cart.add} />
+            ))}
           </div>
 
-          {diseaseMeds.length>4&&(
+          {diseaseMeds.length > 4 && (
             <div style={{ textAlign:"center", marginTop:20 }}>
-              <button className="btn btn-ghost" onClick={onMedicines} style={{ fontSize:13 }}>+{diseaseMeds.length-4} more options in Medicine Store →</button>
+              <button className="btn btn-ghost" onClick={onMedicines} style={{ fontSize:13 }}>
+                +{diseaseMeds.length-4} more options in Medicine Store →
+              </button>
             </div>
           )}
         </div>
@@ -1151,9 +1426,22 @@ function MedicinesPage({ onBuy, defaultDisease, cart }) {
         </select>
         <select value={filterCrop} onChange={e=>setFC(e.target.value)} style={ss}>
           <option value="all">All Crops</option>
-          <option value="tomato">🍅 Tomato</option>
-          <option value="potato">🥔 Potato</option>
-          <option value="pepper">🌶️ Pepper</option>
+          <optgroup label="── Vegetables">
+            <option value="tomato">🍅 Tomato</option>
+            <option value="potato">🥔 Potato</option>
+            <option value="pepper">🌶️ Pepper</option>
+            <option value="onion">🧅 Onion</option>
+          </optgroup>
+          <optgroup label="── Fruits">
+            <option value="mango">🥭 Mango</option>
+            <option value="banana">🍌 Banana</option>
+          </optgroup>
+          <optgroup label="── Field Crops">
+            <option value="rice">🌾 Rice</option>
+            <option value="wheat">🌾 Wheat</option>
+            <option value="sugarcane">🎋 Sugarcane</option>
+            <option value="cotton">🌸 Cotton</option>
+          </optgroup>
         </select>
         <select value={sortBy} onChange={e=>setSortBy(e.target.value)} style={ss}>
           <option value="featured">Featured</option>

@@ -22,6 +22,12 @@ backend/dataset/
 backend/dataset_potato/
 backend/dataset_pepper/
 backend/PlantVillage
+backend/dataset_banana/
+backend/dataset_cotton/
+backend/dataset_mango/
+backend/dataset_onion/
+backend/dataset_rice/
+backend/dataset_sugarcane/
 
 # Model weights
 backend/*.pt
