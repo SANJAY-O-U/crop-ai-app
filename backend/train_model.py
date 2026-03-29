@@ -72,7 +72,7 @@ CROP_CONFIG = {
     # ── New 7 ────────────────────────────────────────────────────────────────
     "banana": {
         "dataset":    "dataset_banana",
-        "classes":    ["Healthy","Panama_Disease"
+        "classes":    ["Healthy","Panama_Disease",
                        "Sigatoka"],
         "model_path": "app/model/banana_model.pth",
         "epochs":     15,

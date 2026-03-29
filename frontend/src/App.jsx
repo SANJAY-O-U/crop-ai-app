@@ -232,7 +232,7 @@ const DISEASE_MEDICINES = {
   "Brown Rust":     ["m02","m05","m07"],
   "Yellow Rust":    ["m02","m05","m06"],
   "Loose Smut":     ["m15","m13","m01"],
-  "Powdery Mildew": ["m07","m05","m08"],
+
 };
 
 const PROMOTED_IDS  = ["m06","m03","m09","m08"];
