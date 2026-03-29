@@ -6,3 +6,5 @@ pillow
 python-multipart
 numpy
 opencv-python-headless
+ultralytics
+opencv-python-headless
