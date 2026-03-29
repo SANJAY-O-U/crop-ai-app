@@ -337,13 +337,55 @@ const CROP_GROUPS = [
     ]
   }
 ];
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+// ── API URL ───────────────────────────────────────────────────────────────────
+// On Vercel: set VITE_API_URL = https://your-app.onrender.com  (no trailing slash)
+// On localhost: vite proxy forwards /api → localhost:8000, so use ""
+const API_URL = (() => {
+  const env = import.meta.env.VITE_API_URL;
+  if (env && env.trim() !== "") return env.trim().replace(/\/$/, "");
+  // In dev (localhost) the vite proxy handles /api → no base URL needed
+  return "";
+})();
 
 async function runDetection(file, crop) {
   const fd = new FormData();
-  fd.append("file", file); fd.append("crop", crop);
-  const res = await fetch(`${API_URL}/api/detect`, { method:"POST", body:fd });
-  if (!res.ok) { const e = await res.json().catch(()=>({})); throw new Error(e.detail||"API error"); }
+  fd.append("file", file);
+  fd.append("crop", crop);
+
+  const controller = new AbortController();
+  // 90s timeout — Render free tier can take 30s cold start
+  const tid = setTimeout(() => controller.abort(), 90_000);
+
+  let res;
+  try {
+    res = await fetch(`${API_URL}/api/detect`, {
+      method: "POST",
+      body:   fd,
+      signal: controller.signal,
+    });
+  } catch (err) {
+    clearTimeout(tid);
+    if (err.name === "AbortError") {
+      throw new Error(
+        "Request timed out (90s). The server may be waking up — please wait 30 seconds and try again."
+      );
+    }
+    // Network-level failure — usually CORS block or server down
+    throw new Error(
+      `Cannot reach the CropAI server.\n\n` +
+      `• Check: is VITE_API_URL set correctly on Vercel?\n` +
+      `• Current API target: ${API_URL || "(empty — using vite proxy)"}\n` +
+      `• Original error: ${err.message}`
+    );
+  }
+  clearTimeout(tid);
+
+  if (!res.ok) {
+    let detail = `Server error ${res.status}`;
+    try { const j = await res.json(); detail = j.detail || j.message || detail; } catch {}
+    throw new Error(detail);
+  }
+
   return res.json();
 }
 
@@ -1040,8 +1082,15 @@ function DetectPage({ onResult }) {
 
           {/* Error */}
           {error && (
-            <div style={{marginTop:14,padding:"12px 16px",borderRadius:10,background:"rgba(220,38,38,0.08)",border:"1px solid rgba(220,38,38,0.25)",color:"#dc2626",fontSize:13}}>
-              ⚠️ {error}
+            <div style={{marginTop:14,padding:"14px 16px",borderRadius:10,background:"rgba(220,38,38,0.08)",border:"1px solid rgba(220,38,38,0.25)",color:"#dc2626",fontSize:13,lineHeight:1.7}}>
+              <div style={{fontWeight:700,marginBottom:error.includes("\n")?8:0}}>⚠️ {error.split("\n")[0]}</div>
+              {error.includes("\n") && (
+                <ul style={{margin:"6px 0 0 4px",padding:0,listStyle:"none"}}>
+                  {error.split("\n").slice(1).filter(Boolean).map((line,i)=>(
+                    <li key={i} style={{fontSize:12,color:"#b91c1c",marginTop:3}}>{line}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           )}
 
