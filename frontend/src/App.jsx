@@ -289,7 +289,7 @@ const DISEASE_INFO = {
   "Brown Rust":   { severity:"severe",   description:"Orange-brown oval pustules on leaf surfaces, mainly on upper side. Rapid spread reduces grain filling causing shrivelled grains.", causes:"Puccinia triticina fungus. Wind-borne spores. Spreads explosively in warm (15–22°C), humid conditions.", remedies:{ organic:["Sulfur dust (3 g/L) at first sign","Remove volunteer wheat plants from surrounding areas"], chemical:["Propiconazole 25% EC at 1 ml/L","Tebuconazole 25.9% EC at 1 ml/L","Hexaconazole 5% EC at 2 ml/L"], prevention:["Plant brown rust–resistant varieties","Early sowing to avoid peak rust season","Use balanced potassium fertiliser"] } },
   "Yellow Rust":  { severity:"severe",   description:"Yellow-orange pustules arranged in stripes along the leaf. Very rapid spread in cool conditions. Can cause near-complete yield loss.", causes:"Puccinia striiformis fungus. Wind-borne. Favors cool (10–15°C), moist conditions. New virulent races spread very fast.", remedies:{ organic:["Remove and destroy heavily infected crop early","Sulfur-based fungicide as protective measure"], chemical:["Propiconazole 25% EC at 1 ml/L — spray immediately at first sign","Tebuconazole + Trifloxystrobin combination"], prevention:["Plant yellow rust–resistant varieties","Monitor fields weekly during February–March","Early timely sowing"] } },
   "Loose Smut":   { severity:"moderate", description:"Grain is replaced by a mass of brown-black powdery spores. Entire head turns into a sooty mass that disperses early in the season.", causes:"Ustilago tritici fungus. Seed-borne. Infects the embryo at flowering stage. Spreads through wind.", remedies:{ organic:["Hot water seed treatment (49°C for 20 min)","Biocontrol — Trichoderma seed treatment (4 g/kg)"], chemical:["Carboxin 37.5% + Thiram 37.5% DS seed treatment (3 g/kg)","Carbendazim 50% WP seed treatment (2.5 g/kg)"], prevention:["Use certified smut-free seeds","Seed treatment is the most effective control","Rogue infected plants before spore dispersal"] } },
-  
+ 
 };
 
 const SEVERITY_CONFIG = {
@@ -1536,28 +1536,245 @@ export default function App() {
   const [buyMed,setBuyMed] = useState(null);
   const [medFilter,setMF]  = useState(null);
   const [cartOpen,setCart] = useState(false);
+  const [menuOpen,setMenu] = useState(false);
   const cart = useCart();
 
   window._openBuy = setBuyMed;
 
-  const goMedicines = (disease=null) => { setMF(disease); setPage("medicines"); };
+  const goMedicines = (disease=null) => { setMF(disease); setPage("medicines"); setMenu(false); };
+  const goPage = (p) => { setPage(p); setMenu(false); };
+
+  // Close menu on outside click
+  const menuRef = useRef(null);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handler = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) setMenu(false);
+    };
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
+  }, [menuOpen]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  const NAV_LINKS = [
+    { p:"home",      l:"Home",      icon:"🏠" },
+    { p:"detect",    l:"Detect",    icon:"🔬" },
+    { p:"medicines", l:"Medicines", icon:"💊" },
+  ];
 
   return (
     <>
-      {/* ── NAV ── */}
-      <nav style={{ position:"sticky", top:0, zIndex:200, background:"rgba(255,255,255,0.93)", backdropFilter:"blur(14px)", borderBottom:"1px solid var(--border)", padding:"0 5%", height:64, display:"flex", alignItems:"center", gap:"1.5rem" }}>
-        <button onClick={()=>setPage("home")} style={{ background:"none", border:"none", cursor:"pointer", fontFamily:"var(--display)", fontSize:"1.2rem", fontWeight:800, color:"var(--green)", letterSpacing:"-0.5px" }}>🌿 CropAI</button>
-        <div style={{ display:"flex", gap:"1.5rem", marginLeft:"auto", alignItems:"center" }}>
-          {[["home","Home"],["detect","Detect"],["medicines","Medicines"]].map(([p,l])=>(
-            <button key={p} onClick={()=>p==="medicines"?goMedicines():setPage(p)} style={{ background:"none", border:"none", cursor:"pointer", fontFamily:"var(--body)", fontSize:"0.9rem", color:page===p?"var(--green)":"var(--text2)", fontWeight:page===p?600:400, borderBottom:page===p?"2px solid var(--green)":"2px solid transparent", paddingBottom:2, transition:"all .2s" }}>{l}</button>
+      {/* ── NAV ─────────────────────────────────────────────────────────────── */}
+      <nav ref={menuRef} style={{
+        position:"sticky", top:0, zIndex:300,
+        background:"rgba(255,255,255,0.96)", backdropFilter:"blur(16px)",
+        borderBottom:"1px solid var(--border)",
+        padding:"0 clamp(14px,4%,40px)", height:60,
+        display:"flex", alignItems:"center",
+      }}>
+        {/* Logo */}
+        <button onClick={()=>goPage("home")} style={{
+          background:"none", border:"none", cursor:"pointer",
+          fontFamily:"var(--display)", fontSize:"clamp(1rem,4vw,1.2rem)",
+          fontWeight:800, color:"var(--green)", letterSpacing:"-0.5px",
+          flexShrink:0, padding:0,
+        }}>🌿 CropAI</button>
+
+        {/* ── DESKTOP links (hidden on mobile) ── */}
+        <div style={{
+          display:"flex", gap:"1.5rem", marginLeft:"auto", alignItems:"center",
+        }} className="nav-desktop">
+          {NAV_LINKS.map(({p,l})=>(
+            <button key={p}
+              onClick={()=>p==="medicines"?goMedicines():goPage(p)}
+              style={{
+                background:"none", border:"none", cursor:"pointer",
+                fontFamily:"var(--body)", fontSize:"0.9rem",
+                color:page===p?"var(--green)":"var(--text2)",
+                fontWeight:page===p?600:400,
+                borderBottom:page===p?"2px solid var(--green)":"2px solid transparent",
+                paddingBottom:2, transition:"all .2s",
+              }}>{l}</button>
           ))}
-          <button onClick={()=>setCart(true)} style={{ position:"relative", background:cart.count>0?"rgba(76,175,80,0.08)":"transparent", border:"1px solid var(--border)", borderRadius:8, padding:"7px 14px", cursor:"pointer", fontSize:14, display:"flex", alignItems:"center", gap:6, fontFamily:"var(--body)", color:"var(--text2)", transition:"all .2s" }}>
+          {/* Cart */}
+          <button onClick={()=>setCart(true)} style={{
+            position:"relative",
+            background:cart.count>0?"rgba(76,175,80,0.08)":"transparent",
+            border:"1px solid var(--border)", borderRadius:8,
+            padding:"7px 14px", cursor:"pointer", fontSize:14,
+            display:"flex", alignItems:"center", gap:6,
+            fontFamily:"var(--body)", color:"var(--text2)", transition:"all .2s",
+          }}>
             🛒 Cart
-            {cart.count>0&&<span style={{ position:"absolute", top:-7, right:-7, background:"var(--green)", color:"#fff", fontSize:10, fontWeight:800, width:19, height:19, borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center" }}>{cart.count}</span>}
+            {cart.count>0&&<span style={{
+              position:"absolute", top:-7, right:-7,
+              background:"var(--green)", color:"#fff",
+              fontSize:10, fontWeight:800, width:19, height:19,
+              borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center",
+            }}>{cart.count}</span>}
           </button>
-          <button className="btn btn-primary" onClick={()=>setPage("detect")} style={{ padding:"8px 20px", fontSize:"0.88rem" }}>Analyse Crop →</button>
+          <button className="btn btn-primary"
+            onClick={()=>goPage("detect")}
+            style={{ padding:"8px 20px", fontSize:"0.88rem" }}>
+            Analyse Crop →
+          </button>
+        </div>
+
+        {/* ── MOBILE right cluster (cart badge + hamburger) ── */}
+        <div style={{
+          marginLeft:"auto", display:"flex", alignItems:"center", gap:8,
+        }} className="nav-mobile">
+          {/* Cart icon */}
+          <button onClick={()=>setCart(true)} aria-label="Open cart" style={{
+            position:"relative",
+            background:cart.count>0?"rgba(76,175,80,0.1)":"transparent",
+            border:"1px solid var(--border)", borderRadius:8,
+            padding:"7px 12px", cursor:"pointer", fontSize:16,
+            display:"flex", alignItems:"center",
+            color:"var(--text2)", transition:"all .2s",
+          }}>
+            🛒
+            {cart.count>0&&<span style={{
+              position:"absolute", top:-7, right:-7,
+              background:"var(--green)", color:"#fff",
+              fontSize:10, fontWeight:800, width:19, height:19,
+              borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center",
+            }}>{cart.count}</span>}
+          </button>
+
+          {/* Hamburger / X button */}
+          <button
+            onClick={()=>setMenu(m=>!m)}
+            aria-label={menuOpen?"Close menu":"Open menu"}
+            aria-expanded={menuOpen}
+            style={{
+              background:"none", border:"1px solid var(--border)",
+              borderRadius:8, width:42, height:42, cursor:"pointer",
+              display:"flex", flexDirection:"column",
+              alignItems:"center", justifyContent:"center", gap:5,
+              padding:0, transition:"all .2s",
+              background: menuOpen ? "rgba(76,175,80,0.08)" : "transparent",
+            }}>
+            {/* Three lines → X animation */}
+            <span style={{
+              display:"block", width:20, height:2, borderRadius:2,
+              background:"var(--text2)",
+              transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none",
+              transition:"transform .25s ease",
+            }}/>
+            <span style={{
+              display:"block", width:20, height:2, borderRadius:2,
+              background:"var(--text2)",
+              opacity: menuOpen ? 0 : 1,
+              transition:"opacity .15s ease",
+            }}/>
+            <span style={{
+              display:"block", width:20, height:2, borderRadius:2,
+              background:"var(--text2)",
+              transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none",
+              transition:"transform .25s ease",
+            }}/>
+          </button>
         </div>
       </nav>
+
+      {/* ── MOBILE MENU OVERLAY ─────────────────────────────────────────────── */}
+      {/* Backdrop */}
+      <div
+        onClick={()=>setMenu(false)}
+        style={{
+          position:"fixed", inset:0, zIndex:290,
+          background:"rgba(0,0,0,0.35)", backdropFilter:"blur(3px)",
+          opacity: menuOpen ? 1 : 0,
+          pointerEvents: menuOpen ? "all" : "none",
+          transition:"opacity .25s ease",
+        }}
+      />
+
+      {/* Slide-down panel */}
+      <div style={{
+        position:"fixed", top:60, left:0, right:0, zIndex:295,
+        background:"#fff",
+        borderBottom:"1px solid var(--border)",
+        borderRadius:"0 0 20px 20px",
+        boxShadow:"0 16px 48px rgba(30,80,30,0.14)",
+        padding: menuOpen ? "16px clamp(14px,5%,32px) 24px" : "0 clamp(14px,5%,32px)",
+        maxHeight: menuOpen ? "420px" : "0",
+        overflow:"hidden",
+        transition:"max-height .3s cubic-bezier(.4,0,.2,1), padding .3s ease",
+      }}>
+        {/* Nav links */}
+        <div style={{ display:"flex", flexDirection:"column", gap:4, marginBottom:16 }}>
+          {NAV_LINKS.map(({p,l,icon})=>(
+            <button key={p}
+              onClick={()=>p==="medicines"?goMedicines():goPage(p)}
+              style={{
+                display:"flex", alignItems:"center", gap:14,
+                padding:"13px 16px", borderRadius:12, cursor:"pointer",
+                border:"none", textAlign:"left", width:"100%",
+                background: page===p ? "rgba(76,175,80,0.1)" : "transparent",
+                color: page===p ? "var(--green)" : "var(--text)",
+                fontFamily:"var(--body)", fontSize:"1rem",
+                fontWeight: page===p ? 700 : 400,
+                transition:"background .15s",
+              }}>
+              <span style={{ fontSize:"1.3rem", width:30, textAlign:"center" }}>{icon}</span>
+              {l}
+              {page===p && <span style={{
+                marginLeft:"auto", width:6, height:6, borderRadius:"50%",
+                background:"var(--green)", flexShrink:0,
+              }}/>}
+            </button>
+          ))}
+        </div>
+
+        {/* Divider */}
+        <div style={{ height:1, background:"var(--border)", marginBottom:16 }}/>
+
+        {/* CTA row */}
+        <div style={{ display:"flex", gap:10 }}>
+          <button
+            className="btn btn-primary"
+            onClick={()=>goPage("detect")}
+            style={{ flex:1, justifyContent:"center", fontSize:"0.95rem", padding:"13px 20px" }}>
+            🔬 Analyse My Crop
+          </button>
+          <button
+            onClick={()=>{ setCart(true); setMenu(false); }}
+            style={{
+              position:"relative", padding:"13px 18px",
+              borderRadius:50, border:"1.5px solid var(--border2)",
+              background: cart.count>0 ? "rgba(76,175,80,0.08)" : "transparent",
+              cursor:"pointer", fontSize:"1.1rem",
+              display:"flex", alignItems:"center", gap:6,
+              color:"var(--text2)", fontFamily:"var(--body)",
+            }}>
+            🛒
+            {cart.count>0 && (
+              <>
+                <span style={{ fontSize:13, fontWeight:600, color:"var(--green)" }}>
+                  {cart.count}
+                </span>
+                <span style={{
+                  position:"absolute", top:-6, right:-6,
+                  background:"var(--green)", color:"#fff",
+                  fontSize:9, fontWeight:800, width:17, height:17,
+                  borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center",
+                }}>{cart.count}</span>
+              </>
+            )}
+          </button>
+        </div>
+      </div>
 
       {/* ── PAGES ── */}
       <main>

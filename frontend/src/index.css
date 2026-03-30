@@ -140,81 +140,53 @@ button { font-family: var(--body); }
 ::-webkit-scrollbar-thumb:hover { background: var(--green-light); }
 
 /* ══════════════════════════════════════════════════════════
+   NAVBAR — desktop vs mobile visibility
+   ══════════════════════════════════════════════════════════ */
+
+/* Desktop: show full nav links, hide hamburger cluster */
+.nav-desktop { display: flex; }
+.nav-mobile  { display: none; }
+
+/* Mobile (≤ 768 px): hide desktop links, show hamburger */
+@media (max-width: 768px) {
+  .nav-desktop { display: none !important; }
+  .nav-mobile  { display: flex !important; }
+}
+
+/* ══════════════════════════════════════════════════════════
    MOBILE-FIRST RESPONSIVE STYLES
    ══════════════════════════════════════════════════════════ */
 
-/* ── NAV ── */
-@media (max-width: 640px) {
-  /* Hide nav text labels on very small screens, keep icons */
-  .nav-label { display: none; }
-
-  /* Collapse nav padding */
-  nav { padding: 0 12px !important; }
-
-  /* Make Analyse button smaller */
-  .btn-analyse {
-    padding: 7px 12px !important;
-    font-size: 0.78rem !important;
-  }
-}
-
 /* ── HOMEPAGE HERO ── */
 @media (max-width: 768px) {
-  /* Stack hero two-column → single column */
-  .hero-grid {
-    grid-template-columns: 1fr !important;
-  }
-  .hero-image-col {
-    display: none !important;
-  }
+  .hero-grid       { grid-template-columns: 1fr !important; }
+  .hero-image-col  { display: none !important; }
 }
 
 /* ── DETECT PAGE ── */
 @media (max-width: 768px) {
-  /* Detect page two-panel → single column */
-  .detect-grid {
-    grid-template-columns: 1fr !important;
-  }
-  /* Pipeline panel stacks below upload zone */
-  .pipeline-panel {
-    order: 2;
-  }
-  .upload-panel {
-    order: 1;
-  }
+  .detect-grid     { grid-template-columns: 1fr !important; }
+  .pipeline-panel  { order: 2; }
+  .upload-panel    { order: 1; }
 }
 
 /* ── RESULT PAGE ── */
 @media (max-width: 720px) {
-  /* Image + diagnosis stack vertically */
   div[style*="grid-template-columns: 1fr 1.1fr"],
   div[style*="gridTemplateColumns: 1fr 1.1fr"] {
     grid-template-columns: 1fr !important;
-  }
-  /* Reduce result page outer padding */
-  .result-outer {
-    padding: 20px 14px !important;
   }
 }
 
 /* ── MEDICINE STORE ── */
 @media (max-width: 600px) {
-  /* Filter row wraps */
-  .filter-row {
-    flex-wrap: wrap !important;
-    gap: 8px !important;
-  }
-  /* Medicine cards full width */
-  .med-grid {
-    grid-template-columns: 1fr !important;
-  }
-  /* Hide list/grid toggle on mobile */
-  .view-toggle { display: none !important; }
+  .filter-row   { flex-wrap: wrap !important; gap: 8px !important; }
+  .med-grid     { grid-template-columns: 1fr !important; }
+  .view-toggle  { display: none !important; }
 }
 
 /* ── CART DRAWER ── */
 @media (max-width: 480px) {
-  /* Full-width cart on mobile */
   .cart-drawer {
     width: 100vw !important;
     max-width: 100vw !important;
@@ -226,44 +198,25 @@ button { font-family: var(--body); }
   }
 }
 
-/* ── UNIVERSAL FIXES ── */
+/* ── UNIVERSAL 2-COLUMN COLLAPSE ── */
 @media (max-width: 768px) {
-  /* Any explicit 2-col grid with pixel/fr values → single col */
   div[style*="grid-template-columns: 1fr 1fr"],
   div[style*="grid-template-columns: 1fr 1.1fr"],
   div[style*="grid-template-columns: 280px"],
   div[style*="grid-template-columns: 320px"] {
     grid-template-columns: 1fr !important;
   }
-
-  /* Reduce font sizes slightly */
-  h1 { font-size: clamp(1.5rem, 6vw, 2.2rem) !important; }
-  h2 { font-size: clamp(1.2rem, 5vw, 1.8rem) !important; }
-
-  /* Prevent horizontal overflow */
   body { overflow-x: hidden; }
-
-  /* Full-width buttons on mobile */
-  .btn-full-mobile { width: 100% !important; }
-
-  /* Reduce section padding */
   .section-pad { padding: 32px 14px !important; }
 }
 
-/* ── TOUCH TARGETS — minimum 44px on mobile ── */
+/* ── TOUCH TARGETS ── */
 @media (max-width: 768px) {
-  button, .btn, input[type="range"] {
-    min-height: 44px;
-  }
-  /* Except small inline chips */
-  .chip-btn {
-    min-height: 32px !important;
-  }
+  button, .btn { min-height: 44px; }
+  .chip-btn    { min-height: 32px !important; }
 }
 
-/* ── SAFE AREA for notch phones ── */
+/* ── SAFE AREA (notch phones) ── */
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
-  body {
-    padding-bottom: env(safe-area-inset-bottom);
-  }
+  body { padding-bottom: env(safe-area-inset-bottom); }
 }
