@@ -1605,28 +1605,6 @@ export default function App() {
                 paddingBottom:2, transition:"all .2s",
               }}>{l}</button>
           ))}
-          {/* Cart */}
-          <button onClick={()=>setCart(true)} style={{
-            position:"relative",
-            background:cart.count>0?"rgba(76,175,80,0.08)":"transparent",
-            border:"1px solid var(--border)", borderRadius:8,
-            padding:"7px 14px", cursor:"pointer", fontSize:14,
-            display:"flex", alignItems:"center", gap:6,
-            fontFamily:"var(--body)", color:"var(--text2)", transition:"all .2s",
-          }}>
-            🛒 Cart
-            {cart.count>0&&<span style={{
-              position:"absolute", top:-7, right:-7,
-              background:"var(--green)", color:"#fff",
-              fontSize:10, fontWeight:800, width:19, height:19,
-              borderRadius:"50%", display:"flex", alignItems:"center", justifyContent:"center",
-            }}>{cart.count}</span>}
-          </button>
-          <button className="btn btn-primary"
-            onClick={()=>goPage("detect")}
-            style={{ padding:"8px 20px", fontSize:"0.88rem" }}>
-            Analyse Crop →
-          </button>
         </div>
 
         {/* ── MOBILE right cluster (cart badge + hamburger) ── */}
