@@ -2,10 +2,14 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes.detect import router
+from app.weather.routes import router as weather_router
+from app.geospatial.routes import router as geospatial_router
+from app.downscaling.routes import router as downscaling_router
 
 app = FastAPI(
     title="CropAI API",
-    description="Real-time crop disease detection using YOLO + ResNet18 + Grad-CAM",
+    description="Real-time crop disease detection using YOLO + ResNet18 + Grad-CAM, "
+                 "plus CropCast block-to-panchayat weather downscaling (Phase 1)",
     version="1.0.0"
 )
 
@@ -33,6 +37,11 @@ app.add_middleware(
 )
 
 app.include_router(router, prefix="/api")
+
+# ── CropCast (Phase 1: weather downscaling foundation) ────────────────────────
+app.include_router(weather_router,      prefix="/api/v1/weather",     tags=["weather"])
+app.include_router(geospatial_router,   prefix="/api/v1/geospatial",  tags=["geospatial"])
+app.include_router(downscaling_router,  prefix="/api/v1/downscaling", tags=["downscaling"])
 
 
 @app.get("/")

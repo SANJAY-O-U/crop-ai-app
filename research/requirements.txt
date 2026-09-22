@@ -1,0 +1,13 @@
+# CropCast research/data-pipeline dependencies.
+#
+# Deliberately separate from backend/requirements.txt: this code trains and
+# evaluates the downscaling model offline and is never imported by the live
+# CropCast API (backend/app/...). Keeping the dependency lists separate means
+# the production app never needs xarray/netCDF4/cdsapi installed.
+
+cdsapi>=0.7.7
+xarray
+netCDF4
+pandas
+numpy
+pytest

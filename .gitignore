@@ -34,3 +34,21 @@ backend/*.pt
 
 # Zip files
 backend/*.zip
+
+# ── CropCast research data (Phase 2A) ──────────────────────────────────────
+# Raw/processed/training/evaluation data can be large and/or regenerated from
+# source on demand — never commit the data itself, only the pipeline code
+# that produces it. .gitkeep placeholders keep the folder structure tracked.
+data/raw/**
+data/processed/**
+data/training/**
+data/evaluation/**
+!data/raw/**/
+!data/processed/**/
+!data/training/**/
+!data/evaluation/**/
+!data/**/.gitkeep
+
+# Copernicus CDS credentials must never be committed
+.cdsapirc
+*.cdsapirc

@@ -8,3 +8,7 @@ numpy
 opencv-python-headless
 ultralytics
 opencv-python-headless
+
+# CropCast (weather ingestion + tests)
+httpx
+pytest

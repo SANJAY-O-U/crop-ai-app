@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 import "./index.css";
+import CropCastApp from "./cropcast/CropCastApp";
 
 // ─── MEDICINE CATALOG ─────────────────────────────────────────────────────────
 const MEDICINES = [
@@ -1568,6 +1569,7 @@ export default function App() {
   const NAV_LINKS = [
     { p:"home",      l:"Home",      icon:"🏠" },
     { p:"detect",    l:"Detect",    icon:"🔬" },
+    { p:"cropcast",  l:"CropCast",  icon:"🌦️" },
     { p:"medicines", l:"Medicines", icon:"💊" },
   ];
 
@@ -1760,6 +1762,7 @@ export default function App() {
         {page==="detect"    && <DetectPage onResult={r=>{setResult(r);setPage("result");}} />}
         {page==="result"    && result && <ResultPage result={result} onBack={()=>setPage("detect")} onNewScan={()=>{setResult(null);setPage("detect");}} onMedicines={()=>goMedicines(result.disease)} onBuy={setBuyMed} cart={cart} />}
         {page==="medicines" && <MedicinesPage onBuy={setBuyMed} defaultDisease={medFilter} cart={cart} />}
+        {page==="cropcast"  && <CropCastApp />}
       </main>
 
       {/* ── OVERLAYS ── */}
