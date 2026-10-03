@@ -332,7 +332,6 @@ const CROP_GROUPS = [
     label: "Field Crops",
     crops: [
       { key:"rice",       name:"Rice",       diseases:"Blast · Brown Spot · Sheath Blight" },
-      { key:"wheat",      name:"Wheat",      diseases:"Brown Rust · Yellow Rust · Smut" },
       { key:"sugarcane",  name:"Sugarcane",  diseases:"Red Rot · Smut · Grassy Shoot" },
       { key:"cotton",     name:"Cotton",     diseases:"Blight · Curl Virus · Fusarium Wilt" },
     ]
@@ -347,6 +346,27 @@ const API_URL = (() => {
   // In dev (localhost) the vite proxy handles /api → no base URL needed
   return "";
 })();
+
+// Supported crops come from the backend's CROP_CONFIG via GET /api/crops. If that request fails the
+// static CROP_GROUPS list (kept in sync with CROP_CONFIG) is used, so the selector never offers a crop
+// without a classifier. Returns { crops: [{key,name,diseases}...] grouped, cropCount, diseaseCount, fromApi }.
+function useSupportedCrops() {
+  const [api,setApi] = useState(null);
+  useEffect(()=>{
+    let alive = true;
+    fetch(`${API_URL}/api/crops`)
+      .then(r=>r.ok?r.json():Promise.reject(new Error(r.status)))
+      .then(d=>{ if(alive && d && typeof d==="object") setApi(d); })
+      .catch(()=>{});
+    return ()=>{ alive=false; };
+  },[]);
+  const staticCount = CROP_GROUPS.reduce((n,g)=>n+g.crops.length,0);
+  if (!api) return { groups:CROP_GROUPS, cropCount:staticCount, diseaseCount:21, fromApi:false };
+  const keys = new Set(Object.keys(api).map(k=>k.toLowerCase()));
+  const groups = CROP_GROUPS.map(g=>({ ...g, crops:g.crops.filter(c=>keys.has(c.key)) })).filter(g=>g.crops.length);
+  const diseaseCount = Object.values(api).reduce((n,c)=>n+(Number.isFinite(c?.disease_count)?c.disease_count:0),0);
+  return { groups, cropCount:keys.size, diseaseCount, fromApi:true };
+}
 
 async function runDetection(file, crop) {
   const fd = new FormData();
@@ -643,7 +663,8 @@ function CartDrawer({ cart, onClose }) {
 }
 
 // ─── PAGE: HOME ────────────────────────────────────────────────────────────────
-function HomePage({ onStart, onMedicines, cart }) {
+function HomePage({ onStart, onWeather, onMedicines, cart }) {
+  const supported = useSupportedCrops();
   const promotedMeds  = PROMOTED_IDS.map(id=>MEDICINES.find(m=>m.id===id));
   const flashSaleMeds = FLASH_SALE_IDS.map(id=>MEDICINES.find(m=>m.id===id));
 
@@ -654,20 +675,21 @@ function HomePage({ onStart, onMedicines, cart }) {
         <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse 70% 50% at 50% 40%, rgba(76,175,80,0.07) 0%, transparent 70%)", pointerEvents:"none" }} />
         <div className="fade-up" style={{ display:"inline-flex", alignItems:"center", gap:8, background:"rgba(76,175,80,0.1)", border:"1px solid rgba(76,175,80,0.25)", color:"var(--green)", padding:"6px 16px", borderRadius:20, fontSize:12, fontWeight:700, letterSpacing:2, textTransform:"uppercase", marginBottom:28 }}>
           <span style={{ width:6, height:6, borderRadius:"50%", background:"var(--green)", animation:"pulse 2s infinite" }} />
-          AI-Powered Crop Disease Detection
+          Agricultural intelligence · weather to field
         </div>
-        <h1 className="fade-up" style={{ fontFamily:"var(--display)", fontSize:"clamp(2.8rem,6vw,4.5rem)", fontWeight:800, lineHeight:1.08, letterSpacing:"-2px", marginBottom:24, maxWidth:760, animationDelay:"0.1s" }}>
-          Detect Disease.<br /><span style={{color:"var(--green)"}}>Buy the Cure.</span>
+        <h1 className="fade-up" style={{ fontFamily:"var(--display)", fontSize:"clamp(2.8rem,6vw,4.5rem)", fontWeight:800, lineHeight:1.08, letterSpacing:"-2px", marginBottom:24, maxWidth:1000, animationDelay:"0.1s" }}>
+          CropCastAI<br /><span style={{ color:"var(--green)", display:"block", fontSize:"clamp(1.55rem,3.4vw,2.65rem)", lineHeight:1.2, letterSpacing:"-1px", marginTop:12 }}>From Weather Forecasts to Field-Level Agricultural Intelligence</span>
         </h1>
         <p className="fade-up" style={{ fontSize:"1.1rem", color:"var(--text2)", lineHeight:1.8, maxWidth:580, marginBottom:36, fontWeight:300, animationDelay:"0.2s" }}>
-          Upload a leaf photo — YOLO + ResNet + Grad-CAM identifies the disease in seconds, then prescribes the exact medicine to buy.
+          Explore block-level weather forecasts with Panchayat-level baseline estimates and spatial context, and check crop health from a leaf photo.
         </p>
         <div className="fade-up" style={{ display:"flex", gap:12, flexWrap:"wrap", justifyContent:"center", animationDelay:"0.3s" }}>
-          <button className="btn btn-primary btn-lg" onClick={onStart}>Analyse My Crop →</button>
-          <button className="btn btn-ghost btn-lg" onClick={onMedicines}>💊 Browse Medicines</button>
+          <button className="btn btn-primary btn-lg" onClick={onStart}>Explore Crop Intelligence →</button>
+          <button className="btn btn-ghost btn-lg" onClick={onWeather}>View Weather Intelligence</button>
         </div>
-        <div className="fade-up" style={{ display:"flex", gap:40, marginTop:56, animationDelay:"0.4s" }}>
-          {[["10","Crops"],["30+","Diseases"],["15","Medicines"],["94%","Accuracy*"]].map(([n,l])=>(
+        <div className="fade-up" style={{ display:"flex", gap:"24px 40px", flexWrap:"wrap", justifyContent:"center", marginTop:56, animationDelay:"0.4s" }}>
+          {/* Counts: crops and disease classes come from the backend (/api/crops) with a static fallback; no accuracy figure is shown because no benchmark exists in the repo. */}
+          {[[supported.cropCount,"Crops"],[supported.diseaseCount,"Disease classes"],[MEDICINES.length,"Medicines listed"]].map(([n,l])=>(
             <div key={l} style={{ textAlign:"center" }}>
               <div style={{ fontFamily:"var(--display)", fontSize:"2rem", fontWeight:800, color:"var(--green)" }}>{n}</div>
               <div style={{ fontSize:12, color:"var(--text3)", letterSpacing:1 }}>{l}</div>
@@ -676,13 +698,47 @@ function HomePage({ onStart, onMedicines, cart }) {
         </div>
       </div>
 
+      {/* Product structure: weather context first, crop health as one feature. */}
+      <section className="platform-section">
+        <div className="platform-heading">
+          <span className="eyebrow">One connected platform</span>
+          <h2>Context for better field decisions</h2>
+          <p>Explore the weather foundation today, then verify crop health when you need a closer look.</p>
+        </div>
+        <div className="platform-grid">
+          <article className="platform-card platform-weather">
+            <div className="platform-icon">☁</div>
+            <span className="platform-status">PHASE 1 PILOT</span>
+            <h3>Weather Intelligence</h3>
+            <p>Explore block forecasts alongside clearly labeled panchayat-level baseline estimates and spatial context.</p>
+            <button className="btn btn-primary" onClick={onWeather}>View weather intelligence →</button>
+          </article>
+          <article className="platform-card">
+            <div className="platform-icon">🌱</div>
+            <span className="platform-status">AVAILABLE</span>
+            <h3>Crop Health Analysis</h3>
+            <p>Use the existing image analysis workflow for disease detection, visual evidence and treatment information.</p>
+            <button className="btn btn-ghost" onClick={onStart}>Analyse a crop →</button>
+          </article>
+          <article className="platform-card platform-advisory">
+            <div className="platform-icon">✳</div>
+            <span className="platform-status">IN DEVELOPMENT</span>
+            <h3>Agro-weather Advisory</h3>
+            <p>Crop-specific recommendations are part of the product direction; this advisory experience is not yet available.</p>
+          </article>
+        </div>
+        <div className="platform-flow" aria-label="CropCastAI workflow">
+          <span>Block weather</span><b>→</b><span>Spatial context</span><b>→</b><span>Risk intelligence</span><b>→</b><span>Agro-weather advisory</span><b>→</b><span>Optional crop health check</span>
+        </div>
+      </section>
+
       {/* FLASH SALE BANNER */}
       <div style={{ background:"linear-gradient(135deg,#1e5c21,#2d7a31)", padding:"26px 5%", display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:16 }}>
         <div style={{ display:"flex", alignItems:"center", gap:16 }}>
           <span style={{ fontSize:"2rem" }}>⚡</span>
           <div>
             <div style={{ fontFamily:"var(--display)", fontWeight:800, fontSize:"1.1rem", color:"#fff", marginBottom:2 }}>Flash Sale — Up to 21% off budget treatments</div>
-            <div style={{ fontSize:13, color:"rgba(255,255,255,0.75)" }}>Same-day dispatch · Free delivery above ₹500 · Use code <strong style={{fontFamily:"var(--mono)",color:"#81c784"}}>CROPAI10</strong></div>
+            <div style={{ fontSize:13, color:"rgba(255,255,255,0.75)" }}>Free delivery above ₹500 · Use code <strong style={{fontFamily:"var(--mono)",color:"#81c784"}}>CROPAI10</strong></div>
           </div>
         </div>
         <button onClick={onMedicines} style={{ background:"rgba(255,255,255,0.15)", border:"1px solid rgba(255,255,255,0.3)", color:"#fff", padding:"9px 20px", borderRadius:8, cursor:"pointer", fontFamily:"var(--body)", fontWeight:600, fontSize:13 }}>Shop Now →</button>
@@ -708,9 +764,9 @@ function HomePage({ onStart, onMedicines, cart }) {
           <div>
             <div style={{ fontSize:11, fontWeight:700, letterSpacing:3, textTransform:"uppercase", color:"var(--green)", marginBottom:8 }}>Featured Products</div>
             <h2 style={{ fontFamily:"var(--display)", fontSize:"clamp(1.4rem,3vw,1.9rem)", fontWeight:800, letterSpacing:"-0.5px" }}>Top-rated crop treatments</h2>
-            <p style={{ fontSize:13, color:"var(--text2)", marginTop:6, fontWeight:300 }}>Highest effectiveness · Best reviewed · Most recommended by CropAI</p>
+            <p style={{ fontSize:13, color:"var(--text2)", marginTop:6, fontWeight:300 }}>Treatment information available within CropCastAI Crop Health</p>
           </div>
-          <button className="btn btn-ghost" onClick={onMedicines} style={{ fontSize:13 }}>See all 12 →</button>
+          <button className="btn btn-ghost" onClick={onMedicines} style={{ fontSize:13 }}>See all {MEDICINES.length} →</button>
         </div>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))", gap:20 }}>
           {promotedMeds.map(med=><MedicineCard key={med.id} med={med} onBuy={window._openBuy} onAddCart={cart.add} />)}
@@ -736,7 +792,7 @@ function HomePage({ onStart, onMedicines, cart }) {
       </div>
 
       <footer style={{ padding:"32px 5%", borderTop:"1px solid var(--border)", textAlign:"center", color:"var(--text3)", fontSize:13 }}>
-        CropAI — YOLO + ResNet18 + Grad-CAM &nbsp;·&nbsp; *Accuracy on PlantVillage validation set
+        CropCastAI · Weather intelligence and crop health tools
       </footer>
     </div>
   );
@@ -925,7 +981,10 @@ function CameraCapture({ onCapture, onError }) {
 }
 
 function DetectPage({ onResult }) {
+  const supported = useSupportedCrops();
   const [crop,setCrop]         = useState("tomato");
+  const cropOk = supported.groups.some(g=>g.crops.some(c=>c.key===crop));
+  useEffect(()=>{ if(!cropOk) setCrop(supported.groups[0]?.crops[0]?.key ?? "tomato"); },[cropOk,supported]);
   const [inputMode,setInputMode] = useState("upload"); // "upload" | "camera"
   const [preview,setPreview]   = useState(null);
   const [file,setFile]         = useState(null);
@@ -985,11 +1044,11 @@ function DetectPage({ onResult }) {
       <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:32, alignItems:"start" }}>
         {/* LEFT PANEL */}
         <div>
-          {/* Crop selector — 10 crops in grouped grid */}
+          {/* Crop selector — grouped grid */}
           <div style={{ marginBottom:16 }}>
             <label style={{ fontSize:13, fontWeight:600, color:"var(--text2)", display:"block", marginBottom:10 }}>SELECT CROP</label>
             <div style={{ background:"var(--bg2)", borderRadius:12, border:"1px solid var(--border)", padding:"12px" }}>
-              {CROP_GROUPS.map(group => (
+              {supported.groups.map(group => (
                 <div key={group.label} style={{ marginBottom:10 }}>
                   <div style={{ fontSize:9, fontWeight:700, letterSpacing:2, textTransform:"uppercase", color:"var(--text3)", marginBottom:6 }}>
                     {group.label}
@@ -1013,7 +1072,7 @@ function DetectPage({ onResult }) {
             </div>
             {/* Selected crop info strip */}
             {(() => {
-              const info = CROP_GROUPS.flatMap(g=>g.crops).find(c=>c.key===crop);
+              const info = supported.groups.flatMap(g=>g.crops).find(c=>c.key===crop);
               return info ? (
                 <div style={{ marginTop:8, padding:"6px 12px", borderRadius:8, background:"rgba(76,175,80,0.06)", border:"1px solid rgba(76,175,80,0.2)", fontSize:11, color:"var(--text3)" }}>
                   <strong style={{color:"var(--green)"}}>{CROP_EMOJIS[crop]} {info.name}</strong> — detects: {info.diseases}
@@ -1183,6 +1242,7 @@ function ResultPage({ result, onBack, onNewScan, onMedicines, onBuy, cart }) {
       : null;
   const diseaseMeds = (DISEASE_MEDICINES[disease]||[]).map(id=>MEDICINES.find(m=>m.id===id)).filter(Boolean);
   const isSevere    = DISEASE_INFO[disease]?.severity === "severe";
+  const firstStep   = !result.is_healthy && tabs.length ? { tab: curTab, text: (remedies[curTab] || [])[0] } : null;
 
   return (
     <div style={{ maxWidth:1100, margin:"0 auto", padding:"clamp(20px,5vw,60px) clamp(12px,5%,48px)" }}>
@@ -1191,17 +1251,24 @@ function ResultPage({ result, onBack, onNewScan, onMedicines, onBuy, cart }) {
       <div className="fade-up" style={{ display:"flex", alignItems:"flex-start", justifyContent:"space-between", marginBottom:"clamp(20px,4vw,40px)", gap:16, flexWrap:"wrap" }}>
         <div>
           <button onClick={onBack} style={{ background:"none", border:"1px solid var(--border)", color:"var(--text2)", padding:"6px 14px", borderRadius:8, cursor:"pointer", fontFamily:"var(--body)", fontSize:13, marginBottom:14 }}>← Back</button>
-          <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:8, flexWrap:"wrap" }}>
-            <span style={{fontSize:"clamp(1.5rem,4vw,2rem)"}}>{CROP_EMOJIS[result.crop?.toLowerCase()]||"🌿"}</span>
-            <h1 style={{ fontFamily:"var(--display)", fontSize:"clamp(1.5rem,5vw,2.6rem)", fontWeight:800, letterSpacing:"-1px", lineHeight:1.1 }}>{disease}</h1>
-          </div>
-          <div style={{ display:"flex", gap:10, flexWrap:"wrap", alignItems:"center" }}>
-            <SeverityBadge disease={disease} />
-            <span style={{ fontFamily:"var(--mono)", fontWeight:700, fontSize:14, color:result.confidence>80?"var(--green)":"#ca8a04" }}>{result.confidence.toFixed(1)}% confidence</span>
-            <span style={{ fontSize:13, color:"var(--text3)" }}>· {result.crop}</span>
-          </div>
         </div>
         <button className="btn btn-primary" onClick={onNewScan} style={{ whiteSpace:"nowrap", flexShrink:0 }}>+ New Scan</button>
+      </div>
+
+      {/* ── Flow: what was detected → how sure → what to do ─────── */}
+      <div className="fade-up" style={{ display:"flex", flexDirection:"column", gap:10, marginBottom:"clamp(16px,3vw,28px)" }}>
+        <ol aria-label="Analysis steps" style={{ display:"flex", gap:8, listStyle:"none", margin:0, padding:0, flexWrap:"wrap", fontSize:12, fontWeight:600, color:"var(--text2)" }}>
+          {["Photo uploaded","AI analysis complete","Result & action"].map((s,i)=>(
+            <li key={s} style={{ display:"inline-flex", alignItems:"center", gap:6, padding:"5px 12px", borderRadius:999, background:i===2?"var(--green)":"rgba(76,175,80,0.1)", color:i===2?"#fff":"var(--green)" }}>
+              <span aria-hidden="true">{i<2?"✓":"3"}</span>{s}
+            </li>
+          ))}
+        </ol>
+        {result.confidence < 60 && !result.is_healthy && (
+          <div role="note" style={{ padding:"12px 16px", borderRadius:12, fontSize:13, lineHeight:1.5, background:"rgba(202,138,4,0.1)", border:"1px solid rgba(202,138,4,0.3)", color:"var(--text2)" }}>
+            <strong style={{ color:"#92400e" }}>The model is not very sure ({result.confidence.toFixed(1)}%).</strong> Compare the other predictions below, or retake the photo in daylight with the affected leaf filling the frame.
+          </div>
+        )}
       </div>
 
       {/* ── Two-column grid (stacks on mobile) ─────────────────── */}
@@ -1243,21 +1310,32 @@ function ResultPage({ result, onBack, onNewScan, onMedicines, onBuy, cart }) {
             </div>
           )}
 
-          {/* Top predictions */}
-          <div className="card" style={{ padding:22 }}>
-            <div style={{ fontSize:11, fontWeight:700, marginBottom:16, color:"var(--text2)", letterSpacing:1, textTransform:"uppercase" }}>Top Predictions</div>
-            {result.top_predictions?.map((p,i)=>(
-              <ConfBar key={i}
-                label={p.label.replace(/_/g," ")}
-                value={p.confidence}
-                color={i===0?"var(--green)":i===1?"#ca8a04":"#94a3b8"}
-                delay={i*0.1} />
-            ))}
-          </div>
         </div>
 
         {/* ── RIGHT: Diagnosis + Treatment ────────────────────── */}
         <div className="fade-up" style={{ animationDelay:"0.15s", display:"flex", flexDirection:"column", gap:16 }}>
+
+          {/* AI result + confidence */}
+          <div className="card" style={{ padding:"20px 22px" }}>
+            <div style={{ fontSize:11, fontWeight:700, letterSpacing:1.5, textTransform:"uppercase", color:"var(--text3)", marginBottom:10 }}>AI result</div>
+          <div style={{ display:"flex", alignItems:"center", gap:12, marginBottom:12, flexWrap:"wrap" }}>
+            <span style={{fontSize:"clamp(1.5rem,4vw,2rem)"}}>{CROP_EMOJIS[result.crop?.toLowerCase()]||"🌿"}</span>
+            <h1 style={{ fontFamily:"var(--display)", fontSize:"clamp(1.5rem,5vw,2.6rem)", fontWeight:800, letterSpacing:"-1px", lineHeight:1.1 }}>{disease}</h1>
+          </div>
+          <div style={{ display:"flex", gap:10, flexWrap:"wrap", alignItems:"center" }}>
+            <SeverityBadge disease={disease} />
+            <span style={{ fontFamily:"var(--mono)", fontWeight:700, fontSize:14, color:result.confidence>80?"var(--green)":"#ca8a04" }}>{result.confidence.toFixed(1)}% confidence</span>
+            <span style={{ fontSize:13, color:"var(--text3)" }}>· {result.crop}</span>
+          </div>
+            <div style={{ marginTop:16 }}>
+              <div style={{ display:"flex", justifyContent:"space-between", fontSize:12, color:"var(--text2)", marginBottom:6 }}>
+                <span>Confidence</span><strong style={{ fontFamily:"var(--mono)" }}>{result.confidence.toFixed(1)}%</strong>
+              </div>
+              <div role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(result.confidence)} aria-label="Model confidence" style={{ height:8, borderRadius:4, background:"var(--bg3)", overflow:"hidden" }}>
+                <div style={{ width:`${Math.min(100,Math.max(0,result.confidence))}%`, height:"100%", borderRadius:4, background:result.confidence>80?"var(--green)":"#ca8a04" }} />
+              </div>
+            </div>
+          </div>
 
           {/* Healthy banner */}
           {result.is_healthy && (
@@ -1271,13 +1349,20 @@ function ResultPage({ result, onBack, onNewScan, onMedicines, onBuy, cart }) {
           {/* Diagnosis card */}
           {info.description && (
             <div className="card" style={{ padding:22 }}>
-              <div style={{ fontSize:11, fontWeight:700, color:"var(--text2)", letterSpacing:1, textTransform:"uppercase", marginBottom:14 }}>Diagnosis</div>
+              <div style={{ fontSize:11, fontWeight:700, color:"var(--text2)", letterSpacing:1, textTransform:"uppercase", marginBottom:14 }}>What it means</div>
               <p style={{ fontSize:"0.88rem", color:"var(--text2)", lineHeight:1.8, marginBottom:14 }}>{info.description}</p>
               {info.causes && (
                 <div style={{ fontSize:13, color:"var(--text3)", padding:"10px 14px", background:"var(--bg3)", borderRadius:8, borderLeft:"3px solid var(--green)", lineHeight:1.6 }}>
                   <strong style={{color:"var(--text2)"}}>Causes: </strong>{info.causes}
                 </div>
               )}
+            </div>
+          )}
+
+          {firstStep?.text && (
+            <div style={{ padding:"16px 20px", borderRadius:14, background:"rgba(76,175,80,0.09)", border:"1px solid rgba(76,175,80,0.28)" }}>
+              <div style={{ fontSize:11, fontWeight:700, letterSpacing:1.5, textTransform:"uppercase", color:"var(--green)", marginBottom:6 }}>Recommended action · {firstStep.tab}</div>
+              <div style={{ fontSize:"0.95rem", color:"var(--text)", lineHeight:1.55 }}>{firstStep.text}</div>
             </div>
           )}
 
@@ -1322,6 +1407,18 @@ function ResultPage({ result, onBack, onNewScan, onMedicines, onBuy, cart }) {
               </p>
             </div>
           )}
+
+          {/* Other possibilities */}
+          <div className="card" style={{ padding:22 }}>
+            <div style={{ fontSize:11, fontWeight:700, marginBottom:16, color:"var(--text2)", letterSpacing:1, textTransform:"uppercase" }}>Other possibilities the model considered</div>
+            {result.top_predictions?.map((p,i)=>(
+              <ConfBar key={i}
+                label={p.label.replace(/_/g," ")}
+                value={p.confidence}
+                color={i===0?"var(--green)":i===1?"#ca8a04":"#94a3b8"}
+                delay={i*0.1} />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -1439,7 +1536,7 @@ function MedicinesPage({ onBuy, defaultDisease, cart }) {
           <span style={{fontSize:"2rem"}}>🎁</span>
           <div>
             <div style={{ fontWeight:700, fontSize:"1.05rem", color:"#fff", marginBottom:3 }}>First order — 10% off + free delivery above ₹500</div>
-            <div style={{ fontSize:13, color:"rgba(255,255,255,0.75)" }}>Code: <strong style={{fontFamily:"var(--mono)",color:"#81c784"}}>CROPAI10</strong> · Same-day dispatch · 7-day returns</div>
+            <div style={{ fontSize:13, color:"rgba(255,255,255,0.75)" }}>Code: <strong style={{fontFamily:"var(--mono)",color:"#81c784"}}>CROPAI10</strong> </div>
           </div>
         </div>
         <span style={{ fontSize:11, fontWeight:700, color:"#ffeb3b", background:"rgba(255,235,59,0.15)", padding:"5px 14px", borderRadius:20, border:"1px solid rgba(255,235,59,0.3)", whiteSpace:"nowrap" }}>⚡ Limited time</span>
@@ -1568,8 +1665,8 @@ export default function App() {
 
   const NAV_LINKS = [
     { p:"home",      l:"Home",      icon:"🏠" },
-    { p:"detect",    l:"Detect",    icon:"🔬" },
-    { p:"cropcast",  l:"CropCast",  icon:"🌦️" },
+    { p:"cropcast",  l:"Weather Intelligence",  icon:"🌦️" },
+    { p:"detect",    l:"Crop Health",    icon:"🌱" },
     { p:"medicines", l:"Medicines", icon:"💊" },
   ];
 
@@ -1589,7 +1686,7 @@ export default function App() {
           fontFamily:"var(--display)", fontSize:"clamp(1rem,4vw,1.2rem)",
           fontWeight:800, color:"var(--green)", letterSpacing:"-0.5px",
           flexShrink:0, padding:0,
-        }}>🌿 CropAI</button>
+        }}>🌿 CropCastAI</button>
 
         {/* ── DESKTOP links (hidden on mobile) ── */}
         <div style={{
@@ -1637,7 +1734,7 @@ export default function App() {
             aria-label={menuOpen?"Close menu":"Open menu"}
             aria-expanded={menuOpen}
             style={{
-              background:"none", border:"1px solid var(--border)",
+              border:"1px solid var(--border)",
               borderRadius:8, width:42, height:42, cursor:"pointer",
               display:"flex", flexDirection:"column",
               alignItems:"center", justifyContent:"center", gap:5,
@@ -1758,11 +1855,11 @@ export default function App() {
 
       {/* ── PAGES ── */}
       <main>
-        {page==="home"      && <HomePage onStart={()=>setPage("detect")} onMedicines={()=>goMedicines()} cart={cart} />}
+        {page==="home"      && <HomePage onStart={()=>setPage("detect")} onWeather={()=>setPage("cropcast")} onMedicines={()=>goMedicines()} cart={cart} />}
         {page==="detect"    && <DetectPage onResult={r=>{setResult(r);setPage("result");}} />}
         {page==="result"    && result && <ResultPage result={result} onBack={()=>setPage("detect")} onNewScan={()=>{setResult(null);setPage("detect");}} onMedicines={()=>goMedicines(result.disease)} onBuy={setBuyMed} cart={cart} />}
         {page==="medicines" && <MedicinesPage onBuy={setBuyMed} defaultDisease={medFilter} cart={cart} />}
-        {page==="cropcast"  && <CropCastApp />}
+        {page==="cropcast"  && <CropCastApp onOpenCropHealth={()=>goPage("detect")} />}
       </main>
 
       {/* ── OVERLAYS ── */}

@@ -100,6 +100,23 @@ button { font-family: var(--body); }
   font-size: 0.98rem;
 }
 
+/* CropCastAI landing page product hierarchy */
+.platform-section { padding: 76px 5%; background: var(--bg2); }
+.platform-heading { max-width: 680px; margin: 0 auto 32px; text-align: center; }
+.platform-heading h2 { font-size: clamp(1.6rem, 3vw, 2.25rem); letter-spacing: -1px; margin: 8px 0; }
+.platform-heading p { color: var(--text2); }
+.eyebrow { color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+.platform-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; max-width: 1120px; margin: auto; }
+.platform-card { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+.platform-card h3 { font-size: 1.15rem; }
+.platform-card p { flex: 1; color: var(--text2); font-size: 14px; line-height: 1.65; }
+.platform-icon { font-size: 26px; }
+.platform-status { color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: 1px; }
+.platform-weather { border-top: 3px solid var(--green); }
+.platform-advisory { background: #fbfcfa; box-shadow: none; }
+.platform-flow { display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin: 30px auto 0; color: var(--text2); font-size: 12px; }
+.platform-flow b { color: var(--green-light); }
+
 /* ── ANIMATIONS ── */
 .fade-up {
   animation: fadeUp 0.55s cubic-bezier(0.4, 0, 0.2, 1) both;
@@ -208,6 +225,9 @@ button { font-family: var(--body); }
   }
   body { overflow-x: hidden; }
   .section-pad { padding: 32px 14px !important; }
+  .platform-section { padding: 52px 5%; }
+  .platform-grid { grid-template-columns: 1fr; }
+  .platform-flow { gap: 7px; font-size: 11px; }
 }
 
 /* ── TOUCH TARGETS ── */

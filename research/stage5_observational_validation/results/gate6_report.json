@@ -1,0 +1,48 @@
+{
+ "gate": 6,
+ "passed": true,
+ "folds": [
+  {
+   "fold_id": "taluka_6142",
+   "compared": 15,
+   "mismatches": [],
+   "reproduced": true,
+   "elapsed_s": 364.5,
+   "stage4d_fold_file_sha256": "bec482ff9d4071a0f75d3360e01cf0616cb36e9d031ff1f4ec9ccde4b1a9e99e",
+   "predictions_sha256": "0796dce8456881bf19fbffabaf9e21e5deb569c540efd312af7dbac45e064ee7",
+   "completed_utc": "2026-10-02T08:34:02+00:00"
+  },
+  {
+   "fold_id": "taluka_6198",
+   "compared": 15,
+   "mismatches": [],
+   "reproduced": true,
+   "elapsed_s": 428.3,
+   "stage4d_fold_file_sha256": "6b5573bc036ad7fb89840859c8efcfaebe6cbb87a22ef66f463b4fe7040856ec",
+   "predictions_sha256": "e37c3bd1ffd99537b8c860e51b080ce2ddf06d052e4135915ae0643d3fe95e8b",
+   "completed_utc": "2026-10-02T08:41:10+00:00"
+  },
+  {
+   "fold_id": "taluka_6246",
+   "compared": 15,
+   "mismatches": [],
+   "reproduced": true,
+   "elapsed_s": 547.3,
+   "stage4d_fold_file_sha256": "c7591b48f451cfa67bdad472494b77830804f2ff20e2e51d3c66ba9d8fb2fb95",
+   "predictions_sha256": "c0f7824fdf2db448adf0addf5cb042a8aded31b98c5f5ce98455d50eda812986",
+   "completed_utc": "2026-10-02T08:50:18+00:00"
+  },
+  {
+   "fold_id": "taluka_6253",
+   "compared": 15,
+   "mismatches": [],
+   "reproduced": true,
+   "elapsed_s": 595.5,
+   "stage4d_fold_file_sha256": "d23c261c5b773d70d239af50193f915fee2edc4d883dbad90f64ef8721220240",
+   "predictions_sha256": "d13f16334a655a74d9bb2d376c9ae9d0011e67e1e5f4c255f4e0fa55cc9535f4",
+   "completed_utc": "2026-10-02T09:10:46+00:00"
+  }
+ ],
+ "written_utc": "2026-10-02T09:10:46+00:00",
+ "note": "Observations are not read in this step."
+}

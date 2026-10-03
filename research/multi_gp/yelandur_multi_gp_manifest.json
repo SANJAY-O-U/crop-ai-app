@@ -1,0 +1,1282 @@
+{
+  "type": "YelandurMultiGpSpatialTransferDataset",
+  "phase": "2D",
+  "dataset_file": "data/training/yelandur_multi_gp.parquet",
+  "dataset_file_note": "Parquet data file is gitignored (data/training/**); regenerate with research/multi_gp/build.py.",
+  "row_count": 1445400,
+  "row_grain": "one row per available GP x UTC hour x variable",
+  "columns": [
+    "panchayat_lgd_code",
+    "gp_name",
+    "taluka_panchayat_lgd_code",
+    "coverage_status",
+    "in_primary_population",
+    "timestamp_utc",
+    "local_date_ist",
+    "variable",
+    "target_value",
+    "target_unit",
+    "target_definition",
+    "target_missing_reason",
+    "target_rainfall_clamped",
+    "cell_group_id",
+    "target_cell_latitude",
+    "target_cell_longitude",
+    "cell_group_complete_gp_count",
+    "area_weighted_value",
+    "area_weighted_cell_count",
+    "area_weighted_rainfall_clamped",
+    "coarse_bilinear_value",
+    "coarse_nearest_value",
+    "coarse_unit",
+    "coarse_nearest_latitude",
+    "coarse_nearest_longitude",
+    "coarse_nearest_distance_km",
+    "centroid_latitude",
+    "centroid_longitude",
+    "centroid_to_cell_km",
+    "intersecting_cell_count",
+    "elevation_mean_m",
+    "elevation_min_m",
+    "elevation_max_m",
+    "elevation_range_m",
+    "elevation_std_m",
+    "temporal_period",
+    "split_fold_1",
+    "split_fold_2",
+    "split_fold_3",
+    "split_fold_4",
+    "target_source_file",
+    "target_source_sha256",
+    "coarse_source_file",
+    "coarse_source_sha256",
+    "source_note"
+  ],
+  "experiment_framing": "Reanalysis-to-reanalysis spatial-transfer experiment: ERA5 0.25 deg reanalysis (coarse input) paired with ERA5-Land 0.1 deg reanalysis (target proxy). Neither side is an observation and neither is a forecast product. No model has been trained on this dataset.",
+  "source_note": "reanalysis proxy — not observation",
+  "target": {
+    "definition": "era5_land_0.1deg_nearest_cell_to_gp_centroid",
+    "description": "ERA5-Land 0.1 deg hourly value of the grid cell nearest each GP's spatial-proxy centroid (nearest cell as recorded in the Phase 2C linkage artifact). GPs that share a nearest cell share an identical target series.",
+    "dataset": "reanalysis-era5-land",
+    "product_type": "reanalysis",
+    "grid": {
+      "latitudes": [
+        12.2,
+        12.1,
+        12.0,
+        11.9
+      ],
+      "longitudes": [
+        76.9,
+        77.0,
+        77.1,
+        77.19999999999999,
+        77.3
+      ],
+      "latitude_order": "descending",
+      "longitude_order": "ascending",
+      "spacing_deg": 0.1
+    },
+    "request_area_nwse": [
+      12.25,
+      76.9,
+      11.85,
+      77.3
+    ]
+  },
+  "secondary_diagnostic": {
+    "column": "area_weighted_value",
+    "definition": "era5_land_0.1deg_area_weighted_over_intersecting_cells (secondary diagnostic only)",
+    "description": "Area-weighted mean of ERA5-Land values over the cells a GP's spatial-proxy geometry intersects (weights = intersected area in EPSG:32643, normalized to 1). A deterministic reweighting of the same reanalysis cells -- NOT the primary target, and differences between GPs it produces are geometric, not evidence of sub-grid variability.",
+    "weights_by_gp": {
+      "Agara": {
+        "12.1,77.1": 1.0
+      },
+      "Ambale": {
+        "12.1,77.0": 0.83969,
+        "12.1,77.1": 0.004986,
+        "12.0,77.0": 0.155324
+      },
+      "Biligiri Ranganabetta": {
+        "12.0,77.1": 0.075964,
+        "12.0,77.19999999999999": 0.924036
+      },
+      "Duggatti": {
+        "12.1,77.0": 0.90948,
+        "12.0,77.0": 0.09052
+      },
+      "Gowdahalli": {
+        "12.1,77.1": 0.82821,
+        "12.0,77.1": 0.17179
+      },
+      "Gumballi": {
+        "12.1,77.0": 0.023287,
+        "12.1,77.1": 0.084798,
+        "12.0,77.0": 0.067096,
+        "12.0,77.1": 0.82482
+      },
+      "Honnuru": {
+        "12.1,77.0": 1.0
+      },
+      "Kestur": {
+        "12.1,77.0": 0.949882,
+        "12.1,77.1": 0.050118
+      },
+      "Madduru": {
+        "12.1,77.0": 0.089195,
+        "12.1,77.1": 0.812498,
+        "12.1,77.19999999999999": 0.098308
+      },
+      "Yariyuru": {
+        "12.1,77.0": 0.379748,
+        "12.1,77.1": 0.602242,
+        "12.0,77.1": 0.01801
+      },
+      "Yeragamballi": {
+        "12.0,77.1": 1.0
+      }
+    }
+  },
+  "coarse_input": {
+    "dataset": "reanalysis-era5-single-levels",
+    "product_type": "reanalysis",
+    "is_forecast": false,
+    "grid": {
+      "latitudes": [
+        12.5,
+        12.25,
+        12.0,
+        11.75
+      ],
+      "longitudes": [
+        76.75,
+        77.0,
+        77.25,
+        77.5
+      ],
+      "latitude_order": "descending",
+      "longitude_order": "ascending",
+      "spacing_deg": 0.25
+    },
+    "request_area_nwse": [
+      12.5,
+      76.75,
+      11.75,
+      77.5
+    ],
+    "columns": {
+      "coarse_bilinear_value": "era5_0.25deg_bilinear_to_target_cell_center",
+      "coarse_nearest_value": "era5_0.25deg_nearest_point_to_target_cell_center"
+    },
+    "pairing_note": "Pairing is per ERA5-Land TARGET CELL, using ERA5 values only. Bilinear weights come from the 4 ERA5 points enclosing the target cell center. The nearest-point field is recorded for transparency but collapses three of the four primary cell groups onto the same ERA5 point, so it alone cannot distinguish them. Derived variables (RH, wind speed) are computed at each ERA5 point first, then interpolated.",
+    "pairing_by_target_cell": {
+      "E5L_12.00N_77.10E": {
+        "bilinear": [
+          {
+            "latitude": 12.0,
+            "longitude": 77.0,
+            "weight": 0.6
+          },
+          {
+            "latitude": 12.0,
+            "longitude": 77.25,
+            "weight": 0.4
+          },
+          {
+            "latitude": 12.25,
+            "longitude": 77.0,
+            "weight": 0.0
+          },
+          {
+            "latitude": 12.25,
+            "longitude": 77.25,
+            "weight": 0.0
+          }
+        ],
+        "nearest": {
+          "latitude": 12.0,
+          "longitude": 77.0,
+          "distance_km": 10.8765
+        }
+      },
+      "E5L_12.00N_77.20E": {
+        "bilinear": [
+          {
+            "latitude": 12.0,
+            "longitude": 77.0,
+            "weight": 0.2
+          },
+          {
+            "latitude": 12.0,
+            "longitude": 77.25,
+            "weight": 0.8
+          },
+          {
+            "latitude": 12.25,
+            "longitude": 77.0,
+            "weight": 0.0
+          },
+          {
+            "latitude": 12.25,
+            "longitude": 77.25,
+            "weight": 0.0
+          }
+        ],
+        "nearest": {
+          "latitude": 12.0,
+          "longitude": 77.25,
+          "distance_km": 5.4383
+        }
+      },
+      "E5L_12.10N_77.00E": {
+        "bilinear": [
+          {
+            "latitude": 12.0,
+            "longitude": 77.0,
+            "weight": 0.6
+          },
+          {
+            "latitude": 12.0,
+            "longitude": 77.25,
+            "weight": 0.0
+          },
+          {
+            "latitude": 12.25,
+            "longitude": 77.0,
+            "weight": 0.4
+          },
+          {
+            "latitude": 12.25,
+            "longitude": 77.25,
+            "weight": 0.0
+          }
+        ],
+        "nearest": {
+          "latitude": 12.0,
+          "longitude": 77.0,
+          "distance_km": 11.1195
+        }
+      },
+      "E5L_12.10N_77.10E": {
+        "bilinear": [
+          {
+            "latitude": 12.0,
+            "longitude": 77.0,
+            "weight": 0.36
+          },
+          {
+            "latitude": 12.0,
+            "longitude": 77.25,
+            "weight": 0.24
+          },
+          {
+            "latitude": 12.25,
+            "longitude": 77.0,
+            "weight": 0.24
+          },
+          {
+            "latitude": 12.25,
+            "longitude": 77.25,
+            "weight": 0.16
+          }
+        ],
+        "nearest": {
+          "latitude": 12.0,
+          "longitude": 77.0,
+          "distance_km": 15.5531
+        }
+      }
+    },
+    "negative_hourly_rainfall_values": 0
+  },
+  "variables": {
+    "temperature_c": "C",
+    "dewpoint_c": "C",
+    "relative_humidity_pct": "%",
+    "rainfall_mm": "mm",
+    "wind_speed_kmph": "km/h"
+  },
+  "time": {
+    "window_utc": [
+      "2021-01-01 00:00:00+00:00",
+      "2023-12-31 23:00:00+00:00"
+    ],
+    "hours": 26280,
+    "timestamp_convention": "timestamp_utc is the ERA5/ERA5-Land valid_time in UTC.",
+    "local_date_ist": "UTC+05:30 calendar date of timestamp_utc, for display only; never used for splitting.",
+    "rainfall_convention": "rainfall_mm is the accumulation over the hour ENDING at timestamp_utc for both products. ERA5-Land is de-accumulated (since-00-UTC accumulation) over the whole continuous window with pipeline.units.deaccumulate_era5_land_precipitation_m; ERA5 single-levels tp is already hourly.",
+    "pilot_window_note": "The Phase 2A 72-hour pilot files are untouched and are not used here."
+  },
+  "rainfall_quality": {
+    "target_missing_rows": 11,
+    "target_missing_reason_counts": {
+      "ERA5_LAND_DEACCUMULATION_FIRST_STEP": 11
+    },
+    "target_rainfall_clamped_rows": 5001,
+    "area_weighted_rainfall_clamped_rows": 7179,
+    "max_abs_clamped_step_mm": 3.357490641064942e-05,
+    "clamping_note": "Clamped steps are ERA5-Land within-cycle accumulation DECREASES set to 0.0 by the existing de-accumulation rule. Their largest magnitude is recorded above; values this small are consistent with float32 storage rounding of an unchanged accumulation, not rainfall."
+  },
+  "coverage": {
+    "expected_gp_count": 12,
+    "complete_gp_count": 10,
+    "partial_gp_count": 1,
+    "unavailable_gp_count": 1,
+    "primary_evaluation_population": [
+      "Ambale",
+      "Biligiri Ranganabetta",
+      "Duggatti",
+      "Gowdahalli",
+      "Gumballi",
+      "Honnuru",
+      "Kestur",
+      "Madduru",
+      "Yariyuru",
+      "Yeragamballi"
+    ],
+    "partial": {
+      "Agara": "Included with rows, flagged coverage_status=PARTIAL, in_primary_population=False, and 'excluded' in every fold; excluded from primary metrics."
+    },
+    "unavailable": {
+      "Mamballi": "Zero data rows. No geometry, elevation, or weather is inferred."
+    },
+    "rows_by_gp": {
+      "Agara": 131400,
+      "Ambale": 131400,
+      "Biligiri Ranganabetta": 131400,
+      "Duggatti": 131400,
+      "Gowdahalli": 131400,
+      "Gumballi": 131400,
+      "Honnuru": 131400,
+      "Kestur": 131400,
+      "Madduru": 131400,
+      "Yariyuru": 131400,
+      "Yeragamballi": 131400
+    }
+  },
+  "spatial_groups": {
+    "effective_spatial_sample_size": 4,
+    "statement": "The effective spatial sample size is 4 ERA5-Land cell groups, not 10 GPs: GPs sharing a nearest ERA5-Land cell have identical target series.",
+    "cell_groups": {
+      "E5L_12.00N_77.10E": {
+        "cell_latitude": 12.0,
+        "cell_longitude": 77.1,
+        "complete_gps": [
+          "Gumballi",
+          "Yeragamballi"
+        ],
+        "partial_gps": []
+      },
+      "E5L_12.00N_77.20E": {
+        "cell_latitude": 12.0,
+        "cell_longitude": 77.19999999999999,
+        "complete_gps": [
+          "Biligiri Ranganabetta"
+        ],
+        "partial_gps": []
+      },
+      "E5L_12.10N_77.00E": {
+        "cell_latitude": 12.1,
+        "cell_longitude": 77.0,
+        "complete_gps": [
+          "Ambale",
+          "Duggatti",
+          "Honnuru",
+          "Kestur"
+        ],
+        "partial_gps": []
+      },
+      "E5L_12.10N_77.10E": {
+        "cell_latitude": 12.1,
+        "cell_longitude": 77.1,
+        "complete_gps": [
+          "Gowdahalli",
+          "Madduru",
+          "Yariyuru"
+        ],
+        "partial_gps": [
+          "Agara"
+        ]
+      }
+    }
+  },
+  "split_methodology": {
+    "spatial": "Leave-one-cell-group-out over the primary (COMPLETE) population: one fold per cell group.",
+    "temporal": {
+      "train_period_utc": [
+        "2021-01-01 00:00:00+00:00",
+        "2022-12-24 23:00:00+00:00"
+      ],
+      "embargo_utc": [
+        "2022-12-25 00:00:00+00:00",
+        "2022-12-31 23:00:00+00:00"
+      ],
+      "test_period_utc": [
+        "2023-01-01 00:00:00+00:00",
+        "2023-12-31 23:00:00+00:00"
+      ],
+      "note": "Forward-in-time blocked holdout identical for every spatial fold; 7-day embargo unused."
+    },
+    "roles": {
+      "train": "primary population, not the held-out cell group, train_period",
+      "test": "primary population, the held-out cell group, test_period",
+      "excluded": "everything else (incl. PARTIAL GPs, embargo, rows with a missing target)"
+    },
+    "guarantees": [
+      "No cell group appears in both train and test of any fold.",
+      "No train timestamp is within 7 days of any test timestamp.",
+      "No individual hourly row is randomly assigned."
+    ],
+    "folds": [
+      {
+        "fold": 1,
+        "column": "split_fold_1",
+        "held_out_cell_group": "E5L_12.00N_77.10E",
+        "test_gps": [
+          "Gumballi",
+          "Yeragamballi"
+        ],
+        "train_cell_groups": [
+          "E5L_12.00N_77.20E",
+          "E5L_12.10N_77.00E",
+          "E5L_12.10N_77.10E"
+        ],
+        "train_rows": 694072,
+        "test_rows": 87600,
+        "train_time_range_utc": [
+          "2021-01-01 00:00:00+00:00",
+          "2022-12-24 23:00:00+00:00"
+        ],
+        "test_time_range_utc": [
+          "2023-01-01 00:00:00+00:00",
+          "2023-12-31 23:00:00+00:00"
+        ]
+      },
+      {
+        "fold": 2,
+        "column": "split_fold_2",
+        "held_out_cell_group": "E5L_12.00N_77.20E",
+        "test_gps": [
+          "Biligiri Ranganabetta"
+        ],
+        "train_cell_groups": [
+          "E5L_12.00N_77.10E",
+          "E5L_12.10N_77.00E",
+          "E5L_12.10N_77.10E"
+        ],
+        "train_rows": 780831,
+        "test_rows": 43800,
+        "train_time_range_utc": [
+          "2021-01-01 00:00:00+00:00",
+          "2022-12-24 23:00:00+00:00"
+        ],
+        "test_time_range_utc": [
+          "2023-01-01 00:00:00+00:00",
+          "2023-12-31 23:00:00+00:00"
+        ]
+      },
+      {
+        "fold": 3,
+        "column": "split_fold_3",
+        "held_out_cell_group": "E5L_12.10N_77.00E",
+        "test_gps": [
+          "Ambale",
+          "Duggatti",
+          "Honnuru",
+          "Kestur"
+        ],
+        "train_cell_groups": [
+          "E5L_12.00N_77.10E",
+          "E5L_12.00N_77.20E",
+          "E5L_12.10N_77.10E"
+        ],
+        "train_rows": 520554,
+        "test_rows": 175200,
+        "train_time_range_utc": [
+          "2021-01-01 00:00:00+00:00",
+          "2022-12-24 23:00:00+00:00"
+        ],
+        "test_time_range_utc": [
+          "2023-01-01 00:00:00+00:00",
+          "2023-12-31 23:00:00+00:00"
+        ]
+      },
+      {
+        "fold": 4,
+        "column": "split_fold_4",
+        "held_out_cell_group": "E5L_12.10N_77.10E",
+        "test_gps": [
+          "Gowdahalli",
+          "Madduru",
+          "Yariyuru"
+        ],
+        "train_cell_groups": [
+          "E5L_12.00N_77.10E",
+          "E5L_12.00N_77.20E",
+          "E5L_12.10N_77.00E"
+        ],
+        "train_rows": 607313,
+        "test_rows": 131400,
+        "train_time_range_utc": [
+          "2021-01-01 00:00:00+00:00",
+          "2022-12-24 23:00:00+00:00"
+        ],
+        "test_time_range_utc": [
+          "2023-01-01 00:00:00+00:00",
+          "2023-12-31 23:00:00+00:00"
+        ]
+      }
+    ]
+  },
+  "provenance": {
+    "spatial_proxy": {
+      "file": "research/spatial_proxy/yelandur_spatial_proxy.json",
+      "sha256": "8c8a68f7f3b6286a1dbca1be1926a54c8f91e99b9c8feae63b348c8888a20c94"
+    },
+    "elevation": {
+      "file": "research/elevation/yelandur_elevation.json",
+      "sha256": "f72e85d08aaa510eaae80c51f412cc713d92f4ee8eadeb8c9fe131d580caba05",
+      "source": "Copernicus DEM GLO-30 zonal statistics over the spatial-proxy geometry"
+    },
+    "era5_linkage": {
+      "file": "research/era5_linkage/yelandur_era5_linkage.json",
+      "sha256": "890b05040c0cb27c8b51c94a51eb084983ba29cac2d89a4dba8317e933a08ef4"
+    },
+    "era5_land_monthly_files": {
+      "2021-01": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202101.nc"
+        ],
+        "sha256": [
+          "1feaaf49bcf4e743ca3cc5611b97192c4dc4d574cdb4e286834f83df705f1ef0"
+        ],
+        "combined_sha256": "85dd9646c67dcf92424bb1bfe29600200b73ec8b6b37d65890cfbf8835fa324d"
+      },
+      "2021-02": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202102.nc"
+        ],
+        "sha256": [
+          "65e3eeff0a48549fb1fc7fbdcf9b732bc3b3cd9526744c5309ce54b262174af2"
+        ],
+        "combined_sha256": "adf19a5cd4595d1474684a85d61029b7a1482a2c409008b69cd9a59ec52a8a6b"
+      },
+      "2021-03": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202103.nc"
+        ],
+        "sha256": [
+          "7e57c133704cb1a918903442a5b61356bdc3ea274b623cf88b5bff95f511dd79"
+        ],
+        "combined_sha256": "bc44673393b791b388233b55c8222bf717321e50bc7ba484daffd48fca96b59a"
+      },
+      "2021-04": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202104.nc"
+        ],
+        "sha256": [
+          "9e6ffc8ddb3df0cef888e272caf7fecc1d1a776ec80b1b21d93dd25232c1ec56"
+        ],
+        "combined_sha256": "80c3487ae3bf6fc9681f2c39511bb133cfe11516a585e5326ddfce19b927f149"
+      },
+      "2021-05": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202105.nc"
+        ],
+        "sha256": [
+          "ece9911ebc180ae8cb33fa860ca07a67e3c6ebdde45ce7af94b5c9e8642d2edb"
+        ],
+        "combined_sha256": "56e72e2fc8bbc39ec18ea83f2fb2738e3b39e1c462d9950653aac06d87daadf2"
+      },
+      "2021-06": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202106.nc"
+        ],
+        "sha256": [
+          "fcfb9b60eb593c2f2226eb8308be30b165ef5d82fc111c6786892c51fead8728"
+        ],
+        "combined_sha256": "120d8c50836127e4b93694fbf7627bb1cff10a8266580ba3d24af5d7c0972c7e"
+      },
+      "2021-07": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202107.nc"
+        ],
+        "sha256": [
+          "8a8d6c4bf1236f8a80d8c9f60564a8a51d617ba365d4a2b7258c12ca1962f0c2"
+        ],
+        "combined_sha256": "d33b5e28ad601d7485dc7e7f5a273d69adbfb72cb8bef14bd48806a8e963d9a7"
+      },
+      "2021-08": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202108.nc"
+        ],
+        "sha256": [
+          "8f02255dcc1869e0629b6da06658d87af89821ad002676da77920a9e90b0703d"
+        ],
+        "combined_sha256": "a4cf5e45191818d9f8bc845e7729aaa33fa70d76ee7887a2821d7ac21ea18251"
+      },
+      "2021-09": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202109.nc"
+        ],
+        "sha256": [
+          "c95a4ab2a4a7f0dc79e7053e69b2ffb066a0fe102cd1784b627c2a0007e5f5c2"
+        ],
+        "combined_sha256": "59aa5f734af03bc7fb34b91f4f48221c68b4c616958d22c19a79caced6f865a5"
+      },
+      "2021-10": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202110.nc"
+        ],
+        "sha256": [
+          "3a5893354633f25c99f6e77c318ee6e60777c3af2f4124fc7a4b6b02fff102fa"
+        ],
+        "combined_sha256": "111c29d01ee47c311b655e68dd40734325b1007ded7a426a5788fc01292c7171"
+      },
+      "2021-11": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202111.nc"
+        ],
+        "sha256": [
+          "ae186657bda37219ac1c7b3b0ec45b419118634c6c3fcd5b44af12b9daac66dc"
+        ],
+        "combined_sha256": "f9ef0843f3907b4ceaa7fd666888632d3884916599f113d68c7277ecfff73563"
+      },
+      "2021-12": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202112.nc"
+        ],
+        "sha256": [
+          "3f291dd527b568080a1fcc836418b1e8281021e078cc67bc4ef0b6c76c5fa75d"
+        ],
+        "combined_sha256": "25fa9200edd74f6151afd34e0d7f08c289af12e56f4857502096f9d2d70eb4d5"
+      },
+      "2022-01": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202201.nc"
+        ],
+        "sha256": [
+          "22cdacd04285615db94c16191aaa3ed8fc668550a887d63652222702fad8cc90"
+        ],
+        "combined_sha256": "01e2eb6604186015e4f248bc99bacc0b3815c78250e0fa344fd8e9e73f381dfa"
+      },
+      "2022-02": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202202.nc"
+        ],
+        "sha256": [
+          "c8bdbe4d88fb3b701bfa7481e0e97f8c7fcfc458d03c9a77243d86b1c82b65e8"
+        ],
+        "combined_sha256": "fab93fdf10bc1fda8a2a3b453c3556bcd9569cdb93f82f7c1ac5fa171df3de6b"
+      },
+      "2022-03": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202203.nc"
+        ],
+        "sha256": [
+          "e1b079629ec0f837762e723755ae7470390e0fab07cfd70481adfc2c5043f325"
+        ],
+        "combined_sha256": "00f6313264cc7dfc049a38e66d7d54160b474a9bb6a5e3de3b51ee46d97f1e5a"
+      },
+      "2022-04": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202204.nc"
+        ],
+        "sha256": [
+          "f24dab43f81a1931d59566e8ea04f0c3b8e474a152b69e06015a86b8801e8a39"
+        ],
+        "combined_sha256": "46d7e86d911c5fb116287e3c91e6538234f22af0cd06ee2f75b83f2ce034ef1c"
+      },
+      "2022-05": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202205.nc"
+        ],
+        "sha256": [
+          "62a3c697f650711b21b65ac1d837508a6aaf3d117a6c3b3545a2c37221a20a82"
+        ],
+        "combined_sha256": "02e75364a6bb46735d8c2b208e9a443a127fcebfe5d7fa5a9fafc04eb4581698"
+      },
+      "2022-06": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202206.nc"
+        ],
+        "sha256": [
+          "dfbd23ce1e39b31715a3b979e9c60793a7ae7f37a746595fc9a9b68dd4660442"
+        ],
+        "combined_sha256": "cad2f2b62a4af062c67abb15da250db3213e8ab57c594e0ae12bb011ec78369d"
+      },
+      "2022-07": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202207.nc"
+        ],
+        "sha256": [
+          "d4db59602a8a3d547e11c8d7bfdd0d31a00cc91bffb4c6ee1d83017226311871"
+        ],
+        "combined_sha256": "beec0419523258c0b1952d7a814b4f0adcee34f24707bfdbec43c59ecad46e73"
+      },
+      "2022-08": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202208.nc"
+        ],
+        "sha256": [
+          "9411a04c4565c494d535c1199c7de8872c1c70a6bae69f04fff2ba62944667fb"
+        ],
+        "combined_sha256": "583ad8d4f49c9c355050147790a3339ce6adae81f6766b3f6015c3ed967a2aaf"
+      },
+      "2022-09": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202209.nc"
+        ],
+        "sha256": [
+          "4541cbf56719e716086c449172c3baef5a4530e974e8cc9c8338c81d63891e42"
+        ],
+        "combined_sha256": "46f205335e42e45f705a4a266494616198fe70c2be1be4964dab7c4e976d699f"
+      },
+      "2022-10": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202210.nc"
+        ],
+        "sha256": [
+          "6b19e2a0ee3cfe2f30d6685b8be4f7170006af9b7cec73ed35b6401cdec58d04"
+        ],
+        "combined_sha256": "a8700c005e6bea7e91aa6602e8ddedac4713c8f51eee2ffa702ec547b5a3bcf6"
+      },
+      "2022-11": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202211.nc"
+        ],
+        "sha256": [
+          "71d6ce81234195d83db45f049a56d6bedd204a143060676d188d1a755fd68689"
+        ],
+        "combined_sha256": "61437d891bf2120d66dea2d9b4dabb07a2749c73ceea166dfc3020b83fa2a782"
+      },
+      "2022-12": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202212.nc"
+        ],
+        "sha256": [
+          "e5593dd3b99b40621d2de4e47c2a66890bbe548e3c3e1d9f7827e6bbee9875c1"
+        ],
+        "combined_sha256": "6a66e77e194571a0dfd828dc56ea9759de623279fd5181f625790fc59145f9e4"
+      },
+      "2023-01": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202301.nc"
+        ],
+        "sha256": [
+          "44770251f72915938715e97a04825fc7b7ee3703207d811276c9cc22bd069bf7"
+        ],
+        "combined_sha256": "0d44734a2f45a5a8b6163c7b6e24156e37a548d9e1923cb0e92111e1681af0a9"
+      },
+      "2023-02": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202302.nc"
+        ],
+        "sha256": [
+          "4aa4f4facd25bdd14e715b1cca5f15bece682d2b776870e101f30185013350c7"
+        ],
+        "combined_sha256": "47031d1e974c9ed7a0476ea9da77308cc6866911aa50495206ba197bc7f31faf"
+      },
+      "2023-03": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202303.nc"
+        ],
+        "sha256": [
+          "827841424b2ec5abb4ac46c45e613cb2fb9509094dd5e6fea42a413961555382"
+        ],
+        "combined_sha256": "bd20f2b6e5272b5a71fe7497118f0b549084215dc9008e776ede37e8e973290f"
+      },
+      "2023-04": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202304.nc"
+        ],
+        "sha256": [
+          "a585d7307835ce2a477e38a0058564993d872ce681275ccfbe70b26dbd4359c1"
+        ],
+        "combined_sha256": "0bee71cc8a575bfa60cb00fca73978b015cb670863806a81f1b9661541631d6b"
+      },
+      "2023-05": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202305.nc"
+        ],
+        "sha256": [
+          "aa983d221b71238c45124820135f6a7df06f2a8011ede01a2aa55768dbcbc96b"
+        ],
+        "combined_sha256": "0d009089750421f9fb774b578563ddd1295106fa5ebf44ed738a79759e758da9"
+      },
+      "2023-06": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202306.nc"
+        ],
+        "sha256": [
+          "0ec51810e1dab814abc0a74b348190c6c903810726f22b0fc0d338518c06f955"
+        ],
+        "combined_sha256": "f551f1f332ef7f74b746455f75b88c05762044bc9e2e5ccee9ce06f70472caab"
+      },
+      "2023-07": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202307.nc"
+        ],
+        "sha256": [
+          "aba1f26334ab51524f46e7170f61cd4f266917e5c2a32a7a7ea839751467cae8"
+        ],
+        "combined_sha256": "e31ae7b19d70d0ec6b32eaf1caf1cda0eecc6164e3f2d2cc9f2f048dc565e536"
+      },
+      "2023-08": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202308.nc"
+        ],
+        "sha256": [
+          "eef1b6b5ea576b0d4bde47b8e93cb9db645742424a7118edb75c60dbf2769236"
+        ],
+        "combined_sha256": "cba9ca3f239f83e5039205dd5bfd804e6c3ba2a1677a43d62da7252f598018e4"
+      },
+      "2023-09": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202309.nc"
+        ],
+        "sha256": [
+          "be7c7c1d75f14fb33ab09fdf5bc98b0b204b9ef2b1d34548e27d344c52f294d6"
+        ],
+        "combined_sha256": "6dd2fbd29227f1682c64bdaf91e881ba50b02727df79e6d9394e8bd40a7bdcec"
+      },
+      "2023-10": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202310.nc"
+        ],
+        "sha256": [
+          "eec30766e83db0074a5034dbec8305e275d0c5601bce1baa97d67ef8543f82b7"
+        ],
+        "combined_sha256": "a305ecec32d5b63e221eb6f19287d729220c9076bd64253fd384e497ecf043cc"
+      },
+      "2023-11": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202311.nc"
+        ],
+        "sha256": [
+          "ebe4a31b0c16fd37e678be1702404846303caad8bd3904ca85007848c95cdd04"
+        ],
+        "combined_sha256": "2876d431d0646ca90a317a672aec94d326d7d68349f42ab08f8633316fb65c9d"
+      },
+      "2023-12": {
+        "files": [
+          "data/raw/era5_land/multi_gp/era5_land_yelandur_202312.nc"
+        ],
+        "sha256": [
+          "64613550fbda8012d21d0dab2a96881f2857f247730d3ea5ec95a7f3bb8edd6a"
+        ],
+        "combined_sha256": "0832b6a043a7713c6c43621f71a959b7e54165150e4f46b8346467490615155f"
+      }
+    },
+    "era5_monthly_files": {
+      "2021-01": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202101.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202101__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "26601b6d7a9caa75c726037e8e5ea1fb81243078d83d0c4b95fdc80f6369fa14",
+          "a8ad7e0fbf54663adcb2cf271988872cd9ea26ceb5652b54571760a6322d5487"
+        ],
+        "combined_sha256": "7c1a0984ec6fe591d2901c2dda23b9cf12e0cd48fa41b02af13916abb54cebb7"
+      },
+      "2021-02": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202102.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202102__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "b42157760f6e0f6d5ffd412d1e3250cd9b5eca611a6c74a9424903d85cc40041",
+          "9c8562755ece88fff6d1de45db03dae8e467e566d639c8d05b7561eca78c3707"
+        ],
+        "combined_sha256": "b3c65bc2fb531eced214d831c9cd4d0014c3cde41ca932100852f2689eb8a6d8"
+      },
+      "2021-03": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202103.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202103__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "e9a8e6cb8f757a8370a08fdf732d2e2f711aa7ef18524e51eafefb0a4f5e7d0a",
+          "15eb0fd7e7fd48a21cc99965eafb6caab336ca0aecd669c179dccbbe218dbfc6"
+        ],
+        "combined_sha256": "76f12b4b717319eadfc2e2ac79f9db19eb32f0703be65bd6cccac398a5aa018f"
+      },
+      "2021-04": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202104.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202104__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "006717b846636437eb292952a3553fa0f0f3c5f4f9386b0e9156d106001fe775",
+          "94bd7a37d80b968e0f23045eaff175178ebc208b407ce32b9388814f7bd6f7e0"
+        ],
+        "combined_sha256": "598f211a2b19a38376ed3a6e70f1377220d205bb6123ffe2a44ec4ddd13c1ff9"
+      },
+      "2021-05": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202105.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202105__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "4f88c36ddd8a1b4cf8fdc1ac5e9ab56ea4b7a076f0c89a1064c435f21a51a7f3",
+          "a1c0a02c2d74232737410fc9a1f206e8f193e9fffcb2e0b9453caebb1d6f91c0"
+        ],
+        "combined_sha256": "df5c8a568d081188b5a004e47ea9d93088133821d91116dac7b4423c398fc7cb"
+      },
+      "2021-06": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202106.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202106__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "3cc46d381bdac2742f884fc3a596952d97d6e497e64a615bec9d32f2dec2eaef",
+          "9787d5fc7cae3a4337d7a792a9e327ee363d1d9370b4729e4d2e9d0e99e889fe"
+        ],
+        "combined_sha256": "ea9e28071ad685e6171e661ecb1ca8411d27bfe63f146e2686c77d57499091b2"
+      },
+      "2021-07": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202107.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202107__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "868666e4179662e081768af11b7dc11c49c85047ca9284058a2306f882233f37",
+          "11552e31204a8a9fe4b4bfccc92b0945a557e1db43439b8fec8e5c5908bff92c"
+        ],
+        "combined_sha256": "036ac228fa777d1a5909ff278830eeea914b7a5d47861d20ad68c0871bac1b21"
+      },
+      "2021-08": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202108.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202108__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "db4937fe5c97fd3c173b6b424c5154ea4e8eb769a10713bb7b8ff27e3aaab785",
+          "73f7db3ba8a7267fb22d03bfa028049390bbd83e5bcec169fdb48732682f1834"
+        ],
+        "combined_sha256": "906274b2d911703d12ebb50e97406c78781623dcc01172d3bcceafce3cc11660"
+      },
+      "2021-09": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202109.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202109__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "a0a4528351370e089a187bbdf4beedb6c7edf1366eb3c62fa31ef8ada2703c54",
+          "d599df0b6333a2cbe3d71d706918baa04c928f0206c2f6c6cfdaa29abe6e287b"
+        ],
+        "combined_sha256": "e8e7a3fd65adf07e76779e2f4bab378011314178607f249d5f6d99fdb6f49728"
+      },
+      "2021-10": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202110.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202110__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "4e4364cdba6cd4aafb9f1cdb9c5e3293fde02ce351b2ec036d31609ad7339687",
+          "a9b416acc6b9f36f23c4bad6cece308def26615dc253424b50028c69f701e57b"
+        ],
+        "combined_sha256": "5bf2b40d6c240194e1fc1f6d50b5d4a66ddcee024f483da1b6ed2f41c0175444"
+      },
+      "2021-11": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202111.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202111__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "9533598c039e2f4aa138e9004d360890037392fa4acab9a4707cf0d4de7c94dc",
+          "7240e43986ce093c673465ce1eb1b04a3eea10398f27de957fe2e0d935710981"
+        ],
+        "combined_sha256": "941937f452f4aeb98b5ae805a5bc6635830af8c44d82a4a1a82411c3384e1e69"
+      },
+      "2021-12": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202112.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202112__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "49822b8004329143fe99bd1944945580157c81e653708f48d9c2a29eea960042",
+          "5cc0a74558712cb278eeb1956f4c54a51f7c76caad52c67fc824ba548f84c1fe"
+        ],
+        "combined_sha256": "d5ca6eaedf2583870f0d72442631c53c8635506dac85d0232ebf7d2d6f520a42"
+      },
+      "2022-01": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202201.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202201__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "5528d2354bb1b2cb060d87143c29eebc30bd32563a99f16bdaaf95a39e653dc4",
+          "a816f8adf6f290718fcb38453c928cb4a9dbf683cd8905bbd02d3c5125535ebc"
+        ],
+        "combined_sha256": "bca05101fa6d24bf2820ed4184a0a1cf91d12b3ec71f158a35b2750d5a69f778"
+      },
+      "2022-02": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202202.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202202__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "3059e1e4d7fc5f3bbd5be7a9ce3cf77c5391289c894629b54584238edfc2a388",
+          "ab5b7dea87b0696f68c709f2be59cf1a21659542cdc7c5fdab883a3113a75a98"
+        ],
+        "combined_sha256": "6a9caad92dcdbe0e4dadbf24d13090e9fd1d3c50d7fa0e47ac07fc021d4d6ddb"
+      },
+      "2022-03": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202203.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202203__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "855ed010ba4a32835ab4d6dad0cd35b5f8e2f79ad35e258a4e0dda57b4dbba16",
+          "ead7a93b950ff1fd938495fd11d9d55de50de3a13cf4975042016533c962551c"
+        ],
+        "combined_sha256": "f1b9378d4bcc31e2f5766a523f1c28d12d787bdd30cedfd03b37f1ca92603877"
+      },
+      "2022-04": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202204.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202204__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "67d109fa6b4bea64355ac1a2865c0de97d403cbc162b2d7b4183da96970e5749",
+          "e09b5243de6ec18de632257eefd2ea9063c7b3b0dc548cbb08f8f17dd06d8e3c"
+        ],
+        "combined_sha256": "282f985d60fbed85bca067538760e4cb4cec2893ac376502a7d05a564158de3a"
+      },
+      "2022-05": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202205.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202205__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "d45fb4ac76f4c068def057c1f9e7256d692158cd0820bdc618d9aef2234ff316",
+          "4883d210388cdd10826991ebdc6b3e06987aa35df255e7b6ece22601c40d5be5"
+        ],
+        "combined_sha256": "06538775aa8721e222c68e979b88b00f1bdfd11d922c7414d8fd4268770f422a"
+      },
+      "2022-06": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202206.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202206__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "6badbb3f2e9cbc5f4e25a8d75201ac7d03949275315a9c19258327a1ac5277fb",
+          "479d5c16ec5121bb1f9c7042e1a95c7a367883b7d974c57ac55e83a0019c7435"
+        ],
+        "combined_sha256": "a2d96a4c36f38c9725089b34357db003f5eea7ecca8325713455c9cda0a406c6"
+      },
+      "2022-07": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202207.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202207__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "86a8404526b7695234cf4d5e7b1a5c41921e305ac3b9804912755f125c86ad21",
+          "b7c2f3dcef02b4c06e84f0743031be9d0a2e15b3b829fca8aa18240afb7df6ba"
+        ],
+        "combined_sha256": "b21e85c8b02b261db8f9b852518a1280e176420314fd7ef13236b84960bdd3d7"
+      },
+      "2022-08": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202208.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202208__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "37f9900612223f8683e95c60198e3bc0ed0f1c8fd584345e2ce5d894c088cd45",
+          "09e1c1980cd552cb1ef1a1718039d95a3d313fd21b7db295cdec2eebefc291db"
+        ],
+        "combined_sha256": "3c1d5480da1abf60783477130635fbb8e0450d3774de3809769fe8a18506833d"
+      },
+      "2022-09": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202209.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202209__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "1f26086a2082ed587f4dde0152c7475bd504a529ab99374a7725d14fb9a66943",
+          "5a81d255f292ae1f1c6d4a0ca9eb5789718e7815559abef71e7f107f5656f51a"
+        ],
+        "combined_sha256": "d28699a169cf62fe312bdbded92ce19971df8c84871a4575fc80e9dbe0b28ab6"
+      },
+      "2022-10": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202210.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202210__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "3bd301cd689964428a2f3aaa15d6604a0dba7781a734fed9776e6215c611d130",
+          "22acb4b1dc671d61ee8e14abd7cc99a861eb22956082c7b1ac705593e6597c51"
+        ],
+        "combined_sha256": "91c6ad2f023a7ab9055eade049629249b5b7d48a411d3dc0d604e9299b35c419"
+      },
+      "2022-11": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202211.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202211__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "2831a1b2d67de44f25a690ac7b801053b86c58c463108a0e2c106962ba9b008a",
+          "ff77ba69c4c6cb177cbb6a457f6875d2d054f86ace961b8d12877c7e1ed1c8b5"
+        ],
+        "combined_sha256": "60799eecf95ca8500ac3f1eaed8fc88e00833b32d884d772906615812412f046"
+      },
+      "2022-12": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202212.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202212__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "2391b3071ecda5282a692ff142a86d6e5628440113f023a1d550353b4b5a3444",
+          "77022ce34899be8da0a1b99fef3e2626851915c7bc627ffd13fff90ca51d1d58"
+        ],
+        "combined_sha256": "09d704f805d2d51ddfed8e79df9f052eb873e640473b1a793ec2110f56e872f2"
+      },
+      "2023-01": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202301.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202301__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "79ce85d3642ae14e6b3916998a79d02dbe61da3f76f9ca5e959bb51ccc9ef6db",
+          "9f4dcb2fb8f249aad5c5da692a9fc0e60b292deff043059e359f6feb4ca67d35"
+        ],
+        "combined_sha256": "960be2fe87728998db32c4e51fe33196dfd209b5cd79ed21f2340e6f9a21d1de"
+      },
+      "2023-02": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202302.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202302__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "293f431c6eb5ddc2b798607dce7fb0a2cddffcb90f2ca4f3b04e9decc9c8ba59",
+          "82c5c275c7dec23b71b74d6b56d447f0dd058ffd978a2f63ed74d7709a83ff3f"
+        ],
+        "combined_sha256": "9be15bfa9e707126718d24c3c9911823d6f347855d2a6295a42257be424ad27e"
+      },
+      "2023-03": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202303.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202303__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "b9c8e8dc2e3932c0ea977fc7b609b6e1fc2f92b6f81174c8de80e9cbe95ac0f6",
+          "a6df8592082e1e807d6e204fe4ecd70deab08b8ebcb5ef21c651d7c62bda3181"
+        ],
+        "combined_sha256": "878778b8f2e76382001571a9db8e5b0bc2525be1c0db36c91b92706b6d1a4864"
+      },
+      "2023-04": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202304.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202304__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "0c0bb8469a62d31f351df9837f414fcffbb789b091d1863122eee978bb5889a6",
+          "f594c5b12b04f224e757478b1f0ed606520eb12879fb742abd6c8ff8be651457"
+        ],
+        "combined_sha256": "b9dca374aa95ee5f691a58146f5ad4fd097ec80549f321eba81f3b8cdc50417e"
+      },
+      "2023-05": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202305.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202305__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "ca67d709101e4b337f607d1bf4f58233b5da7d24ea3fb7d39f1318d4fe6250ec",
+          "17052ac84ef261a9082a5fcb6ea650842195e8c5799af4c9df235d2021866331"
+        ],
+        "combined_sha256": "0d018a93addac73ea4f21cfa9a98c4d22b69dd26344c6dccb97a3867eb2754fe"
+      },
+      "2023-06": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202306.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202306__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "43cccf5e5b1cbebbff87225cab831fe58c49277266d1caf5f15b46febfc9473a",
+          "b3b4b91081dc5ec52a3c263dc39e733af0289cb637581ac90357d3fb7f14626d"
+        ],
+        "combined_sha256": "093aceda21d4acbfdf5e7a82ea67475af4c2bbcb0812270926d231fe19f440f8"
+      },
+      "2023-07": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202307.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202307__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "a746d92f2b6cb365368c58efc21af3c3e104b623fc067203042816599c6e9ace",
+          "b849715430074c631544b471c0296764c27fa82858a28c23b7ec09817ff7fa0f"
+        ],
+        "combined_sha256": "1e087ed3f8815f35d02c9babb86238cc775a8506a8309e13eda7dad54df158e4"
+      },
+      "2023-08": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202308.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202308__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "6db36ad99bc221eef8f6029b4c4dbad40dc33c844fcdd71fa0fa4769e6433e4f",
+          "d1b4b8b6c590889a606d847a89ea99fa19817f1f5d72c74618f30ac56ba339b7"
+        ],
+        "combined_sha256": "8c498c8d8ccbac48e0f2b22da60009cd8d97e6340907e06d0b72a68812515f94"
+      },
+      "2023-09": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202309.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202309__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "a10c3941c2ccc693c46beb1fa869cd2a43e2eb67dc2d3b940df1cdd093410b75",
+          "598bee5406c5535b15b32c1266b613d41b40ff1f6226eb2eac09f79d923efa26"
+        ],
+        "combined_sha256": "16a228574d4d3878975f6f5288eabc558f5ef14599c9d5058fa9bc51afc46737"
+      },
+      "2023-10": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202310.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202310__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "dbaa3c82439a2ef55af88afed9f249925c6e4cfa215ba2172af792b14bedd66d",
+          "e7f12d1bf16c2a90157a86c6c9a78022fa8c0f8c2c0fca470f3ef311c052e9a8"
+        ],
+        "combined_sha256": "d4971e897080c88eed5923c3dd53b9e80bd246bf6ec3d7fd348cc78a21be39f9"
+      },
+      "2023-11": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202311.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202311__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "d6dc00a708c787f91eed4462da6e02e7746b2f084e8f8a89d17d3365743dec98",
+          "a9e1388322dfd15df2a56a0701531d0754fba3590f65b4f546bdbeebeb46a8a7"
+        ],
+        "combined_sha256": "8f64f6e1e79eb3b1db82a88e06b864ba1f3af472f9c5c7ba089ef1bff2c293b8"
+      },
+      "2023-12": {
+        "files": [
+          "data/raw/era5/multi_gp/era5_yelandur_202312.nc",
+          "data/raw/era5/multi_gp/era5_yelandur_202312__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "83ff64bab5a4a29837c7c55c0ef918733e669cd91e85803e6ea2e9cffc11cf4d",
+          "f519aa34852633226c7f9084ea43823de9bf6e4fd055a5b869a2f5ea48b62ece"
+        ],
+        "combined_sha256": "c4f58a018f297701477e9fdb2f2a9c063b0e717f2f3de1e5e69dd490c4d29994"
+      }
+    },
+    "acquisition_module": "research/multi_gp/acquire.py (auth via config.get_cds_client)"
+  },
+  "known_limitations": [
+    "Both input and target are reanalysis; metrics measure agreement with ERA5-Land, not with actual Panchayat weather. The target is a reanalysis proxy, not an observation.",
+    "Effective spatial sample size is 4 cell groups; neighbouring ERA5-Land cells are highly correlated.",
+    "No sub-grid (finer than ~9-11 km) skill can be evaluated with this target.",
+    "GPs in the same cell group have identical targets; their rows are not independent samples.",
+    "ERA5-Land model orography was not acquired; GLO-30 elevation describes the GP geometry, not the terrain ERA5-Land represents.",
+    "Geometries are a 1991-vintage historical village-union spatial proxy, not present-day GP boundaries.",
+    "Agara is PARTIAL (Kinakahalli missing); Mamballi is UNAVAILABLE.",
+    "Single forward temporal holdout (one test year); results may reflect 2023-specific conditions."
+  ],
+  "dataset_file_sha256": "c25017849d5b47f43d622a03a89a99ab155e4de3e3aa7cd25e00c32aeac5bf28"
+}

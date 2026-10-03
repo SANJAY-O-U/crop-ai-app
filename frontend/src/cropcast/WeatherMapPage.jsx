@@ -82,8 +82,8 @@ export default function WeatherMapPage({ onNavigate }) {
 
   return (
     <div style={{ maxWidth: 980, margin: "0 auto", padding: "48px 5%" }}>
-      <button onClick={() => onNavigate("dashboard")} style={{ background: "none", border: "1px solid var(--border)", color: "var(--text2)", padding: "6px 14px", borderRadius: 8, cursor: "pointer", fontSize: 13, marginBottom: 18 }}>
-        ← Dashboard
+      <button onClick={() => onNavigate("home")} style={{ background: "none", border: "1px solid var(--border)", color: "var(--text2)", padding: "6px 14px", borderRadius: 8, cursor: "pointer", fontSize: 13, marginBottom: 18 }}>
+        ← Map
       </button>
       <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(1.6rem,4vw,2.2rem)", fontWeight: 800, marginBottom: 8 }}>
         Weather Map

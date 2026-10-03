@@ -52,3 +52,10 @@ data/evaluation/**
 # Copernicus CDS credentials must never be committed
 .cdsapirc
 *.cdsapirc
+# Generated build output / logs / editor temp
+frontend/dist/
+*.log
+*.swp
+*.tmp
+.claude/settings.local.json
+/yolov8n.pt

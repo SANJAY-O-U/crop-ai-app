@@ -1,0 +1,5842 @@
+{
+  "type": "Stage4AcquisitionManifest",
+  "scope": "Stage 4A/4B design only: no ERA5/ERA5-Land 2021-2023 download, no model training.",
+  "target_framing": "Target remains the ERA5-Land reanalysis proxy — not observation.",
+  "frozen": "Yelandur and Stage 1/2/3A/3B artifacts are read-only; their SHA-256 at design time is recorded below.",
+  "land_sea_4a": {
+    "offline_status": "NOT RESOLVABLE OFFLINE: no ERA5-Land land/sea information on disk (all local ERA5-Land files are inland with no missing values; no mask or coastline dataset present).",
+    "conditional_taluka_panchayats": 31,
+    "resolution": {
+      "293922": {
+        "tp_name": "K G F",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_12.90N_78.40E"
+        ]
+      },
+      "296791": {
+        "tp_name": "Bynduru",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_13.70N_74.60E",
+          "E5L_13.80N_74.60E"
+        ]
+      },
+      "296792": {
+        "tp_name": "Kapu",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_13.30N_74.70E"
+        ]
+      },
+      "296805": {
+        "tp_name": "Hulasuru",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_18.00N_76.90E"
+        ]
+      },
+      "296806": {
+        "tp_name": "Kamalanagara",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_18.30N_77.20E"
+        ]
+      },
+      "296817": {
+        "tp_name": "Chadachana",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_17.40N_75.60E",
+          "E5L_17.40N_75.80E",
+          "E5L_17.40N_75.90E"
+        ]
+      },
+      "296822": {
+        "tp_name": "Thikota",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_17.00N_75.50E"
+        ]
+      },
+      "301517": {
+        "tp_name": "Cheluru",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_13.70N_78.10E",
+          "E5L_13.90N_78.00E"
+        ]
+      },
+      "6118": {
+        "tp_name": "Siruguppa",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_15.50N_77.00E",
+          "E5L_15.70N_77.10E"
+        ]
+      },
+      "6119": {
+        "tp_name": "Aurad",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_18.30N_77.40E",
+          "E5L_18.30N_77.60E",
+          "E5L_18.40N_77.40E"
+        ]
+      },
+      "6120": {
+        "tp_name": "Basavakalyan",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_17.80N_76.70E",
+          "E5L_17.90N_76.80E"
+        ]
+      },
+      "6121": {
+        "tp_name": "Bhalki",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_18.20N_77.10E"
+        ]
+      },
+      "6122": {
+        "tp_name": "Bidar",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_17.70N_77.50E",
+          "E5L_17.90N_77.60E"
+        ]
+      },
+      "6140": {
+        "tp_name": "Challakere",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_14.40N_76.90E",
+          "E5L_14.50N_76.90E"
+        ]
+      },
+      "6146": {
+        "tp_name": "Bantval",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_12.70N_75.00E"
+        ]
+      },
+      "6149": {
+        "tp_name": "Puttur",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_12.60N_75.20E"
+        ]
+      },
+      "6150": {
+        "tp_name": "Sulya",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_12.50N_75.30E"
+        ]
+      },
+      "6173": {
+        "tp_name": "Sedam",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_17.00N_77.50E",
+          "E5L_17.10N_77.50E"
+        ]
+      },
+      "6195": {
+        "tp_name": "Bagepalli",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_13.90N_77.80E"
+        ]
+      },
+      "6196": {
+        "tp_name": "Bangarapet",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_12.80N_78.10E"
+        ]
+      },
+      "6199": {
+        "tp_name": "Gauribidanur",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_13.80N_77.60E"
+        ]
+      },
+      "6203": {
+        "tp_name": "Mulbagal",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_13.30N_78.60E"
+        ]
+      },
+      "6205": {
+        "tp_name": "Srinivaspur",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_13.60N_78.20E",
+          "E5L_13.60N_78.40E"
+        ]
+      },
+      "6226": {
+        "tp_name": "Manvi",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_15.90N_77.10E"
+        ]
+      },
+      "6227": {
+        "tp_name": "Raichur",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_15.90N_77.50E",
+          "E5L_16.10N_77.50E",
+          "E5L_16.20N_77.50E",
+          "E5L_16.40N_77.40E"
+        ]
+      },
+      "6240": {
+        "tp_name": "Madhugiri",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_13.80N_77.10E",
+          "E5L_13.80N_77.50E",
+          "E5L_13.90N_77.20E"
+        ]
+      },
+      "6242": {
+        "tp_name": "Sira",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_13.80N_77.00E",
+          "E5L_14.00N_77.00E"
+        ]
+      },
+      "6250": {
+        "tp_name": "Bhatkal",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_14.00N_74.50E"
+        ]
+      },
+      "6252": {
+        "tp_name": "Honavar",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_14.30N_74.40E"
+        ]
+      },
+      "6254": {
+        "tp_name": "Kumta",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_14.50N_74.30E"
+        ]
+      },
+      "6258": {
+        "tp_name": "Supa",
+        "status": "UNRESOLVED_PENDING_MASK",
+        "flagged_cells": [
+          "E5L_15.30N_74.30E"
+        ]
+      }
+    },
+    "shared_village_flag_resolved_offline": {
+      "6120": {
+        "tp_name": "Basavakalyan",
+        "complete_gps_dropped_for_shared_village": [
+          "216360",
+          "272851"
+        ],
+        "complete_share_after_drop": 0.8709677419354839,
+        "new_cells_after_drop": 12,
+        "still_meets_share_and_cell_criteria": true
+      },
+      "6250": {
+        "tp_name": "Bhatkal",
+        "complete_gps_dropped_for_shared_village": [
+          "220592",
+          "273196"
+        ],
+        "complete_share_after_drop": 0.875,
+        "new_cells_after_drop": 5,
+        "still_meets_share_and_cell_criteria": true
+      }
+    },
+    "required_acquisition": {
+      "dataset": "reanalysis-era5-land",
+      "request": {
+        "variable": [
+          "2m_temperature"
+        ],
+        "year": [
+          "2023"
+        ],
+        "month": [
+          "01"
+        ],
+        "day": [
+          "01"
+        ],
+        "time": [
+          "00:00"
+        ],
+        "area": [
+          18.5,
+          74.0,
+          11.9,
+          78.7
+        ],
+        "data_format": "netcdf"
+      },
+      "expected_grid_points": 3216,
+      "decision_rule": "cell is ERA5-Land land iff its 2m_temperature value is not missing (NaN)",
+      "auth": "existing config.get_cds_client() only",
+      "performed_in_this_stage": false
+    },
+    "applies_to": "all flagged CONDITIONAL cells AND every expected cell of the selected Taluka Panchayats (gate)",
+    "effect_on_selection": "none: CONDITIONAL Taluka Panchayats are ineligible; the selection is fixed and is not re-run after the mask unless a selected cell proves non-land"
+  },
+  "selection_procedure": {
+    "eligible_pool": "feasibility audit RECOMMEND_FOR_SHORTLIST only",
+    "per_regime": 2,
+    "min_new_cells": 6,
+    "min_separation_cells": 3,
+    "one_per_zila_panchayat": true,
+    "objective": "farthest-point (maximin) distance to Yelandur + already-selected centroids, per regime, in fixed regime order; ties: more cells, higher COMPLETE share, lower LGD code",
+    "regimes": [
+      "western_ghats_malnad",
+      "coastal_inland_coast",
+      "northern_dry_plains",
+      "central_plateau",
+      "southern_plateau",
+      "eastern_plateau"
+    ],
+    "regime_source": "regimes.py — project-authored conventional grouping, NOT an official agro-climatic zonation",
+    "eligible_count_by_regime": {
+      "western_ghats_malnad": 18,
+      "coastal_inland_coast": 10,
+      "northern_dry_plains": 54,
+      "central_plateau": 31,
+      "southern_plateau": 19,
+      "eastern_plateau": 11
+    },
+    "log": [
+      {
+        "round": 1,
+        "regime": "western_ghats_malnad",
+        "picked": "6108",
+        "picked_name": "Khanapur",
+        "maximin_distance_km": 479.5286510301928,
+        "n_options": 14
+      },
+      {
+        "round": 1,
+        "regime": "coastal_inland_coast",
+        "picked": "6246",
+        "picked_name": "Karkal",
+        "maximin_distance_km": 260.8638077071432,
+        "n_options": 7
+      },
+      {
+        "round": 1,
+        "regime": "northern_dry_plains",
+        "picked": "296804",
+        "picked_name": "Chittaguppa",
+        "maximin_distance_km": 374.74297541340235,
+        "n_options": 47
+      },
+      {
+        "round": 1,
+        "regime": "central_plateau",
+        "picked": "6112",
+        "picked_name": "Ballari",
+        "maximin_distance_km": 266.8953823662168,
+        "n_options": 30
+      },
+      {
+        "round": 1,
+        "regime": "southern_plateau",
+        "picked": "6178",
+        "picked_name": "Arkalgud",
+        "maximin_distance_km": 126.8178514494693,
+        "n_options": 16
+      },
+      {
+        "round": 1,
+        "regime": "eastern_plateau",
+        "picked": "6198",
+        "picked_name": "Chintamani",
+        "maximin_distance_km": 187.64727433702348,
+        "n_options": 8
+      },
+      {
+        "round": 2,
+        "regime": "western_ghats_malnad",
+        "picked": "6234",
+        "picked_name": "Sorab",
+        "maximin_distance_km": 138.08594319269235,
+        "n_options": 8
+      },
+      {
+        "round": 2,
+        "regime": "coastal_inland_coast",
+        "picked": "6253",
+        "picked_name": "Karwar",
+        "maximin_distance_km": 89.03411961181816,
+        "n_options": 3
+      },
+      {
+        "round": 2,
+        "regime": "northern_dry_plains",
+        "picked": "296820",
+        "picked_name": "Nidagundi",
+        "maximin_distance_km": 170.57553687994277,
+        "n_options": 38
+      },
+      {
+        "round": 2,
+        "regime": "central_plateau",
+        "picked": "6142",
+        "picked_name": "Hiriyur",
+        "maximin_distance_km": 138.55870168465333,
+        "n_options": 19
+      },
+      {
+        "round": 2,
+        "regime": "southern_plateau",
+        "picked": "6101",
+        "picked_name": "Ramanagara",
+        "maximin_distance_km": 82.19363744873738,
+        "n_options": 9
+      },
+      {
+        "round": 2,
+        "regime": "eastern_plateau",
+        "picked": null,
+        "reason": "no candidate satisfies the constraints"
+      }
+    ]
+  },
+  "selected_count": 11,
+  "selected_regime_coverage": {
+    "western_ghats_malnad": [
+      "Khanapur",
+      "Sorab"
+    ],
+    "coastal_inland_coast": [
+      "Karkal",
+      "Karwar"
+    ],
+    "northern_dry_plains": [
+      "Chittaguppa",
+      "Nidagundi"
+    ],
+    "central_plateau": [
+      "Ballari",
+      "Hiriyur"
+    ],
+    "southern_plateau": [
+      "Arkalgud",
+      "Ramanagara"
+    ],
+    "eastern_plateau": [
+      "Chintamani"
+    ]
+  },
+  "selected_totals": {
+    "complete_gps": 279,
+    "expected_era5_land_cells": 111,
+    "era5_land_request_grid_points": 532,
+    "era5_request_grid_points": 266,
+    "glo30_tiles_to_download": [
+      "Copernicus_DSM_COG_10_N12_00_E075_00_DEM",
+      "Copernicus_DSM_COG_10_N13_00_E074_00_DEM",
+      "Copernicus_DSM_COG_10_N13_00_E075_00_DEM",
+      "Copernicus_DSM_COG_10_N13_00_E076_00_DEM",
+      "Copernicus_DSM_COG_10_N13_00_E077_00_DEM",
+      "Copernicus_DSM_COG_10_N13_00_E078_00_DEM",
+      "Copernicus_DSM_COG_10_N14_00_E074_00_DEM",
+      "Copernicus_DSM_COG_10_N14_00_E075_00_DEM",
+      "Copernicus_DSM_COG_10_N14_00_E076_00_DEM",
+      "Copernicus_DSM_COG_10_N15_00_E074_00_DEM",
+      "Copernicus_DSM_COG_10_N15_00_E076_00_DEM",
+      "Copernicus_DSM_COG_10_N15_00_E077_00_DEM",
+      "Copernicus_DSM_COG_10_N16_00_E075_00_DEM",
+      "Copernicus_DSM_COG_10_N16_00_E076_00_DEM",
+      "Copernicus_DSM_COG_10_N17_00_E077_00_DEM"
+    ]
+  },
+  "acquisition_volume_estimate": {
+    "bytes_per_grid_point_month": {
+      "era5_land": 13180.634722222221,
+      "era5": 18555.980902777777,
+      "note": "mean monthly NetCDF bytes per grid point, measured on the 72 Phase 2D files"
+    },
+    "per_taluka_monthly_requests": 792,
+    "era5_land_bytes_36_months": 252435517,
+    "era5_bytes_36_months": 177692074,
+    "note": "Estimate only (per-Taluka request areas, 2021-2023). Not downloaded in this stage."
+  },
+  "selected": [
+    {
+      "tp_code": "6108",
+      "tp_name": "Khanapur",
+      "zp_code": "482",
+      "zp_name": "Belagavi",
+      "geographic_regime": "western_ghats_malnad",
+      "selection": {
+        "round": 1,
+        "maximin_distance_km": 479.5286510301928
+      },
+      "lgd": {
+        "lgd_gram_panchayats": 51
+      },
+      "spatial_proxy": {
+        "status_counts": {
+          "COMPLETE": 48,
+          "PARTIAL": 2,
+          "UNAVAILABLE": 1
+        },
+        "complete_gps": [
+          {
+            "gp_code": "215943",
+            "gp_name": "Amate",
+            "era5_land_cell": "E5L_15.70N_74.30E"
+          },
+          {
+            "gp_code": "215945",
+            "gp_name": "Baragaon",
+            "era5_land_cell": "E5L_15.70N_74.50E"
+          },
+          {
+            "gp_code": "215946",
+            "gp_name": "Beedi",
+            "era5_land_cell": "E5L_15.50N_74.60E"
+          },
+          {
+            "gp_code": "215947",
+            "gp_name": "Bekawad",
+            "era5_land_cell": "E5L_15.60N_74.60E"
+          },
+          {
+            "gp_code": "215948",
+            "gp_name": "Bhurunaki",
+            "era5_land_cell": "E5L_15.50N_74.70E"
+          },
+          {
+            "gp_code": "215949",
+            "gp_name": "Bijagarni",
+            "era5_land_cell": "E5L_15.50N_74.50E"
+          },
+          {
+            "gp_code": "215950",
+            "gp_name": "Chapagaon",
+            "era5_land_cell": "E5L_15.60N_74.60E"
+          },
+          {
+            "gp_code": "215951",
+            "gp_name": "Devalatti",
+            "era5_land_cell": "E5L_15.70N_74.60E"
+          },
+          {
+            "gp_code": "215952",
+            "gp_name": "Gandigawad",
+            "era5_land_cell": "E5L_15.60N_74.70E"
+          },
+          {
+            "gp_code": "215953",
+            "gp_name": "Godoli",
+            "era5_land_cell": "E5L_15.40N_74.70E"
+          },
+          {
+            "gp_code": "215954",
+            "gp_name": "Golalli",
+            "era5_land_cell": "E5L_15.70N_74.30E"
+          },
+          {
+            "gp_code": "215955",
+            "gp_name": "Gotagali",
+            "era5_land_cell": "E5L_15.40N_74.60E"
+          },
+          {
+            "gp_code": "215956",
+            "gp_name": "Gunji",
+            "era5_land_cell": "E5L_15.50N_74.50E"
+          },
+          {
+            "gp_code": "215957",
+            "gp_name": "Gurlagunji",
+            "era5_land_cell": "E5L_15.70N_74.50E"
+          },
+          {
+            "gp_code": "215958",
+            "gp_name": "Halaga",
+            "era5_land_cell": "E5L_15.50N_74.60E"
+          },
+          {
+            "gp_code": "215959",
+            "gp_name": "Halakarni",
+            "era5_land_cell": "E5L_15.70N_74.50E"
+          },
+          {
+            "gp_code": "215960",
+            "gp_name": "Halasi",
+            "era5_land_cell": "E5L_15.50N_74.60E"
+          },
+          {
+            "gp_code": "215961",
+            "gp_name": "Hebbal",
+            "era5_land_cell": "E5L_15.60N_74.50E"
+          },
+          {
+            "gp_code": "215962",
+            "gp_name": "Hirehattiholi",
+            "era5_land_cell": "E5L_15.70N_74.60E"
+          },
+          {
+            "gp_code": "215963",
+            "gp_name": "Hiremunolli",
+            "era5_land_cell": "E5L_15.70N_74.60E"
+          },
+          {
+            "gp_code": "215964",
+            "gp_name": "Iddalahonda",
+            "era5_land_cell": "E5L_15.70N_74.50E"
+          },
+          {
+            "gp_code": "215965",
+            "gp_name": "Itagi",
+            "era5_land_cell": "E5L_15.70N_74.70E"
+          },
+          {
+            "gp_code": "215966",
+            "gp_name": "Jamboti",
+            "era5_land_cell": "E5L_15.70N_74.40E"
+          },
+          {
+            "gp_code": "215967",
+            "gp_name": "Kadatanabagewadi",
+            "era5_land_cell": "E5L_15.60N_74.60E"
+          },
+          {
+            "gp_code": "215968",
+            "gp_name": "Kakkeri",
+            "era5_land_cell": "E5L_15.50N_74.70E"
+          },
+          {
+            "gp_code": "215969",
+            "gp_name": "Kanakumbi",
+            "era5_land_cell": "E5L_15.70N_74.20E"
+          },
+          {
+            "gp_code": "215970",
+            "gp_name": "Kapoli Kg",
+            "era5_land_cell": "E5L_15.50N_74.50E"
+          },
+          {
+            "gp_code": "215971",
+            "gp_name": "Karmbla",
+            "era5_land_cell": "E5L_15.60N_74.50E"
+          },
+          {
+            "gp_code": "215972",
+            "gp_name": "Kasaba Nandagad",
+            "era5_land_cell": "E5L_15.60N_74.60E"
+          },
+          {
+            "gp_code": "215973",
+            "gp_name": "Kherawad",
+            "era5_land_cell": "E5L_15.60N_74.70E"
+          },
+          {
+            "gp_code": "215974",
+            "gp_name": "Kodacawad",
+            "era5_land_cell": "E5L_15.70N_74.60E"
+          },
+          {
+            "gp_code": "215975",
+            "gp_name": "Linganamath",
+            "era5_land_cell": "E5L_15.40N_74.70E"
+          },
+          {
+            "gp_code": "215976",
+            "gp_name": "Lokoli",
+            "era5_land_cell": "E5L_15.70N_74.60E"
+          },
+          {
+            "gp_code": "215978",
+            "gp_name": "Mangenkopp",
+            "era5_land_cell": "E5L_15.50N_74.70E"
+          },
+          {
+            "gp_code": "215979",
+            "gp_name": "Manturga",
+            "era5_land_cell": "E5L_15.60N_74.50E"
+          },
+          {
+            "gp_code": "215980",
+            "gp_name": "Mohisett",
+            "era5_land_cell": "E5L_15.50N_74.50E"
+          },
+          {
+            "gp_code": "215981",
+            "gp_name": "Nagargali",
+            "era5_land_cell": "E5L_15.40N_74.60E"
+          },
+          {
+            "gp_code": "215982",
+            "gp_name": "Nagurda",
+            "era5_land_cell": "E5L_15.70N_74.50E"
+          },
+          {
+            "gp_code": "215983",
+            "gp_name": "Nandagad",
+            "era5_land_cell": "E5L_15.60N_74.50E"
+          },
+          {
+            "gp_code": "215984",
+            "gp_name": "Nanjanakodal",
+            "era5_land_cell": "E5L_15.60N_74.60E"
+          },
+          {
+            "gp_code": "215985",
+            "gp_name": "Nerase",
+            "era5_land_cell": "E5L_15.60N_74.40E"
+          },
+          {
+            "gp_code": "215986",
+            "gp_name": "Nilawade",
+            "era5_land_cell": "E5L_15.70N_74.40E"
+          },
+          {
+            "gp_code": "215988",
+            "gp_name": "Parawad",
+            "era5_land_cell": "E5L_15.70N_74.20E"
+          },
+          {
+            "gp_code": "215989",
+            "gp_name": "Parisawad",
+            "era5_land_cell": "E5L_15.70N_74.60E"
+          },
+          {
+            "gp_code": "215990",
+            "gp_name": "Ramagurwadi",
+            "era5_land_cell": "E5L_15.70N_74.50E"
+          },
+          {
+            "gp_code": "215991",
+            "gp_name": "Shindolli",
+            "era5_land_cell": "E5L_15.60N_74.50E"
+          },
+          {
+            "gp_code": "215992",
+            "gp_name": "Shiroli",
+            "era5_land_cell": "E5L_15.50N_74.40E"
+          },
+          {
+            "gp_code": "215993",
+            "gp_name": "Topinakatti",
+            "era5_land_cell": "E5L_15.70N_74.60E"
+          }
+        ],
+        "complete_share": 0.9411764705882353,
+        "villages": 221,
+        "villages_matched_exact_code": 218,
+        "complete_gps_with_shared_village": 0
+      },
+      "expected_era5_land_cells": [
+        "E5L_15.40N_74.60E",
+        "E5L_15.40N_74.70E",
+        "E5L_15.50N_74.40E",
+        "E5L_15.50N_74.50E",
+        "E5L_15.50N_74.60E",
+        "E5L_15.50N_74.70E",
+        "E5L_15.60N_74.40E",
+        "E5L_15.60N_74.50E",
+        "E5L_15.60N_74.60E",
+        "E5L_15.60N_74.70E",
+        "E5L_15.70N_74.20E",
+        "E5L_15.70N_74.30E",
+        "E5L_15.70N_74.40E",
+        "E5L_15.70N_74.50E",
+        "E5L_15.70N_74.60E",
+        "E5L_15.70N_74.70E"
+      ],
+      "n_expected_era5_land_cells": 16,
+      "complete_gps_per_cell": {
+        "E5L_15.40N_74.60E": 2,
+        "E5L_15.40N_74.70E": 2,
+        "E5L_15.50N_74.40E": 1,
+        "E5L_15.50N_74.50E": 4,
+        "E5L_15.50N_74.60E": 3,
+        "E5L_15.50N_74.70E": 3,
+        "E5L_15.60N_74.40E": 1,
+        "E5L_15.60N_74.50E": 5,
+        "E5L_15.60N_74.60E": 5,
+        "E5L_15.60N_74.70E": 2,
+        "E5L_15.70N_74.20E": 2,
+        "E5L_15.70N_74.30E": 2,
+        "E5L_15.70N_74.40E": 2,
+        "E5L_15.70N_74.50E": 6,
+        "E5L_15.70N_74.60E": 7,
+        "E5L_15.70N_74.70E": 1
+      },
+      "era5_land_request_area_nwse": [
+        15.9,
+        74.0,
+        15.3,
+        74.8
+      ],
+      "era5_land_request_grid_points": 63,
+      "era5_request_area_nwse": [
+        16.0,
+        73.75,
+        15.0,
+        75.0
+      ],
+      "era5_request_grid_points": 30,
+      "elevation": {
+        "glo30_tiles_required": [
+          "Copernicus_DSM_COG_10_N15_00_E074_00_DEM"
+        ],
+        "already_on_disk": [],
+        "to_download": [
+          "Copernicus_DSM_COG_10_N15_00_E074_00_DEM"
+        ],
+        "all_publicly_listed": true
+      },
+      "distance_to_yelandur_km": 479.5286510301928,
+      "land_sea_gate": "all expected cells must be confirmed ERA5-Land land by the 4A mask request before acquisition",
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6108",
+        "district_holdout": "taluka_6108",
+        "regional_holdout": "regime_western_ghats_malnad",
+        "cell_group_diagnostic": [
+          "cellblock_0",
+          "cellblock_1",
+          "cellblock_4"
+        ]
+      }
+    },
+    {
+      "tp_code": "6246",
+      "tp_name": "Karkal",
+      "zp_code": "504",
+      "zp_name": "Udupi",
+      "geographic_regime": "coastal_inland_coast",
+      "selection": {
+        "round": 1,
+        "maximin_distance_km": 260.8638077071432
+      },
+      "lgd": {
+        "lgd_gram_panchayats": 27
+      },
+      "spatial_proxy": {
+        "status_counts": {
+          "COMPLETE": 27
+        },
+        "complete_gps": [
+          {
+            "gp_code": "220417",
+            "gp_name": "Bailoor",
+            "era5_land_cell": "E5L_13.30N_74.90E"
+          },
+          {
+            "gp_code": "220418",
+            "gp_name": "Belman",
+            "era5_land_cell": "E5L_13.20N_74.90E"
+          },
+          {
+            "gp_code": "220419",
+            "gp_name": "Bola",
+            "era5_land_cell": "E5L_13.10N_74.90E"
+          },
+          {
+            "gp_code": "220420",
+            "gp_name": "Durga",
+            "era5_land_cell": "E5L_13.20N_75.00E"
+          },
+          {
+            "gp_code": "220421",
+            "gp_name": "Erlapadi",
+            "era5_land_cell": "E5L_13.30N_74.90E"
+          },
+          {
+            "gp_code": "220423",
+            "gp_name": "Hirgana",
+            "era5_land_cell": "E5L_13.30N_75.00E"
+          },
+          {
+            "gp_code": "220424",
+            "gp_name": "Idu",
+            "era5_land_cell": "E5L_13.20N_75.10E"
+          },
+          {
+            "gp_code": "220425",
+            "gp_name": "Inna",
+            "era5_land_cell": "E5L_13.10N_74.80E"
+          },
+          {
+            "gp_code": "220426",
+            "gp_name": "Kadthala",
+            "era5_land_cell": "E5L_13.30N_75.00E"
+          },
+          {
+            "gp_code": "220427",
+            "gp_name": "Kanthavara",
+            "era5_land_cell": "E5L_13.10N_75.00E"
+          },
+          {
+            "gp_code": "220429",
+            "gp_name": "Kukkundoor",
+            "era5_land_cell": "E5L_13.20N_75.00E"
+          },
+          {
+            "gp_code": "220430",
+            "gp_name": "Mala",
+            "era5_land_cell": "E5L_13.20N_75.10E"
+          },
+          {
+            "gp_code": "220431",
+            "gp_name": "Marne",
+            "era5_land_cell": "E5L_13.30N_75.00E"
+          },
+          {
+            "gp_code": "220432",
+            "gp_name": "Miyaru",
+            "era5_land_cell": "E5L_13.20N_75.00E"
+          },
+          {
+            "gp_code": "220433",
+            "gp_name": "Mudaru",
+            "era5_land_cell": "E5L_13.20N_75.10E"
+          },
+          {
+            "gp_code": "220435",
+            "gp_name": "Mundkoor",
+            "era5_land_cell": "E5L_13.10N_74.90E"
+          },
+          {
+            "gp_code": "220437",
+            "gp_name": "Nalloor",
+            "era5_land_cell": "E5L_13.20N_75.10E"
+          },
+          {
+            "gp_code": "220438",
+            "gp_name": "Neere",
+            "era5_land_cell": "E5L_13.30N_74.90E"
+          },
+          {
+            "gp_code": "220439",
+            "gp_name": "Nitte",
+            "era5_land_cell": "E5L_13.20N_74.90E"
+          },
+          {
+            "gp_code": "220440",
+            "gp_name": "Palli",
+            "era5_land_cell": "E5L_13.20N_74.90E"
+          },
+          {
+            "gp_code": "220441",
+            "gp_name": "Renjala",
+            "era5_land_cell": "E5L_13.10N_75.00E"
+          },
+          {
+            "gp_code": "220442",
+            "gp_name": "Sanoor",
+            "era5_land_cell": "E5L_13.20N_75.00E"
+          },
+          {
+            "gp_code": "220443",
+            "gp_name": "Shirlal",
+            "era5_land_cell": "E5L_13.30N_75.10E"
+          },
+          {
+            "gp_code": "273009",
+            "gp_name": "Irvathauru",
+            "era5_land_cell": "E5L_13.10N_75.00E"
+          },
+          {
+            "gp_code": "273010",
+            "gp_name": "Kalya",
+            "era5_land_cell": "E5L_13.20N_74.90E"
+          },
+          {
+            "gp_code": "273011",
+            "gp_name": "Kervashe",
+            "era5_land_cell": "E5L_13.30N_75.10E"
+          },
+          {
+            "gp_code": "273012",
+            "gp_name": "Nandalike",
+            "era5_land_cell": "E5L_13.20N_74.90E"
+          }
+        ],
+        "complete_share": 1.0,
+        "villages": 38,
+        "villages_matched_exact_code": 38,
+        "complete_gps_with_shared_village": 0
+      },
+      "expected_era5_land_cells": [
+        "E5L_13.10N_74.80E",
+        "E5L_13.10N_74.90E",
+        "E5L_13.10N_75.00E",
+        "E5L_13.20N_74.90E",
+        "E5L_13.20N_75.00E",
+        "E5L_13.20N_75.10E",
+        "E5L_13.30N_74.90E",
+        "E5L_13.30N_75.00E",
+        "E5L_13.30N_75.10E"
+      ],
+      "n_expected_era5_land_cells": 9,
+      "complete_gps_per_cell": {
+        "E5L_13.10N_74.80E": 1,
+        "E5L_13.10N_74.90E": 2,
+        "E5L_13.10N_75.00E": 3,
+        "E5L_13.20N_74.90E": 5,
+        "E5L_13.20N_75.00E": 4,
+        "E5L_13.20N_75.10E": 4,
+        "E5L_13.30N_74.90E": 3,
+        "E5L_13.30N_75.00E": 3,
+        "E5L_13.30N_75.10E": 2
+      },
+      "era5_land_request_area_nwse": [
+        13.5,
+        74.7,
+        13.0,
+        75.3
+      ],
+      "era5_land_request_grid_points": 42,
+      "era5_request_area_nwse": [
+        13.75,
+        74.5,
+        12.75,
+        75.5
+      ],
+      "era5_request_grid_points": 25,
+      "elevation": {
+        "glo30_tiles_required": [
+          "Copernicus_DSM_COG_10_N13_00_E074_00_DEM",
+          "Copernicus_DSM_COG_10_N13_00_E075_00_DEM"
+        ],
+        "already_on_disk": [],
+        "to_download": [
+          "Copernicus_DSM_COG_10_N13_00_E074_00_DEM",
+          "Copernicus_DSM_COG_10_N13_00_E075_00_DEM"
+        ],
+        "all_publicly_listed": true
+      },
+      "distance_to_yelandur_km": 260.8638077071432,
+      "land_sea_gate": "all expected cells must be confirmed ERA5-Land land by the 4A mask request before acquisition",
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6246",
+        "district_holdout": "taluka_6246",
+        "regional_holdout": "regime_coastal_inland_coast",
+        "cell_group_diagnostic": [
+          "cellblock_0",
+          "cellblock_1",
+          "cellblock_3",
+          "cellblock_4"
+        ]
+      }
+    },
+    {
+      "tp_code": "296804",
+      "tp_name": "Chittaguppa",
+      "zp_code": "484",
+      "zp_name": "Bidar",
+      "geographic_regime": "northern_dry_plains",
+      "selection": {
+        "round": 1,
+        "maximin_distance_km": 374.74297541340235
+      },
+      "lgd": {
+        "lgd_gram_panchayats": 14
+      },
+      "spatial_proxy": {
+        "status_counts": {
+          "COMPLETE": 12,
+          "PARTIAL": 2
+        },
+        "complete_gps": [
+          {
+            "gp_code": "216436",
+            "gp_name": "Belkera",
+            "era5_land_cell": "E5L_17.70N_77.30E"
+          },
+          {
+            "gp_code": "216440",
+            "gp_name": "Changlera",
+            "era5_land_cell": "E5L_17.60N_77.40E"
+          },
+          {
+            "gp_code": "216449",
+            "gp_name": "Itga",
+            "era5_land_cell": "E5L_17.70N_77.20E"
+          },
+          {
+            "gp_code": "216452",
+            "gp_name": "Kodambal",
+            "era5_land_cell": "E5L_17.60N_77.20E"
+          },
+          {
+            "gp_code": "216454",
+            "gp_name": "Manekheli",
+            "era5_land_cell": "E5L_17.70N_77.40E"
+          },
+          {
+            "gp_code": "216455",
+            "gp_name": "Mangalgi",
+            "era5_land_cell": "E5L_17.70N_77.30E"
+          },
+          {
+            "gp_code": "216457",
+            "gp_name": "Meenkera",
+            "era5_land_cell": "E5L_17.70N_77.40E"
+          },
+          {
+            "gp_code": "216459",
+            "gp_name": "Mutangi",
+            "era5_land_cell": "E5L_17.60N_77.30E"
+          },
+          {
+            "gp_code": "216461",
+            "gp_name": "Nirna",
+            "era5_land_cell": "E5L_17.70N_77.30E"
+          },
+          {
+            "gp_code": "216466",
+            "gp_name": "Talmadgi",
+            "era5_land_cell": "E5L_17.80N_77.20E"
+          },
+          {
+            "gp_code": "216467",
+            "gp_name": "Udbal",
+            "era5_land_cell": "E5L_17.70N_77.30E"
+          },
+          {
+            "gp_code": "216468",
+            "gp_name": "Udbanalli",
+            "era5_land_cell": "E5L_17.60N_77.40E"
+          }
+        ],
+        "complete_share": 0.8571428571428571,
+        "villages": 37,
+        "villages_matched_exact_code": 35,
+        "complete_gps_with_shared_village": 0
+      },
+      "expected_era5_land_cells": [
+        "E5L_17.60N_77.20E",
+        "E5L_17.60N_77.30E",
+        "E5L_17.60N_77.40E",
+        "E5L_17.70N_77.20E",
+        "E5L_17.70N_77.30E",
+        "E5L_17.70N_77.40E",
+        "E5L_17.80N_77.20E"
+      ],
+      "n_expected_era5_land_cells": 7,
+      "complete_gps_per_cell": {
+        "E5L_17.60N_77.20E": 1,
+        "E5L_17.60N_77.30E": 1,
+        "E5L_17.60N_77.40E": 2,
+        "E5L_17.70N_77.20E": 1,
+        "E5L_17.70N_77.30E": 4,
+        "E5L_17.70N_77.40E": 2,
+        "E5L_17.80N_77.20E": 1
+      },
+      "era5_land_request_area_nwse": [
+        17.9,
+        77.0,
+        17.5,
+        77.6
+      ],
+      "era5_land_request_grid_points": 35,
+      "era5_request_area_nwse": [
+        18.25,
+        76.75,
+        17.25,
+        77.75
+      ],
+      "era5_request_grid_points": 25,
+      "elevation": {
+        "glo30_tiles_required": [
+          "Copernicus_DSM_COG_10_N17_00_E077_00_DEM"
+        ],
+        "already_on_disk": [],
+        "to_download": [
+          "Copernicus_DSM_COG_10_N17_00_E077_00_DEM"
+        ],
+        "all_publicly_listed": true
+      },
+      "distance_to_yelandur_km": 625.8970733176465,
+      "land_sea_gate": "all expected cells must be confirmed ERA5-Land land by the 4A mask request before acquisition",
+      "fold_assignment": {
+        "taluka_holdout": "taluka_296804",
+        "district_holdout": "taluka_296804",
+        "regional_holdout": "regime_northern_dry_plains",
+        "cell_group_diagnostic": [
+          "cellblock_0",
+          "cellblock_1",
+          "cellblock_2",
+          "cellblock_3"
+        ]
+      }
+    },
+    {
+      "tp_code": "6112",
+      "tp_name": "Ballari",
+      "zp_code": "483",
+      "zp_name": "Ballari",
+      "geographic_regime": "central_plateau",
+      "selection": {
+        "round": 1,
+        "maximin_distance_km": 266.8953823662168
+      },
+      "lgd": {
+        "lgd_gram_panchayats": 25
+      },
+      "spatial_proxy": {
+        "status_counts": {
+          "COMPLETE": 25
+        },
+        "complete_gps": [
+          {
+            "gp_code": "216105",
+            "gp_name": "Amarapura",
+            "era5_land_cell": "E5L_15.10N_77.00E"
+          },
+          {
+            "gp_code": "216106",
+            "gp_name": "B.D.Halli",
+            "era5_land_cell": "E5L_15.20N_77.00E"
+          },
+          {
+            "gp_code": "216108",
+            "gp_name": "Basarakod",
+            "era5_land_cell": "E5L_15.30N_77.00E"
+          },
+          {
+            "gp_code": "216109",
+            "gp_name": "Belagallu",
+            "era5_land_cell": "E5L_15.10N_76.80E"
+          },
+          {
+            "gp_code": "216110",
+            "gp_name": "Chalagurki",
+            "era5_land_cell": "E5L_15.10N_77.10E"
+          },
+          {
+            "gp_code": "216114",
+            "gp_name": "Halakundi",
+            "era5_land_cell": "E5L_15.10N_76.90E"
+          },
+          {
+            "gp_code": "216115",
+            "gp_name": "Handihal",
+            "era5_land_cell": "E5L_15.30N_77.00E"
+          },
+          {
+            "gp_code": "216117",
+            "gp_name": "Kappagal",
+            "era5_land_cell": "E5L_15.20N_77.00E"
+          },
+          {
+            "gp_code": "216118",
+            "gp_name": "Karekal",
+            "era5_land_cell": "E5L_15.20N_77.10E"
+          },
+          {
+            "gp_code": "216119",
+            "gp_name": "Kolagallu",
+            "era5_land_cell": "E5L_15.20N_76.80E"
+          },
+          {
+            "gp_code": "216121",
+            "gp_name": "Koralgundhi",
+            "era5_land_cell": "E5L_15.30N_77.00E"
+          },
+          {
+            "gp_code": "216124",
+            "gp_name": "M.Gonal",
+            "era5_land_cell": "E5L_15.30N_77.10E"
+          },
+          {
+            "gp_code": "216125",
+            "gp_name": "Moka",
+            "era5_land_cell": "E5L_15.20N_77.00E"
+          },
+          {
+            "gp_code": "216128",
+            "gp_name": "P.D.Halli",
+            "era5_land_cell": "E5L_15.10N_77.10E"
+          },
+          {
+            "gp_code": "216129",
+            "gp_name": "Rupanagudi",
+            "era5_land_cell": "E5L_15.10N_77.10E"
+          },
+          {
+            "gp_code": "216130",
+            "gp_name": "Sanganakal",
+            "era5_land_cell": "E5L_15.20N_76.90E"
+          },
+          {
+            "gp_code": "216131",
+            "gp_name": "Sanjeevarayanakote",
+            "era5_land_cell": "E5L_15.10N_76.90E"
+          },
+          {
+            "gp_code": "216132",
+            "gp_name": "Shankarabanda",
+            "era5_land_cell": "E5L_15.10N_77.00E"
+          },
+          {
+            "gp_code": "216134",
+            "gp_name": "Sidiginamola",
+            "era5_land_cell": "E5L_15.20N_77.10E"
+          },
+          {
+            "gp_code": "216136",
+            "gp_name": "Sirivar",
+            "era5_land_cell": "E5L_15.20N_77.00E"
+          },
+          {
+            "gp_code": "216138",
+            "gp_name": "Sridharagadda",
+            "era5_land_cell": "E5L_15.20N_76.90E"
+          },
+          {
+            "gp_code": "216139",
+            "gp_name": "Vanenoor",
+            "era5_land_cell": "E5L_15.30N_77.00E"
+          },
+          {
+            "gp_code": "216140",
+            "gp_name": "Yathenabudihal",
+            "era5_land_cell": "E5L_15.10N_77.00E"
+          },
+          {
+            "gp_code": "216144",
+            "gp_name": "Yerragudi",
+            "era5_land_cell": "E5L_15.30N_77.10E"
+          },
+          {
+            "gp_code": "273253",
+            "gp_name": "Chanalu",
+            "era5_land_cell": "E5L_15.40N_77.00E"
+          }
+        ],
+        "complete_share": 1.0,
+        "villages": 67,
+        "villages_matched_exact_code": 67,
+        "complete_gps_with_shared_village": 0
+      },
+      "expected_era5_land_cells": [
+        "E5L_15.10N_76.80E",
+        "E5L_15.10N_76.90E",
+        "E5L_15.10N_77.00E",
+        "E5L_15.10N_77.10E",
+        "E5L_15.20N_76.80E",
+        "E5L_15.20N_76.90E",
+        "E5L_15.20N_77.00E",
+        "E5L_15.20N_77.10E",
+        "E5L_15.30N_77.00E",
+        "E5L_15.30N_77.10E",
+        "E5L_15.40N_77.00E"
+      ],
+      "n_expected_era5_land_cells": 11,
+      "complete_gps_per_cell": {
+        "E5L_15.10N_76.80E": 1,
+        "E5L_15.10N_76.90E": 2,
+        "E5L_15.10N_77.00E": 3,
+        "E5L_15.10N_77.10E": 3,
+        "E5L_15.20N_76.80E": 1,
+        "E5L_15.20N_76.90E": 2,
+        "E5L_15.20N_77.00E": 4,
+        "E5L_15.20N_77.10E": 2,
+        "E5L_15.30N_77.00E": 4,
+        "E5L_15.30N_77.10E": 2,
+        "E5L_15.40N_77.00E": 1
+      },
+      "era5_land_request_area_nwse": [
+        15.5,
+        76.6,
+        14.9,
+        77.3
+      ],
+      "era5_land_request_grid_points": 56,
+      "era5_request_area_nwse": [
+        15.75,
+        76.5,
+        14.75,
+        77.5
+      ],
+      "era5_request_grid_points": 25,
+      "elevation": {
+        "glo30_tiles_required": [
+          "Copernicus_DSM_COG_10_N15_00_E076_00_DEM",
+          "Copernicus_DSM_COG_10_N15_00_E077_00_DEM"
+        ],
+        "already_on_disk": [],
+        "to_download": [
+          "Copernicus_DSM_COG_10_N15_00_E076_00_DEM",
+          "Copernicus_DSM_COG_10_N15_00_E077_00_DEM"
+        ],
+        "all_publicly_listed": true
+      },
+      "distance_to_yelandur_km": 349.4578550990084,
+      "land_sea_gate": "all expected cells must be confirmed ERA5-Land land by the 4A mask request before acquisition",
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6112",
+        "district_holdout": "taluka_6112",
+        "regional_holdout": "regime_central_plateau",
+        "cell_group_diagnostic": [
+          "cellblock_2",
+          "cellblock_3",
+          "cellblock_4"
+        ]
+      }
+    },
+    {
+      "tp_code": "6178",
+      "tp_name": "Arkalgud",
+      "zp_code": "494",
+      "zp_name": "Hassan",
+      "geographic_regime": "southern_plateau",
+      "selection": {
+        "round": 1,
+        "maximin_distance_km": 126.8178514494693
+      },
+      "lgd": {
+        "lgd_gram_panchayats": 36
+      },
+      "spatial_proxy": {
+        "status_counts": {
+          "COMPLETE": 31,
+          "PARTIAL": 5
+        },
+        "complete_gps": [
+          {
+            "gp_code": "218216",
+            "gp_name": "Agrahara",
+            "era5_land_cell": "E5L_12.70N_76.10E"
+          },
+          {
+            "gp_code": "218217",
+            "gp_name": "Bannur",
+            "era5_land_cell": "E5L_12.60N_76.00E"
+          },
+          {
+            "gp_code": "218218",
+            "gp_name": "Basavapatna",
+            "era5_land_cell": "E5L_12.60N_76.10E"
+          },
+          {
+            "gp_code": "218220",
+            "gp_name": "Bychanahalli",
+            "era5_land_cell": "E5L_12.80N_76.20E"
+          },
+          {
+            "gp_code": "218221",
+            "gp_name": "Chikkanahalli",
+            "era5_land_cell": "E5L_12.70N_76.10E"
+          },
+          {
+            "gp_code": "218222",
+            "gp_name": "Dodda Bemmathi",
+            "era5_land_cell": "E5L_12.70N_76.00E"
+          },
+          {
+            "gp_code": "218223",
+            "gp_name": "Dodda Magge",
+            "era5_land_cell": "E5L_12.70N_76.10E"
+          },
+          {
+            "gp_code": "218224",
+            "gp_name": "Gangoor",
+            "era5_land_cell": "E5L_12.60N_76.10E"
+          },
+          {
+            "gp_code": "218226",
+            "gp_name": "Handrangi",
+            "era5_land_cell": "E5L_12.60N_76.00E"
+          },
+          {
+            "gp_code": "218227",
+            "gp_name": "Hebbale",
+            "era5_land_cell": "E5L_12.80N_76.10E"
+          },
+          {
+            "gp_code": "218228",
+            "gp_name": "Holalagodu",
+            "era5_land_cell": "E5L_12.70N_76.00E"
+          },
+          {
+            "gp_code": "218229",
+            "gp_name": "Honnavalli",
+            "era5_land_cell": "E5L_12.80N_76.10E"
+          },
+          {
+            "gp_code": "218230",
+            "gp_name": "Hulikallu",
+            "era5_land_cell": "E5L_12.70N_76.10E"
+          },
+          {
+            "gp_code": "218231",
+            "gp_name": "Kalenahalli",
+            "era5_land_cell": "E5L_12.60N_76.20E"
+          },
+          {
+            "gp_code": "218232",
+            "gp_name": "Kattepura",
+            "era5_land_cell": "E5L_12.60N_76.10E"
+          },
+          {
+            "gp_code": "218233",
+            "gp_name": "Katti Mallenahalli",
+            "era5_land_cell": "E5L_12.70N_76.10E"
+          },
+          {
+            "gp_code": "218234",
+            "gp_name": "Keralapura",
+            "era5_land_cell": "E5L_12.60N_76.20E"
+          },
+          {
+            "gp_code": "218235",
+            "gp_name": "Konanur",
+            "era5_land_cell": "E5L_12.60N_76.10E"
+          },
+          {
+            "gp_code": "218236",
+            "gp_name": "Lakkur",
+            "era5_land_cell": "E5L_12.50N_76.10E"
+          },
+          {
+            "gp_code": "218237",
+            "gp_name": "Mallipatna",
+            "era5_land_cell": "E5L_12.80N_76.00E"
+          },
+          {
+            "gp_code": "218238",
+            "gp_name": "Ramanathapura",
+            "era5_land_cell": "E5L_12.60N_76.10E"
+          },
+          {
+            "gp_code": "218239",
+            "gp_name": "Rudrapatna",
+            "era5_land_cell": "E5L_12.60N_76.10E"
+          },
+          {
+            "gp_code": "218240",
+            "gp_name": "Santhemarur",
+            "era5_land_cell": "E5L_12.70N_76.10E"
+          },
+          {
+            "gp_code": "218241",
+            "gp_name": "Saragoor",
+            "era5_land_cell": "E5L_12.60N_76.00E"
+          },
+          {
+            "gp_code": "218244",
+            "gp_name": "Yalagathavalli",
+            "era5_land_cell": "E5L_12.70N_76.20E"
+          },
+          {
+            "gp_code": "272741",
+            "gp_name": "Koratikere",
+            "era5_land_cell": "E5L_12.70N_76.10E"
+          },
+          {
+            "gp_code": "272742",
+            "gp_name": "Tarigalale",
+            "era5_land_cell": "E5L_12.60N_76.00E"
+          },
+          {
+            "gp_code": "272839",
+            "gp_name": "Mokali",
+            "era5_land_cell": "E5L_12.70N_76.10E"
+          },
+          {
+            "gp_code": "272840",
+            "gp_name": "Hanyalu",
+            "era5_land_cell": "E5L_12.60N_76.10E"
+          },
+          {
+            "gp_code": "272841",
+            "gp_name": "Heggadihalli",
+            "era5_land_cell": "E5L_12.70N_76.00E"
+          },
+          {
+            "gp_code": "272844",
+            "gp_name": "Kaduvinahosahalli",
+            "era5_land_cell": "E5L_12.60N_76.00E"
+          }
+        ],
+        "complete_share": 0.8611111111111112,
+        "villages": 301,
+        "villages_matched_exact_code": 296,
+        "complete_gps_with_shared_village": 0
+      },
+      "expected_era5_land_cells": [
+        "E5L_12.50N_76.10E",
+        "E5L_12.60N_76.00E",
+        "E5L_12.60N_76.10E",
+        "E5L_12.60N_76.20E",
+        "E5L_12.70N_76.00E",
+        "E5L_12.70N_76.10E",
+        "E5L_12.70N_76.20E",
+        "E5L_12.80N_76.00E",
+        "E5L_12.80N_76.10E",
+        "E5L_12.80N_76.20E"
+      ],
+      "n_expected_era5_land_cells": 10,
+      "complete_gps_per_cell": {
+        "E5L_12.50N_76.10E": 1,
+        "E5L_12.60N_76.00E": 5,
+        "E5L_12.60N_76.10E": 7,
+        "E5L_12.60N_76.20E": 2,
+        "E5L_12.70N_76.00E": 3,
+        "E5L_12.70N_76.10E": 8,
+        "E5L_12.70N_76.20E": 1,
+        "E5L_12.80N_76.00E": 1,
+        "E5L_12.80N_76.10E": 2,
+        "E5L_12.80N_76.20E": 1
+      },
+      "era5_land_request_area_nwse": [
+        12.9,
+        75.8,
+        12.4,
+        76.3
+      ],
+      "era5_land_request_grid_points": 36,
+      "era5_request_area_nwse": [
+        13.25,
+        75.75,
+        12.25,
+        76.5
+      ],
+      "era5_request_grid_points": 20,
+      "elevation": {
+        "glo30_tiles_required": [
+          "Copernicus_DSM_COG_10_N12_00_E075_00_DEM",
+          "Copernicus_DSM_COG_10_N12_00_E076_00_DEM"
+        ],
+        "already_on_disk": [
+          "Copernicus_DSM_COG_10_N12_00_E076_00_DEM"
+        ],
+        "to_download": [
+          "Copernicus_DSM_COG_10_N12_00_E075_00_DEM"
+        ],
+        "all_publicly_listed": true
+      },
+      "distance_to_yelandur_km": 126.8178514494693,
+      "land_sea_gate": "all expected cells must be confirmed ERA5-Land land by the 4A mask request before acquisition",
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6178",
+        "district_holdout": "taluka_6178",
+        "regional_holdout": "regime_southern_plateau",
+        "cell_group_diagnostic": [
+          "cellblock_0",
+          "cellblock_1",
+          "cellblock_2"
+        ]
+      }
+    },
+    {
+      "tp_code": "6198",
+      "tp_name": "Chintamani",
+      "zp_code": "574",
+      "zp_name": "Chikballapur",
+      "geographic_regime": "eastern_plateau",
+      "selection": {
+        "round": 1,
+        "maximin_distance_km": 187.64727433702348
+      },
+      "lgd": {
+        "lgd_gram_panchayats": 32
+      },
+      "spatial_proxy": {
+        "status_counts": {
+          "COMPLETE": 26,
+          "NO_LGD_VILLAGES": 1,
+          "PARTIAL": 5
+        },
+        "complete_gps": [
+          {
+            "gp_code": "218846",
+            "gp_name": "Anur",
+            "era5_land_cell": "E5L_13.30N_78.10E"
+          },
+          {
+            "gp_code": "218848",
+            "gp_name": "Bhommisettihalli",
+            "era5_land_cell": "E5L_13.50N_78.10E"
+          },
+          {
+            "gp_code": "218851",
+            "gp_name": "Chinnasandra",
+            "era5_land_cell": "E5L_13.40N_78.00E"
+          },
+          {
+            "gp_code": "218852",
+            "gp_name": "Doddaganjur",
+            "era5_land_cell": "E5L_13.40N_78.10E"
+          },
+          {
+            "gp_code": "218853",
+            "gp_name": "Hirekattigenahalli",
+            "era5_land_cell": "E5L_13.30N_78.00E"
+          },
+          {
+            "gp_code": "218855",
+            "gp_name": "Kadadanamari",
+            "era5_land_cell": "E5L_13.60N_78.10E"
+          },
+          {
+            "gp_code": "218856",
+            "gp_name": "Kagathi",
+            "era5_land_cell": "E5L_13.40N_78.10E"
+          },
+          {
+            "gp_code": "218858",
+            "gp_name": "Kattariguppa",
+            "era5_land_cell": "E5L_13.40N_78.00E"
+          },
+          {
+            "gp_code": "218859",
+            "gp_name": "Kencharlahalli",
+            "era5_land_cell": "E5L_13.60N_78.10E"
+          },
+          {
+            "gp_code": "218860",
+            "gp_name": "Konapalli",
+            "era5_land_cell": "E5L_13.50N_78.00E"
+          },
+          {
+            "gp_code": "218861",
+            "gp_name": "Korlaparthi",
+            "era5_land_cell": "E5L_13.60N_78.00E"
+          },
+          {
+            "gp_code": "218862",
+            "gp_name": "Kotagal",
+            "era5_land_cell": "E5L_13.50N_78.10E"
+          },
+          {
+            "gp_code": "218863",
+            "gp_name": "Kurubur",
+            "era5_land_cell": "E5L_13.30N_78.10E"
+          },
+          {
+            "gp_code": "218864",
+            "gp_name": "Mastenahalli",
+            "era5_land_cell": "E5L_13.40N_78.00E"
+          },
+          {
+            "gp_code": "218865",
+            "gp_name": "Mitta Halli",
+            "era5_land_cell": "E5L_13.50N_78.00E"
+          },
+          {
+            "gp_code": "218866",
+            "gp_name": "Moodlagollahalli",
+            "era5_land_cell": "E5L_13.50N_78.20E"
+          },
+          {
+            "gp_code": "218867",
+            "gp_name": "Munaganahalli",
+            "era5_land_cell": "E5L_13.40N_78.10E"
+          },
+          {
+            "gp_code": "218868",
+            "gp_name": "Muragamalla",
+            "era5_land_cell": "E5L_13.50N_78.10E"
+          },
+          {
+            "gp_code": "218869",
+            "gp_name": "Nandiganahalli",
+            "era5_land_cell": "E5L_13.40N_78.20E"
+          },
+          {
+            "gp_code": "218870",
+            "gp_name": "Oolavadi",
+            "era5_land_cell": "E5L_13.40N_78.10E"
+          },
+          {
+            "gp_code": "218872",
+            "gp_name": "Perumachana Halli",
+            "era5_land_cell": "E5L_13.30N_78.00E"
+          },
+          {
+            "gp_code": "218873",
+            "gp_name": "Raguttahalli",
+            "era5_land_cell": "E5L_13.50N_78.10E"
+          },
+          {
+            "gp_code": "218874",
+            "gp_name": "Santekalla Halli",
+            "era5_land_cell": "E5L_13.30N_77.90E"
+          },
+          {
+            "gp_code": "218875",
+            "gp_name": "Settyhalli",
+            "era5_land_cell": "E5L_13.50N_78.00E"
+          },
+          {
+            "gp_code": "218876",
+            "gp_name": "Talagawara",
+            "era5_land_cell": "E5L_13.30N_78.00E"
+          },
+          {
+            "gp_code": "218878",
+            "gp_name": "Yagavakote",
+            "era5_land_cell": "E5L_13.50N_78.10E"
+          }
+        ],
+        "complete_share": 0.8125,
+        "villages": 370,
+        "villages_matched_exact_code": 363,
+        "complete_gps_with_shared_village": 0
+      },
+      "expected_era5_land_cells": [
+        "E5L_13.30N_77.90E",
+        "E5L_13.30N_78.00E",
+        "E5L_13.30N_78.10E",
+        "E5L_13.40N_78.00E",
+        "E5L_13.40N_78.10E",
+        "E5L_13.40N_78.20E",
+        "E5L_13.50N_78.00E",
+        "E5L_13.50N_78.10E",
+        "E5L_13.50N_78.20E",
+        "E5L_13.60N_78.00E",
+        "E5L_13.60N_78.10E"
+      ],
+      "n_expected_era5_land_cells": 11,
+      "complete_gps_per_cell": {
+        "E5L_13.30N_77.90E": 1,
+        "E5L_13.30N_78.00E": 3,
+        "E5L_13.30N_78.10E": 2,
+        "E5L_13.40N_78.00E": 3,
+        "E5L_13.40N_78.10E": 4,
+        "E5L_13.40N_78.20E": 1,
+        "E5L_13.50N_78.00E": 3,
+        "E5L_13.50N_78.10E": 5,
+        "E5L_13.50N_78.20E": 1,
+        "E5L_13.60N_78.00E": 1,
+        "E5L_13.60N_78.10E": 2
+      },
+      "era5_land_request_area_nwse": [
+        13.8,
+        77.6,
+        13.2,
+        78.3
+      ],
+      "era5_land_request_grid_points": 56,
+      "era5_request_area_nwse": [
+        14.0,
+        77.5,
+        13.0,
+        78.5
+      ],
+      "era5_request_grid_points": 25,
+      "elevation": {
+        "glo30_tiles_required": [
+          "Copernicus_DSM_COG_10_N13_00_E077_00_DEM",
+          "Copernicus_DSM_COG_10_N13_00_E078_00_DEM"
+        ],
+        "already_on_disk": [],
+        "to_download": [
+          "Copernicus_DSM_COG_10_N13_00_E077_00_DEM",
+          "Copernicus_DSM_COG_10_N13_00_E078_00_DEM"
+        ],
+        "all_publicly_listed": true
+      },
+      "distance_to_yelandur_km": 187.64727433702348,
+      "land_sea_gate": "all expected cells must be confirmed ERA5-Land land by the 4A mask request before acquisition",
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6198",
+        "district_holdout": "taluka_6198",
+        "regional_holdout": "regime_eastern_plateau",
+        "cell_group_diagnostic": [
+          "cellblock_0",
+          "cellblock_1",
+          "cellblock_2"
+        ]
+      }
+    },
+    {
+      "tp_code": "6234",
+      "tp_name": "Sorab",
+      "zp_code": "502",
+      "zp_name": "Shivamogga",
+      "geographic_regime": "western_ghats_malnad",
+      "selection": {
+        "round": 2,
+        "maximin_distance_km": 138.08594319269235
+      },
+      "lgd": {
+        "lgd_gram_panchayats": 35
+      },
+      "spatial_proxy": {
+        "status_counts": {
+          "COMPLETE": 34,
+          "PARTIAL": 1
+        },
+        "complete_gps": [
+          {
+            "gp_code": "220018",
+            "gp_name": "Agasanahalli",
+            "era5_land_cell": "E5L_14.60N_75.10E"
+          },
+          {
+            "gp_code": "220020",
+            "gp_name": "Barangi",
+            "era5_land_cell": "E5L_14.60N_75.30E"
+          },
+          {
+            "gp_code": "220021",
+            "gp_name": "Bennur",
+            "era5_land_cell": "E5L_14.50N_75.00E"
+          },
+          {
+            "gp_code": "220022",
+            "gp_name": "Bilavalni",
+            "era5_land_cell": "E5L_14.40N_75.20E"
+          },
+          {
+            "gp_code": "220023",
+            "gp_name": "Chandragutti",
+            "era5_land_cell": "E5L_14.40N_75.00E"
+          },
+          {
+            "gp_code": "220024",
+            "gp_name": "Chitturu",
+            "era5_land_cell": "E5L_14.30N_75.20E"
+          },
+          {
+            "gp_code": "220025",
+            "gp_name": "Dyavanahalli",
+            "era5_land_cell": "E5L_14.50N_75.10E"
+          },
+          {
+            "gp_code": "220026",
+            "gp_name": "Gendla",
+            "era5_land_cell": "E5L_14.50N_75.10E"
+          },
+          {
+            "gp_code": "220027",
+            "gp_name": "Guduvi",
+            "era5_land_cell": "E5L_14.40N_75.00E"
+          },
+          {
+            "gp_code": "220029",
+            "gp_name": "Hanchi",
+            "era5_land_cell": "E5L_14.50N_75.20E"
+          },
+          {
+            "gp_code": "220030",
+            "gp_name": "Harishi",
+            "era5_land_cell": "E5L_14.50N_74.90E"
+          },
+          {
+            "gp_code": "220031",
+            "gp_name": "Heche",
+            "era5_land_cell": "E5L_14.40N_75.00E"
+          },
+          {
+            "gp_code": "220032",
+            "gp_name": "Heggodu",
+            "era5_land_cell": "E5L_14.30N_75.10E"
+          },
+          {
+            "gp_code": "220033",
+            "gp_name": "Hosabale",
+            "era5_land_cell": "E5L_14.30N_75.00E"
+          },
+          {
+            "gp_code": "220034",
+            "gp_name": "Hurali",
+            "era5_land_cell": "E5L_14.60N_75.20E"
+          },
+          {
+            "gp_code": "220035",
+            "gp_name": "Induvalli",
+            "era5_land_cell": "E5L_14.30N_75.20E"
+          },
+          {
+            "gp_code": "220036",
+            "gp_name": "Jade",
+            "era5_land_cell": "E5L_14.60N_75.10E"
+          },
+          {
+            "gp_code": "220037",
+            "gp_name": "Katuvalli",
+            "era5_land_cell": "E5L_14.50N_75.10E"
+          },
+          {
+            "gp_code": "220040",
+            "gp_name": "Kuppagadde",
+            "era5_land_cell": "E5L_14.50N_75.10E"
+          },
+          {
+            "gp_code": "220041",
+            "gp_name": "Mavali",
+            "era5_land_cell": "E5L_14.40N_75.20E"
+          },
+          {
+            "gp_code": "220042",
+            "gp_name": "Mudi--Doddikoppa",
+            "era5_land_cell": "E5L_14.60N_75.20E"
+          },
+          {
+            "gp_code": "220043",
+            "gp_name": "Mutuguppe",
+            "era5_land_cell": "E5L_14.30N_75.00E"
+          },
+          {
+            "gp_code": "220044",
+            "gp_name": "Nisarani",
+            "era5_land_cell": "E5L_14.30N_75.10E"
+          },
+          {
+            "gp_code": "220045",
+            "gp_name": "Nyarsi",
+            "era5_land_cell": "E5L_14.40N_75.00E"
+          },
+          {
+            "gp_code": "220047",
+            "gp_name": "Shakunavalli",
+            "era5_land_cell": "E5L_14.60N_75.10E"
+          },
+          {
+            "gp_code": "220048",
+            "gp_name": "Shigga",
+            "era5_land_cell": "E5L_14.30N_75.20E"
+          },
+          {
+            "gp_code": "220049",
+            "gp_name": "Talagaddi",
+            "era5_land_cell": "E5L_14.60N_75.10E"
+          },
+          {
+            "gp_code": "220050",
+            "gp_name": "Thelagunda",
+            "era5_land_cell": "E5L_14.60N_75.10E"
+          },
+          {
+            "gp_code": "220053",
+            "gp_name": "Tavanandi",
+            "era5_land_cell": "E5L_14.40N_75.10E"
+          },
+          {
+            "gp_code": "220054",
+            "gp_name": "Udri",
+            "era5_land_cell": "E5L_14.40N_75.10E"
+          },
+          {
+            "gp_code": "220055",
+            "gp_name": "Ulavi",
+            "era5_land_cell": "E5L_14.30N_75.10E"
+          },
+          {
+            "gp_code": "220056",
+            "gp_name": "Ennekoppa",
+            "era5_land_cell": "E5L_14.50N_75.20E"
+          },
+          {
+            "gp_code": "272954",
+            "gp_name": "Andige",
+            "era5_land_cell": "E5L_14.40N_75.20E"
+          },
+          {
+            "gp_code": "272956",
+            "gp_name": "Duguru",
+            "era5_land_cell": "E5L_14.30N_75.10E"
+          }
+        ],
+        "complete_share": 0.9714285714285714,
+        "villages": 289,
+        "villages_matched_exact_code": 288,
+        "complete_gps_with_shared_village": 0
+      },
+      "expected_era5_land_cells": [
+        "E5L_14.30N_75.00E",
+        "E5L_14.30N_75.10E",
+        "E5L_14.30N_75.20E",
+        "E5L_14.40N_75.00E",
+        "E5L_14.40N_75.10E",
+        "E5L_14.40N_75.20E",
+        "E5L_14.50N_74.90E",
+        "E5L_14.50N_75.00E",
+        "E5L_14.50N_75.10E",
+        "E5L_14.50N_75.20E",
+        "E5L_14.60N_75.10E",
+        "E5L_14.60N_75.20E",
+        "E5L_14.60N_75.30E"
+      ],
+      "n_expected_era5_land_cells": 13,
+      "complete_gps_per_cell": {
+        "E5L_14.30N_75.00E": 2,
+        "E5L_14.30N_75.10E": 4,
+        "E5L_14.30N_75.20E": 3,
+        "E5L_14.40N_75.00E": 4,
+        "E5L_14.40N_75.10E": 2,
+        "E5L_14.40N_75.20E": 3,
+        "E5L_14.50N_74.90E": 1,
+        "E5L_14.50N_75.00E": 1,
+        "E5L_14.50N_75.10E": 4,
+        "E5L_14.50N_75.20E": 2,
+        "E5L_14.60N_75.10E": 5,
+        "E5L_14.60N_75.20E": 2,
+        "E5L_14.60N_75.30E": 1
+      },
+      "era5_land_request_area_nwse": [
+        14.8,
+        74.8,
+        14.1,
+        75.4
+      ],
+      "era5_land_request_grid_points": 56,
+      "era5_request_area_nwse": [
+        15.0,
+        74.5,
+        14.0,
+        75.75
+      ],
+      "era5_request_grid_points": 30,
+      "elevation": {
+        "glo30_tiles_required": [
+          "Copernicus_DSM_COG_10_N14_00_E074_00_DEM",
+          "Copernicus_DSM_COG_10_N14_00_E075_00_DEM"
+        ],
+        "already_on_disk": [],
+        "to_download": [
+          "Copernicus_DSM_COG_10_N14_00_E074_00_DEM",
+          "Copernicus_DSM_COG_10_N14_00_E075_00_DEM"
+        ],
+        "all_publicly_listed": true
+      },
+      "distance_to_yelandur_km": 340.35204059355857,
+      "land_sea_gate": "all expected cells must be confirmed ERA5-Land land by the 4A mask request before acquisition",
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6234",
+        "district_holdout": "taluka_6234",
+        "regional_holdout": "regime_western_ghats_malnad",
+        "cell_group_diagnostic": [
+          "cellblock_0",
+          "cellblock_3",
+          "cellblock_4"
+        ]
+      }
+    },
+    {
+      "tp_code": "6253",
+      "tp_name": "Karwar",
+      "zp_code": "505",
+      "zp_name": "Uttara Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "selection": {
+        "round": 2,
+        "maximin_distance_km": 89.03411961181816
+      },
+      "lgd": {
+        "lgd_gram_panchayats": 18
+      },
+      "spatial_proxy": {
+        "status_counts": {
+          "COMPLETE": 16,
+          "PARTIAL": 2
+        },
+        "complete_gps": [
+          {
+            "gp_code": "220642",
+            "gp_name": "Amdalli",
+            "era5_land_cell": "E5L_14.80N_74.20E"
+          },
+          {
+            "gp_code": "220644",
+            "gp_name": "Asnoti",
+            "era5_land_cell": "E5L_14.90N_74.20E"
+          },
+          {
+            "gp_code": "220647",
+            "gp_name": "Devalmakki",
+            "era5_land_cell": "E5L_14.80N_74.30E"
+          },
+          {
+            "gp_code": "220648",
+            "gp_name": "Ghadsai",
+            "era5_land_cell": "E5L_14.90N_74.20E"
+          },
+          {
+            "gp_code": "220649",
+            "gp_name": "Gotegali",
+            "era5_land_cell": "E5L_14.90N_74.30E"
+          },
+          {
+            "gp_code": "220650",
+            "gp_name": "Hankon",
+            "era5_land_cell": "E5L_14.90N_74.20E"
+          },
+          {
+            "gp_code": "220651",
+            "gp_name": "Kadra",
+            "era5_land_cell": "E5L_14.90N_74.40E"
+          },
+          {
+            "gp_code": "220652",
+            "gp_name": "Kadwad",
+            "era5_land_cell": "E5L_14.80N_74.20E"
+          },
+          {
+            "gp_code": "220653",
+            "gp_name": "Kerwadi",
+            "era5_land_cell": "E5L_14.90N_74.30E"
+          },
+          {
+            "gp_code": "220654",
+            "gp_name": "Kinner",
+            "era5_land_cell": "E5L_14.90N_74.20E"
+          },
+          {
+            "gp_code": "220655",
+            "gp_name": "Majali",
+            "era5_land_cell": "E5L_14.90N_74.10E"
+          },
+          {
+            "gp_code": "220656",
+            "gp_name": "Mallapur",
+            "era5_land_cell": "E5L_14.90N_74.40E"
+          },
+          {
+            "gp_code": "220657",
+            "gp_name": "Mudgeri",
+            "era5_land_cell": "E5L_14.90N_74.10E"
+          },
+          {
+            "gp_code": "220658",
+            "gp_name": "Shirwad",
+            "era5_land_cell": "E5L_14.80N_74.20E"
+          },
+          {
+            "gp_code": "220659",
+            "gp_name": "Wailwada",
+            "era5_land_cell": "E5L_14.80N_74.20E"
+          },
+          {
+            "gp_code": "273205",
+            "gp_name": "Thoduru",
+            "era5_land_cell": "E5L_14.80N_74.20E"
+          }
+        ],
+        "complete_share": 0.8888888888888888,
+        "villages": 53,
+        "villages_matched_exact_code": 51,
+        "complete_gps_with_shared_village": 0
+      },
+      "expected_era5_land_cells": [
+        "E5L_14.80N_74.20E",
+        "E5L_14.80N_74.30E",
+        "E5L_14.90N_74.10E",
+        "E5L_14.90N_74.20E",
+        "E5L_14.90N_74.30E",
+        "E5L_14.90N_74.40E"
+      ],
+      "n_expected_era5_land_cells": 6,
+      "complete_gps_per_cell": {
+        "E5L_14.80N_74.20E": 5,
+        "E5L_14.80N_74.30E": 1,
+        "E5L_14.90N_74.10E": 2,
+        "E5L_14.90N_74.20E": 4,
+        "E5L_14.90N_74.30E": 2,
+        "E5L_14.90N_74.40E": 2
+      },
+      "era5_land_request_area_nwse": [
+        15.1,
+        74.0,
+        14.6,
+        74.6
+      ],
+      "era5_land_request_grid_points": 42,
+      "era5_request_area_nwse": [
+        15.25,
+        73.75,
+        14.5,
+        74.75
+      ],
+      "era5_request_grid_points": 20,
+      "elevation": {
+        "glo30_tiles_required": [
+          "Copernicus_DSM_COG_10_N14_00_E074_00_DEM",
+          "Copernicus_DSM_COG_10_N15_00_E074_00_DEM"
+        ],
+        "already_on_disk": [],
+        "to_download": [
+          "Copernicus_DSM_COG_10_N14_00_E074_00_DEM",
+          "Copernicus_DSM_COG_10_N15_00_E074_00_DEM"
+        ],
+        "all_publicly_listed": true
+      },
+      "distance_to_yelandur_km": 436.9900661396908,
+      "land_sea_gate": "all expected cells must be confirmed ERA5-Land land by the 4A mask request before acquisition",
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6253",
+        "district_holdout": "taluka_6253",
+        "regional_holdout": "regime_coastal_inland_coast",
+        "cell_group_diagnostic": [
+          "cellblock_1",
+          "cellblock_2"
+        ]
+      }
+    },
+    {
+      "tp_code": "296820",
+      "tp_name": "Nidagundi",
+      "zp_code": "485",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "selection": {
+        "round": 2,
+        "maximin_distance_km": 170.57553687994277
+      },
+      "lgd": {
+        "lgd_gram_panchayats": 11
+      },
+      "spatial_proxy": {
+        "status_counts": {
+          "COMPLETE": 11
+        },
+        "complete_gps": [
+          {
+            "gp_code": "216469",
+            "gp_name": "Alamatti",
+            "era5_land_cell": "E5L_16.30N_75.90E"
+          },
+          {
+            "gp_code": "216471",
+            "gp_name": "Beeraladinni",
+            "era5_land_cell": "E5L_16.40N_75.90E"
+          },
+          {
+            "gp_code": "216473",
+            "gp_name": "Chimmalagi",
+            "era5_land_cell": "E5L_16.40N_75.80E"
+          },
+          {
+            "gp_code": "216476",
+            "gp_name": "Golasangi",
+            "era5_land_cell": "E5L_16.50N_75.90E"
+          },
+          {
+            "gp_code": "216479",
+            "gp_name": "Hebbal",
+            "era5_land_cell": "E5L_16.40N_75.90E"
+          },
+          {
+            "gp_code": "216482",
+            "gp_name": "Itagi",
+            "era5_land_cell": "E5L_16.40N_76.00E"
+          },
+          {
+            "gp_code": "216504",
+            "gp_name": "Vandal",
+            "era5_land_cell": "E5L_16.40N_75.90E"
+          },
+          {
+            "gp_code": "216626",
+            "gp_name": "Yalagur",
+            "era5_land_cell": "E5L_16.30N_76.00E"
+          },
+          {
+            "gp_code": "273044",
+            "gp_name": "Benala R.C",
+            "era5_land_cell": "E5L_16.40N_75.90E"
+          },
+          {
+            "gp_code": "273045",
+            "gp_name": "Gani R.C",
+            "era5_land_cell": "E5L_16.40N_75.80E"
+          },
+          {
+            "gp_code": "273057",
+            "gp_name": "Balabatti",
+            "era5_land_cell": "E5L_16.30N_76.00E"
+          }
+        ],
+        "complete_share": 1.0,
+        "villages": 40,
+        "villages_matched_exact_code": 40,
+        "complete_gps_with_shared_village": 0
+      },
+      "expected_era5_land_cells": [
+        "E5L_16.30N_75.90E",
+        "E5L_16.30N_76.00E",
+        "E5L_16.40N_75.80E",
+        "E5L_16.40N_75.90E",
+        "E5L_16.40N_76.00E",
+        "E5L_16.50N_75.90E"
+      ],
+      "n_expected_era5_land_cells": 6,
+      "complete_gps_per_cell": {
+        "E5L_16.30N_75.90E": 1,
+        "E5L_16.30N_76.00E": 2,
+        "E5L_16.40N_75.80E": 2,
+        "E5L_16.40N_75.90E": 4,
+        "E5L_16.40N_76.00E": 1,
+        "E5L_16.50N_75.90E": 1
+      },
+      "era5_land_request_area_nwse": [
+        16.6,
+        75.7,
+        16.2,
+        76.4
+      ],
+      "era5_land_request_grid_points": 40,
+      "era5_request_area_nwse": [
+        16.75,
+        75.5,
+        16.0,
+        76.25
+      ],
+      "era5_request_grid_points": 16,
+      "elevation": {
+        "glo30_tiles_required": [
+          "Copernicus_DSM_COG_10_N16_00_E075_00_DEM",
+          "Copernicus_DSM_COG_10_N16_00_E076_00_DEM"
+        ],
+        "already_on_disk": [],
+        "to_download": [
+          "Copernicus_DSM_COG_10_N16_00_E075_00_DEM",
+          "Copernicus_DSM_COG_10_N16_00_E076_00_DEM"
+        ],
+        "all_publicly_listed": true
+      },
+      "distance_to_yelandur_km": 498.2072197087231,
+      "land_sea_gate": "all expected cells must be confirmed ERA5-Land land by the 4A mask request before acquisition",
+      "fold_assignment": {
+        "taluka_holdout": "taluka_296820",
+        "district_holdout": "taluka_296820",
+        "regional_holdout": "regime_northern_dry_plains",
+        "cell_group_diagnostic": [
+          "cellblock_2",
+          "cellblock_3",
+          "cellblock_4"
+        ]
+      }
+    },
+    {
+      "tp_code": "6142",
+      "tp_name": "Hiriyur",
+      "zp_code": "488",
+      "zp_name": "Chitradurga",
+      "geographic_regime": "central_plateau",
+      "selection": {
+        "round": 2,
+        "maximin_distance_km": 138.55870168465333
+      },
+      "lgd": {
+        "lgd_gram_panchayats": 33
+      },
+      "spatial_proxy": {
+        "status_counts": {
+          "COMPLETE": 29,
+          "PARTIAL": 4
+        },
+        "complete_gps": [
+          {
+            "gp_code": "217089",
+            "gp_name": "Adivala",
+            "era5_land_cell": "E5L_13.90N_76.60E"
+          },
+          {
+            "gp_code": "217091",
+            "gp_name": "Buruginarolppa",
+            "era5_land_cell": "E5L_14.10N_76.50E"
+          },
+          {
+            "gp_code": "217092",
+            "gp_name": "Dharampura",
+            "era5_land_cell": "E5L_14.10N_76.80E"
+          },
+          {
+            "gp_code": "217093",
+            "gp_name": "Dindavara",
+            "era5_land_cell": "E5L_13.80N_76.60E"
+          },
+          {
+            "gp_code": "217094",
+            "gp_name": "Eshwaragere",
+            "era5_land_cell": "E5L_14.00N_76.80E"
+          },
+          {
+            "gp_code": "217095",
+            "gp_name": "Gananaikanahally",
+            "era5_land_cell": "E5L_14.00N_76.60E"
+          },
+          {
+            "gp_code": "217096",
+            "gp_name": "Gowdanahally",
+            "era5_land_cell": "E5L_13.90N_76.60E"
+          },
+          {
+            "gp_code": "217097",
+            "gp_name": "Hariyebbe",
+            "era5_land_cell": "E5L_14.10N_76.80E"
+          },
+          {
+            "gp_code": "217098",
+            "gp_name": "Harthikote",
+            "era5_land_cell": "E5L_14.10N_76.60E"
+          },
+          {
+            "gp_code": "217099",
+            "gp_name": "Hosayelanadu",
+            "era5_land_cell": "E5L_14.00N_76.70E"
+          },
+          {
+            "gp_code": "217100",
+            "gp_name": "Ikkanur",
+            "era5_land_cell": "E5L_14.00N_76.80E"
+          },
+          {
+            "gp_code": "217101",
+            "gp_name": "Imangala",
+            "era5_land_cell": "E5L_14.10N_76.50E"
+          },
+          {
+            "gp_code": "217102",
+            "gp_name": "Javanagondanahally",
+            "era5_land_cell": "E5L_13.80N_76.70E"
+          },
+          {
+            "gp_code": "217103",
+            "gp_name": "K R Hally",
+            "era5_land_cell": "E5L_13.90N_76.70E"
+          },
+          {
+            "gp_code": "217104",
+            "gp_name": "Kanajanahalli",
+            "era5_land_cell": "E5L_14.10N_76.80E"
+          },
+          {
+            "gp_code": "217105",
+            "gp_name": "Kariyala",
+            "era5_land_cell": "E5L_13.80N_76.70E"
+          },
+          {
+            "gp_code": "217106",
+            "gp_name": "Khandenahally",
+            "era5_land_cell": "E5L_14.10N_76.90E"
+          },
+          {
+            "gp_code": "217107",
+            "gp_name": "Kunikere",
+            "era5_land_cell": "E5L_13.90N_76.50E"
+          },
+          {
+            "gp_code": "217108",
+            "gp_name": "M.D.Kote",
+            "era5_land_cell": "E5L_14.10N_76.60E"
+          },
+          {
+            "gp_code": "217109",
+            "gp_name": "Maradihally",
+            "era5_land_cell": "E5L_14.10N_76.50E"
+          },
+          {
+            "gp_code": "217110",
+            "gp_name": "Maskal",
+            "era5_land_cell": "E5L_14.00N_76.70E"
+          },
+          {
+            "gp_code": "217111",
+            "gp_name": "Metikurke",
+            "era5_land_cell": "E5L_14.00N_76.60E"
+          },
+          {
+            "gp_code": "217112",
+            "gp_name": "P.D.Kote",
+            "era5_land_cell": "E5L_14.10N_76.90E"
+          },
+          {
+            "gp_code": "217113",
+            "gp_name": "Ranganathapura",
+            "era5_land_cell": "E5L_14.00N_76.70E"
+          },
+          {
+            "gp_code": "217114",
+            "gp_name": "Rangenahally",
+            "era5_land_cell": "E5L_14.10N_76.70E"
+          },
+          {
+            "gp_code": "217117",
+            "gp_name": "V.V.Pura",
+            "era5_land_cell": "E5L_13.90N_76.50E"
+          },
+          {
+            "gp_code": "217118",
+            "gp_name": "Yelladakere",
+            "era5_land_cell": "E5L_13.80N_76.50E"
+          },
+          {
+            "gp_code": "217119",
+            "gp_name": "Yeraballi",
+            "era5_land_cell": "E5L_14.10N_76.60E"
+          },
+          {
+            "gp_code": "272697",
+            "gp_name": "Byadarahalli",
+            "era5_land_cell": "E5L_14.00N_76.70E"
+          }
+        ],
+        "complete_share": 0.8787878787878788,
+        "villages": 162,
+        "villages_matched_exact_code": 156,
+        "complete_gps_with_shared_village": 0
+      },
+      "expected_era5_land_cells": [
+        "E5L_13.80N_76.50E",
+        "E5L_13.80N_76.60E",
+        "E5L_13.80N_76.70E",
+        "E5L_13.90N_76.50E",
+        "E5L_13.90N_76.60E",
+        "E5L_13.90N_76.70E",
+        "E5L_14.00N_76.60E",
+        "E5L_14.00N_76.70E",
+        "E5L_14.00N_76.80E",
+        "E5L_14.10N_76.50E",
+        "E5L_14.10N_76.60E",
+        "E5L_14.10N_76.70E",
+        "E5L_14.10N_76.80E",
+        "E5L_14.10N_76.90E"
+      ],
+      "n_expected_era5_land_cells": 14,
+      "complete_gps_per_cell": {
+        "E5L_13.80N_76.50E": 1,
+        "E5L_13.80N_76.60E": 1,
+        "E5L_13.80N_76.70E": 2,
+        "E5L_13.90N_76.50E": 2,
+        "E5L_13.90N_76.60E": 2,
+        "E5L_13.90N_76.70E": 1,
+        "E5L_14.00N_76.60E": 2,
+        "E5L_14.00N_76.70E": 4,
+        "E5L_14.00N_76.80E": 2,
+        "E5L_14.10N_76.50E": 3,
+        "E5L_14.10N_76.60E": 3,
+        "E5L_14.10N_76.70E": 1,
+        "E5L_14.10N_76.80E": 3,
+        "E5L_14.10N_76.90E": 2
+      },
+      "era5_land_request_area_nwse": [
+        14.3,
+        76.3,
+        13.6,
+        77.0
+      ],
+      "era5_land_request_grid_points": 64,
+      "era5_request_area_nwse": [
+        14.5,
+        76.25,
+        13.5,
+        77.25
+      ],
+      "era5_request_grid_points": 25,
+      "elevation": {
+        "glo30_tiles_required": [
+          "Copernicus_DSM_COG_10_N13_00_E076_00_DEM",
+          "Copernicus_DSM_COG_10_N14_00_E076_00_DEM"
+        ],
+        "already_on_disk": [],
+        "to_download": [
+          "Copernicus_DSM_COG_10_N13_00_E076_00_DEM",
+          "Copernicus_DSM_COG_10_N14_00_E076_00_DEM"
+        ],
+        "all_publicly_listed": true
+      },
+      "distance_to_yelandur_km": 219.82645147926655,
+      "land_sea_gate": "all expected cells must be confirmed ERA5-Land land by the 4A mask request before acquisition",
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6142",
+        "district_holdout": "taluka_6142",
+        "regional_holdout": "regime_central_plateau",
+        "cell_group_diagnostic": [
+          "cellblock_1",
+          "cellblock_2",
+          "cellblock_3",
+          "cellblock_4"
+        ]
+      }
+    },
+    {
+      "tp_code": "6101",
+      "tp_name": "Ramanagara",
+      "zp_code": "575",
+      "zp_name": "Bengaluru South",
+      "geographic_regime": "southern_plateau",
+      "selection": {
+        "round": 2,
+        "maximin_distance_km": 82.19363744873738
+      },
+      "lgd": {
+        "lgd_gram_panchayats": 20
+      },
+      "spatial_proxy": {
+        "status_counts": {
+          "COMPLETE": 20
+        },
+        "complete_gps": [
+          {
+            "gp_code": "215597",
+            "gp_name": "Akkur",
+            "era5_land_cell": "E5L_12.80N_77.20E"
+          },
+          {
+            "gp_code": "215598",
+            "gp_name": "Bannikuppe",
+            "era5_land_cell": "E5L_12.90N_77.40E"
+          },
+          {
+            "gp_code": "215599",
+            "gp_name": "Bannikuppe2",
+            "era5_land_cell": "E5L_12.60N_77.30E"
+          },
+          {
+            "gp_code": "215600",
+            "gp_name": "Belugumba",
+            "era5_land_cell": "E5L_12.70N_77.20E"
+          },
+          {
+            "gp_code": "215602",
+            "gp_name": "Byaramangal",
+            "era5_land_cell": "E5L_12.80N_77.40E"
+          },
+          {
+            "gp_code": "215603",
+            "gp_name": "Doddagangavadi",
+            "era5_land_cell": "E5L_12.80N_77.20E"
+          },
+          {
+            "gp_code": "215604",
+            "gp_name": "Gopahalli",
+            "era5_land_cell": "E5L_12.70N_77.40E"
+          },
+          {
+            "gp_code": "215605",
+            "gp_name": "Harisandra",
+            "era5_land_cell": "E5L_12.80N_77.30E"
+          },
+          {
+            "gp_code": "215606",
+            "gp_name": "Hulikeregunnur(Averhalli)",
+            "era5_land_cell": "E5L_12.60N_77.30E"
+          },
+          {
+            "gp_code": "215607",
+            "gp_name": "Hunasanahalli",
+            "era5_land_cell": "E5L_12.70N_77.30E"
+          },
+          {
+            "gp_code": "215609",
+            "gp_name": "Jalamagal",
+            "era5_land_cell": "E5L_12.80N_77.20E"
+          },
+          {
+            "gp_code": "215610",
+            "gp_name": "Kailancha",
+            "era5_land_cell": "E5L_12.70N_77.30E"
+          },
+          {
+            "gp_code": "215612",
+            "gp_name": "Kootagal",
+            "era5_land_cell": "E5L_12.80N_77.30E"
+          },
+          {
+            "gp_code": "215613",
+            "gp_name": "Kunchugaranahalli",
+            "era5_land_cell": "E5L_12.70N_77.40E"
+          },
+          {
+            "gp_code": "215614",
+            "gp_name": "Lakshmipura",
+            "era5_land_cell": "E5L_12.80N_77.30E"
+          },
+          {
+            "gp_code": "215615",
+            "gp_name": "Manchanayakanahalli",
+            "era5_land_cell": "E5L_12.80N_77.40E"
+          },
+          {
+            "gp_code": "215616",
+            "gp_name": "Mayaganahalli",
+            "era5_land_cell": "E5L_12.80N_77.30E"
+          },
+          {
+            "gp_code": "215617",
+            "gp_name": "Shanaboganahalli",
+            "era5_land_cell": "E5L_12.80N_77.20E"
+          },
+          {
+            "gp_code": "215618",
+            "gp_name": "Sugganahalli",
+            "era5_land_cell": "E5L_12.80N_77.30E"
+          },
+          {
+            "gp_code": "215619",
+            "gp_name": "Vibuthi Kere",
+            "era5_land_cell": "E5L_12.70N_77.30E"
+          }
+        ],
+        "complete_share": 1.0,
+        "villages": 107,
+        "villages_matched_exact_code": 107,
+        "complete_gps_with_shared_village": 0
+      },
+      "expected_era5_land_cells": [
+        "E5L_12.60N_77.30E",
+        "E5L_12.70N_77.20E",
+        "E5L_12.70N_77.30E",
+        "E5L_12.70N_77.40E",
+        "E5L_12.80N_77.20E",
+        "E5L_12.80N_77.30E",
+        "E5L_12.80N_77.40E",
+        "E5L_12.90N_77.40E"
+      ],
+      "n_expected_era5_land_cells": 8,
+      "complete_gps_per_cell": {
+        "E5L_12.60N_77.30E": 2,
+        "E5L_12.70N_77.20E": 1,
+        "E5L_12.70N_77.30E": 3,
+        "E5L_12.70N_77.40E": 2,
+        "E5L_12.80N_77.20E": 4,
+        "E5L_12.80N_77.30E": 5,
+        "E5L_12.80N_77.40E": 2,
+        "E5L_12.90N_77.40E": 1
+      },
+      "era5_land_request_area_nwse": [
+        13.0,
+        77.0,
+        12.5,
+        77.6
+      ],
+      "era5_land_request_grid_points": 42,
+      "era5_request_area_nwse": [
+        13.25,
+        76.75,
+        12.25,
+        77.75
+      ],
+      "era5_request_grid_points": 25,
+      "elevation": {
+        "glo30_tiles_required": [
+          "Copernicus_DSM_COG_10_N12_00_E077_00_DEM"
+        ],
+        "already_on_disk": [
+          "Copernicus_DSM_COG_10_N12_00_E077_00_DEM"
+        ],
+        "to_download": [],
+        "all_publicly_listed": true
+      },
+      "distance_to_yelandur_km": 82.19363744873738,
+      "land_sea_gate": "all expected cells must be confirmed ERA5-Land land by the 4A mask request before acquisition",
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6101",
+        "district_holdout": "taluka_6101",
+        "regional_holdout": "regime_southern_plateau",
+        "cell_group_diagnostic": [
+          "cellblock_2",
+          "cellblock_3",
+          "cellblock_4"
+        ]
+      }
+    }
+  ],
+  "fold_design": {
+    "temporal_split": {
+      "train_period_utc": [
+        "2021-01-01T00:00Z",
+        "2022-12-24T23:00Z"
+      ],
+      "embargo_utc": [
+        "2022-12-25T00:00Z",
+        "2022-12-31T23:00Z"
+      ],
+      "test_period_utc": [
+        "2023-01-01T00:00Z",
+        "2023-12-31T23:00Z"
+      ],
+      "note": "Identical to Phase 2D; applied inside every spatial fold."
+    },
+    "yelandur_role": "frozen reference: never in any training set; evaluated as an extra reference region in every fold",
+    "taluka_holdout": [
+      {
+        "fold_id": "taluka_296804",
+        "test_taluka_panchayats": [
+          "296804"
+        ],
+        "train_taluka_panchayats": [
+          "296820",
+          "6101",
+          "6108",
+          "6112",
+          "6142",
+          "6178",
+          "6198",
+          "6234",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 7,
+        "n_train_cells": 104,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 12
+      },
+      {
+        "fold_id": "taluka_296820",
+        "test_taluka_panchayats": [
+          "296820"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "6101",
+          "6108",
+          "6112",
+          "6142",
+          "6178",
+          "6198",
+          "6234",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 6,
+        "n_train_cells": 105,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 10
+      },
+      {
+        "fold_id": "taluka_6101",
+        "test_taluka_panchayats": [
+          "6101"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6108",
+          "6112",
+          "6142",
+          "6178",
+          "6198",
+          "6234",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 8,
+        "n_train_cells": 103,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 5
+      },
+      {
+        "fold_id": "taluka_6108",
+        "test_taluka_panchayats": [
+          "6108"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6101",
+          "6112",
+          "6142",
+          "6178",
+          "6198",
+          "6234",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 16,
+        "n_train_cells": 95,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 5
+      },
+      {
+        "fold_id": "taluka_6112",
+        "test_taluka_panchayats": [
+          "6112"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6101",
+          "6108",
+          "6142",
+          "6178",
+          "6198",
+          "6234",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 11,
+        "n_train_cells": 100,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 10
+      },
+      {
+        "fold_id": "taluka_6142",
+        "test_taluka_panchayats": [
+          "6142"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6101",
+          "6108",
+          "6112",
+          "6178",
+          "6198",
+          "6234",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 14,
+        "n_train_cells": 97,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 9
+      },
+      {
+        "fold_id": "taluka_6178",
+        "test_taluka_panchayats": [
+          "6178"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6101",
+          "6108",
+          "6112",
+          "6142",
+          "6198",
+          "6234",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 10,
+        "n_train_cells": 101,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 9
+      },
+      {
+        "fold_id": "taluka_6198",
+        "test_taluka_panchayats": [
+          "6198"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6101",
+          "6108",
+          "6112",
+          "6142",
+          "6178",
+          "6234",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 11,
+        "n_train_cells": 100,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 5
+      },
+      {
+        "fold_id": "taluka_6234",
+        "test_taluka_panchayats": [
+          "6234"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6101",
+          "6108",
+          "6112",
+          "6142",
+          "6178",
+          "6198",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 13,
+        "n_train_cells": 98,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 5
+      },
+      {
+        "fold_id": "taluka_6246",
+        "test_taluka_panchayats": [
+          "6246"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6101",
+          "6108",
+          "6112",
+          "6142",
+          "6178",
+          "6198",
+          "6234",
+          "6253"
+        ],
+        "n_test_cells": 9,
+        "n_train_cells": 102,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 9
+      },
+      {
+        "fold_id": "taluka_6253",
+        "test_taluka_panchayats": [
+          "6253"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6101",
+          "6108",
+          "6112",
+          "6142",
+          "6178",
+          "6198",
+          "6234",
+          "6246"
+        ],
+        "n_test_cells": 6,
+        "n_train_cells": 105,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 5
+      }
+    ],
+    "district_holdout": {
+      "equivalent_to": "taluka_holdout",
+      "reason": "the selection allows one Taluka Panchayat per Zila Panchayat, so each district holdout removes exactly one selected Taluka Panchayat"
+    },
+    "regional_holdout": [
+      {
+        "fold_id": "regime_central_plateau",
+        "test_taluka_panchayats": [
+          "6112",
+          "6142"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6101",
+          "6108",
+          "6178",
+          "6198",
+          "6234",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 25,
+        "n_train_cells": 86,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 9
+      },
+      {
+        "fold_id": "regime_coastal_inland_coast",
+        "test_taluka_panchayats": [
+          "6246",
+          "6253"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6101",
+          "6108",
+          "6112",
+          "6142",
+          "6178",
+          "6198",
+          "6234"
+        ],
+        "n_test_cells": 15,
+        "n_train_cells": 96,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 5
+      },
+      {
+        "fold_id": "regime_eastern_plateau",
+        "test_taluka_panchayats": [
+          "6198"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6101",
+          "6108",
+          "6112",
+          "6142",
+          "6178",
+          "6234",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 11,
+        "n_train_cells": 100,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 5
+      },
+      {
+        "fold_id": "regime_northern_dry_plains",
+        "test_taluka_panchayats": [
+          "296804",
+          "296820"
+        ],
+        "train_taluka_panchayats": [
+          "6101",
+          "6108",
+          "6112",
+          "6142",
+          "6178",
+          "6198",
+          "6234",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 13,
+        "n_train_cells": 98,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 10
+      },
+      {
+        "fold_id": "regime_southern_plateau",
+        "test_taluka_panchayats": [
+          "6101",
+          "6178"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6108",
+          "6112",
+          "6142",
+          "6198",
+          "6234",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 18,
+        "n_train_cells": 93,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 5
+      },
+      {
+        "fold_id": "regime_western_ghats_malnad",
+        "test_taluka_panchayats": [
+          "6108",
+          "6234"
+        ],
+        "train_taluka_panchayats": [
+          "296804",
+          "296820",
+          "6101",
+          "6112",
+          "6142",
+          "6178",
+          "6198",
+          "6246",
+          "6253"
+        ],
+        "n_test_cells": 29,
+        "n_train_cells": 82,
+        "shared_cells": 0,
+        "min_test_train_separation_cells": 5
+      }
+    ],
+    "cell_group_diagnostic": {
+      "label": "DIAGNOSTIC ONLY — not a geographic generalization estimate",
+      "block_cells": 3,
+      "folds_k": 5,
+      "buffer_cells": 1,
+      "folds": [
+        {
+          "fold_id": "cellblock_0",
+          "test_cells": [
+            "E5L_12.50N_76.10E",
+            "E5L_13.10N_74.80E",
+            "E5L_13.10N_74.90E",
+            "E5L_13.30N_77.90E",
+            "E5L_14.30N_75.00E",
+            "E5L_14.30N_75.10E",
+            "E5L_14.30N_75.20E",
+            "E5L_14.60N_75.30E",
+            "E5L_15.40N_74.60E",
+            "E5L_15.50N_74.40E",
+            "E5L_15.50N_74.50E",
+            "E5L_15.50N_74.60E",
+            "E5L_15.60N_74.40E",
+            "E5L_15.60N_74.50E",
+            "E5L_15.60N_74.60E",
+            "E5L_15.70N_74.40E",
+            "E5L_15.70N_74.50E",
+            "E5L_15.70N_74.60E",
+            "E5L_17.60N_77.20E",
+            "E5L_17.60N_77.30E"
+          ],
+          "buffer_cells_excluded_from_training": [
+            "E5L_12.60N_76.00E",
+            "E5L_12.60N_76.10E",
+            "E5L_12.60N_76.20E",
+            "E5L_13.10N_75.00E",
+            "E5L_13.20N_74.90E",
+            "E5L_13.20N_75.00E",
+            "E5L_13.30N_78.00E",
+            "E5L_13.40N_78.00E",
+            "E5L_14.40N_75.00E",
+            "E5L_14.40N_75.10E",
+            "E5L_14.40N_75.20E",
+            "E5L_14.50N_75.20E",
+            "E5L_14.60N_75.20E",
+            "E5L_15.40N_74.70E",
+            "E5L_15.50N_74.70E",
+            "E5L_15.60N_74.70E",
+            "E5L_15.70N_74.30E",
+            "E5L_15.70N_74.70E",
+            "E5L_17.60N_77.40E",
+            "E5L_17.70N_77.20E",
+            "E5L_17.70N_77.30E",
+            "E5L_17.70N_77.40E"
+          ],
+          "n_test_cells": 20,
+          "n_buffer_cells": 22,
+          "n_train_cells": 69,
+          "min_test_train_separation_cells": 2
+        },
+        {
+          "fold_id": "cellblock_1",
+          "test_cells": [
+            "E5L_12.60N_76.00E",
+            "E5L_12.60N_76.10E",
+            "E5L_12.70N_76.00E",
+            "E5L_12.70N_76.10E",
+            "E5L_12.80N_76.00E",
+            "E5L_12.80N_76.10E",
+            "E5L_13.10N_75.00E",
+            "E5L_13.30N_78.00E",
+            "E5L_13.30N_78.10E",
+            "E5L_13.40N_78.00E",
+            "E5L_13.40N_78.10E",
+            "E5L_13.40N_78.20E",
+            "E5L_14.10N_76.50E",
+            "E5L_14.10N_76.60E",
+            "E5L_14.10N_76.70E",
+            "E5L_14.80N_74.20E",
+            "E5L_14.80N_74.30E",
+            "E5L_14.90N_74.10E",
+            "E5L_14.90N_74.20E",
+            "E5L_14.90N_74.30E",
+            "E5L_15.40N_74.70E",
+            "E5L_15.50N_74.70E",
+            "E5L_15.60N_74.70E",
+            "E5L_15.70N_74.70E",
+            "E5L_17.60N_77.40E"
+          ],
+          "buffer_cells_excluded_from_training": [
+            "E5L_12.50N_76.10E",
+            "E5L_12.60N_76.20E",
+            "E5L_12.70N_76.20E",
+            "E5L_12.80N_76.20E",
+            "E5L_13.10N_74.90E",
+            "E5L_13.20N_74.90E",
+            "E5L_13.20N_75.00E",
+            "E5L_13.20N_75.10E",
+            "E5L_13.30N_77.90E",
+            "E5L_13.50N_78.00E",
+            "E5L_13.50N_78.10E",
+            "E5L_13.50N_78.20E",
+            "E5L_14.00N_76.60E",
+            "E5L_14.00N_76.70E",
+            "E5L_14.00N_76.80E",
+            "E5L_14.10N_76.80E",
+            "E5L_14.90N_74.40E",
+            "E5L_15.40N_74.60E",
+            "E5L_15.50N_74.60E",
+            "E5L_15.60N_74.60E",
+            "E5L_15.70N_74.60E",
+            "E5L_17.60N_77.30E",
+            "E5L_17.70N_77.30E",
+            "E5L_17.70N_77.40E"
+          ],
+          "n_test_cells": 25,
+          "n_buffer_cells": 24,
+          "n_train_cells": 62,
+          "min_test_train_separation_cells": 2
+        },
+        {
+          "fold_id": "cellblock_2",
+          "test_cells": [
+            "E5L_12.60N_76.20E",
+            "E5L_12.70N_76.20E",
+            "E5L_12.80N_76.20E",
+            "E5L_12.90N_77.40E",
+            "E5L_13.50N_78.00E",
+            "E5L_13.50N_78.10E",
+            "E5L_13.50N_78.20E",
+            "E5L_13.60N_78.00E",
+            "E5L_13.60N_78.10E",
+            "E5L_14.10N_76.80E",
+            "E5L_14.10N_76.90E",
+            "E5L_14.90N_74.40E",
+            "E5L_15.30N_77.00E",
+            "E5L_15.40N_77.00E",
+            "E5L_16.40N_75.80E",
+            "E5L_17.70N_77.20E",
+            "E5L_17.70N_77.30E",
+            "E5L_17.80N_77.20E"
+          ],
+          "buffer_cells_excluded_from_training": [
+            "E5L_12.50N_76.10E",
+            "E5L_12.60N_76.10E",
+            "E5L_12.70N_76.10E",
+            "E5L_12.80N_76.10E",
+            "E5L_12.80N_77.30E",
+            "E5L_12.80N_77.40E",
+            "E5L_13.40N_78.00E",
+            "E5L_13.40N_78.10E",
+            "E5L_13.40N_78.20E",
+            "E5L_14.00N_76.70E",
+            "E5L_14.00N_76.80E",
+            "E5L_14.10N_76.70E",
+            "E5L_14.80N_74.30E",
+            "E5L_14.90N_74.30E",
+            "E5L_15.20N_76.90E",
+            "E5L_15.20N_77.00E",
+            "E5L_15.20N_77.10E",
+            "E5L_15.30N_77.10E",
+            "E5L_16.30N_75.90E",
+            "E5L_16.40N_75.90E",
+            "E5L_16.50N_75.90E",
+            "E5L_17.60N_77.20E",
+            "E5L_17.60N_77.30E",
+            "E5L_17.60N_77.40E",
+            "E5L_17.70N_77.40E"
+          ],
+          "n_test_cells": 18,
+          "n_buffer_cells": 25,
+          "n_train_cells": 68,
+          "min_test_train_separation_cells": 2
+        },
+        {
+          "fold_id": "cellblock_3",
+          "test_cells": [
+            "E5L_12.60N_77.30E",
+            "E5L_12.70N_77.20E",
+            "E5L_12.70N_77.30E",
+            "E5L_12.80N_77.20E",
+            "E5L_12.80N_77.30E",
+            "E5L_13.20N_74.90E",
+            "E5L_13.30N_74.90E",
+            "E5L_13.80N_76.50E",
+            "E5L_13.80N_76.60E",
+            "E5L_13.80N_76.70E",
+            "E5L_13.90N_76.50E",
+            "E5L_13.90N_76.60E",
+            "E5L_13.90N_76.70E",
+            "E5L_14.00N_76.60E",
+            "E5L_14.00N_76.70E",
+            "E5L_14.50N_74.90E",
+            "E5L_15.10N_76.80E",
+            "E5L_15.10N_76.90E",
+            "E5L_15.10N_77.00E",
+            "E5L_15.20N_76.80E",
+            "E5L_15.20N_76.90E",
+            "E5L_15.20N_77.00E",
+            "E5L_15.30N_77.10E",
+            "E5L_16.30N_75.90E",
+            "E5L_16.30N_76.00E",
+            "E5L_16.40N_75.90E",
+            "E5L_16.40N_76.00E",
+            "E5L_17.70N_77.40E"
+          ],
+          "buffer_cells_excluded_from_training": [
+            "E5L_12.70N_77.40E",
+            "E5L_12.80N_77.40E",
+            "E5L_12.90N_77.40E",
+            "E5L_13.10N_74.80E",
+            "E5L_13.10N_74.90E",
+            "E5L_13.10N_75.00E",
+            "E5L_13.20N_75.00E",
+            "E5L_13.30N_75.00E",
+            "E5L_14.00N_76.80E",
+            "E5L_14.10N_76.50E",
+            "E5L_14.10N_76.60E",
+            "E5L_14.10N_76.70E",
+            "E5L_14.10N_76.80E",
+            "E5L_14.40N_75.00E",
+            "E5L_14.50N_75.00E",
+            "E5L_15.10N_77.10E",
+            "E5L_15.20N_77.10E",
+            "E5L_15.30N_77.00E",
+            "E5L_15.40N_77.00E",
+            "E5L_16.40N_75.80E",
+            "E5L_16.50N_75.90E",
+            "E5L_17.60N_77.30E",
+            "E5L_17.60N_77.40E",
+            "E5L_17.70N_77.30E"
+          ],
+          "n_test_cells": 28,
+          "n_buffer_cells": 24,
+          "n_train_cells": 59,
+          "min_test_train_separation_cells": 2
+        },
+        {
+          "fold_id": "cellblock_4",
+          "test_cells": [
+            "E5L_12.70N_77.40E",
+            "E5L_12.80N_77.40E",
+            "E5L_13.20N_75.00E",
+            "E5L_13.20N_75.10E",
+            "E5L_13.30N_75.00E",
+            "E5L_13.30N_75.10E",
+            "E5L_14.00N_76.80E",
+            "E5L_14.40N_75.00E",
+            "E5L_14.40N_75.10E",
+            "E5L_14.40N_75.20E",
+            "E5L_14.50N_75.00E",
+            "E5L_14.50N_75.10E",
+            "E5L_14.50N_75.20E",
+            "E5L_14.60N_75.10E",
+            "E5L_14.60N_75.20E",
+            "E5L_15.10N_77.10E",
+            "E5L_15.20N_77.10E",
+            "E5L_15.70N_74.20E",
+            "E5L_15.70N_74.30E",
+            "E5L_16.50N_75.90E"
+          ],
+          "buffer_cells_excluded_from_training": [
+            "E5L_12.60N_77.30E",
+            "E5L_12.70N_77.30E",
+            "E5L_12.80N_77.30E",
+            "E5L_12.90N_77.40E",
+            "E5L_13.10N_74.90E",
+            "E5L_13.10N_75.00E",
+            "E5L_13.20N_74.90E",
+            "E5L_13.30N_74.90E",
+            "E5L_13.90N_76.70E",
+            "E5L_14.00N_76.70E",
+            "E5L_14.10N_76.70E",
+            "E5L_14.10N_76.80E",
+            "E5L_14.10N_76.90E",
+            "E5L_14.30N_75.00E",
+            "E5L_14.30N_75.10E",
+            "E5L_14.30N_75.20E",
+            "E5L_14.50N_74.90E",
+            "E5L_14.60N_75.30E",
+            "E5L_15.10N_77.00E",
+            "E5L_15.20N_77.00E",
+            "E5L_15.30N_77.00E",
+            "E5L_15.30N_77.10E",
+            "E5L_15.60N_74.40E",
+            "E5L_15.70N_74.40E",
+            "E5L_16.40N_75.80E",
+            "E5L_16.40N_75.90E",
+            "E5L_16.40N_76.00E"
+          ],
+          "n_test_cells": 20,
+          "n_buffer_cells": 27,
+          "n_train_cells": 64,
+          "min_test_train_separation_cells": 2
+        }
+      ]
+    }
+  },
+  "exclusions": [
+    {
+      "tp_code": "293922",
+      "tp_name": "K G F",
+      "zp_name": "Kolar",
+      "geographic_regime": "eastern_plateau",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "294318",
+      "tp_name": "Kittur",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 5 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "296774",
+      "tp_name": "Laxmeshwara",
+      "zp_name": "Gadag",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296775",
+      "tp_name": "Gajendragada",
+      "zp_name": "Gadag",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296776",
+      "tp_name": "Dandeli",
+      "zp_name": "Uttara Kannada",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 3 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "296777",
+      "tp_name": "Gurumitkal",
+      "zp_name": "Yadgir",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.61 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "296778",
+      "tp_name": "Hunasagi",
+      "zp_name": "Yadgir",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.56 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "296779",
+      "tp_name": "Vadagera",
+      "zp_name": "Yadgir",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296780",
+      "tp_name": "Ajjampura",
+      "zp_name": "Chikkamagaluru",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296781",
+      "tp_name": "Alnavar",
+      "zp_name": "Dharwad",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.50 < 0.8",
+        "1 new ERA5-Land cells < 3"
+      ]
+    },
+    {
+      "tp_code": "296782",
+      "tp_name": "Annigeri",
+      "zp_name": "Dharwad",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296784",
+      "tp_name": "Kanakagiri",
+      "zp_name": "Koppal",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296785",
+      "tp_name": "Karatagi",
+      "zp_name": "Koppal",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Ballari"
+      ]
+    },
+    {
+      "tp_code": "296786",
+      "tp_name": "Kukunuru",
+      "zp_name": "Koppal",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296787",
+      "tp_name": "Nyamathi",
+      "zp_name": "Davangere",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296788",
+      "tp_name": "Guledagudda",
+      "zp_name": "Bagalkot",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 4 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "296789",
+      "tp_name": "Yelahanka",
+      "zp_name": "Bengaluru Urban",
+      "geographic_regime": "eastern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Chintamani"
+      ]
+    },
+    {
+      "tp_code": "296790",
+      "tp_name": "Hebri",
+      "zp_name": "Udupi",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 4 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "296791",
+      "tp_name": "Bynduru",
+      "zp_name": "Udupi",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "2 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "296792",
+      "tp_name": "Kapu",
+      "zp_name": "Udupi",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "296793",
+      "tp_name": "Brahmavara",
+      "zp_name": "Udupi",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Karkal"
+      ]
+    },
+    {
+      "tp_code": "296794",
+      "tp_name": "Hanuru",
+      "zp_name": "Chamarajanagar",
+      "geographic_regime": "southern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "distance to Yelandur 37.0 km < 50 km"
+      ]
+    },
+    {
+      "tp_code": "296795",
+      "tp_name": "Rattihalli",
+      "zp_name": "Haveri",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Sorab"
+      ]
+    },
+    {
+      "tp_code": "296796",
+      "tp_name": "Ilkal",
+      "zp_name": "Bagalkot",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Nidagundi"
+      ]
+    },
+    {
+      "tp_code": "296797",
+      "tp_name": "Rabakavi Banahatti",
+      "zp_name": "Bagalkot",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296798",
+      "tp_name": "Kagawada",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.75 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "296799",
+      "tp_name": "Mudalagi",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Khanapur"
+      ]
+    },
+    {
+      "tp_code": "296800",
+      "tp_name": "Nippani",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.70 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "296801",
+      "tp_name": "Kampli",
+      "zp_name": "Ballari",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 4 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "296802",
+      "tp_name": "Kottur",
+      "zp_name": "Vijayanagara",
+      "geographic_regime": "central_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.64 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "296803",
+      "tp_name": "Kurugodu",
+      "zp_name": "Ballari",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Ballari"
+      ]
+    },
+    {
+      "tp_code": "296805",
+      "tp_name": "Hulasuru",
+      "zp_name": "Bidar",
+      "geographic_regime": "northern_dry_plains",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "296806",
+      "tp_name": "Kamalanagara",
+      "zp_name": "Bidar",
+      "geographic_regime": "northern_dry_plains",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "296807",
+      "tp_name": "Kadaba",
+      "zp_name": "Dakshina Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296808",
+      "tp_name": "Mudubidare",
+      "zp_name": "Dakshina Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 5 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "296809",
+      "tp_name": "Kalagi",
+      "zp_name": "Kalaburagi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Chittaguppa"
+      ]
+    },
+    {
+      "tp_code": "296810",
+      "tp_name": "Kamalapur",
+      "zp_name": "Kalaburagi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Chittaguppa"
+      ]
+    },
+    {
+      "tp_code": "296811",
+      "tp_name": "Shabad",
+      "zp_name": "Kalaburagi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.57 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "296812",
+      "tp_name": "Yadrami",
+      "zp_name": "Kalaburagi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296813",
+      "tp_name": "Saraguru",
+      "zp_name": "Mysuru",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296814",
+      "tp_name": "Maski",
+      "zp_name": "Raichur",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296815",
+      "tp_name": "Sirawara",
+      "zp_name": "Raichur",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "296816",
+      "tp_name": "Babaleshwar",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Nidagundi"
+      ]
+    },
+    {
+      "tp_code": "296817",
+      "tp_name": "Chadachana",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "3 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "296818",
+      "tp_name": "Devara Hipparagi",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.79 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "296819",
+      "tp_name": "Kolhar",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Nidagundi"
+      ]
+    },
+    {
+      "tp_code": "296821",
+      "tp_name": "Thalikoti",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Nidagundi"
+      ]
+    },
+    {
+      "tp_code": "296822",
+      "tp_name": "Thikota",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "299110",
+      "tp_name": "Almel",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Nidagundi"
+      ]
+    },
+    {
+      "tp_code": "299343",
+      "tp_name": "Kushalanagar",
+      "zp_name": "Kodagu",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.25 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "299344",
+      "tp_name": "Ponnampet",
+      "zp_name": "Kodagu",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.30 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "299599",
+      "tp_name": "Mulki",
+      "zp_name": "Dakshina Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 3 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "299600",
+      "tp_name": "Ullala",
+      "zp_name": "Dakshina Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "2 new ERA5-Land cells < 3"
+      ]
+    },
+    {
+      "tp_code": "299601",
+      "tp_name": "Saligrama",
+      "zp_name": "Mysuru",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Arkalgud"
+      ]
+    },
+    {
+      "tp_code": "299602",
+      "tp_name": "Kalasa",
+      "zp_name": "Chikkamagaluru",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 4 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "301517",
+      "tp_name": "Cheluru",
+      "zp_name": "Chikballapur",
+      "geographic_regime": "eastern_plateau",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "2 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "301518",
+      "tp_name": "Harohalli",
+      "zp_name": "Bengaluru South",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 4 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "301519",
+      "tp_name": "Manchenahalli",
+      "zp_name": "Chikballapur",
+      "geographic_regime": "eastern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.57 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "301521",
+      "tp_name": "Yaragatti",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.58 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6084",
+      "tp_name": "Badami",
+      "zp_name": "Bagalkot",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6085",
+      "tp_name": "Bagalkot",
+      "zp_name": "Bagalkot",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.79 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6086",
+      "tp_name": "Bilagi",
+      "zp_name": "Bagalkot",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.75 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6087",
+      "tp_name": "Hungund",
+      "zp_name": "Bagalkot",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Nidagundi"
+      ]
+    },
+    {
+      "tp_code": "6088",
+      "tp_name": "Jamkhandi",
+      "zp_name": "Bagalkot",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6089",
+      "tp_name": "Mudhol",
+      "zp_name": "Bagalkot",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6090",
+      "tp_name": "Anekal",
+      "zp_name": "Bengaluru Urban",
+      "geographic_regime": "eastern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.71 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6091",
+      "tp_name": "Bengaluru East",
+      "zp_name": "Bengaluru Urban",
+      "geographic_regime": "eastern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 4 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "6092",
+      "tp_name": "Bengaluru North",
+      "zp_name": "Bengaluru Urban",
+      "geographic_regime": "eastern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 5 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "6093",
+      "tp_name": "Bengaluru South",
+      "zp_name": "Bengaluru Urban",
+      "geographic_regime": "eastern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 5 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "6094",
+      "tp_name": "Channapatna",
+      "zp_name": "Bengaluru South",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Ramanagara"
+      ]
+    },
+    {
+      "tp_code": "6095",
+      "tp_name": "Devanhalli",
+      "zp_name": "Bengaluru Rural",
+      "geographic_regime": "eastern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.50 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6096",
+      "tp_name": "Dodballapur",
+      "zp_name": "Bengaluru Rural",
+      "geographic_regime": "eastern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.68 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6097",
+      "tp_name": "Hoskote",
+      "zp_name": "Bengaluru Rural",
+      "geographic_regime": "eastern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Chintamani"
+      ]
+    },
+    {
+      "tp_code": "6098",
+      "tp_name": "Kanakapura",
+      "zp_name": "Bengaluru South",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Ramanagara"
+      ]
+    },
+    {
+      "tp_code": "6099",
+      "tp_name": "Magadi",
+      "zp_name": "Bengaluru South",
+      "geographic_regime": "southern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.78 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6100",
+      "tp_name": "Nelamangala",
+      "zp_name": "Bengaluru Rural",
+      "geographic_regime": "eastern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Ramanagara"
+      ]
+    },
+    {
+      "tp_code": "6102",
+      "tp_name": "Athni",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.70 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6103",
+      "tp_name": "Belagavi",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.73 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6104",
+      "tp_name": "Bylahongal",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Khanapur"
+      ]
+    },
+    {
+      "tp_code": "6105",
+      "tp_name": "Chikodi",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.69 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6106",
+      "tp_name": "Gokak",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.67 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6107",
+      "tp_name": "Hukeri",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.73 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6109",
+      "tp_name": "Parasgad",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.72 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6110",
+      "tp_name": "Ramdurg",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.68 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6111",
+      "tp_name": "Raybag",
+      "zp_name": "Belagavi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Khanapur"
+      ]
+    },
+    {
+      "tp_code": "6113",
+      "tp_name": "Hadagalli",
+      "zp_name": "Vijayanagara",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6114",
+      "tp_name": "Hagaribommanahalli",
+      "zp_name": "Vijayanagara",
+      "geographic_regime": "central_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.71 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6115",
+      "tp_name": "Hosapete",
+      "zp_name": "Vijayanagara",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Ballari"
+      ]
+    },
+    {
+      "tp_code": "6116",
+      "tp_name": "Kudligi",
+      "zp_name": "Vijayanagara",
+      "geographic_regime": "central_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.60 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6117",
+      "tp_name": "Sandur",
+      "zp_name": "Ballari",
+      "geographic_regime": "central_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.73 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6118",
+      "tp_name": "Siruguppa",
+      "zp_name": "Ballari",
+      "geographic_regime": "central_plateau",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "2 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6119",
+      "tp_name": "Aurad",
+      "zp_name": "Bidar",
+      "geographic_regime": "northern_dry_plains",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "3 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6120",
+      "tp_name": "Basavakalyan",
+      "zp_name": "Bidar",
+      "geographic_regime": "northern_dry_plains",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "2 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)",
+        "2 COMPLETE GP(s) contain a village LGD maps to >1 GP"
+      ]
+    },
+    {
+      "tp_code": "6121",
+      "tp_name": "Bhalki",
+      "zp_name": "Bidar",
+      "geographic_regime": "northern_dry_plains",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6122",
+      "tp_name": "Bidar",
+      "zp_name": "Bidar",
+      "geographic_regime": "northern_dry_plains",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "2 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6123",
+      "tp_name": "Humnabad",
+      "zp_name": "Bidar",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Chittaguppa"
+      ]
+    },
+    {
+      "tp_code": "6124",
+      "tp_name": "Basavana Bagewadi",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.73 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6125",
+      "tp_name": "Vijayapura",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.56 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6126",
+      "tp_name": "Indi",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Nidagundi"
+      ]
+    },
+    {
+      "tp_code": "6127",
+      "tp_name": "Muddebihal",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Nidagundi"
+      ]
+    },
+    {
+      "tp_code": "6128",
+      "tp_name": "Sindagi",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Nidagundi"
+      ]
+    },
+    {
+      "tp_code": "6129",
+      "tp_name": "Chamarajanagar",
+      "zp_name": "Chamarajanagar",
+      "geographic_regime": "southern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "distance to Yelandur 19.3 km < 50 km"
+      ]
+    },
+    {
+      "tp_code": "6130",
+      "tp_name": "Gundlupet",
+      "zp_name": "Chamarajanagar",
+      "geographic_regime": "southern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.74 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6131",
+      "tp_name": "Kollegala",
+      "zp_name": "Chamarajanagar",
+      "geographic_regime": "southern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "distance to Yelandur 16.7 km < 50 km"
+      ]
+    },
+    {
+      "tp_code": "6132",
+      "tp_name": "Yelandur",
+      "zp_name": "Chamarajanagar",
+      "geographic_regime": "southern_plateau",
+      "category": "FROZEN_REFERENCE",
+      "reasons": [
+        "Yelandur: frozen Phase 2D reference region; never a Stage 4 training region"
+      ]
+    },
+    {
+      "tp_code": "6133",
+      "tp_name": "Chikkamagaluru",
+      "zp_name": "Chikkamagaluru",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6134",
+      "tp_name": "Kadur",
+      "zp_name": "Chikkamagaluru",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Hiriyur"
+      ]
+    },
+    {
+      "tp_code": "6135",
+      "tp_name": "Koppa",
+      "zp_name": "Chikkamagaluru",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Karkal"
+      ]
+    },
+    {
+      "tp_code": "6136",
+      "tp_name": "Mudigere",
+      "zp_name": "Chikkamagaluru",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6137",
+      "tp_name": "Narasimharajapura",
+      "zp_name": "Chikkamagaluru",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6138",
+      "tp_name": "Sringeri",
+      "zp_name": "Chikkamagaluru",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 5 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "6139",
+      "tp_name": "Tarikere",
+      "zp_name": "Chikkamagaluru",
+      "geographic_regime": "central_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.73 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6140",
+      "tp_name": "Challakere",
+      "zp_name": "Chitradurga",
+      "geographic_regime": "central_plateau",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "2 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6141",
+      "tp_name": "Chitradurga",
+      "zp_name": "Chitradurga",
+      "geographic_regime": "central_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.53 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6143",
+      "tp_name": "Holalkere",
+      "zp_name": "Chitradurga",
+      "geographic_regime": "central_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.79 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6144",
+      "tp_name": "Hosdurga",
+      "zp_name": "Chitradurga",
+      "geographic_regime": "central_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.73 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6145",
+      "tp_name": "Molakalmuru",
+      "zp_name": "Chitradurga",
+      "geographic_regime": "central_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.75 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6146",
+      "tp_name": "Bantval",
+      "zp_name": "Dakshina Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6147",
+      "tp_name": "Beltangadi",
+      "zp_name": "Dakshina Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Karkal"
+      ]
+    },
+    {
+      "tp_code": "6148",
+      "tp_name": "Mangaluru",
+      "zp_name": "Dakshina Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.60 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6149",
+      "tp_name": "Puttur",
+      "zp_name": "Dakshina Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6150",
+      "tp_name": "Sulya",
+      "zp_name": "Dakshina Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6151",
+      "tp_name": "Channagiri",
+      "zp_name": "Davangere",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6152",
+      "tp_name": "Davanagere",
+      "zp_name": "Davangere",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6153",
+      "tp_name": "Harappanahalli",
+      "zp_name": "Vijayanagara",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6154",
+      "tp_name": "Harihara",
+      "zp_name": "Davangere",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6155",
+      "tp_name": "Honnali",
+      "zp_name": "Davangere",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6156",
+      "tp_name": "Jagalur",
+      "zp_name": "Davangere",
+      "geographic_regime": "central_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.77 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6157",
+      "tp_name": "Dharwad",
+      "zp_name": "Dharwad",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Khanapur"
+      ]
+    },
+    {
+      "tp_code": "6158",
+      "tp_name": "Hubballi",
+      "zp_name": "Dharwad",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6159",
+      "tp_name": "Kalghatgi",
+      "zp_name": "Dharwad",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Khanapur"
+      ]
+    },
+    {
+      "tp_code": "6160",
+      "tp_name": "Kundgol",
+      "zp_name": "Dharwad",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6161",
+      "tp_name": "Navalgund",
+      "zp_name": "Dharwad",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6162",
+      "tp_name": "Gadag",
+      "zp_name": "Gadag",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.78 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6163",
+      "tp_name": "Mundaragi",
+      "zp_name": "Gadag",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.63 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6164",
+      "tp_name": "Naragund",
+      "zp_name": "Gadag",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6165",
+      "tp_name": "Ron",
+      "zp_name": "Gadag",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6166",
+      "tp_name": "Shirahatti",
+      "zp_name": "Gadag",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.79 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6167",
+      "tp_name": "Afzalpur",
+      "zp_name": "Kalaburagi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6168",
+      "tp_name": "Aland",
+      "zp_name": "Kalaburagi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6169",
+      "tp_name": "Chincholi",
+      "zp_name": "Kalaburagi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Chittaguppa"
+      ]
+    },
+    {
+      "tp_code": "6170",
+      "tp_name": "Chitapur",
+      "zp_name": "Kalaburagi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6171",
+      "tp_name": "Kalaburagi",
+      "zp_name": "Kalaburagi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Chittaguppa"
+      ]
+    },
+    {
+      "tp_code": "6172",
+      "tp_name": "Jevargi",
+      "zp_name": "Kalaburagi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6173",
+      "tp_name": "Sedam",
+      "zp_name": "Kalaburagi",
+      "geographic_regime": "northern_dry_plains",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "2 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6174",
+      "tp_name": "Shahapur",
+      "zp_name": "Yadgir",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6175",
+      "tp_name": "Shorapur",
+      "zp_name": "Yadgir",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.78 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6176",
+      "tp_name": "Yadgir",
+      "zp_name": "Yadgir",
+      "geographic_regime": "northern_dry_plains",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.64 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6177",
+      "tp_name": "Alur",
+      "zp_name": "Hassan",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 4 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "6179",
+      "tp_name": "Arsikere",
+      "zp_name": "Hassan",
+      "geographic_regime": "southern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.69 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6180",
+      "tp_name": "Belur",
+      "zp_name": "Hassan",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Arkalgud"
+      ]
+    },
+    {
+      "tp_code": "6181",
+      "tp_name": "Channarayapatna",
+      "zp_name": "Hassan",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Arkalgud"
+      ]
+    },
+    {
+      "tp_code": "6182",
+      "tp_name": "Hassan",
+      "zp_name": "Hassan",
+      "geographic_regime": "southern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.79 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6183",
+      "tp_name": "Holenarsipur",
+      "zp_name": "Hassan",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Arkalgud"
+      ]
+    },
+    {
+      "tp_code": "6184",
+      "tp_name": "Sakaleshpur",
+      "zp_name": "Hassan",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Arkalgud"
+      ]
+    },
+    {
+      "tp_code": "6185",
+      "tp_name": "Byadgi",
+      "zp_name": "Haveri",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Sorab"
+      ]
+    },
+    {
+      "tp_code": "6186",
+      "tp_name": "Hanagal",
+      "zp_name": "Haveri",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Sorab"
+      ]
+    },
+    {
+      "tp_code": "6187",
+      "tp_name": "Haveri",
+      "zp_name": "Haveri",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Sorab"
+      ]
+    },
+    {
+      "tp_code": "6188",
+      "tp_name": "Hirekerur",
+      "zp_name": "Haveri",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Sorab"
+      ]
+    },
+    {
+      "tp_code": "6189",
+      "tp_name": "Ranebennur",
+      "zp_name": "Haveri",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Sorab"
+      ]
+    },
+    {
+      "tp_code": "6190",
+      "tp_name": "Savanur",
+      "zp_name": "Haveri",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6191",
+      "tp_name": "Shiggaon",
+      "zp_name": "Haveri",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6192",
+      "tp_name": "Madikeri",
+      "zp_name": "Kodagu",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.38 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6193",
+      "tp_name": "Somvarpet",
+      "zp_name": "Kodagu",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.17 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6194",
+      "tp_name": "Virajpet",
+      "zp_name": "Kodagu",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.65 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6195",
+      "tp_name": "Bagepalli",
+      "zp_name": "Chikballapur",
+      "geographic_regime": "eastern_plateau",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6196",
+      "tp_name": "Bangarapet",
+      "zp_name": "Kolar",
+      "geographic_regime": "eastern_plateau",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6197",
+      "tp_name": "Chikballapur",
+      "zp_name": "Chikballapur",
+      "geographic_regime": "eastern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Chintamani"
+      ]
+    },
+    {
+      "tp_code": "6199",
+      "tp_name": "Gauribidanur",
+      "zp_name": "Chikballapur",
+      "geographic_regime": "eastern_plateau",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6200",
+      "tp_name": "Gudibanda",
+      "zp_name": "Chikballapur",
+      "geographic_regime": "eastern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.38 < 0.8",
+        "2 new ERA5-Land cells < 3"
+      ]
+    },
+    {
+      "tp_code": "6201",
+      "tp_name": "Kolar",
+      "zp_name": "Kolar",
+      "geographic_regime": "eastern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Chintamani"
+      ]
+    },
+    {
+      "tp_code": "6202",
+      "tp_name": "Malur",
+      "zp_name": "Kolar",
+      "geographic_regime": "eastern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Chintamani"
+      ]
+    },
+    {
+      "tp_code": "6203",
+      "tp_name": "Mulbagal",
+      "zp_name": "Kolar",
+      "geographic_regime": "eastern_plateau",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6204",
+      "tp_name": "Sidlaghatta",
+      "zp_name": "Chikballapur",
+      "geographic_regime": "eastern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Chintamani"
+      ]
+    },
+    {
+      "tp_code": "6205",
+      "tp_name": "Srinivaspur",
+      "zp_name": "Kolar",
+      "geographic_regime": "eastern_plateau",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "2 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6206",
+      "tp_name": "Gangavathi",
+      "zp_name": "Koppal",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Ballari"
+      ]
+    },
+    {
+      "tp_code": "6207",
+      "tp_name": "Koppal",
+      "zp_name": "Koppal",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6208",
+      "tp_name": "Kushtagi",
+      "zp_name": "Koppal",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6209",
+      "tp_name": "Yelburga",
+      "zp_name": "Koppal",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6210",
+      "tp_name": "Krishnarajpet",
+      "zp_name": "Mandya",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Arkalgud"
+      ]
+    },
+    {
+      "tp_code": "6211",
+      "tp_name": "Maddur",
+      "zp_name": "Mandya",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Ramanagara"
+      ]
+    },
+    {
+      "tp_code": "6212",
+      "tp_name": "Malvalli",
+      "zp_name": "Mandya",
+      "geographic_regime": "southern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "distance to Yelandur 35.9 km < 50 km"
+      ]
+    },
+    {
+      "tp_code": "6213",
+      "tp_name": "Mandya",
+      "zp_name": "Mandya",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Ramanagara"
+      ]
+    },
+    {
+      "tp_code": "6214",
+      "tp_name": "Nagamangala",
+      "zp_name": "Mandya",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6215",
+      "tp_name": "Pandavapura",
+      "zp_name": "Mandya",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6216",
+      "tp_name": "Shrirangapattana",
+      "zp_name": "Mandya",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of the frozen Yelandur reference"
+      ]
+    },
+    {
+      "tp_code": "6217",
+      "tp_name": "Heggadadevankote",
+      "zp_name": "Mysuru",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6218",
+      "tp_name": "Hunsur",
+      "zp_name": "Mysuru",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Arkalgud"
+      ]
+    },
+    {
+      "tp_code": "6219",
+      "tp_name": "Krishnarajanagara",
+      "zp_name": "Mysuru",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "only 4 ERA5-Land cells (< 6)"
+      ]
+    },
+    {
+      "tp_code": "6220",
+      "tp_name": "Mysuru",
+      "zp_name": "Mysuru",
+      "geographic_regime": "southern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.70 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6221",
+      "tp_name": "Nanjangud",
+      "zp_name": "Mysuru",
+      "geographic_regime": "southern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "distance to Yelandur 42.2 km < 50 km"
+      ]
+    },
+    {
+      "tp_code": "6222",
+      "tp_name": "Piriyapatna",
+      "zp_name": "Mysuru",
+      "geographic_regime": "southern_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Arkalgud"
+      ]
+    },
+    {
+      "tp_code": "6223",
+      "tp_name": "Tirumakudal-Narsipur",
+      "zp_name": "Mysuru",
+      "geographic_regime": "southern_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "distance to Yelandur 29.5 km < 50 km"
+      ]
+    },
+    {
+      "tp_code": "6224",
+      "tp_name": "Devadurga",
+      "zp_name": "Raichur",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6225",
+      "tp_name": "Lingsugur",
+      "zp_name": "Raichur",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6226",
+      "tp_name": "Manvi",
+      "zp_name": "Raichur",
+      "geographic_regime": "northern_dry_plains",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6227",
+      "tp_name": "Raichur",
+      "zp_name": "Raichur",
+      "geographic_regime": "northern_dry_plains",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "4 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6228",
+      "tp_name": "Sindhanur",
+      "zp_name": "Raichur",
+      "geographic_regime": "northern_dry_plains",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Ballari"
+      ]
+    },
+    {
+      "tp_code": "6229",
+      "tp_name": "Bhadravati",
+      "zp_name": "Shivamogga",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Sorab"
+      ]
+    },
+    {
+      "tp_code": "6230",
+      "tp_name": "Hosanagara",
+      "zp_name": "Shivamogga",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Sorab"
+      ]
+    },
+    {
+      "tp_code": "6231",
+      "tp_name": "Sagar",
+      "zp_name": "Shivamogga",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.69 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6232",
+      "tp_name": "Shikarpur",
+      "zp_name": "Shivamogga",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Sorab"
+      ]
+    },
+    {
+      "tp_code": "6233",
+      "tp_name": "Shivamogga",
+      "zp_name": "Shivamogga",
+      "geographic_regime": "central_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.76 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6235",
+      "tp_name": "Tirthahalli",
+      "zp_name": "Shivamogga",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Sorab"
+      ]
+    },
+    {
+      "tp_code": "6236",
+      "tp_name": "Chiknayakanhalli",
+      "zp_name": "Tumakuru",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Hiriyur"
+      ]
+    },
+    {
+      "tp_code": "6237",
+      "tp_name": "Gubbi",
+      "zp_name": "Tumakuru",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6238",
+      "tp_name": "Koratagere",
+      "zp_name": "Tumakuru",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6239",
+      "tp_name": "Kunigal",
+      "zp_name": "Tumakuru",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "within 3 cells of selected Ramanagara"
+      ]
+    },
+    {
+      "tp_code": "6240",
+      "tp_name": "Madhugiri",
+      "zp_name": "Tumakuru",
+      "geographic_regime": "central_plateau",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "3 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6241",
+      "tp_name": "Pavagada",
+      "zp_name": "Tumakuru",
+      "geographic_regime": "central_plateau",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.79 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6242",
+      "tp_name": "Sira",
+      "zp_name": "Tumakuru",
+      "geographic_regime": "central_plateau",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "2 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6243",
+      "tp_name": "Tiptur",
+      "zp_name": "Tumakuru",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6244",
+      "tp_name": "Tumakuru",
+      "zp_name": "Tumakuru",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6245",
+      "tp_name": "Turuvekere",
+      "zp_name": "Tumakuru",
+      "geographic_regime": "central_plateau",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "regime quota (2) filled by candidates with larger maximin distance"
+      ]
+    },
+    {
+      "tp_code": "6247",
+      "tp_name": "Kundapura",
+      "zp_name": "Udupi",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Karkal"
+      ]
+    },
+    {
+      "tp_code": "6248",
+      "tp_name": "Udupi",
+      "zp_name": "Udupi",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.69 < 0.8"
+      ]
+    },
+    {
+      "tp_code": "6249",
+      "tp_name": "Ankola",
+      "zp_name": "Uttara Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Karwar"
+      ]
+    },
+    {
+      "tp_code": "6250",
+      "tp_name": "Bhatkal",
+      "zp_name": "Uttara Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)",
+        "2 COMPLETE GP(s) contain a village LGD maps to >1 GP"
+      ]
+    },
+    {
+      "tp_code": "6251",
+      "tp_name": "Haliyal",
+      "zp_name": "Uttara Kannada",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Karwar"
+      ]
+    },
+    {
+      "tp_code": "6252",
+      "tp_name": "Honavar",
+      "zp_name": "Uttara Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6254",
+      "tp_name": "Kumta",
+      "zp_name": "Uttara Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6255",
+      "tp_name": "Mundgod",
+      "zp_name": "Uttara Kannada",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Karwar"
+      ]
+    },
+    {
+      "tp_code": "6256",
+      "tp_name": "Siddapur",
+      "zp_name": "Uttara Kannada",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Karwar"
+      ]
+    },
+    {
+      "tp_code": "6257",
+      "tp_name": "Sirsi",
+      "zp_name": "Uttara Kannada",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "ELIGIBLE_NOT_SELECTED",
+      "reasons": [
+        "Zila Panchayat already represented by Karwar"
+      ]
+    },
+    {
+      "tp_code": "6258",
+      "tp_name": "Supa",
+      "zp_name": "Uttara Kannada",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "CONDITIONAL_UNRESOLVED_PENDING_LAND_SEA_MASK",
+      "reasons": [
+        "1 new cell centre(s) outside Karnataka village polygons (possible sea / other-state cell; ERA5-Land land-sea mask not checked)"
+      ]
+    },
+    {
+      "tp_code": "6259",
+      "tp_name": "Yellapur",
+      "zp_name": "Uttara Kannada",
+      "geographic_regime": "western_ghats_malnad",
+      "category": "AUDIT_EXCLUDE",
+      "reasons": [
+        "COMPLETE spatial-proxy share 0.73 < 0.8"
+      ]
+    }
+  ],
+  "protected_artifact_sha256": {
+    "stage4_feasibility_audit": "439ebe03bf093034f9b649d9a92e9c00aceb630034348411ed68e02037849a80",
+    "stage4_taluka_audit_csv": "89dc959fc924ac5d026e449213e9db43a14147f67bd9749b3bc84575ba1d7897",
+    "stage1_results": "c53e715e28b18c1182b26ebf6d3131bb475f6c80e4a8ff747dc812d922b408ae",
+    "stage2_results": "5a8ac45eff4a1073b05630eb80a501ce97f05e2c7ed612ca9f792221f917d14e",
+    "stage3a_results": "9774019feb73d81cbd491611db2b3cf246c55c5b934b664618e4e153fc591627",
+    "stage3b_results": "bfa27dc1564711939843ddbf78ba53eee171f176a8f091263b96fa2467a8dd38",
+    "phase2d_manifest": "1983cff9539fb2a175bd78f477b47c1dd793850fd8f746d5b6d9a6d0a4f2b1a2",
+    "yelandur_era5_linkage": "890b05040c0cb27c8b51c94a51eb084983ba29cac2d89a4dba8317e933a08ef4",
+    "yelandur_spatial_proxy": "8c8a68f7f3b6286a1dbca1be1926a54c8f91e99b9c8feae63b348c8888a20c94",
+    "yelandur_elevation": "f72e85d08aaa510eaae80c51f412cc713d92f4ee8eadeb8c9fe131d580caba05"
+  },
+  "protected_artifact_paths": {
+    "stage4_feasibility_audit": "research/stage4_spatial_generalization/feasibility_audit.json",
+    "stage4_taluka_audit_csv": "research/stage4_spatial_generalization/taluka_panchayat_audit.csv",
+    "stage1_results": "research/baselines/baseline_results.json",
+    "stage2_results": "research/ml_stage2/stage2_results.json",
+    "stage3a_results": "research/ml_stage3_ablation/ablation_results.json",
+    "stage3b_results": "research/ml_stage3b_rainfall/rainfall_results.json",
+    "phase2d_manifest": "research/multi_gp/yelandur_multi_gp_manifest.json",
+    "yelandur_era5_linkage": "research/era5_linkage/yelandur_era5_linkage.json",
+    "yelandur_spatial_proxy": "research/spatial_proxy/yelandur_spatial_proxy.json",
+    "yelandur_elevation": "research/elevation/yelandur_elevation.json"
+  }
+}

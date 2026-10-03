@@ -1,0 +1,337 @@
+{
+ "model_configuration": {
+  "A1_bilinear": "ERA5 bilinear value of the target variable; no training",
+  "A2_nearest": "ERA5 nearest-point value of the target variable; no training",
+  "B_ridge": {
+   "source": "baselines.baseline (Stage 1)",
+   "alpha": 1.0,
+   "features": "Stage 1 FEATURES with coarse_bilinear_value -> era5_<variable>",
+   "standardization": "fit on training rows only"
+  },
+  "C1..C4": {
+   "source": "ml_stage2.model.CONFIG (Stage 2) + ml_stage3_ablation.variants (Stage 3A)",
+   "hgb_config": {
+    "loss": "squared_error",
+    "learning_rate": 0.1,
+    "max_iter": 200,
+    "max_leaf_nodes": 31,
+    "max_depth": null,
+    "min_samples_leaf": 200,
+    "l2_regularization": 0.0,
+    "max_bins": 255,
+    "early_stopping": false,
+    "random_state": 0
+   },
+   "variants": {
+    "C1": [
+     "era5_temperature_c",
+     "era5_dewpoint_c",
+     "era5_relative_humidity_pct",
+     "era5_rainfall_mm",
+     "era5_wind_speed_kmph"
+    ],
+    "C2": [
+     "era5_temperature_c",
+     "era5_dewpoint_c",
+     "era5_relative_humidity_pct",
+     "era5_rainfall_mm",
+     "era5_wind_speed_kmph",
+     "elevation_mean_m",
+     "elevation_range_m"
+    ],
+    "C3": [
+     "era5_temperature_c",
+     "era5_dewpoint_c",
+     "era5_relative_humidity_pct",
+     "era5_rainfall_mm",
+     "era5_wind_speed_kmph",
+     "elevation_mean_m",
+     "elevation_range_m",
+     "centroid_to_cell_km",
+     "intersecting_cell_count"
+    ],
+    "C4": [
+     "era5_temperature_c",
+     "era5_dewpoint_c",
+     "era5_relative_humidity_pct",
+     "era5_rainfall_mm",
+     "era5_wind_speed_kmph",
+     "elevation_mean_m",
+     "elevation_range_m",
+     "centroid_to_cell_km",
+     "intersecting_cell_count",
+     "sin_hour",
+     "cos_hour",
+     "sin_day_of_year",
+     "cos_day_of_year"
+    ]
+   }
+  }
+ },
+ "feature_lists": {
+  "temperature_c": {
+   "B_ridge": [
+    "era5_temperature_c",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count"
+   ],
+   "C1": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph"
+   ],
+   "C2": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m"
+   ],
+   "C3": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count"
+   ],
+   "C4": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count",
+    "sin_hour",
+    "cos_hour",
+    "sin_day_of_year",
+    "cos_day_of_year"
+   ]
+  },
+  "dewpoint_c": {
+   "B_ridge": [
+    "era5_dewpoint_c",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count"
+   ],
+   "C1": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph"
+   ],
+   "C2": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m"
+   ],
+   "C3": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count"
+   ],
+   "C4": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count",
+    "sin_hour",
+    "cos_hour",
+    "sin_day_of_year",
+    "cos_day_of_year"
+   ]
+  },
+  "relative_humidity_pct": {
+   "B_ridge": [
+    "era5_relative_humidity_pct",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count"
+   ],
+   "C1": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph"
+   ],
+   "C2": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m"
+   ],
+   "C3": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count"
+   ],
+   "C4": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count",
+    "sin_hour",
+    "cos_hour",
+    "sin_day_of_year",
+    "cos_day_of_year"
+   ]
+  },
+  "rainfall_mm": {
+   "B_ridge": [
+    "era5_rainfall_mm",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count"
+   ],
+   "C1": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph"
+   ],
+   "C2": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m"
+   ],
+   "C3": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count"
+   ],
+   "C4": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count",
+    "sin_hour",
+    "cos_hour",
+    "sin_day_of_year",
+    "cos_day_of_year"
+   ]
+  },
+  "wind_speed_kmph": {
+   "B_ridge": [
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count"
+   ],
+   "C1": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph"
+   ],
+   "C2": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m"
+   ],
+   "C3": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count"
+   ],
+   "C4": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count",
+    "sin_hour",
+    "cos_hour",
+    "sin_day_of_year",
+    "cos_day_of_year"
+   ]
+  }
+ },
+ "random_state": 0,
+ "versions": {
+  "python": "3.12.6",
+  "numpy": "2.2.6",
+  "pandas": "3.0.1",
+  "scikit_learn": "1.8.0",
+  "pyarrow": "25.0.1"
+ },
+ "note": "No fitted model objects are saved; configurations are frozen and fits are deterministic."
+}

@@ -1,0 +1,2533 @@
+{
+  "type": "YelandurMLStage3AFeatureAblation",
+  "evaluation_statement": "Evaluation against ERA5-Land reanalysis proxy — not observation.",
+  "spatial_sample_statement": "The effective spatial sample comprises 4 ERA5-Land cell groups, so these results are exploratory and do not establish generalized Panchayat-level forecasting skill.",
+  "effective_spatial_sample_size": "4 ERA5-Land spatial cell groups",
+  "row_independence_note": "The dataset's 1,445,400 rows are NOT independent samples.",
+  "dataset": {
+    "file": "data/training/yelandur_multi_gp.parquet",
+    "sha256": "c25017849d5b47f43d622a03a89a99ab155e4de3e3aa7cd25e00c32aeac5bf28",
+    "row_count": 1445400
+  },
+  "model_config": {
+    "loss": "squared_error",
+    "learning_rate": 0.1,
+    "max_iter": 200,
+    "max_leaf_nodes": 31,
+    "max_depth": null,
+    "min_samples_leaf": 200,
+    "l2_regularization": 0.0,
+    "max_bins": 255,
+    "early_stopping": false,
+    "random_state": 0
+  },
+  "model_config_source": "ml_stage2.model.CONFIG (imported unchanged; no tuning)",
+  "variants": {
+    "C1_coarse_weather": [
+      "era5_temperature_c",
+      "era5_dewpoint_c",
+      "era5_relative_humidity_pct",
+      "era5_rainfall_mm",
+      "era5_wind_speed_kmph"
+    ],
+    "C2_plus_elevation": [
+      "era5_temperature_c",
+      "era5_dewpoint_c",
+      "era5_relative_humidity_pct",
+      "era5_rainfall_mm",
+      "era5_wind_speed_kmph",
+      "elevation_mean_m",
+      "elevation_range_m"
+    ],
+    "C3_plus_spatial": [
+      "era5_temperature_c",
+      "era5_dewpoint_c",
+      "era5_relative_humidity_pct",
+      "era5_rainfall_mm",
+      "era5_wind_speed_kmph",
+      "elevation_mean_m",
+      "elevation_range_m",
+      "centroid_to_cell_km",
+      "intersecting_cell_count"
+    ],
+    "C4_plus_time_full_C": [
+      "era5_temperature_c",
+      "era5_dewpoint_c",
+      "era5_relative_humidity_pct",
+      "era5_rainfall_mm",
+      "era5_wind_speed_kmph",
+      "elevation_mean_m",
+      "elevation_range_m",
+      "centroid_to_cell_km",
+      "intersecting_cell_count",
+      "sin_hour",
+      "cos_hour",
+      "sin_day_of_year",
+      "cos_day_of_year"
+    ]
+  },
+  "increments_definition": [
+    {
+      "from": "C1_coarse_weather",
+      "to": "C2_plus_elevation",
+      "feature_group_added": "elevation"
+    },
+    {
+      "from": "C2_plus_elevation",
+      "to": "C3_plus_spatial",
+      "feature_group_added": "spatial_context"
+    },
+    {
+      "from": "C3_plus_spatial",
+      "to": "C4_plus_time_full_C",
+      "feature_group_added": "temporal"
+    },
+    {
+      "from": "C1_coarse_weather",
+      "to": "C4_plus_time_full_C",
+      "feature_group_added": "all_non_weather_groups"
+    }
+  ],
+  "reference": "A_bilinear = coarse_bilinear_value, scored on the same test rows (no training)",
+  "error_sign_convention": "bias = mean(prediction - target); delta = later variant minus earlier variant",
+  "excluded_from_features": [
+    "area_weighted_cell_count",
+    "area_weighted_rainfall_clamped",
+    "area_weighted_value",
+    "cell_group_complete_gp_count",
+    "cell_group_id",
+    "centroid_latitude",
+    "centroid_longitude",
+    "coarse_nearest_latitude",
+    "coarse_nearest_longitude",
+    "coverage_status",
+    "gp_name",
+    "in_primary_population",
+    "local_date_ist",
+    "panchayat_lgd_code",
+    "split_fold_1",
+    "split_fold_2",
+    "split_fold_3",
+    "split_fold_4",
+    "taluka_panchayat_lgd_code",
+    "target_cell_latitude",
+    "target_cell_longitude",
+    "target_missing_reason",
+    "target_rainfall_clamped",
+    "target_source_file",
+    "target_source_sha256",
+    "target_value",
+    "temporal_period",
+    "timestamp_utc"
+  ],
+  "rainfall_note": "Rainfall processing unchanged; HGB rainfall results are a diagnostic only in this stage.",
+  "folds": {
+    "split_fold_1": {
+      "held_out_cell_group": "E5L_12.00N_77.10E",
+      "leakage_audit": {
+        "train_cell_groups": [
+          "E5L_12.00N_77.20E",
+          "E5L_12.10N_77.00E",
+          "E5L_12.10N_77.10E"
+        ],
+        "test_cell_groups": [
+          "E5L_12.00N_77.10E"
+        ],
+        "cell_groups_disjoint": true,
+        "train_last_timestamp_utc": "2022-12-24 23:00:00+00:00",
+        "test_first_timestamp_utc": "2023-01-01 00:00:00+00:00",
+        "temporal_gap_hours": 169.0,
+        "temporal_gap_at_least_7_days": true,
+        "partial_or_nonprimary_rows_used": 0,
+        "agara_rows_used": 0,
+        "missing_target_rows_used": 0
+      },
+      "by_variable": {
+        "temperature_c": {
+          "A_bilinear": {
+            "n": 17520,
+            "mae": 1.0693124180623867,
+            "rmse": 1.3071339430185605,
+            "bias": 0.8346228166693339,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 17520,
+            "mae": 0.7446320148223382,
+            "rmse": 0.9759910070042455,
+            "bias": 0.08182658583270686,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 17520,
+            "mae": 0.7468438139989072,
+            "rmse": 0.9850209759598649,
+            "bias": 0.15957271180779653,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 17520,
+            "mae": 0.7469828502941405,
+            "rmse": 0.9845904456538865,
+            "bias": 0.15834872511408563,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 17520,
+            "mae": 0.5235012443060711,
+            "rmse": 0.7039001810246159,
+            "bias": 0.19105124118660358,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 17520,
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": 0.002211799176568996,
+              "rmse": 0.009029968955619472,
+              "bias": 0.07774612597508967,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": 0.00013903629523326355,
+              "rmse": -0.0004305303059783938,
+              "bias": -0.0012239866937109045,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.22348160598806932,
+              "rmse": -0.2806902646292706,
+              "bias": 0.03270251607251795,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.22113077051626706,
+              "rmse": -0.2720908259796295,
+              "bias": 0.10922465535389672,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "dewpoint_c": {
+          "A_bilinear": {
+            "n": 17520,
+            "mae": 1.2729446487775085,
+            "rmse": 1.534125130289404,
+            "bias": 1.2503192340728848,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 17520,
+            "mae": 0.5390303550299371,
+            "rmse": 0.7506007126272117,
+            "bias": 0.204758162460961,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 17520,
+            "mae": 0.5315978560949955,
+            "rmse": 0.7408169299521852,
+            "bias": 0.188182291801939,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 17520,
+            "mae": 0.530775863433762,
+            "rmse": 0.7387182438741478,
+            "bias": 0.1835023535440229,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 17520,
+            "mae": 0.5111004736821778,
+            "rmse": 0.7111519578145302,
+            "bias": 0.21382043119089536,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 17520,
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": -0.007432498934941578,
+              "rmse": -0.009783782675026553,
+              "bias": -0.016575870659022024,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": -0.000821992661233506,
+              "rmse": -0.002098686078037426,
+              "bias": -0.0046799382579161,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.019675389751584227,
+              "rmse": -0.02756628605961753,
+              "bias": 0.03031807764687247,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.02792988134775931,
+              "rmse": -0.03944875481268151,
+              "bias": 0.009062268729934347,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "relative_humidity_pct": {
+          "A_bilinear": {
+            "n": 17520,
+            "mae": 3.956193381450355,
+            "rmse": 5.005644954755171,
+            "bias": 0.9593679193386084,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 17520,
+            "mae": 3.4386059021452,
+            "rmse": 4.427164895203916,
+            "bias": 0.37274268295246665,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 17520,
+            "mae": 3.420346141084748,
+            "rmse": 4.4058713214839,
+            "bias": 0.06876670981960076,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 17520,
+            "mae": 3.419539984474585,
+            "rmse": 4.4003759714561905,
+            "bias": 0.12383334594463379,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 17520,
+            "mae": 2.541724595075276,
+            "rmse": 3.355330227585098,
+            "bias": 0.15261530366895337,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 17520,
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": -0.018259761060451574,
+              "rmse": -0.021293573720015502,
+              "bias": -0.3039759731328659,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": -0.0008061566101633666,
+              "rmse": -0.005495350027709733,
+              "bias": 0.05506663612503303,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.8778153893993088,
+              "rmse": -1.0450457438710927,
+              "bias": 0.028781957724319587,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.8968813070699237,
+              "rmse": -1.071834667618818,
+              "bias": -0.22012737928351328,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "rainfall_mm": {
+          "A_bilinear": {
+            "n": 17520,
+            "mae": 0.02290517884030442,
+            "rmse": 0.10317110301333139,
+            "bias": 0.009255335526962023,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 17520,
+            "mae": 0.025774278230175064,
+            "rmse": 0.17803846141464597,
+            "bias": 0.0011167537727678866,
+            "invalid_predictions": 1162
+          },
+          "C2_plus_elevation": {
+            "n": 17520,
+            "mae": 0.02528774195333142,
+            "rmse": 0.17619763586619241,
+            "bias": -0.0028536319698270244,
+            "invalid_predictions": 7818
+          },
+          "C3_plus_spatial": {
+            "n": 17520,
+            "mae": 0.025217742138131136,
+            "rmse": 0.1756135920410843,
+            "bias": -0.0021161110862638974,
+            "invalid_predictions": 3644
+          },
+          "C4_plus_time_full_C": {
+            "n": 17520,
+            "mae": 0.025109523645909494,
+            "rmse": 0.17660665389402475,
+            "bias": -0.0018937968657265398,
+            "invalid_predictions": 4798
+          },
+          "n_test_records": 17520,
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": -0.00048653627684364445,
+              "rmse": -0.0018408255484535507,
+              "bias": -0.003970385742594911,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": -6.999981520028342e-05,
+              "rmse": -0.000584043825108127,
+              "bias": 0.0007375208835631269,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.00010821849222164212,
+              "rmse": 0.0009930618529404578,
+              "bias": 0.00022231422053735762,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.00066475458426557,
+              "rmse": -0.00143180752062122,
+              "bias": -0.0030105506384944265,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "wind_speed_kmph": {
+          "A_bilinear": {
+            "n": 17520,
+            "mae": 1.3820992157443708,
+            "rmse": 1.7445572571927621,
+            "bias": 1.1539061322657824,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 17520,
+            "mae": 0.8075151238582376,
+            "rmse": 1.0836835124503488,
+            "bias": 0.12635190798122006,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 17520,
+            "mae": 0.8130325184546857,
+            "rmse": 1.0897427898414809,
+            "bias": 0.13181660770116457,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 17520,
+            "mae": 0.8109754684515715,
+            "rmse": 1.088166630625184,
+            "bias": 0.130068871467656,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 17520,
+            "mae": 0.7913600514395501,
+            "rmse": 1.0670211147684288,
+            "bias": 0.16602932756308847,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 17520,
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": 0.005517394596448066,
+              "rmse": 0.006059277391132101,
+              "bias": 0.00546469971994451,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": -0.0020570500031141803,
+              "rmse": -0.0015761592162968352,
+              "bias": -0.0017477362335085733,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.019615417012021408,
+              "rmse": -0.02114551585675528,
+              "bias": 0.03596045609543247,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.01615507241868752,
+              "rmse": -0.016662397681920016,
+              "bias": 0.039677419581868406,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        }
+      }
+    },
+    "split_fold_2": {
+      "held_out_cell_group": "E5L_12.00N_77.20E",
+      "leakage_audit": {
+        "train_cell_groups": [
+          "E5L_12.00N_77.10E",
+          "E5L_12.10N_77.00E",
+          "E5L_12.10N_77.10E"
+        ],
+        "test_cell_groups": [
+          "E5L_12.00N_77.20E"
+        ],
+        "cell_groups_disjoint": true,
+        "train_last_timestamp_utc": "2022-12-24 23:00:00+00:00",
+        "test_first_timestamp_utc": "2023-01-01 00:00:00+00:00",
+        "temporal_gap_hours": 169.0,
+        "temporal_gap_at_least_7_days": true,
+        "partial_or_nonprimary_rows_used": 0,
+        "agara_rows_used": 0,
+        "missing_target_rows_used": 0
+      },
+      "by_variable": {
+        "temperature_c": {
+          "A_bilinear": {
+            "n": 8760,
+            "mae": 1.7708696227748486,
+            "rmse": 1.9779173653669395,
+            "bias": 1.732887478484394,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 8760,
+            "mae": 1.1765669366249842,
+            "rmse": 1.414443745266317,
+            "bias": 1.0412423815483014,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 8760,
+            "mae": 0.9433514941070649,
+            "rmse": 1.1757523349594372,
+            "bias": 0.710378378940206,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 8760,
+            "mae": 0.9441393911614729,
+            "rmse": 1.1776144383987135,
+            "bias": 0.7111501133186723,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 8760,
+            "mae": 0.7052085675113963,
+            "rmse": 0.8793990581612439,
+            "bias": 0.6068494453221005,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 8760,
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": -0.23321544251791937,
+              "rmse": -0.2386914103068798,
+              "bias": -0.33086400260809545,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": 0.000787897054408071,
+              "rmse": 0.0018621034392762859,
+              "bias": 0.0007717343784663377,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.23893082365007667,
+              "rmse": -0.29821538023746963,
+              "bias": -0.10430066799657178,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.47135836911358797,
+              "rmse": -0.5350446871050731,
+              "bias": -0.4343929362262009,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "dewpoint_c": {
+          "A_bilinear": {
+            "n": 8760,
+            "mae": 2.0085413134152383,
+            "rmse": 2.192654662148675,
+            "bias": 2.0048655115414866,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 8760,
+            "mae": 1.094830462547644,
+            "rmse": 1.2687420892490817,
+            "bias": 1.0205478272140238,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 8760,
+            "mae": 0.8017647005921099,
+            "rmse": 0.9960872511539505,
+            "bias": 0.654009760075584,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 8760,
+            "mae": 0.7997905848124865,
+            "rmse": 0.9926727536593494,
+            "bias": 0.6507764736489545,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 8760,
+            "mae": 0.7886552424564328,
+            "rmse": 0.9851883998964381,
+            "bias": 0.6901295723132995,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 8760,
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": -0.293065761955534,
+              "rmse": -0.27265483809513125,
+              "bias": -0.36653806713843984,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": -0.0019741157796233644,
+              "rmse": -0.0034144974946010986,
+              "bias": -0.003233286426629456,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.011135342356053735,
+              "rmse": -0.007484353762911233,
+              "bias": 0.039353098664345,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.3061752200912111,
+              "rmse": -0.2835536893526436,
+              "bias": -0.3304182549007243,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "relative_humidity_pct": {
+          "A_bilinear": {
+            "n": 8760,
+            "mae": 3.7899845905399148,
+            "rmse": 4.786140670505069,
+            "bias": 0.7477463117865722,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 8760,
+            "mae": 3.39688831882222,
+            "rmse": 4.392382203161173,
+            "bias": 0.19606939735316548,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 8760,
+            "mae": 3.3664037674850293,
+            "rmse": 4.35920574448377,
+            "bias": 0.059305527755026725,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 8760,
+            "mae": 3.368793514395596,
+            "rmse": 4.359267842818671,
+            "bias": 0.055102754263547125,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 8760,
+            "mae": 2.5669310875785656,
+            "rmse": 3.3666830501563467,
+            "bias": 0.47936009081137687,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 8760,
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": -0.030484551337190524,
+              "rmse": -0.03317645867740282,
+              "bias": -0.13676386959813874,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": 0.0023897469105667035,
+              "rmse": 6.209833490089522e-05,
+              "bias": -0.0042027734914796,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.8018624268170305,
+              "rmse": -0.9925847926623241,
+              "bias": 0.42425733654782977,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.8299572312436543,
+              "rmse": -1.025699153004826,
+              "bias": 0.2832906934582114,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "rainfall_mm": {
+          "A_bilinear": {
+            "n": 8760,
+            "mae": 0.010827625988131006,
+            "rmse": 0.050038611889804664,
+            "bias": 0.003920723048282213,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 8760,
+            "mae": 0.016301805233260313,
+            "rmse": 0.11864745379558897,
+            "bias": -0.004264338975896024,
+            "invalid_predictions": 289
+          },
+          "C2_plus_elevation": {
+            "n": 8760,
+            "mae": 0.019593756200760173,
+            "rmse": 0.1240937627336921,
+            "bias": -0.009164600649649213,
+            "invalid_predictions": 1928
+          },
+          "C3_plus_spatial": {
+            "n": 8760,
+            "mae": 0.019646310474885426,
+            "rmse": 0.12400533501703812,
+            "bias": -0.009225316549975507,
+            "invalid_predictions": 1598
+          },
+          "C4_plus_time_full_C": {
+            "n": 8760,
+            "mae": 0.019398150626038505,
+            "rmse": 0.12987631007977185,
+            "bias": -0.007802570960096863,
+            "invalid_predictions": 1530
+          },
+          "n_test_records": 8760,
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": 0.00329195096749986,
+              "rmse": 0.005446308938103134,
+              "bias": -0.004900261673753189,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": 5.255427412525354e-05,
+              "rmse": -8.842771665398819e-05,
+              "bias": -6.07159003262938e-05,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.0002481598488469211,
+              "rmse": 0.005870975062733735,
+              "bias": 0.0014227455898786438,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": 0.0030963453927781923,
+              "rmse": 0.011228856284182881,
+              "bias": -0.003538231984200839,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "wind_speed_kmph": {
+          "A_bilinear": {
+            "n": 8760,
+            "mae": 1.3943075183895306,
+            "rmse": 1.7542808775393903,
+            "bias": 1.230437754676758,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 8760,
+            "mae": 0.7596743351486706,
+            "rmse": 1.0343780041169273,
+            "bias": 0.2632697472502944,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 8760,
+            "mae": 0.734607068526167,
+            "rmse": 1.0083888089123452,
+            "bias": 0.16669970545226703,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 8760,
+            "mae": 0.7347928443951549,
+            "rmse": 1.0095274113890076,
+            "bias": 0.16786697884504242,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 8760,
+            "mae": 0.7176337288264515,
+            "rmse": 0.9850846119418912,
+            "bias": 0.15560979315244755,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 8760,
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": -0.02506726662250358,
+              "rmse": -0.025989195204582094,
+              "bias": -0.09657004179802736,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": 0.0001857758689879363,
+              "rmse": 0.0011386024766624203,
+              "bias": 0.001167273392775392,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.01715911556870342,
+              "rmse": -0.02444279944711636,
+              "bias": -0.012257185692594874,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.042040606322219065,
+              "rmse": -0.04929339217503603,
+              "bias": -0.10765995409784684,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        }
+      }
+    },
+    "split_fold_3": {
+      "held_out_cell_group": "E5L_12.10N_77.00E",
+      "leakage_audit": {
+        "train_cell_groups": [
+          "E5L_12.00N_77.10E",
+          "E5L_12.00N_77.20E",
+          "E5L_12.10N_77.10E"
+        ],
+        "test_cell_groups": [
+          "E5L_12.10N_77.00E"
+        ],
+        "cell_groups_disjoint": true,
+        "train_last_timestamp_utc": "2022-12-24 23:00:00+00:00",
+        "test_first_timestamp_utc": "2023-01-01 00:00:00+00:00",
+        "temporal_gap_hours": 169.0,
+        "temporal_gap_at_least_7_days": true,
+        "partial_or_nonprimary_rows_used": 0,
+        "agara_rows_used": 0,
+        "missing_target_rows_used": 0
+      },
+      "by_variable": {
+        "temperature_c": {
+          "A_bilinear": {
+            "n": 35040,
+            "mae": 0.8559899776929039,
+            "rmse": 1.0880264985160155,
+            "bias": 0.33818677928349505,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 35040,
+            "mae": 0.9104044132301229,
+            "rmse": 1.1544180601108227,
+            "bias": -0.6258251015868173,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 35040,
+            "mae": 0.7911946314734801,
+            "rmse": 1.020234737712663,
+            "bias": -0.3273322401704302,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 35040,
+            "mae": 0.7911946314734801,
+            "rmse": 1.020234737712663,
+            "bias": -0.3273322401704302,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 35040,
+            "mae": 0.6384626345190614,
+            "rmse": 0.7918180579633239,
+            "bias": -0.43362127609429124,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 35040,
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": -0.11920978175664276,
+              "rmse": -0.13418332239815967,
+              "bias": 0.29849286141638703,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": 0.0,
+              "rmse": 0.0,
+              "bias": 0.0,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.15273199695441875,
+              "rmse": -0.2284166797493391,
+              "bias": -0.10628903592386102,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.2719417787110615,
+              "rmse": -0.36260000214749877,
+              "bias": 0.19220382549252601,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "dewpoint_c": {
+          "A_bilinear": {
+            "n": 35040,
+            "mae": 0.7716887849433237,
+            "rmse": 1.0793512505528653,
+            "bias": 0.6541798665643282,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 35040,
+            "mae": 0.859006250119819,
+            "rmse": 1.0665922428230736,
+            "bias": -0.7484679275104541,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 35040,
+            "mae": 0.6738080248871352,
+            "rmse": 0.8979445803239791,
+            "bias": -0.4841721429404942,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 35040,
+            "mae": 0.6738080248871352,
+            "rmse": 0.8979445803239791,
+            "bias": -0.4841721429404942,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 35040,
+            "mae": 0.6558377857183163,
+            "rmse": 0.83143194250365,
+            "bias": -0.4411537984842059,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 35040,
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": -0.1851982252326838,
+              "rmse": -0.16864766249909457,
+              "bias": 0.2642957845699599,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": 0.0,
+              "rmse": 0.0,
+              "bias": 0.0,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.017970239168818902,
+              "rmse": -0.06651263782032901,
+              "bias": 0.04301834445628833,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.2031684644015027,
+              "rmse": -0.2351603003194236,
+              "bias": 0.3073141290262482,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "relative_humidity_pct": {
+          "A_bilinear": {
+            "n": 35040,
+            "mae": 3.933883392090913,
+            "rmse": 4.926891975792737,
+            "bias": 0.5405383095754083,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 35040,
+            "mae": 3.4533852170098456,
+            "rmse": 4.481131159429901,
+            "bias": -0.5792686430025076,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 35040,
+            "mae": 3.4446255594045527,
+            "rmse": 4.473939978393373,
+            "bias": -0.659881221701623,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 35040,
+            "mae": 3.4446255594045527,
+            "rmse": 4.473939978393373,
+            "bias": -0.659881221701623,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 35040,
+            "mae": 2.5740197742916378,
+            "rmse": 3.3873917119193657,
+            "bias": -0.11245225353989077,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 35040,
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": -0.008759657605292848,
+              "rmse": -0.007191181036527716,
+              "bias": -0.08061257869911542,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": 0.0,
+              "rmse": 0.0,
+              "bias": 0.0,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.870605785112915,
+              "rmse": -1.0865482664740074,
+              "bias": 0.5474289681617323,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.8793654427182078,
+              "rmse": -1.093739447510535,
+              "bias": 0.46681638946261683,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "rainfall_mm": {
+          "A_bilinear": {
+            "n": 35040,
+            "mae": 0.004031883163364626,
+            "rmse": 0.017336394830746893,
+            "bias": 0.00016863914536839074,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 35040,
+            "mae": 0.015357035220330554,
+            "rmse": 0.10916077828418058,
+            "bias": -0.011126743120379054,
+            "invalid_predictions": 4448
+          },
+          "C2_plus_elevation": {
+            "n": 35040,
+            "mae": 0.015646398440592835,
+            "rmse": 0.10917208318740419,
+            "bias": -0.011246869855853001,
+            "invalid_predictions": 5680
+          },
+          "C3_plus_spatial": {
+            "n": 35040,
+            "mae": 0.015643906316084054,
+            "rmse": 0.10862913219165662,
+            "bias": -0.011283461024973289,
+            "invalid_predictions": 4496
+          },
+          "C4_plus_time_full_C": {
+            "n": 35040,
+            "mae": 0.015271608488870535,
+            "rmse": 0.10737698164297776,
+            "bias": -0.00966462001103056,
+            "invalid_predictions": 7492
+          },
+          "n_test_records": 35040,
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": 0.00028936322026228145,
+              "rmse": 1.1304903223610663e-05,
+              "bias": -0.00012012673547394728,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": -2.492124508781529e-06,
+              "rmse": -0.0005429509957475681,
+              "bias": -3.659116912028797e-05,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.00037229782721351877,
+              "rmse": -0.0012521505486788598,
+              "bias": 0.0016188410139427283,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -8.542673146001885e-05,
+              "rmse": -0.0017837966412028172,
+              "bias": 0.001462123109348493,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "wind_speed_kmph": {
+          "A_bilinear": {
+            "n": 35040,
+            "mae": 1.379599780574061,
+            "rmse": 1.7605172747427085,
+            "bias": 1.1358762094740151,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 35040,
+            "mae": 0.7950152505432169,
+            "rmse": 1.0823404709535664,
+            "bias": -0.08706084107164923,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 35040,
+            "mae": 0.7891185826694157,
+            "rmse": 1.0802692373163956,
+            "bias": -0.016593018671690267,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 35040,
+            "mae": 0.7896038681367381,
+            "rmse": 1.080597066087942,
+            "bias": -0.017291420655013514,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 35040,
+            "mae": 0.7598757358702252,
+            "rmse": 1.0432413862095506,
+            "bias": -0.057307271853537456,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 35040,
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": -0.005896667873801165,
+              "rmse": -0.0020712336371708773,
+              "bias": 0.07046782239995897,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": 0.00048528546732240496,
+              "rmse": 0.00032782877154646783,
+              "bias": -0.000698401983323247,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.02972813226651294,
+              "rmse": -0.03735567987839139,
+              "bias": -0.04001585119852394,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.0351395146729917,
+              "rmse": -0.0390990847440158,
+              "bias": 0.029753569218111772,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        }
+      }
+    },
+    "split_fold_4": {
+      "held_out_cell_group": "E5L_12.10N_77.10E",
+      "leakage_audit": {
+        "train_cell_groups": [
+          "E5L_12.00N_77.10E",
+          "E5L_12.00N_77.20E",
+          "E5L_12.10N_77.00E"
+        ],
+        "test_cell_groups": [
+          "E5L_12.10N_77.10E"
+        ],
+        "cell_groups_disjoint": true,
+        "train_last_timestamp_utc": "2022-12-24 23:00:00+00:00",
+        "test_first_timestamp_utc": "2023-01-01 00:00:00+00:00",
+        "temporal_gap_hours": 169.0,
+        "temporal_gap_at_least_7_days": true,
+        "partial_or_nonprimary_rows_used": 0,
+        "agara_rows_used": 0,
+        "missing_target_rows_used": 0
+      },
+      "by_variable": {
+        "temperature_c": {
+          "A_bilinear": {
+            "n": 26280,
+            "mae": 0.9044370119974435,
+            "rmse": 1.1401491734791271,
+            "bias": 0.4751440334929599,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 26280,
+            "mae": 0.8057526442751173,
+            "rmse": 1.0406026217780784,
+            "bias": -0.367313059447909,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 26280,
+            "mae": 0.7499990891624454,
+            "rmse": 0.9786237916381352,
+            "bias": -0.012658617139786556,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 26280,
+            "mae": 0.7499990891624454,
+            "rmse": 0.9786237916381352,
+            "bias": -0.012658617139786556,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 26280,
+            "mae": 0.5525743083309715,
+            "rmse": 0.7193359361757694,
+            "bias": -0.1606838640961095,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 26280,
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": -0.05575355511267188,
+              "rmse": -0.06197883013994321,
+              "bias": 0.35465444230812243,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": 0.0,
+              "rmse": 0.0,
+              "bias": 0.0,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.19742478083147386,
+              "rmse": -0.25928785546236577,
+              "bias": -0.14802524695632294,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.25317833594414574,
+              "rmse": -0.321266685602309,
+              "bias": 0.2066291953517995,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "dewpoint_c": {
+          "A_bilinear": {
+            "n": 26280,
+            "mae": 1.0414456813585775,
+            "rmse": 1.348691751998647,
+            "bias": 0.9934313737703739,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 26280,
+            "mae": 0.5442549138284166,
+            "rmse": 0.7577086832018163,
+            "bias": -0.16651433157338394,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 26280,
+            "mae": 0.5440029887792894,
+            "rmse": 0.7633137028914995,
+            "bias": 0.2237343160221697,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 26280,
+            "mae": 0.5440029887792894,
+            "rmse": 0.7633137028914995,
+            "bias": 0.2237343160221697,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 26280,
+            "mae": 0.5362256309864215,
+            "rmse": 0.7631578076883017,
+            "bias": 0.25243038350664676,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 26280,
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": -0.0002519250491271885,
+              "rmse": 0.005605019689683188,
+              "bias": 0.39024864759555367,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": 0.0,
+              "rmse": 0.0,
+              "bias": 0.0,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.007777357792867923,
+              "rmse": -0.00015589520319780892,
+              "bias": 0.02869606748447706,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.008029282841995111,
+              "rmse": 0.005449124486485379,
+              "bias": 0.4189447150800307,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "relative_humidity_pct": {
+          "A_bilinear": {
+            "n": 26280,
+            "mae": 4.0861864927176175,
+            "rmse": 5.133457843724353,
+            "bias": 1.3032694974380994,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 26280,
+            "mae": 3.4755951664955083,
+            "rmse": 4.495029661408085,
+            "bias": 0.6634291967113493,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 26280,
+            "mae": 3.477800093940189,
+            "rmse": 4.500626130135484,
+            "bias": 0.8143462408990607,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 26280,
+            "mae": 3.4801122043815775,
+            "rmse": 4.500845254137443,
+            "bias": 0.8170878020411764,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 26280,
+            "mae": 2.9203866843823727,
+            "rmse": 3.8138169968027795,
+            "bias": 1.467654120699434,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 26280,
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": 0.0022049274446809264,
+              "rmse": 0.005596468727398829,
+              "bias": 0.15091704418771146,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": 0.0023121104413883486,
+              "rmse": 0.0002191240019584484,
+              "bias": 0.002741561142115656,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.5597255199992048,
+              "rmse": -0.6870282573346631,
+              "bias": 0.6505663186582576,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.5552084821131356,
+              "rmse": -0.6812126646053058,
+              "bias": 0.8042249239880848,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "rainfall_mm": {
+          "A_bilinear": {
+            "n": 26280,
+            "mae": 0.019830875806954775,
+            "rmse": 0.08382790991696001,
+            "bias": 0.009092335962515664,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 26280,
+            "mae": 0.0215244071103687,
+            "rmse": 0.11402167710781641,
+            "bias": 0.0028639121317855297,
+            "invalid_predictions": 1788
+          },
+          "C2_plus_elevation": {
+            "n": 26280,
+            "mae": 0.021989476496658895,
+            "rmse": 0.1170968571404871,
+            "bias": 0.007420353252888456,
+            "invalid_predictions": 565
+          },
+          "C3_plus_spatial": {
+            "n": 26280,
+            "mae": 0.021937334879032988,
+            "rmse": 0.11698399605415832,
+            "bias": 0.007186765683077372,
+            "invalid_predictions": 992
+          },
+          "C4_plus_time_full_C": {
+            "n": 26280,
+            "mae": 0.02217021182232846,
+            "rmse": 0.11976126574690876,
+            "bias": 0.007184927829314438,
+            "invalid_predictions": 1777
+          },
+          "n_test_records": 26280,
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": 0.00046506938629019626,
+              "rmse": 0.0030751800326706963,
+              "bias": 0.004556441121102926,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": -5.2141617625907355e-05,
+              "rmse": -0.00011286108632878322,
+              "bias": -0.0002335875698110841,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": 0.0002328769432954729,
+              "rmse": 0.0027772696927504392,
+              "bias": -1.8378537629338068e-06,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": 0.0006458047119597618,
+              "rmse": 0.005739588639092352,
+              "bias": 0.004321015697528909,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        },
+        "wind_speed_kmph": {
+          "A_bilinear": {
+            "n": 26280,
+            "mae": 1.3166938463106095,
+            "rmse": 1.6650985226888417,
+            "bias": 1.0973169519622918,
+            "invalid_predictions": 0
+          },
+          "C1_coarse_weather": {
+            "n": 26280,
+            "mae": 0.763332608608545,
+            "rmse": 1.052623781770101,
+            "bias": -0.031507506539231726,
+            "invalid_predictions": 0
+          },
+          "C2_plus_elevation": {
+            "n": 26280,
+            "mae": 0.7638246143051174,
+            "rmse": 1.0520972484940705,
+            "bias": 0.04748465041248054,
+            "invalid_predictions": 0
+          },
+          "C3_plus_spatial": {
+            "n": 26280,
+            "mae": 0.7638246143051174,
+            "rmse": 1.0520972484940705,
+            "bias": 0.04748465041248054,
+            "invalid_predictions": 0
+          },
+          "C4_plus_time_full_C": {
+            "n": 26280,
+            "mae": 0.732352991195914,
+            "rmse": 1.0142483494353762,
+            "bias": 0.012658364611920776,
+            "invalid_predictions": 0
+          },
+          "n_test_records": 26280,
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "increments": {
+            "C1_coarse_weather->C2_plus_elevation": {
+              "mae": 0.0004920056965723729,
+              "rmse": -0.000526533276030472,
+              "bias": 0.07899215695171227,
+              "feature_group_added": "elevation"
+            },
+            "C2_plus_elevation->C3_plus_spatial": {
+              "mae": 0.0,
+              "rmse": 0.0,
+              "bias": 0.0,
+              "feature_group_added": "spatial_context"
+            },
+            "C3_plus_spatial->C4_plus_time_full_C": {
+              "mae": -0.03147162310920337,
+              "rmse": -0.03784889905869426,
+              "bias": -0.03482628580055976,
+              "feature_group_added": "temporal"
+            },
+            "C1_coarse_weather->C4_plus_time_full_C": {
+              "mae": -0.030979617412631,
+              "rmse": -0.038375432334724735,
+              "bias": 0.0441658711511525,
+              "feature_group_added": "all_non_weather_groups"
+            }
+          }
+        }
+      }
+    }
+  },
+  "aggregate_by_variable": {
+    "temperature_c": {
+      "A_bilinear": {
+        "mae_mean_over_folds": 1.1501522576318957,
+        "rmse_mean_over_folds": 1.3783067450951607,
+        "bias_mean_over_folds": 0.8452102769825456,
+        "mae_std_over_folds": 0.4237658771569269,
+        "rmse_std_over_folds": 0.41052004180479734,
+        "bias_std_over_folds": 0.6277220085811631,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 1.0046765405663567,
+          "rmse": 1.263502372512616,
+          "bias": 0.6180312329435922,
+          "invalid_predictions": 0
+        }
+      },
+      "C1_coarse_weather": {
+        "mae_mean_over_folds": 0.9093390022381407,
+        "rmse_mean_over_folds": 1.1463638585398659,
+        "bias_mean_over_folds": 0.032482701586570475,
+        "mae_std_over_folds": 0.19084935531886044,
+        "rmse_std_over_folds": 0.19334256607722117,
+        "bias_std_over_folds": 0.7333113765854857,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.8724706552015503,
+          "rmse": 1.117365369045582,
+          "bias": -0.24003440314772814,
+          "invalid_predictions": 0
+        }
+      },
+      "C2_plus_elevation": {
+        "mae_mean_over_folds": 0.8078472571854743,
+        "rmse_mean_over_folds": 1.0399079600675252,
+        "bias_mean_over_folds": 0.1324900583594464,
+        "mae_std_over_folds": 0.0925680628709557,
+        "rmse_std_over_folds": 0.0923923882003898,
+        "bias_std_over_folds": 0.43481531152353825,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.7851814915486137,
+          "rmse": 1.017819014174304,
+          "bias": -0.03177810095452818,
+          "invalid_predictions": 0
+        }
+      },
+      "C3_plus_spatial": {
+        "mae_mean_over_folds": 0.8080789905228847,
+        "rmse_mean_over_folds": 1.0402658533508495,
+        "bias_mean_over_folds": 0.13237699528063526,
+        "mae_std_over_folds": 0.09292205962585183,
+        "rmse_std_over_folds": 0.09339053164494755,
+        "bias_std_over_folds": 0.4351324560572268,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.7852880885131012,
+          "rmse": 1.017950967075235,
+          "bias": -0.03194572485542372,
+          "invalid_predictions": 0
+        }
+      },
+      "C4_plus_time_full_C": {
+        "mae_mean_over_folds": 0.604936688666875,
+        "rmse_mean_over_folds": 0.7736133083312383,
+        "bias_mean_over_folds": 0.05089888657957583,
+        "mae_std_over_folds": 0.08276873243155186,
+        "rmse_std_over_folds": 0.08026620505799446,
+        "bias_std_over_folds": 0.4502779714387618,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.5963784519192699,
+          "rmse": 0.7631860551711299,
+          "bias": -0.12275847689701859,
+          "invalid_predictions": 0
+        }
+      },
+      "increments": {
+        "C1_coarse_weather->C2_plus_elevation": {
+          "feature_group_added": "elevation",
+          "fold_mean_delta": {
+            "mae": -0.10149174505266634,
+            "rmse": -0.10645589847234072,
+            "bias": 0.10000735677287594
+          },
+          "pooled_delta": {
+            "mae": -0.0872891636529366,
+            "rmse": -0.09954635487127805,
+            "bias": 0.20825630219319996
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": 0.002211799176568996,
+            "split_fold_2": -0.23321544251791937,
+            "split_fold_3": -0.11920978175664276,
+            "split_fold_4": -0.05575355511267188
+          },
+          "folds_with_lower_mae": 3,
+          "folds_with_higher_mae": 1
+        },
+        "C2_plus_elevation->C3_plus_spatial": {
+          "feature_group_added": "spatial_context",
+          "fold_mean_delta": {
+            "mae": 0.00023173333741033364,
+            "rmse": 0.000357893283324362,
+            "bias": -0.00011306307881114863
+          },
+          "pooled_delta": {
+            "mae": 0.00010659696448744871,
+            "rmse": 0.0001319529009309317,
+            "bias": -0.00016762390089553741
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": 0.00013903629523326355,
+            "split_fold_2": 0.000787897054408071,
+            "split_fold_3": 0.0,
+            "split_fold_4": 0.0
+          },
+          "folds_with_lower_mae": 0,
+          "folds_with_higher_mae": 2
+        },
+        "C3_plus_spatial->C4_plus_time_full_C": {
+          "feature_group_added": "temporal",
+          "fold_mean_delta": {
+            "mae": -0.20314230185600968,
+            "rmse": -0.2666525450196112,
+            "bias": -0.08147810870105943
+          },
+          "pooled_delta": {
+            "mae": -0.1889096365938313,
+            "rmse": -0.254764911904105,
+            "bias": -0.09081275204159486
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.22348160598806932,
+            "split_fold_2": -0.23893082365007667,
+            "split_fold_3": -0.15273199695441875,
+            "split_fold_4": -0.19742478083147386
+          },
+          "folds_with_lower_mae": 4,
+          "folds_with_higher_mae": 0
+        },
+        "C1_coarse_weather->C4_plus_time_full_C": {
+          "feature_group_added": "all_non_weather_groups",
+          "fold_mean_delta": {
+            "mae": -0.3044023135712657,
+            "rmse": -0.3727505502086276,
+            "bias": 0.018416184993005354
+          },
+          "pooled_delta": {
+            "mae": -0.27609220328228046,
+            "rmse": -0.3541793138744521,
+            "bias": 0.11727592625070955
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.22113077051626706,
+            "split_fold_2": -0.47135836911358797,
+            "split_fold_3": -0.2719417787110615,
+            "split_fold_4": -0.25317833594414574
+          },
+          "folds_with_lower_mae": 4,
+          "folds_with_higher_mae": 0
+        },
+        "A_bilinear->C1_coarse_weather": {
+          "feature_group_added": "nonlinear model on coarse weather (vs direct bilinear value)",
+          "fold_mean_delta": {
+            "mae": -0.24081325539375498,
+            "rmse": -0.23194288655529482,
+            "bias": -0.8127275753959751
+          },
+          "pooled_delta": {
+            "mae": -0.13220588536480637,
+            "rmse": -0.14613700346703395,
+            "bias": -0.8580656360913204
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.32468040324004854,
+            "split_fold_2": -0.5943026861498644,
+            "split_fold_3": 0.05441443553721903,
+            "split_fold_4": -0.09868436772232625
+          }
+        }
+      }
+    },
+    "dewpoint_c": {
+      "A_bilinear": {
+        "mae_mean_over_folds": 1.2736551071236621,
+        "rmse_mean_over_folds": 1.538705698747398,
+        "bias_mean_over_folds": 1.2256989964872684,
+        "mae_std_over_folds": 0.5310209182841709,
+        "rmse_std_over_folds": 0.47426505858227425,
+        "bias_std_over_folds": 0.5739596323525838,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 1.0765522794819284,
+          "rmse": 1.401132367487846,
+          "bias": 1.0102517567255689,
+          "invalid_predictions": 0
+        }
+      },
+      "C1_coarse_weather": {
+        "mae_mean_over_folds": 0.7592804953814541,
+        "rmse_mean_over_folds": 0.9609109319752958,
+        "bias_mean_over_folds": 0.07758093264778668,
+        "mae_std_over_folds": 0.2691252073357012,
+        "rmse_std_over_folds": 0.2526196766682155,
+        "bias_std_over_folds": 0.7410127820343312,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.7241680914572043,
+          "rmse": 0.9491761029558631,
+          "bias": -0.2063350552626022,
+          "invalid_predictions": 0
+        }
+      },
+      "C2_plus_elevation": {
+        "mae_mean_over_folds": 0.6377933925883825,
+        "rmse_mean_over_folds": 0.8495406160804035,
+        "bias_mean_over_folds": 0.14543855623979962,
+        "mae_std_over_folds": 0.12683030054086528,
+        "rmse_std_over_folds": 0.11982595780167558,
+        "bias_std_over_folds": 0.4701104674517051,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.6192201478668511,
+          "rmse": 0.8404148120849382,
+          "bias": -0.023511128001600528,
+          "invalid_predictions": 0
+        }
+      },
+      "C3_plus_spatial": {
+        "mae_mean_over_folds": 0.6370943654781683,
+        "rmse_mean_over_folds": 0.8481623201872439,
+        "bias_mean_over_folds": 0.14346025006866323,
+        "mae_std_over_folds": 0.12621090928222384,
+        "rmse_std_over_folds": 0.11907817110851161,
+        "bias_std_over_folds": 0.46880680710985445,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.618858337756642,
+          "rmse": 0.8396409820822985,
+          "bias": -0.02477044429584669,
+          "invalid_predictions": 0
+        }
+      },
+      "C4_plus_time_full_C": {
+        "mae_mean_over_folds": 0.6229547832108371,
+        "rmse_mean_over_folds": 0.82273252697573,
+        "bias_mean_over_folds": 0.17880664713165895,
+        "mae_std_over_folds": 0.12724158970741076,
+        "rmse_std_over_folds": 0.1189775343912593,
+        "bias_std_over_folds": 0.46635055040047996,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.604288422565332,
+          "rmse": 0.8058794088364463,
+          "bias": 0.011044639127820688,
+          "invalid_predictions": 0
+        }
+      },
+      "increments": {
+        "C1_coarse_weather->C2_plus_elevation": {
+          "feature_group_added": "elevation",
+          "fold_mean_delta": {
+            "mae": -0.12148710279307162,
+            "rmse": -0.11137031589489221,
+            "bias": 0.06785762359201294
+          },
+          "pooled_delta": {
+            "mae": -0.1049479435903532,
+            "rmse": -0.1087612908709249,
+            "bias": 0.1828239272610017
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.007432498934941578,
+            "split_fold_2": -0.293065761955534,
+            "split_fold_3": -0.1851982252326838,
+            "split_fold_4": -0.0002519250491271885
+          },
+          "folds_with_lower_mae": 4,
+          "folds_with_higher_mae": 0
+        },
+        "C2_plus_elevation->C3_plus_spatial": {
+          "feature_group_added": "spatial_context",
+          "fold_mean_delta": {
+            "mae": -0.0006990271102141898,
+            "rmse": -0.0013782958931596312,
+            "bias": -0.001978306171136396
+          },
+          "pooled_delta": {
+            "mae": -0.00036181011020908205,
+            "rmse": -0.0007738300026396416,
+            "bias": -0.001259316294246162
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.000821992661233506,
+            "split_fold_2": -0.0019741157796233644,
+            "split_fold_3": 0.0,
+            "split_fold_4": 0.0
+          },
+          "folds_with_lower_mae": 2,
+          "folds_with_higher_mae": 0
+        },
+        "C3_plus_spatial->C4_plus_time_full_C": {
+          "feature_group_added": "temporal",
+          "fold_mean_delta": {
+            "mae": -0.014139582267331252,
+            "rmse": -0.02542979321151395,
+            "bias": 0.03534639706299572
+          },
+          "pooled_delta": {
+            "mae": -0.014569915191310012,
+            "rmse": -0.03376157324585227,
+            "bias": 0.035815083423667377
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.019675389751584227,
+            "split_fold_2": -0.011135342356053735,
+            "split_fold_3": -0.017970239168818902,
+            "split_fold_4": -0.007777357792867923
+          },
+          "folds_with_lower_mae": 4,
+          "folds_with_higher_mae": 0
+        },
+        "C1_coarse_weather->C4_plus_time_full_C": {
+          "feature_group_added": "all_non_weather_groups",
+          "fold_mean_delta": {
+            "mae": -0.13632571217061706,
+            "rmse": -0.1381784049995658,
+            "bias": 0.10122571448387227
+          },
+          "pooled_delta": {
+            "mae": -0.11987966889187229,
+            "rmse": -0.1432966941194168,
+            "bias": 0.2173796943904229
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.02792988134775931,
+            "split_fold_2": -0.3061752200912111,
+            "split_fold_3": -0.2031684644015027,
+            "split_fold_4": -0.008029282841995111
+          },
+          "folds_with_lower_mae": 4,
+          "folds_with_higher_mae": 0
+        },
+        "A_bilinear->C1_coarse_weather": {
+          "feature_group_added": "nonlinear model on coarse weather (vs direct bilinear value)",
+          "fold_mean_delta": {
+            "mae": -0.514374611742208,
+            "rmse": -0.5777947667721022,
+            "bias": -1.1481180638394817
+          },
+          "pooled_delta": {
+            "mae": -0.35238418802472415,
+            "rmse": -0.4519562645319829,
+            "bias": -1.216586811988171
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.7339142937475713,
+            "split_fold_2": -0.9137108508675944,
+            "split_fold_3": 0.0873174651764953,
+            "split_fold_4": -0.4971907675301609
+          }
+        }
+      }
+    },
+    "relative_humidity_pct": {
+      "A_bilinear": {
+        "mae_mean_over_folds": 3.9415619641997,
+        "rmse_mean_over_folds": 4.963033861194332,
+        "bias_mean_over_folds": 0.887730509534672,
+        "mae_std_over_folds": 0.12133286624683999,
+        "rmse_std_over_folds": 0.14543896303771064,
+        "bias_std_over_folds": 0.3255470105749984,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 3.9696464399957128,
+          "rmse": 4.991736489523493,
+          "bias": 0.8738443881079719,
+          "invalid_predictions": 0
+        }
+      },
+      "C1_coarse_weather": {
+        "mae_mean_over_folds": 3.4411186511181935,
+        "rmse_mean_over_folds": 4.448926979800769,
+        "bias_mean_over_folds": 0.16324315850361845,
+        "mae_std_over_folds": 0.03317496522856752,
+        "rmse_std_over_folds": 0.047726535345282144,
+        "bias_std_over_folds": 0.5311865525704754,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 3.451442649063853,
+          "rmse": 4.46576555900742,
+          "bias": 0.06147677813821164,
+          "invalid_predictions": 0
+        }
+      },
+      "C2_plus_elevation": {
+        "mae_mean_over_folds": 3.42729389047863,
+        "rmse_mean_over_folds": 4.434910793624132,
+        "bias_mean_over_folds": 0.0706343141930163,
+        "mae_std_over_folds": 0.04692952743449199,
+        "rmse_std_over_folds": 0.0643333198378563,
+        "bias_std_over_folds": 0.6019114573469263,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 3.4418998569093313,
+          "rmse": 4.4571015395268905,
+          "bias": 3.527832849182465e-05,
+          "invalid_predictions": 0
+        }
+      },
+      "C3_plus_spatial": {
+        "mae_mean_over_folds": 3.4282678156640776,
+        "rmse_mean_over_folds": 4.433607261701419,
+        "bias_mean_over_folds": 0.08403567013693357,
+        "mae_std_over_folds": 0.04679310479980527,
+        "rmse_std_over_folds": 0.06526444543488057,
+        "bias_std_over_folds": 0.6036551826643876,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 3.4426712334107714,
+          "rmse": 4.456088118876371,
+          "bias": 0.011450796546985161,
+          "invalid_predictions": 0
+        }
+      },
+      "C4_plus_time_full_C": {
+        "mae_mean_over_folds": 2.650765535331963,
+        "rmse_mean_over_folds": 3.4808054966158974,
+        "bias_mean_over_folds": 0.4967943154099684,
+        "mae_std_over_folds": 0.18028090778476927,
+        "rmse_std_over_folds": 0.2224041144345973,
+        "bias_std_over_folds": 0.6910169529069097,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 2.670761942804278,
+          "rmse": 3.5126105296165124,
+          "bias": 0.47377440460880227,
+          "invalid_predictions": 0
+        }
+      },
+      "increments": {
+        "C1_coarse_weather->C2_plus_elevation": {
+          "feature_group_added": "elevation",
+          "fold_mean_delta": {
+            "mae": -0.013824760639563394,
+            "rmse": -0.01401618617663658,
+            "bias": -0.09260884431060215
+          },
+          "pooled_delta": {
+            "mae": -0.009542792154521695,
+            "rmse": -0.008664019480529639,
+            "bias": -0.061441499809719816
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.018259761060451574,
+            "split_fold_2": -0.030484551337190524,
+            "split_fold_3": -0.008759657605292848,
+            "split_fold_4": 0.0022049274446809264
+          },
+          "folds_with_lower_mae": 3,
+          "folds_with_higher_mae": 1
+        },
+        "C2_plus_elevation->C3_plus_spatial": {
+          "feature_group_added": "spatial_context",
+          "fold_mean_delta": {
+            "mae": 0.0009739251854474773,
+            "rmse": -0.0013035319227130415,
+            "bias": 0.013401355943917267
+          },
+          "pooled_delta": {
+            "mae": 0.000771376501440102,
+            "rmse": -0.0010134206505192367,
+            "bias": 0.011415518218493336
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.0008061566101633666,
+            "split_fold_2": 0.0023897469105667035,
+            "split_fold_3": 0.0,
+            "split_fold_4": 0.0023121104413883486
+          },
+          "folds_with_lower_mae": 1,
+          "folds_with_higher_mae": 2
+        },
+        "C3_plus_spatial->C4_plus_time_full_C": {
+          "feature_group_added": "temporal",
+          "fold_mean_delta": {
+            "mae": -0.7775022803321145,
+            "rmse": -0.9528017650855216,
+            "bias": 0.4127586452730348
+          },
+          "pooled_delta": {
+            "mae": -0.7719092906064935,
+            "rmse": -0.9434775892598588,
+            "bias": 0.4623236080618171
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.8778153893993088,
+            "split_fold_2": -0.8018624268170305,
+            "split_fold_3": -0.870605785112915,
+            "split_fold_4": -0.5597255199992048
+          },
+          "folds_with_lower_mae": 4,
+          "folds_with_higher_mae": 0
+        },
+        "C1_coarse_weather->C4_plus_time_full_C": {
+          "feature_group_added": "all_non_weather_groups",
+          "fold_mean_delta": {
+            "mae": -0.7903531157862305,
+            "rmse": -0.9681214831848712,
+            "bias": 0.33355115690634995
+          },
+          "pooled_delta": {
+            "mae": -0.7806807062595751,
+            "rmse": -0.9531550293909077,
+            "bias": 0.41229762647059065
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.8968813070699237,
+            "split_fold_2": -0.8299572312436543,
+            "split_fold_3": -0.8793654427182078,
+            "split_fold_4": -0.5552084821131356
+          },
+          "folds_with_lower_mae": 4,
+          "folds_with_higher_mae": 0
+        },
+        "A_bilinear->C1_coarse_weather": {
+          "feature_group_added": "nonlinear model on coarse weather (vs direct bilinear value)",
+          "fold_mean_delta": {
+            "mae": -0.5004433130815067,
+            "rmse": -0.5141068813935634,
+            "bias": -0.7244873510310536
+          },
+          "pooled_delta": {
+            "mae": -0.5182037909318598,
+            "rmse": -0.5259709305160731,
+            "bias": -0.8123676099697603
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.5175874793051554,
+            "split_fold_2": -0.3930962717176949,
+            "split_fold_3": -0.4804981750810673,
+            "split_fold_4": -0.6105913262221092
+          }
+        }
+      }
+    },
+    "rainfall_mm": {
+      "A_bilinear": {
+        "mae_mean_over_folds": 0.014398890949688707,
+        "rmse_mean_over_folds": 0.06359350491271074,
+        "bias_mean_over_folds": 0.005609258420782073,
+        "mae_std_over_folds": 0.008604110975476729,
+        "rmse_std_over_folds": 0.03785618740834665,
+        "bias_std_over_folds": 0.004392311359262707,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.013225814374306269,
+          "rmse": 0.06787928510221763,
+          "bias": 0.005038295857122683,
+          "invalid_predictions": 0
+        }
+      },
+      "C1_coarse_weather": {
+        "mae_mean_over_folds": 0.019739381448533655,
+        "rmse_mean_over_folds": 0.12996709265055797,
+        "bias_mean_over_folds": -0.002852604047930415,
+        "mae_std_over_folds": 0.004852084929118424,
+        "rmse_std_over_folds": 0.032280797764837874,
+        "bias_std_over_folds": 0.006295202714203683,
+        "invalid_predictions_total": 7687,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.019385172390603875,
+          "rmse": 0.12811703102703978,
+          "bias": -0.0037946067516519883,
+          "invalid_predictions": 7687
+        }
+      },
+      "C2_plus_elevation": {
+        "mae_mean_over_folds": 0.02062934327283583,
+        "rmse_mean_over_folds": 0.13164008473194394,
+        "bias_mean_over_folds": -0.003961187305610195,
+        "mae_std_over_folds": 0.004060082939958155,
+        "rmse_std_over_folds": 0.030324021836187993,
+        "bias_std_over_folds": 0.008384963227079122,
+        "invalid_predictions_total": 15991,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.0198723263359771,
+          "rmse": 0.12895723033840542,
+          "bias": -0.003759828425404991,
+          "invalid_predictions": 15991
+        }
+      },
+      "C3_plus_spatial": {
+        "mae_mean_over_folds": 0.0206113234520334,
+        "rmse_mean_over_folds": 0.13130801382598434,
+        "bias_mean_over_folds": -0.00385953074453383,
+        "mae_std_over_folds": 0.004024254898518527,
+        "rmse_std_over_folds": 0.030198358322224547,
+        "bias_std_over_folds": 0.008345988557189283,
+        "invalid_predictions_total": 10730,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.019846942465258286,
+          "rmse": 0.12857469034498206,
+          "bias": -0.003703108577316435,
+          "invalid_predictions": 10730
+        }
+      },
+      "C4_plus_time_full_C": {
+        "mae_mean_over_folds": 0.02048737364578675,
+        "rmse_mean_over_folds": 0.13340530284092078,
+        "bias_mean_over_folds": -0.0030440150018848817,
+        "mae_std_over_folds": 0.004186758010319027,
+        "rmse_std_over_folds": 0.03023487928054746,
+        "bias_std_over_folds": 0.007581348576149477,
+        "invalid_predictions_total": 15597,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.019721426734032505,
+          "rmse": 0.1297671851379059,
+          "bias": -0.002869386124772887,
+          "invalid_predictions": 15597
+        }
+      },
+      "increments": {
+        "C1_coarse_weather->C2_plus_elevation": {
+          "feature_group_added": "elevation",
+          "fold_mean_delta": {
+            "mae": 0.0008899618243021767,
+            "rmse": 0.0016729920813859656,
+            "bias": -0.0011085832576797796
+          },
+          "pooled_delta": {
+            "mae": 0.00048715394537322473,
+            "rmse": 0.0008401993113656414,
+            "bias": 3.4778326246997365e-05
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.00048653627684364445,
+            "split_fold_2": 0.00329195096749986,
+            "split_fold_3": 0.00028936322026228145,
+            "split_fold_4": 0.00046506938629019626
+          },
+          "folds_with_lower_mae": 1,
+          "folds_with_higher_mae": 3
+        },
+        "C2_plus_elevation->C3_plus_spatial": {
+          "feature_group_added": "spatial_context",
+          "fold_mean_delta": {
+            "mae": -1.801982080243056e-05,
+            "rmse": -0.00033207090595960276,
+            "bias": 0.00010165656107636494
+          },
+          "pooled_delta": {
+            "mae": -2.5383870718813373e-05,
+            "rmse": -0.00038253999342335865,
+            "bias": 5.671984808855576e-05
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -6.999981520028342e-05,
+            "split_fold_2": 5.255427412525354e-05,
+            "split_fold_3": -2.492124508781529e-06,
+            "split_fold_4": -5.2141617625907355e-05
+          },
+          "folds_with_lower_mae": 3,
+          "folds_with_higher_mae": 1
+        },
+        "C3_plus_spatial->C4_plus_time_full_C": {
+          "feature_group_added": "temporal",
+          "fold_mean_delta": {
+            "mae": -0.00012394980624665097,
+            "rmse": 0.002097289014936443,
+            "bias": 0.0008155157426489481
+          },
+          "pooled_delta": {
+            "mae": -0.00012551573122578097,
+            "rmse": 0.001192494792923826,
+            "bias": 0.0008337224525435481
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.00010821849222164212,
+            "split_fold_2": -0.0002481598488469211,
+            "split_fold_3": -0.00037229782721351877,
+            "split_fold_4": 0.0002328769432954729
+          },
+          "folds_with_lower_mae": 3,
+          "folds_with_higher_mae": 1
+        },
+        "C1_coarse_weather->C4_plus_time_full_C": {
+          "feature_group_added": "all_non_weather_groups",
+          "fold_mean_delta": {
+            "mae": 0.0007479921972530952,
+            "rmse": 0.003438210190362806,
+            "bias": -0.00019141095395446657
+          },
+          "pooled_delta": {
+            "mae": 0.0003362543434286304,
+            "rmse": 0.0016501541108661089,
+            "bias": 0.0009252206268791012
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.00066475458426557,
+            "split_fold_2": 0.0030963453927781923,
+            "split_fold_3": -8.542673146001885e-05,
+            "split_fold_4": 0.0006458047119597618
+          },
+          "folds_with_lower_mae": 2,
+          "folds_with_higher_mae": 2
+        },
+        "A_bilinear->C1_coarse_weather": {
+          "feature_group_added": "nonlinear model on coarse weather (vs direct bilinear value)",
+          "fold_mean_delta": {
+            "mae": 0.005340490498844948,
+            "rmse": 0.06637358773784724,
+            "bias": -0.008461862468712488
+          },
+          "pooled_delta": {
+            "mae": 0.006159358016297606,
+            "rmse": 0.060237745924822145,
+            "bias": -0.008832902608774671
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": 0.0028690993898706427,
+            "split_fold_2": 0.005474179245129307,
+            "split_fold_3": 0.011325152056965928,
+            "split_fold_4": 0.001693531303413924
+          }
+        }
+      }
+    },
+    "wind_speed_kmph": {
+      "A_bilinear": {
+        "mae_mean_over_folds": 1.3681750902546428,
+        "rmse_mean_over_folds": 1.7311134830409258,
+        "bias_mean_over_folds": 1.1543842620947118,
+        "mae_std_over_folds": 0.0349171738919329,
+        "rmse_std_over_folds": 0.04449727028340098,
+        "bias_std_over_folds": 0.05592729875955314,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 1.3626986611106342,
+          "rmse": 1.7285775948449609,
+          "bias": 1.137370571299126,
+          "invalid_predictions": 0
+        }
+      },
+      "C1_coarse_weather": {
+        "mae_mean_over_folds": 0.7813843295396675,
+        "rmse_mean_over_folds": 1.0632564423227358,
+        "bias_mean_over_folds": 0.06776332690515838,
+        "mae_std_over_folds": 0.023564159962088372,
+        "rmse_std_over_folds": 0.024003353976858047,
+        "bias_std_over_folds": 0.15861967468458407,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.7844763410863649,
+          "rmse": 1.0690449861354894,
+          "bias": 0.007320767930844237,
+          "invalid_predictions": 0
+        }
+      },
+      "C2_plus_elevation": {
+        "mae_mean_over_folds": 0.7751456959888464,
+        "rmse_mean_over_folds": 1.057624521141073,
+        "bias_mean_over_folds": 0.08235198622355547,
+        "mae_std_over_folds": 0.03367590674747367,
+        "rmse_std_over_folds": 0.03651060328432877,
+        "bias_std_over_folds": 0.0827992182275718,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.7808620279028553,
+          "rmse": 1.0667979680894417,
+          "bias": 0.05064147974052768,
+          "invalid_predictions": 0
+        }
+      },
+      "C3_plus_spatial": {
+        "mae_mean_over_folds": 0.7747991988221455,
+        "rmse_mean_over_folds": 1.0575970891490512,
+        "bias_mean_over_folds": 0.08203227001754138,
+        "mae_std_over_folds": 0.032908208791904564,
+        "rmse_std_over_folds": 0.03561103748575305,
+        "bias_std_over_folds": 0.08313412028678396,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.7806633096760602,
+          "rmse": 1.0667166804815595,
+          "bias": 0.05012929903977421,
+          "invalid_predictions": 0
+        }
+      },
+      "C4_plus_time_full_C": {
+        "mae_mean_over_folds": 0.7503056268330351,
+        "rmse_mean_over_folds": 1.0273988655888118,
+        "bias_mean_over_folds": 0.06924755336847983,
+        "mae_std_over_folds": 0.03249001288820697,
+        "rmse_std_over_folds": 0.03551685152369174,
+        "bias_std_over_folds": 0.1096108394090362,
+        "invalid_predictions_total": 0,
+        "row_pooled": {
+          "n": 87600,
+          "mae": 0.7536915748774194,
+          "rmse": 1.0337779894158552,
+          "bias": 0.02964144547002371,
+          "invalid_predictions": 0
+        }
+      },
+      "increments": {
+        "C1_coarse_weather->C2_plus_elevation": {
+          "feature_group_added": "elevation",
+          "fold_mean_delta": {
+            "mae": -0.006238633550821104,
+            "rmse": -0.005631921181662669,
+            "bias": 0.01458865931839709
+          },
+          "pooled_delta": {
+            "mae": -0.0036143131835095765,
+            "rmse": -0.002247018046047655,
+            "bias": 0.04332071180968344
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": 0.005517394596448066,
+            "split_fold_2": -0.02506726662250358,
+            "split_fold_3": -0.005896667873801165,
+            "split_fold_4": 0.0004920056965723729
+          },
+          "folds_with_lower_mae": 2,
+          "folds_with_higher_mae": 2
+        },
+        "C2_plus_elevation->C3_plus_spatial": {
+          "feature_group_added": "spatial_context",
+          "fold_mean_delta": {
+            "mae": -0.0003464971667008765,
+            "rmse": -2.743199202193125e-05,
+            "bias": -0.00031971620601409234
+          },
+          "pooled_delta": {
+            "mae": -0.00019871822679506934,
+            "rmse": -8.128760788217448e-05,
+            "bias": -0.0005121807007534701
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.0020570500031141803,
+            "split_fold_2": 0.0001857758689879363,
+            "split_fold_3": 0.00048528546732240496,
+            "split_fold_4": 0.0
+          },
+          "folds_with_lower_mae": 1,
+          "folds_with_higher_mae": 2
+        },
+        "C3_plus_spatial->C4_plus_time_full_C": {
+          "feature_group_added": "temporal",
+          "fold_mean_delta": {
+            "mae": -0.024493571989110396,
+            "rmse": -0.03019822356023938,
+            "bias": -0.012784716649061542
+          },
+          "pooled_delta": {
+            "mae": -0.02697173479864079,
+            "rmse": -0.03293869106570435,
+            "bias": -0.020487853569750497
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.019615417012021408,
+            "split_fold_2": -0.01715911556870342,
+            "split_fold_3": -0.02972813226651294,
+            "split_fold_4": -0.03147162310920337
+          },
+          "folds_with_lower_mae": 4,
+          "folds_with_higher_mae": 0
+        },
+        "C1_coarse_weather->C4_plus_time_full_C": {
+          "feature_group_added": "all_non_weather_groups",
+          "fold_mean_delta": {
+            "mae": -0.031078702706632377,
+            "rmse": -0.03585757673392398,
+            "bias": 0.0014842264633214558
+          },
+          "pooled_delta": {
+            "mae": -0.030784766208945435,
+            "rmse": -0.03526699671963418,
+            "bias": 0.022320677539179472
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.01615507241868752,
+            "split_fold_2": -0.042040606322219065,
+            "split_fold_3": -0.0351395146729917,
+            "split_fold_4": -0.030979617412631
+          },
+          "folds_with_lower_mae": 4,
+          "folds_with_higher_mae": 0
+        },
+        "A_bilinear->C1_coarse_weather": {
+          "feature_group_added": "nonlinear model on coarse weather (vs direct bilinear value)",
+          "fold_mean_delta": {
+            "mae": -0.5867907607149753,
+            "rmse": -0.6678570407181901,
+            "bias": -1.0866209351895535
+          },
+          "pooled_delta": {
+            "mae": -0.5782223200242693,
+            "rmse": -0.6595326087094715,
+            "bias": -1.1300498033682818
+          },
+          "per_fold_mae_delta": {
+            "split_fold_1": -0.5745840918861331,
+            "split_fold_2": -0.63463318324086,
+            "split_fold_3": -0.5845845300308441,
+            "split_fold_4": -0.5533612377020645
+          }
+        }
+      }
+    }
+  },
+  "c4_reproduction": {
+    "compared_against": "research/ml_stage2/stage2_results.json C_hgb (raw)",
+    "cells_compared": 100,
+    "max_abs_difference": 0.0,
+    "exact_match": true,
+    "mismatches": []
+  },
+  "stop_condition": "Stage 3A only: no new model, no tuning, no rainfall-specific modelling."
+}

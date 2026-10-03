@@ -1,0 +1,63 @@
+station_id,station_name,latitude,longitude,elevation_m,nearest_era5_land_cell,match_set,tp_code,tp_name,district,region,gp_code,gp_name,model_target_cell,station_to_target_cell_km,station_to_gp_centroid_km,gp_elevation_mean_m,station_minus_gp_elevation_m,reason,covers_eval_year
+427056-99999,BANGALURU INTL AIRPORT / KEMPEGOWDA INTL,13.2,77.7,915.0,E5L_13.20N_77.70E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+430640-99999,PUNE / LOHOGAON AERODROME,18.583,73.917,589.0,E5L_18.60N_73.90E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,False
+430690-99999,BARAMATI,18.15,74.583,551.0,E5L_18.10N_74.60E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+430710-99999,JEUR,18.2,75.2,521.0,E5L_18.20N_75.20E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+430760-99999,UDGIR,18.067,77.117,639.0,E5L_18.10N_77.10E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+430830-99999,MEDAK,18.05,78.267,472.0,E5L_18.10N_78.30E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431130-99999,SATARA,17.517,74.05,612.0,E5L_17.50N_74.00E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431170-99999,SOLAPUR,17.628,75.935,482.8,E5L_17.60N_75.90E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431210-99999,GULBARGA,17.35,76.85,458.0,E5L_17.40N_76.80E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431250-99999,BIDAR,17.917,77.533,663.0,E5L_17.90N_77.50E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431280-99999,BEGUMPET AIRPORT / HYDERABAD INTL,17.452,78.461,531.0,E5L_17.50N_78.50E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431285-99999,HYDERABAD INTL AIRPORT / RAJIV GANDHI INTL,17.233,78.417,617.0,E5L_17.20N_78.40E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431300-99999,HAKIMPET,17.55,78.517,613.0,E5L_17.60N_78.50E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,False
+431570-99999,KOLHAPUR,16.665,74.289,608.4,E5L_16.70N_74.30E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431580-99999,SANGLI,16.85,74.6,549.0,E5L_16.90N_74.60E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431600-99999,BAGALKOTE,16.7,75.75,524.0,E5L_16.70N_75.80E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,False
+431610-99999,BIJAPUR,16.817,75.717,594.0,E5L_16.80N_75.70E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431680-99999,MAHABUBNAGAR,16.75,78.0,505.0,E5L_16.80N_78.00E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431690-99999,RAICHUR,16.2,77.35,400.0,E5L_16.20N_77.30E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431970-99999,BELGAUM,15.85,74.533,753.0,E5L_15.90N_74.50E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431971-99999,BELGAUM AIRPORT / BELAGAVI,15.85,74.617,747.0,E5L_15.90N_74.60E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+431980-99999,BELGAUM,15.859,74.618,758.0,E5L_15.90N_74.60E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432000-99999,DHARWAD,15.483,74.983,678.0,E5L_15.50N_75.00E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432010-99999,GADAG,15.417,75.633,650.0,E5L_15.40N_75.60E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432011-99999,HUBLI / HUBBALLI,15.35,75.083,661.3,E5L_15.40N_75.10E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432050-99999,BELLARY,15.15,76.85,449.0,E5L_15.20N_76.80E,EXCLUDED,6112,Ballari,Ballari,central_plateau,216109,Belagallu,E5L_15.10N_76.80E,7.7276934367057155,5.46648660694308,524.7079695788331,-75.70796957883306,ISD metadata does not cover the 2023 evaluation year; inside included Panchayat polygon and nearest cell is a target cell,False
+432120-99999,NANDYAL,15.467,78.483,212.0,E5L_15.50N_78.50E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432130-99999,KURNOOL,15.8,78.067,281.0,E5L_15.80N_78.10E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432250-99999,KARWAR,14.783,74.133,4.0,E5L_14.80N_74.10E,NEARBY_DIAGNOSTIC,6253,Karwar,Uttara Kannada,coastal_inland_coast,220658,Shirwad,E5L_14.80N_74.20E,7.447090879253504,6.184449038471105,183.69672814421173,-179.69672814421173,nearest cell is adjacent to a target cell of Karwar; outside Panchayat polygons,True
+432260-99999,HONAVAR,14.283,74.45,9.0,E5L_14.30N_74.50E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432270-99999,HAVERI,14.783,75.4,573.0,E5L_14.80N_75.40E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432280-99999,KOPPAL,15.35,76.15,532.0,E5L_15.40N_76.20E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,False
+432290-99999,SHIRALI,14.067,74.533,45.0,E5L_14.10N_74.50E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432300-99999,DAVANGERE,14.5,75.917,620.0,E5L_14.50N_75.90E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432330-99999,CHITRADURGA,14.233,76.433,733.0,E5L_14.20N_76.40E,NEARBY_DIAGNOSTIC,6142,Hiriyur,Chitradurga,central_plateau,217091,Buruginarolppa,E5L_14.10N_76.50E,16.458793609217523,12.177201817880597,725.2560719816518,7.743928018348242,nearest cell is adjacent to a target cell of Hiriyur; outside Panchayat polygons,True
+432370-99999,PBO ANANTAPUR,14.583,77.633,364.0,E5L_14.60N_77.60E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432570-99999,AGUMBE EMO,13.5,75.083,659.0,E5L_13.50N_75.10E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,False
+432580-99999,SHIVAMOGGA,13.858,75.62,630.6,E5L_13.90N_75.60E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432590-99999,BALEHONUR,13.367,75.45,907.0,E5L_13.40N_75.50E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,False
+432600-99999,CHICKMAGALUR,13.25,75.75,1057.0,E5L_13.30N_75.80E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432630-99999,HASSAN,12.967,76.333,955.0,E5L_13.00N_76.30E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432640-99999,CHIKKANAHALLI,13.667,77.917,672.0,E5L_13.70N_77.90E,EXCLUDED,6198,Chintamani,Chikballapur,eastern_plateau,218861,Korlaparthi,E5L_13.60N_78.00E,11.659720425247956,14.147608823080903,784.5071664829107,-112.50716648291075,ISD metadata does not cover the 2023 evaluation year; nearest cell is adjacent to a target cell of Chintamani; outside Panchayat polygons,False
+432710-99999,AROGYAVARAM,13.533,78.5,701.0,E5L_13.50N_78.50E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432720-99999,CHINTAMANI,13.2,78.067,857.0,E5L_13.20N_78.10E,NEARBY_DIAGNOSTIC,6198,Chintamani,Chikballapur,eastern_plateau,218853,Hirekattigenahalli,E5L_13.30N_78.00E,13.275211241833587,12.796665744148799,871.3341499265066,-14.334149926506598,nearest cell is adjacent to a target cell of Chintamani; outside Panchayat polygons,True
+432830-99999,MANGALORE,12.867,74.85,22.0,E5L_12.90N_74.80E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,False
+432840-99999,MANGALORE,12.961,74.89,102.7,E5L_13.00N_74.90E,NEARBY_DIAGNOSTIC,6246,Karkal,Udupi,coastal_inland_coast,220435,Mundkoor,E5L_13.10N_74.90E,15.494034475299301,17.247865354238197,21.433746260521247,81.26625373947876,nearest cell is adjacent to a target cell of Karkal; outside Panchayat polygons,True
+432850-99999,MANGALORE/PANAMBUR,12.95,74.833,31.0,E5L_12.90N_74.80E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432870-99999,MADIKERI,12.417,75.733,1153.0,E5L_12.40N_75.70E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432890-99999,MANDYA,12.5,76.833,695.0,E5L_12.50N_76.80E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432910-99999,MYSORE,12.3,76.7,767.0,E5L_12.30N_76.70E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432950-99999,BANGALORE,12.967,77.583,921.0,E5L_13.00N_77.60E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432960-99999,BANGALORE/HINDUSTAN AIRPORT,12.95,77.633,888.0,E5L_12.90N_77.60E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+432990-99999,KOLAR GOLD FIELDS,12.95,78.3,882.0,E5L_12.90N_78.30E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,False
+433010-99999,DHARMAPURI,12.133,78.033,396.0,E5L_12.10N_78.00E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+433020-99999,TIRUPPATTUR,12.483,78.567,385.0,E5L_12.50N_78.60E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+433025-99999,BANGALORE / HAL AIRPORT BENGALURU,12.95,77.668,887.6,E5L_12.90N_77.70E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+433150-99999,CANNUR,11.833,75.333,18.0,E5L_11.80N_75.30E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+433170-99999,UDHAGAMANDALAM,11.4,76.733,2249.0,E5L_11.40N_76.70E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+433220-99999,CHAMARAJNAGAR,11.933,76.933,760.0,E5L_11.90N_76.90E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+433250-99999,SALEM,11.65,78.167,278.0,E5L_11.70N_78.20E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+433380-99999,ERODE,11.483,77.767,172.0,E5L_11.50N_77.80E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True
+433400-99999,YERCAUD,11.75,78.167,1463.0,E5L_11.80N_78.20E,EXCLUDED,,,,,,,,,,,,not within 1 cell of any selected-area target cell,True

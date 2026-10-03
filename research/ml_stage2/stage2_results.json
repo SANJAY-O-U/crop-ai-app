@@ -1,0 +1,2608 @@
+{
+  "type": "YelandurMLStage2",
+  "evaluation_statement": "Evaluation against ERA5-Land reanalysis proxy — not observation.",
+  "spatial_sample_statement": "The effective spatial sample comprises 4 ERA5-Land cell groups, so these results are exploratory and do not establish generalized Panchayat-level forecasting skill.",
+  "framing": "Reanalysis-to-reanalysis spatial transfer: ERA5 0.25 deg coarse inputs + static GP context -> ERA5-Land 0.1 deg nearest-cell reanalysis proxy.",
+  "effective_spatial_sample_size": "4 ERA5-Land spatial cell groups",
+  "row_independence_note": "The dataset's 1,445,400 rows are NOT independent samples.",
+  "dataset": {
+    "file": "data/training/yelandur_multi_gp.parquet",
+    "sha256": "c25017849d5b47f43d622a03a89a99ab155e4de3e3aa7cd25e00c32aeac5bf28",
+    "row_count": 1445400
+  },
+  "methods": {
+    "A_bilinear": "coarse_bilinear_value (Stage 1 Baseline A); no training",
+    "A_nearest": "coarse_nearest_value (Stage 1, transparency); no training",
+    "B_ridge": "Stage 1 Baseline B, recomputed with the unchanged Stage 1 code (features: ['coarse_bilinear_value', 'elevation_mean_m', 'elevation_range_m', 'centroid_to_cell_km', 'intersecting_cell_count'])",
+    "C_hgb": "sklearn HistGradientBoostingRegressor, one fixed configuration, one model per fold x variable"
+  },
+  "C_config": {
+    "loss": "squared_error",
+    "learning_rate": 0.1,
+    "max_iter": 200,
+    "max_leaf_nodes": 31,
+    "max_depth": null,
+    "min_samples_leaf": 200,
+    "l2_regularization": 0.0,
+    "max_bins": 255,
+    "early_stopping": false,
+    "random_state": 0
+  },
+  "C_features": [
+    "era5_temperature_c",
+    "era5_dewpoint_c",
+    "era5_relative_humidity_pct",
+    "era5_rainfall_mm",
+    "era5_wind_speed_kmph",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count",
+    "sin_hour",
+    "cos_hour",
+    "sin_day_of_year",
+    "cos_day_of_year"
+  ],
+  "C_feature_notes": {
+    "era5_*": "ERA5 0.25 deg values bilinearly paired to the target cell, SAME timestamp as the row",
+    "sin/cos_hour": "UTC hour of the row's own timestamp, period 24 h",
+    "sin/cos_day_of_year": "day-of-year of the row's own timestamp, period = that year's length"
+  },
+  "excluded_from_features": [
+    "area_weighted_cell_count",
+    "area_weighted_rainfall_clamped",
+    "area_weighted_value",
+    "cell_group_complete_gp_count",
+    "cell_group_id",
+    "centroid_latitude",
+    "centroid_longitude",
+    "coarse_nearest_latitude",
+    "coarse_nearest_longitude",
+    "coverage_status",
+    "gp_name",
+    "in_primary_population",
+    "local_date_ist",
+    "panchayat_lgd_code",
+    "split_fold_1",
+    "split_fold_2",
+    "split_fold_3",
+    "split_fold_4",
+    "taluka_panchayat_lgd_code",
+    "target_cell_latitude",
+    "target_cell_longitude",
+    "target_missing_reason",
+    "target_rainfall_clamped",
+    "target_source_file",
+    "target_source_sha256",
+    "target_value",
+    "temporal_period",
+    "timestamp_utc"
+  ],
+  "physical_bounds": {
+    "rainfall_mm": ">= 0",
+    "relative_humidity_pct": "0-100",
+    "wind_speed_kmph": ">= 0",
+    "temperature_c": "none checked",
+    "dewpoint_c": "none checked"
+  },
+  "constrained_diagnostic_note": "POST-PROCESSING DIAGNOSTIC ONLY: rainfall and wind clipped at 0, RH clipped to 0-100, applied AFTER prediction to every method. Raw results are the primary results and are not replaced.",
+  "error_sign_convention": "bias = mean(prediction - target)",
+  "folds": {
+    "split_fold_1": {
+      "held_out_cell_group": "E5L_12.00N_77.10E",
+      "leakage_audit": {
+        "train_cell_groups": [
+          "E5L_12.00N_77.20E",
+          "E5L_12.10N_77.00E",
+          "E5L_12.10N_77.10E"
+        ],
+        "test_cell_groups": [
+          "E5L_12.00N_77.10E"
+        ],
+        "cell_groups_disjoint": true,
+        "train_last_timestamp_utc": "2022-12-24 23:00:00+00:00",
+        "test_first_timestamp_utc": "2023-01-01 00:00:00+00:00",
+        "temporal_gap_hours": 169.0,
+        "temporal_gap_at_least_7_days": true,
+        "partial_or_nonprimary_rows_used": 0,
+        "agara_rows_used": 0,
+        "missing_target_rows_used": 0
+      },
+      "by_variable": {
+        "temperature_c": {
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "n_test_records": 17520,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 1.0693124180623867,
+              "rmse": 1.3071339430185605,
+              "bias": 0.8346228166693339,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 0.975017613798516,
+              "rmse": 1.2130412346716195,
+              "bias": 0.6878158639010773,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 0.7740977069503643,
+              "rmse": 0.9989683461057282,
+              "bias": -0.08033836063184492,
+              "invalid_predictions": 0
+            },
+            "C_hgb": {
+              "n": 17520,
+              "mae": 0.5235012443060711,
+              "rmse": 0.7039001810246159,
+              "bias": 0.19105124118660358,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 1.0693124180623867,
+              "rmse": 1.3071339430185605,
+              "bias": 0.8346228166693339
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 0.975017613798516,
+              "rmse": 1.2130412346716195,
+              "bias": 0.6878158639010773
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 0.7740977069503643,
+              "rmse": 0.9989683461057282,
+              "bias": -0.08033836063184492
+            },
+            "C_hgb": {
+              "n": 17520,
+              "mae": 0.5235012443060711,
+              "rmse": 0.7039001810246159,
+              "bias": 0.19105124118660358
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -0.5458111737563156,
+            "rmse": -0.6032337619939445,
+            "bias": -0.6435715754827304
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.25059646264429314,
+            "rmse": -0.2950681650811122,
+            "bias": 0.2713896018184485
+          }
+        },
+        "dewpoint_c": {
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "n_test_records": 17520,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 1.2729446487775085,
+              "rmse": 1.534125130289404,
+              "bias": 1.2503192340728848,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 1.1972511082479398,
+              "rmse": 1.47398236540293,
+              "bias": 1.159414732075173,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 0.5983624525095438,
+              "rmse": 0.8142985515486922,
+              "bias": -0.15806687964167032,
+              "invalid_predictions": 0
+            },
+            "C_hgb": {
+              "n": 17520,
+              "mae": 0.5111004736821778,
+              "rmse": 0.7111519578145302,
+              "bias": 0.21382043119089536,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 1.2729446487775085,
+              "rmse": 1.534125130289404,
+              "bias": 1.2503192340728848
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 1.1972511082479398,
+              "rmse": 1.47398236540293,
+              "bias": 1.159414732075173
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 0.5983624525095438,
+              "rmse": 0.8142985515486922,
+              "bias": -0.15806687964167032
+            },
+            "C_hgb": {
+              "n": 17520,
+              "mae": 0.5111004736821778,
+              "rmse": 0.7111519578145302,
+              "bias": 0.21382043119089536
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -0.7618441750953306,
+            "rmse": -0.8229731724748737,
+            "bias": -1.0364988028819895
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.08726197882736597,
+            "rmse": -0.10314659373416202,
+            "bias": 0.37188731083256565
+          }
+        },
+        "relative_humidity_pct": {
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "n_test_records": 17520,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 3.956193381450355,
+              "rmse": 5.005644954755171,
+              "bias": 0.9593679193386084,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 4.089516917052891,
+              "rmse": 5.152814135599666,
+              "bias": 1.246392585056129,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 3.5534445900161056,
+              "rmse": 4.5466411190499665,
+              "bias": -0.34792534555260035,
+              "invalid_predictions": 13
+            },
+            "C_hgb": {
+              "n": 17520,
+              "mae": 2.541724595075276,
+              "rmse": 3.355330227585098,
+              "bias": 0.15261530366895337,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 3.956193381450355,
+              "rmse": 5.005644954755171,
+              "bias": 0.9593679193386084
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 4.089516917052891,
+              "rmse": 5.152814135599666,
+              "bias": 1.246392585056129
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 3.5531790560890846,
+              "rmse": 4.546444951908136,
+              "bias": -0.3481908794796213
+            },
+            "C_hgb": {
+              "n": 17520,
+              "mae": 2.541724595075276,
+              "rmse": 3.355330227585098,
+              "bias": 0.15261530366895337
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -1.4144687863750791,
+            "rmse": -1.6503147271700733,
+            "bias": -0.8067526156696551
+          },
+          "C_minus_B_ridge": {
+            "mae": -1.0117199949408295,
+            "rmse": -1.1913108914648687,
+            "bias": 0.5005406492215537
+          }
+        },
+        "rainfall_mm": {
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "n_test_records": 17520,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 0.02290517884030442,
+              "rmse": 0.10317110301333139,
+              "bias": 0.009255335526962023,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 0.020855326674740673,
+              "rmse": 0.09703504067421621,
+              "bias": 0.005383885930156584,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 0.03335665567776887,
+              "rmse": 0.1029021237528404,
+              "bias": -0.005159774308398331,
+              "invalid_predictions": 12721
+            },
+            "C_hgb": {
+              "n": 17520,
+              "mae": 0.025109523645909494,
+              "rmse": 0.17660665389402475,
+              "bias": -0.0018937968657265398,
+              "invalid_predictions": 4798
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 0.02290517884030442,
+              "rmse": 0.10317110301333139,
+              "bias": 0.009255335526962023
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 0.020855326674740673,
+              "rmse": 0.09703504067421621,
+              "bias": 0.005383885930156584
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 0.023357856766474908,
+              "rmse": 0.10214640316581552,
+              "bias": 0.004839024602895621
+            },
+            "C_hgb": {
+              "n": 17520,
+              "mae": 0.024936743169246132,
+              "rmse": 0.17660285211819293,
+              "bias": -0.0017210163890631779
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": 0.0022043448056050727,
+            "rmse": 0.07343555088069335,
+            "bias": -0.011149132392688563
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.008247132031859374,
+            "rmse": 0.07370453014118435,
+            "bias": 0.0032659774426717914
+          }
+        },
+        "wind_speed_kmph": {
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "n_test_records": 17520,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 1.3820992157443708,
+              "rmse": 1.7445572571927621,
+              "bias": 1.1539061322657824,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 1.6985968353622545,
+              "rmse": 2.115005913630847,
+              "bias": 1.469476337582592,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 0.8048569126841479,
+              "rmse": 1.0946411772082607,
+              "bias": 0.116577367493754,
+              "invalid_predictions": 0
+            },
+            "C_hgb": {
+              "n": 17520,
+              "mae": 0.7913600514395501,
+              "rmse": 1.0670211147684288,
+              "bias": 0.16602932756308847,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 1.3820992157443708,
+              "rmse": 1.7445572571927621,
+              "bias": 1.1539061322657824
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 1.6985968353622545,
+              "rmse": 2.115005913630847,
+              "bias": 1.469476337582592
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 0.8048569126841479,
+              "rmse": 1.0946411772082607,
+              "bias": 0.116577367493754
+            },
+            "C_hgb": {
+              "n": 17520,
+              "mae": 0.7913600514395501,
+              "rmse": 1.0670211147684288,
+              "bias": 0.16602932756308847
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -0.5907391643048207,
+            "rmse": -0.6775361424243334,
+            "bias": -0.987876804702694
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.013496861244597813,
+            "rmse": -0.02762006243983195,
+            "bias": 0.04945196006933447
+          }
+        }
+      },
+      "fit_info": {
+        "temperature_c": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 138816,
+            "n_features_in": 13
+          },
+          "n_train": 138816
+        },
+        "dewpoint_c": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 138816,
+            "n_features_in": 13
+          },
+          "n_train": 138816
+        },
+        "relative_humidity_pct": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 138816,
+            "n_features_in": 13
+          },
+          "n_train": 138816
+        },
+        "rainfall_mm": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 138808,
+            "n_features_in": 13
+          },
+          "n_train": 138808
+        },
+        "wind_speed_kmph": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 138816,
+            "n_features_in": 13
+          },
+          "n_train": 138816
+        }
+      }
+    },
+    "split_fold_2": {
+      "held_out_cell_group": "E5L_12.00N_77.20E",
+      "leakage_audit": {
+        "train_cell_groups": [
+          "E5L_12.00N_77.10E",
+          "E5L_12.10N_77.00E",
+          "E5L_12.10N_77.10E"
+        ],
+        "test_cell_groups": [
+          "E5L_12.00N_77.20E"
+        ],
+        "cell_groups_disjoint": true,
+        "train_last_timestamp_utc": "2022-12-24 23:00:00+00:00",
+        "test_first_timestamp_utc": "2023-01-01 00:00:00+00:00",
+        "temporal_gap_hours": 169.0,
+        "temporal_gap_at_least_7_days": true,
+        "partial_or_nonprimary_rows_used": 0,
+        "agara_rows_used": 0,
+        "missing_target_rows_used": 0
+      },
+      "by_variable": {
+        "temperature_c": {
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "n_test_records": 8760,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 1.7708696227748486,
+              "rmse": 1.9779173653669395,
+              "bias": 1.732887478484394,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 1.8412428555423266,
+              "rmse": 2.048263673744193,
+              "bias": 1.806290954868543,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 0.8635867488365682,
+              "rmse": 1.0776917994599602,
+              "bias": -0.4648096192985837,
+              "invalid_predictions": 0
+            },
+            "C_hgb": {
+              "n": 8760,
+              "mae": 0.7052085675113963,
+              "rmse": 0.8793990581612439,
+              "bias": 0.6068494453221005,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 1.7708696227748486,
+              "rmse": 1.9779173653669395,
+              "bias": 1.732887478484394
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 1.8412428555423266,
+              "rmse": 2.048263673744193,
+              "bias": 1.806290954868543
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 0.8635867488365682,
+              "rmse": 1.0776917994599602,
+              "bias": -0.4648096192985837
+            },
+            "C_hgb": {
+              "n": 8760,
+              "mae": 0.7052085675113963,
+              "rmse": 0.8793990581612439,
+              "bias": 0.6068494453221005
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -1.0656610552634525,
+            "rmse": -1.0985183072056957,
+            "bias": -1.1260380331622935
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.1583781813251719,
+            "rmse": -0.19829274129871632,
+            "bias": 1.0716590646206843
+          }
+        },
+        "dewpoint_c": {
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "n_test_records": 8760,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 2.0085413134152383,
+              "rmse": 2.192654662148675,
+              "bias": 2.0048655115414866,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 2.05322758574464,
+              "rmse": 2.235169207288824,
+              "bias": 2.0503177625403555,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 0.8681140769335032,
+              "rmse": 1.0891720283325173,
+              "bias": 0.7244609172951492,
+              "invalid_predictions": 0
+            },
+            "C_hgb": {
+              "n": 8760,
+              "mae": 0.7886552424564328,
+              "rmse": 0.9851883998964381,
+              "bias": 0.6901295723132995,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 2.0085413134152383,
+              "rmse": 2.192654662148675,
+              "bias": 2.0048655115414866
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 2.05322758574464,
+              "rmse": 2.235169207288824,
+              "bias": 2.0503177625403555
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 0.8681140769335032,
+              "rmse": 1.0891720283325173,
+              "bias": 0.7244609172951492
+            },
+            "C_hgb": {
+              "n": 8760,
+              "mae": 0.7886552424564328,
+              "rmse": 0.9851883998964381,
+              "bias": 0.6901295723132995
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -1.2198860709588055,
+            "rmse": -1.207466262252237,
+            "bias": -1.314735939228187
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.07945883447707036,
+            "rmse": -0.10398362843607911,
+            "bias": -0.03433134498184964
+          }
+        },
+        "relative_humidity_pct": {
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "n_test_records": 8760,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 3.7899845905399148,
+              "rmse": 4.786140670505069,
+              "bias": 0.7477463117865722,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 3.8102032425613803,
+              "rmse": 4.820159932749591,
+              "bias": 0.6042339789277713,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 4.448522238316982,
+              "rmse": 5.55211817101132,
+              "bias": 3.2277963247586925,
+              "invalid_predictions": 197
+            },
+            "C_hgb": {
+              "n": 8760,
+              "mae": 2.5669310875785656,
+              "rmse": 3.3666830501563467,
+              "bias": 0.47936009081137687,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 3.7899845905399148,
+              "rmse": 4.786140670505069,
+              "bias": 0.7477463117865722
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 3.8102032425613803,
+              "rmse": 4.820159932749591,
+              "bias": 0.6042339789277713
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 4.419493436883428,
+              "rmse": 5.525214309680504,
+              "bias": 3.198767523325139
+            },
+            "C_hgb": {
+              "n": 8760,
+              "mae": 2.5669310875785656,
+              "rmse": 3.3666830501563467,
+              "bias": 0.47936009081137687
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -1.2230535029613492,
+            "rmse": -1.4194576203487221,
+            "bias": -0.2683862209751954
+          },
+          "C_minus_B_ridge": {
+            "mae": -1.8815911507384162,
+            "rmse": -2.185435120854973,
+            "bias": -2.7484362339473156
+          }
+        },
+        "rainfall_mm": {
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "n_test_records": 8760,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 0.010827625988131006,
+              "rmse": 0.050038611889804664,
+              "bias": 0.003920723048282213,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 0.019842544311111356,
+              "rmse": 0.10053943922442328,
+              "bias": 0.005856447846685484,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 0.037162945092688755,
+              "rmse": 0.06025617426115311,
+              "bias": 0.03329094087590946,
+              "invalid_predictions": 0
+            },
+            "C_hgb": {
+              "n": 8760,
+              "mae": 0.019398150626038505,
+              "rmse": 0.12987631007977185,
+              "bias": -0.007802570960096863,
+              "invalid_predictions": 1530
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 0.010827625988131006,
+              "rmse": 0.050038611889804664,
+              "bias": 0.003920723048282213
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 0.019842544311111356,
+              "rmse": 0.10053943922442328,
+              "bias": 0.005856447846685484
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 0.037162945092688755,
+              "rmse": 0.06025617426115311,
+              "bias": 0.03329094087590946
+            },
+            "C_hgb": {
+              "n": 8760,
+              "mae": 0.01924675046093171,
+              "rmse": 0.12987145489860463,
+              "bias": -0.00765117079499007
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": 0.008570524637907499,
+            "rmse": 0.0798376981899672,
+            "bias": -0.011723294008379077
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.01776479446665025,
+            "rmse": 0.06962013581861874,
+            "bias": -0.041093511836006326
+          }
+        },
+        "wind_speed_kmph": {
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "n_test_records": 8760,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 1.3943075183895306,
+              "rmse": 1.7542808775393903,
+              "bias": 1.230437754676758,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 1.2871383722658847,
+              "rmse": 1.637313425087382,
+              "bias": 1.0726526520183086,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 1.0596286804602646,
+              "rmse": 1.3196801664069542,
+              "bias": -0.8530342421381439,
+              "invalid_predictions": 37
+            },
+            "C_hgb": {
+              "n": 8760,
+              "mae": 0.7176337288264515,
+              "rmse": 0.9850846119418912,
+              "bias": 0.15560979315244755,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 1.3943075183895306,
+              "rmse": 1.7542808775393903,
+              "bias": 1.230437754676758
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 1.2871383722658847,
+              "rmse": 1.637313425087382,
+              "bias": 1.0726526520183086
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 1.058640809397408,
+              "rmse": 1.3186817484550564,
+              "bias": -0.8520463710752875
+            },
+            "C_hgb": {
+              "n": 8760,
+              "mae": 0.7176337288264515,
+              "rmse": 0.9850846119418912,
+              "bias": 0.15560979315244755
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -0.6766737895630791,
+            "rmse": -0.7691962655974991,
+            "bias": -1.0748279615243104
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.3419949516338131,
+            "rmse": -0.33459555446506295,
+            "bias": 1.0086440352905914
+          }
+        }
+      },
+      "fit_info": {
+        "temperature_c": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 156168,
+            "n_features_in": 13
+          },
+          "n_train": 156168
+        },
+        "dewpoint_c": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 156168,
+            "n_features_in": 13
+          },
+          "n_train": 156168
+        },
+        "relative_humidity_pct": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 156168,
+            "n_features_in": 13
+          },
+          "n_train": 156168
+        },
+        "rainfall_mm": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 156159,
+            "n_features_in": 13
+          },
+          "n_train": 156159
+        },
+        "wind_speed_kmph": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 156168,
+            "n_features_in": 13
+          },
+          "n_train": 156168
+        }
+      }
+    },
+    "split_fold_3": {
+      "held_out_cell_group": "E5L_12.10N_77.00E",
+      "leakage_audit": {
+        "train_cell_groups": [
+          "E5L_12.00N_77.10E",
+          "E5L_12.00N_77.20E",
+          "E5L_12.10N_77.10E"
+        ],
+        "test_cell_groups": [
+          "E5L_12.10N_77.00E"
+        ],
+        "cell_groups_disjoint": true,
+        "train_last_timestamp_utc": "2022-12-24 23:00:00+00:00",
+        "test_first_timestamp_utc": "2023-01-01 00:00:00+00:00",
+        "temporal_gap_hours": 169.0,
+        "temporal_gap_at_least_7_days": true,
+        "partial_or_nonprimary_rows_used": 0,
+        "agara_rows_used": 0,
+        "missing_target_rows_used": 0
+      },
+      "by_variable": {
+        "temperature_c": {
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "n_test_records": 35040,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 0.8559899776929039,
+              "rmse": 1.0880264985160155,
+              "bias": 0.33818677928349505,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 0.8692710911302262,
+              "rmse": 1.1012975798245253,
+              "bias": -0.3143562073032606,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 0.8108412691976811,
+              "rmse": 1.0441092185871705,
+              "bias": -0.17961109527535546,
+              "invalid_predictions": 0
+            },
+            "C_hgb": {
+              "n": 35040,
+              "mae": 0.6384626345190614,
+              "rmse": 0.7918180579633239,
+              "bias": -0.43362127609429124,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 0.8559899776929039,
+              "rmse": 1.0880264985160155,
+              "bias": 0.33818677928349505
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 0.8692710911302262,
+              "rmse": 1.1012975798245253,
+              "bias": -0.3143562073032606
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 0.8108412691976811,
+              "rmse": 1.0441092185871705,
+              "bias": -0.17961109527535546
+            },
+            "C_hgb": {
+              "n": 35040,
+              "mae": 0.6384626345190614,
+              "rmse": 0.7918180579633239,
+              "bias": -0.43362127609429124
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -0.21752734317384248,
+            "rmse": -0.2962084405526916,
+            "bias": -0.7718080553777863
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.1723786346786197,
+            "rmse": -0.2522911606238466,
+            "bias": -0.2540101808189358
+          }
+        },
+        "dewpoint_c": {
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "n_test_records": 35040,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 0.7716887849433237,
+              "rmse": 1.0793512505528653,
+              "bias": 0.6541798665643282,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 0.8467472964770173,
+              "rmse": 1.2298729820847725,
+              "bias": 0.6661291566613602,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 0.6456384599073562,
+              "rmse": 0.8429597409596485,
+              "bias": -0.367321627805138,
+              "invalid_predictions": 0
+            },
+            "C_hgb": {
+              "n": 35040,
+              "mae": 0.6558377857183163,
+              "rmse": 0.83143194250365,
+              "bias": -0.4411537984842059,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 0.7716887849433237,
+              "rmse": 1.0793512505528653,
+              "bias": 0.6541798665643282
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 0.8467472964770173,
+              "rmse": 1.2298729820847725,
+              "bias": 0.6661291566613602
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 0.6456384599073562,
+              "rmse": 0.8429597409596485,
+              "bias": -0.367321627805138
+            },
+            "C_hgb": {
+              "n": 35040,
+              "mae": 0.6558377857183163,
+              "rmse": 0.83143194250365,
+              "bias": -0.4411537984842059
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -0.11585099922500741,
+            "rmse": -0.24791930804921525,
+            "bias": -1.0953336650485341
+          },
+          "C_minus_B_ridge": {
+            "mae": 0.010199325810960058,
+            "rmse": -0.011527798455998495,
+            "bias": -0.07383217067906789
+          }
+        },
+        "relative_humidity_pct": {
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "n_test_records": 35040,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 3.933883392090913,
+              "rmse": 4.926891975792737,
+              "bias": 0.5405383095754083,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 4.901239201537404,
+              "rmse": 6.176485747465296,
+              "bias": 2.9894646137159464,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 3.587848576971871,
+              "rmse": 4.586642837561745,
+              "bias": -0.7327021279411061,
+              "invalid_predictions": 6
+            },
+            "C_hgb": {
+              "n": 35040,
+              "mae": 2.5740197742916378,
+              "rmse": 3.3873917119193657,
+              "bias": -0.11245225353989077,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 3.933883392090913,
+              "rmse": 4.926891975792737,
+              "bias": 0.5405383095754083
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 4.901239201537404,
+              "rmse": 6.176485747465296,
+              "bias": 2.9894646137159464
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 3.5877873865255214,
+              "rmse": 4.58661589755572,
+              "bias": -0.7327633183874567
+            },
+            "C_hgb": {
+              "n": 35040,
+              "mae": 2.5740197742916378,
+              "rmse": 3.3873917119193657,
+              "bias": -0.11245225353989077
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -1.3598636177992751,
+            "rmse": -1.539500263873371,
+            "bias": -0.652990563115299
+          },
+          "C_minus_B_ridge": {
+            "mae": -1.0138288026802331,
+            "rmse": -1.199251125642379,
+            "bias": 0.6202498744012154
+          }
+        },
+        "rainfall_mm": {
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "n_test_records": 35040,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 0.004031883163364626,
+              "rmse": 0.017336394830746893,
+              "bias": 0.00016863914536839074,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 0.026667886504657918,
+              "rmse": 0.14344681712680893,
+              "bias": 0.004327355913258644,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 0.009953900080475368,
+              "rmse": 0.018734702754531974,
+              "bias": -0.007207771292155169,
+              "invalid_predictions": 24569
+            },
+            "C_hgb": {
+              "n": 35040,
+              "mae": 0.015271608488870535,
+              "rmse": 0.10737698164297776,
+              "bias": -0.00966462001103056,
+              "invalid_predictions": 7492
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 0.004031883163364626,
+              "rmse": 0.017336394830746893,
+              "bias": 0.00016863914536839074
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 0.026667886504657918,
+              "rmse": 0.14344681712680893,
+              "bias": 0.004327355913258644
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 0.00534826982127492,
+              "rmse": 0.01780120917183264,
+              "bias": -0.002602141032954721
+            },
+            "C_hgb": {
+              "n": 35040,
+              "mae": 0.014976931068100798,
+              "rmse": 0.1073543229049655,
+              "bias": -0.009369942590260822
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": 0.01123972532550591,
+            "rmse": 0.09004058681223087,
+            "bias": -0.009833259156398952
+          },
+          "C_minus_B_ridge": {
+            "mae": 0.0053177084083951675,
+            "rmse": 0.0886422788884458,
+            "bias": -0.0024568487188753917
+          }
+        },
+        "wind_speed_kmph": {
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "n_test_records": 35040,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 1.379599780574061,
+              "rmse": 1.7605172747427085,
+              "bias": 1.1358762094740151,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 1.1968496195506717,
+              "rmse": 1.581134078760972,
+              "bias": 0.5713827816938428,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 0.8061814101426854,
+              "rmse": 1.094116182189466,
+              "bias": 0.07951047875038605,
+              "invalid_predictions": 0
+            },
+            "C_hgb": {
+              "n": 35040,
+              "mae": 0.7598757358702252,
+              "rmse": 1.0432413862095506,
+              "bias": -0.057307271853537456,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 1.379599780574061,
+              "rmse": 1.7605172747427085,
+              "bias": 1.1358762094740151
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 1.1968496195506717,
+              "rmse": 1.581134078760972,
+              "bias": 0.5713827816938428
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 0.8061814101426854,
+              "rmse": 1.094116182189466,
+              "bias": 0.07951047875038605
+            },
+            "C_hgb": {
+              "n": 35040,
+              "mae": 0.7598757358702252,
+              "rmse": 1.0432413862095506,
+              "bias": -0.057307271853537456
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -0.6197240447038358,
+            "rmse": -0.7172758885331578,
+            "bias": -1.1931834813275526
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.04630567427246024,
+            "rmse": -0.0508747959799154,
+            "bias": -0.1368177506039235
+          }
+        }
+      },
+      "fit_info": {
+        "temperature_c": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 104112,
+            "n_features_in": 13
+          },
+          "n_train": 104112
+        },
+        "dewpoint_c": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 104112,
+            "n_features_in": 13
+          },
+          "n_train": 104112
+        },
+        "relative_humidity_pct": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 104112,
+            "n_features_in": 13
+          },
+          "n_train": 104112
+        },
+        "rainfall_mm": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 104106,
+            "n_features_in": 13
+          },
+          "n_train": 104106
+        },
+        "wind_speed_kmph": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 104112,
+            "n_features_in": 13
+          },
+          "n_train": 104112
+        }
+      }
+    },
+    "split_fold_4": {
+      "held_out_cell_group": "E5L_12.10N_77.10E",
+      "leakage_audit": {
+        "train_cell_groups": [
+          "E5L_12.00N_77.10E",
+          "E5L_12.00N_77.20E",
+          "E5L_12.10N_77.00E"
+        ],
+        "test_cell_groups": [
+          "E5L_12.10N_77.10E"
+        ],
+        "cell_groups_disjoint": true,
+        "train_last_timestamp_utc": "2022-12-24 23:00:00+00:00",
+        "test_first_timestamp_utc": "2023-01-01 00:00:00+00:00",
+        "temporal_gap_hours": 169.0,
+        "temporal_gap_at_least_7_days": true,
+        "partial_or_nonprimary_rows_used": 0,
+        "agara_rows_used": 0,
+        "missing_target_rows_used": 0
+      },
+      "by_variable": {
+        "temperature_c": {
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "n_test_records": 26280,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 0.9044370119974435,
+              "rmse": 1.1401491734791271,
+              "bias": 0.4751440334929599,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 0.8801244308959404,
+              "rmse": 1.1050370815137651,
+              "bias": -0.34246403942369436,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 0.810696999685829,
+              "rmse": 1.042816674201964,
+              "bias": -0.17911265667888754,
+              "invalid_predictions": 0
+            },
+            "C_hgb": {
+              "n": 26280,
+              "mae": 0.5525743083309715,
+              "rmse": 0.7193359361757694,
+              "bias": -0.1606838640961095,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 0.9044370119974435,
+              "rmse": 1.1401491734791271,
+              "bias": 0.4751440334929599
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 0.8801244308959404,
+              "rmse": 1.1050370815137651,
+              "bias": -0.34246403942369436
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 0.810696999685829,
+              "rmse": 1.042816674201964,
+              "bias": -0.17911265667888754
+            },
+            "C_hgb": {
+              "n": 26280,
+              "mae": 0.5525743083309715,
+              "rmse": 0.7193359361757694,
+              "bias": -0.1606838640961095
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -0.351862703666472,
+            "rmse": -0.42081323730335773,
+            "bias": -0.6358278975890694
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.25812269135485744,
+            "rmse": -0.3234807380261946,
+            "bias": 0.018428792582778047
+          }
+        },
+        "dewpoint_c": {
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "n_test_records": 26280,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 1.0414456813585775,
+              "rmse": 1.348691751998647,
+              "bias": 0.9934313737703739,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 1.039554658654618,
+              "rmse": 1.4379422415664067,
+              "bias": 0.9329628199747164,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 0.5874019568084604,
+              "rmse": 0.8101752622157341,
+              "bias": -0.0009318842517906089,
+              "invalid_predictions": 0
+            },
+            "C_hgb": {
+              "n": 26280,
+              "mae": 0.5362256309864215,
+              "rmse": 0.7631578076883017,
+              "bias": 0.25243038350664676,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 1.0414456813585775,
+              "rmse": 1.348691751998647,
+              "bias": 0.9934313737703739
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 1.039554658654618,
+              "rmse": 1.4379422415664067,
+              "bias": 0.9329628199747164
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 0.5874019568084604,
+              "rmse": 0.8101752622157341,
+              "bias": -0.0009318842517906089
+            },
+            "C_hgb": {
+              "n": 26280,
+              "mae": 0.5362256309864215,
+              "rmse": 0.7631578076883017,
+              "bias": 0.25243038350664676
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -0.505220050372156,
+            "rmse": -0.5855339443103453,
+            "bias": -0.7410009902637271
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.051176325822038904,
+            "rmse": -0.047017454527432445,
+            "bias": 0.25336226775843734
+          }
+        },
+        "relative_humidity_pct": {
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "n_test_records": 26280,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 4.0861864927176175,
+              "rmse": 5.133457843724353,
+              "bias": 1.3032694974380994,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 5.563498429888731,
+              "rmse": 6.868935126599067,
+              "bias": 4.154214558697276,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 3.546986073063811,
+              "rmse": 4.559111898103522,
+              "bias": 0.3970304742975875,
+              "invalid_predictions": 4
+            },
+            "C_hgb": {
+              "n": 26280,
+              "mae": 2.9203866843823727,
+              "rmse": 3.8138169968027795,
+              "bias": 1.467654120699434,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 4.0861864927176175,
+              "rmse": 5.133457843724353,
+              "bias": 1.3032694974380994
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 5.563498429888731,
+              "rmse": 6.868935126599067,
+              "bias": 4.154214558697276
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 3.5469560123447077,
+              "rmse": 4.5590989660786905,
+              "bias": 0.39700041357848403
+            },
+            "C_hgb": {
+              "n": 26280,
+              "mae": 2.9203866843823727,
+              "rmse": 3.8138169968027795,
+              "bias": 1.467654120699434
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -1.1657998083352448,
+            "rmse": -1.319640846921574,
+            "bias": 0.16438462326133463
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.6265993886814383,
+            "rmse": -0.7452949013007424,
+            "bias": 1.0706236464018466
+          }
+        },
+        "rainfall_mm": {
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "n_test_records": 26280,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 0.019830875806954775,
+              "rmse": 0.08382790991696001,
+              "bias": 0.009092335962515664,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 0.03816470162648506,
+              "rmse": 0.18518252081478126,
+              "bias": 0.011735888507514527,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 0.02256148526054382,
+              "rmse": 0.08348117213533596,
+              "bias": 0.004493630992474196,
+              "invalid_predictions": 17018
+            },
+            "C_hgb": {
+              "n": 26280,
+              "mae": 0.02217021182232846,
+              "rmse": 0.11976126574690876,
+              "bias": 0.007184927829314438,
+              "invalid_predictions": 1777
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 0.019830875806954775,
+              "rmse": 0.08382790991696001,
+              "bias": 0.009092335962515664
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 0.03816470162648506,
+              "rmse": 0.18518252081478126,
+              "bias": 0.011735888507514527
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 0.019697640441552013,
+              "rmse": 0.08337325450582393,
+              "bias": 0.007357475811466005
+            },
+            "C_hgb": {
+              "n": 26280,
+              "mae": 0.022072032577882105,
+              "rmse": 0.11975569829541258,
+              "bias": 0.007283107073760797
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": 0.002339336015373686,
+            "rmse": 0.03593335582994875,
+            "bias": -0.0019074081332012263
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.00039127343821535737,
+            "rmse": 0.036280093611572806,
+            "bias": 0.002691296836840242
+          }
+        },
+        "wind_speed_kmph": {
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "n_test_records": 26280,
+          "n_test_hours": 8760,
+          "raw": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 1.3166938463106095,
+              "rmse": 1.6650985226888417,
+              "bias": 1.0973169519622918,
+              "invalid_predictions": 0
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 1.3299099154671021,
+              "rmse": 1.7418440348647681,
+              "bias": 0.8494073137811495,
+              "invalid_predictions": 0
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 0.7720047317849431,
+              "rmse": 1.062630187871339,
+              "bias": -0.05516887175336429,
+              "invalid_predictions": 0
+            },
+            "C_hgb": {
+              "n": 26280,
+              "mae": 0.732352991195914,
+              "rmse": 1.0142483494353762,
+              "bias": 0.012658364611920776,
+              "invalid_predictions": 0
+            }
+          },
+          "constrained_diagnostic": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 1.3166938463106095,
+              "rmse": 1.6650985226888417,
+              "bias": 1.0973169519622918
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 1.3299099154671021,
+              "rmse": 1.7418440348647681,
+              "bias": 0.8494073137811495
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 0.7720047317849431,
+              "rmse": 1.062630187871339,
+              "bias": -0.05516887175336429
+            },
+            "C_hgb": {
+              "n": 26280,
+              "mae": 0.732352991195914,
+              "rmse": 1.0142483494353762,
+              "bias": 0.012658364611920776
+            }
+          },
+          "C_minus_A_bilinear": {
+            "mae": -0.5843408551146955,
+            "rmse": -0.6508501732534655,
+            "bias": -1.0846585873503711
+          },
+          "C_minus_B_ridge": {
+            "mae": -0.039651740589029094,
+            "rmse": -0.048381838435962665,
+            "bias": 0.06782723636528507
+          }
+        }
+      },
+      "fit_info": {
+        "temperature_c": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 121464,
+            "n_features_in": 13
+          },
+          "n_train": 121464
+        },
+        "dewpoint_c": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 121464,
+            "n_features_in": 13
+          },
+          "n_train": 121464
+        },
+        "relative_humidity_pct": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 121464,
+            "n_features_in": 13
+          },
+          "n_train": 121464
+        },
+        "rainfall_mm": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 121457,
+            "n_features_in": 13
+          },
+          "n_train": 121457
+        },
+        "wind_speed_kmph": {
+          "C_hgb": {
+            "n_iter": 200,
+            "n_train": 121464,
+            "n_features_in": 13
+          },
+          "n_train": 121464
+        }
+      }
+    }
+  },
+  "aggregate_by_variable": {
+    "temperature_c": {
+      "raw": {
+        "A_bilinear": {
+          "mae_mean_over_folds": 1.1501522576318957,
+          "rmse_mean_over_folds": 1.3783067450951607,
+          "bias_mean_over_folds": 0.8452102769825456,
+          "mae_std_over_folds": 0.4237658771569269,
+          "rmse_std_over_folds": 0.41052004180479734,
+          "bias_std_over_folds": 0.6277220085811631,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 1.0046765405663567,
+            "rmse": 1.263502372512616,
+            "bias": 0.6180312329435922
+          }
+        },
+        "A_nearest": {
+          "mae_mean_over_folds": 1.1414139978417523,
+          "rmse_mean_over_folds": 1.3669098924385257,
+          "bias_mean_over_folds": 0.4593216430106664,
+          "mae_std_over_folds": 0.46896417281823816,
+          "rmse_std_over_folds": 0.4571818780515814,
+          "bias_std_over_folds": 1.0178365344674802,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.9908735740348085,
+            "rmse": 1.2511222339595023,
+            "bias": 0.08971057351865724
+          }
+        },
+        "B_ridge": {
+          "mae_mean_over_folds": 0.8148056811676105,
+          "rmse_mean_over_folds": 1.0408965095887057,
+          "bias_mean_over_folds": -0.2259679329711679,
+          "mae_std_over_folds": 0.03682992240729207,
+          "rmse_std_over_folds": 0.032279367925532876,
+          "bias_std_over_folds": 0.16592939942943566,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.808723823858551,
+            "rmse": 1.0382847016594947,
+            "bias": -0.18812686917003582
+          }
+        },
+        "C_hgb": {
+          "mae_mean_over_folds": 0.604936688666875,
+          "rmse_mean_over_folds": 0.7736133083312383,
+          "bias_mean_over_folds": 0.05089888657957583,
+          "mae_std_over_folds": 0.08276873243155186,
+          "rmse_std_over_folds": 0.08026620505799446,
+          "bias_std_over_folds": 0.4502779714387618,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.5963784519192699,
+            "rmse": 0.7631860551711299,
+            "bias": -0.12275847689701859
+          }
+        }
+      },
+      "constrained_diagnostic": {
+        "A_bilinear": {
+          "mae_mean_over_folds": 1.1501522576318957,
+          "rmse_mean_over_folds": 1.3783067450951607,
+          "bias_mean_over_folds": 0.8452102769825456,
+          "mae_std_over_folds": 0.4237658771569269,
+          "rmse_std_over_folds": 0.41052004180479734,
+          "bias_std_over_folds": 0.6277220085811631,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 1.0046765405663567,
+            "rmse": 1.263502372512616,
+            "bias": 0.6180312329435922
+          }
+        },
+        "A_nearest": {
+          "mae_mean_over_folds": 1.1414139978417523,
+          "rmse_mean_over_folds": 1.3669098924385257,
+          "bias_mean_over_folds": 0.4593216430106664,
+          "mae_std_over_folds": 0.46896417281823816,
+          "rmse_std_over_folds": 0.4571818780515814,
+          "bias_std_over_folds": 1.0178365344674802,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.9908735740348085,
+            "rmse": 1.2511222339595023,
+            "bias": 0.08971057351865724
+          }
+        },
+        "B_ridge": {
+          "mae_mean_over_folds": 0.8148056811676105,
+          "rmse_mean_over_folds": 1.0408965095887057,
+          "bias_mean_over_folds": -0.2259679329711679,
+          "mae_std_over_folds": 0.03682992240729207,
+          "rmse_std_over_folds": 0.032279367925532876,
+          "bias_std_over_folds": 0.16592939942943566,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.808723823858551,
+            "rmse": 1.0382847016594947,
+            "bias": -0.18812686917003582
+          }
+        },
+        "C_hgb": {
+          "mae_mean_over_folds": 0.604936688666875,
+          "rmse_mean_over_folds": 0.7736133083312383,
+          "bias_mean_over_folds": 0.05089888657957583,
+          "mae_std_over_folds": 0.08276873243155186,
+          "rmse_std_over_folds": 0.08026620505799446,
+          "bias_std_over_folds": 0.4502779714387618,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.5963784519192699,
+            "rmse": 0.7631860551711299,
+            "bias": -0.12275847689701859
+          }
+        }
+      },
+      "C_minus_A_bilinear_mean_over_folds": {
+        "mae": -0.5452155689650207,
+        "rmse": -0.6046934367639224,
+        "bias": -0.7943113904029697
+      },
+      "folds_where_C_mae_below_A_bilinear": [
+        "split_fold_1",
+        "split_fold_2",
+        "split_fold_3",
+        "split_fold_4"
+      ],
+      "C_minus_B_ridge_mean_over_folds": {
+        "mae": -0.20986899250073554,
+        "rmse": -0.2672832012574674,
+        "bias": 0.2768668195507437
+      },
+      "folds_where_C_mae_below_B_ridge": [
+        "split_fold_1",
+        "split_fold_2",
+        "split_fold_3",
+        "split_fold_4"
+      ]
+    },
+    "dewpoint_c": {
+      "raw": {
+        "A_bilinear": {
+          "mae_mean_over_folds": 1.2736551071236621,
+          "rmse_mean_over_folds": 1.538705698747398,
+          "bias_mean_over_folds": 1.2256989964872684,
+          "mae_std_over_folds": 0.5310209182841709,
+          "rmse_std_over_folds": 0.47426505858227425,
+          "bias_std_over_folds": 0.5739596323525838,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 1.0765522794819284,
+            "rmse": 1.401132367487846,
+            "bias": 1.0102517567255689
+          }
+        },
+        "A_nearest": {
+          "mae_mean_over_folds": 1.284195162281054,
+          "rmse_mean_over_folds": 1.5942416990857333,
+          "bias_mean_over_folds": 1.2022061178129013,
+          "mae_std_over_folds": 0.5323469257858989,
+          "rmse_std_over_folds": 0.4406224613956248,
+          "bias_std_over_folds": 0.6002763048030229,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 1.0953382964112444,
+            "rmse": 1.4695105746724388,
+            "bias": 0.9832552313260292
+          }
+        },
+        "B_ridge": {
+          "mae_mean_over_folds": 0.6748792365397158,
+          "rmse_mean_over_folds": 0.889151395764148,
+          "bias_mean_over_folds": 0.04953513139913756,
+          "mae_std_over_folds": 0.1312781008236285,
+          "rmse_std_over_folds": 0.1341418408303052,
+          "bias_std_over_folds": 0.4743205276387614,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.6409598692007397,
+            "rmse": 0.8557999962283592,
+            "bias": -0.10637550059641153
+          }
+        },
+        "C_hgb": {
+          "mae_mean_over_folds": 0.6229547832108371,
+          "rmse_mean_over_folds": 0.82273252697573,
+          "bias_mean_over_folds": 0.17880664713165895,
+          "mae_std_over_folds": 0.12724158970741076,
+          "rmse_std_over_folds": 0.1189775343912593,
+          "bias_std_over_folds": 0.46635055040047996,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.604288422565332,
+            "rmse": 0.8058794088364463,
+            "bias": 0.011044639127820688
+          }
+        }
+      },
+      "constrained_diagnostic": {
+        "A_bilinear": {
+          "mae_mean_over_folds": 1.2736551071236621,
+          "rmse_mean_over_folds": 1.538705698747398,
+          "bias_mean_over_folds": 1.2256989964872684,
+          "mae_std_over_folds": 0.5310209182841709,
+          "rmse_std_over_folds": 0.47426505858227425,
+          "bias_std_over_folds": 0.5739596323525838,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 1.0765522794819284,
+            "rmse": 1.401132367487846,
+            "bias": 1.0102517567255689
+          }
+        },
+        "A_nearest": {
+          "mae_mean_over_folds": 1.284195162281054,
+          "rmse_mean_over_folds": 1.5942416990857333,
+          "bias_mean_over_folds": 1.2022061178129013,
+          "mae_std_over_folds": 0.5323469257858989,
+          "rmse_std_over_folds": 0.4406224613956248,
+          "bias_std_over_folds": 0.6002763048030229,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 1.0953382964112444,
+            "rmse": 1.4695105746724388,
+            "bias": 0.9832552313260292
+          }
+        },
+        "B_ridge": {
+          "mae_mean_over_folds": 0.6748792365397158,
+          "rmse_mean_over_folds": 0.889151395764148,
+          "bias_mean_over_folds": 0.04953513139913756,
+          "mae_std_over_folds": 0.1312781008236285,
+          "rmse_std_over_folds": 0.1341418408303052,
+          "bias_std_over_folds": 0.4743205276387614,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.6409598692007397,
+            "rmse": 0.8557999962283592,
+            "bias": -0.10637550059641153
+          }
+        },
+        "C_hgb": {
+          "mae_mean_over_folds": 0.6229547832108371,
+          "rmse_mean_over_folds": 0.82273252697573,
+          "bias_mean_over_folds": 0.17880664713165895,
+          "mae_std_over_folds": 0.12724158970741076,
+          "rmse_std_over_folds": 0.1189775343912593,
+          "bias_std_over_folds": 0.46635055040047996,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.604288422565332,
+            "rmse": 0.8058794088364463,
+            "bias": 0.011044639127820688
+          }
+        }
+      },
+      "C_minus_A_bilinear_mean_over_folds": {
+        "mae": -0.6507003239128251,
+        "rmse": -0.715973171771668,
+        "bias": -1.0468923493556095
+      },
+      "folds_where_C_mae_below_A_bilinear": [
+        "split_fold_1",
+        "split_fold_2",
+        "split_fold_3",
+        "split_fold_4"
+      ],
+      "C_minus_B_ridge_mean_over_folds": {
+        "mae": -0.05192445332887874,
+        "rmse": -0.06641886878841807,
+        "bias": 0.12927151573252138
+      },
+      "folds_where_C_mae_below_B_ridge": [
+        "split_fold_1",
+        "split_fold_2",
+        "split_fold_4"
+      ]
+    },
+    "relative_humidity_pct": {
+      "raw": {
+        "A_bilinear": {
+          "mae_mean_over_folds": 3.9415619641997,
+          "rmse_mean_over_folds": 4.963033861194332,
+          "bias_mean_over_folds": 0.887730509534672,
+          "mae_std_over_folds": 0.12133286624683999,
+          "rmse_std_over_folds": 0.14543896303771064,
+          "bias_std_over_folds": 0.3255470105749984,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 3.9696464399957128,
+            "rmse": 4.991736489523493,
+            "bias": 0.8738443881079719
+          }
+        },
+        "A_nearest": {
+          "mae_mean_over_folds": 4.591114447760102,
+          "rmse_mean_over_folds": 5.7545987356034045,
+          "bias_mean_over_folds": 2.248576434099281,
+          "mae_std_over_folds": 0.7964777387184682,
+          "rmse_std_over_folds": 0.9407540989644996,
+          "bias_std_over_folds": 1.6215842596855163,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 4.828468917248297,
+            "rmse": 6.086703893604513,
+            "bias": 2.7517521279995645
+          }
+        },
+        "B_ridge": {
+          "mae_mean_over_folds": 3.784200369592192,
+          "rmse_mean_over_folds": 4.811128506431638,
+          "bias_mean_over_folds": 0.6360498313906434,
+          "mae_std_over_folds": 0.4432442607323237,
+          "rmse_std_over_folds": 0.4942757150616318,
+          "bias_std_over_folds": 1.7903416074375071,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 220,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 3.6547763945428113,
+            "rmse": 4.67627609419567,
+            "bias": 0.07922285447818299
+          }
+        },
+        "C_hgb": {
+          "mae_mean_over_folds": 2.650765535331963,
+          "rmse_mean_over_folds": 3.4808054966158974,
+          "bias_mean_over_folds": 0.4967943154099684,
+          "mae_std_over_folds": 0.18028090778476927,
+          "rmse_std_over_folds": 0.2224041144345973,
+          "bias_std_over_folds": 0.6910169529069097,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 2.670761942804278,
+            "rmse": 3.5126105296165124,
+            "bias": 0.47377440460880227
+          }
+        }
+      },
+      "constrained_diagnostic": {
+        "A_bilinear": {
+          "mae_mean_over_folds": 3.9415619641997,
+          "rmse_mean_over_folds": 4.963033861194332,
+          "bias_mean_over_folds": 0.887730509534672,
+          "mae_std_over_folds": 0.12133286624683999,
+          "rmse_std_over_folds": 0.14543896303771064,
+          "bias_std_over_folds": 0.3255470105749984,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 3.9696464399957128,
+            "rmse": 4.991736489523493,
+            "bias": 0.8738443881079719
+          }
+        },
+        "A_nearest": {
+          "mae_mean_over_folds": 4.591114447760102,
+          "rmse_mean_over_folds": 5.7545987356034045,
+          "bias_mean_over_folds": 2.248576434099281,
+          "mae_std_over_folds": 0.7964777387184682,
+          "rmse_std_over_folds": 0.9407540989644996,
+          "bias_std_over_folds": 1.6215842596855163,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 4.828468917248297,
+            "rmse": 6.086703893604513,
+            "bias": 2.7517521279995645
+          }
+        },
+        "B_ridge": {
+          "mae_mean_over_folds": 3.7768539729606854,
+          "rmse_mean_over_folds": 4.804343531305762,
+          "bias_mean_over_folds": 0.6287034347591363,
+          "mae_std_over_folds": 0.428802672344774,
+          "rmse_std_over_folds": 0.48087301707128766,
+          "bias_std_over_folds": 1.776403663817844,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 3.65178691321978,
+            "rmse": 4.673035932706948,
+            "bias": 0.0762333731551522
+          }
+        },
+        "C_hgb": {
+          "mae_mean_over_folds": 2.650765535331963,
+          "rmse_mean_over_folds": 3.4808054966158974,
+          "bias_mean_over_folds": 0.4967943154099684,
+          "mae_std_over_folds": 0.18028090778476927,
+          "rmse_std_over_folds": 0.2224041144345973,
+          "bias_std_over_folds": 0.6910169529069097,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 2.670761942804278,
+            "rmse": 3.5126105296165124,
+            "bias": 0.47377440460880227
+          }
+        }
+      },
+      "C_minus_A_bilinear_mean_over_folds": {
+        "mae": -1.2907964288677372,
+        "rmse": -1.4822283645784347,
+        "bias": -0.39093619412470365
+      },
+      "folds_where_C_mae_below_A_bilinear": [
+        "split_fold_1",
+        "split_fold_2",
+        "split_fold_3",
+        "split_fold_4"
+      ],
+      "C_minus_B_ridge_mean_over_folds": {
+        "mae": -1.1334348342602292,
+        "rmse": -1.3303230098157406,
+        "bias": -0.13925551598067504
+      },
+      "folds_where_C_mae_below_B_ridge": [
+        "split_fold_1",
+        "split_fold_2",
+        "split_fold_3",
+        "split_fold_4"
+      ]
+    },
+    "rainfall_mm": {
+      "raw": {
+        "A_bilinear": {
+          "mae_mean_over_folds": 0.014398890949688707,
+          "rmse_mean_over_folds": 0.06359350491271074,
+          "bias_mean_over_folds": 0.005609258420782073,
+          "mae_std_over_folds": 0.008604110975476729,
+          "rmse_std_over_folds": 0.03785618740834665,
+          "bias_std_over_folds": 0.004392311359262707,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.013225814374306269,
+            "rmse": 0.06787928510221763,
+            "bias": 0.005038295857122683
+          }
+        },
+        "A_nearest": {
+          "mae_mean_over_folds": 0.026382614779248754,
+          "rmse_mean_over_folds": 0.13155095446005743,
+          "bias_mean_over_folds": 0.00682589454940381,
+          "mae_std_over_folds": 0.008410754741234108,
+          "rmse_std_over_folds": 0.04151673895321801,
+          "bias_std_over_folds": 0.003335163751721376,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.028271884855867953,
+            "rmse": 0.14633025404818187,
+            "bias": 0.006914130888257681
+          }
+        },
+        "B_ridge": {
+          "mae_mean_over_folds": 0.025758746527869202,
+          "rmse_mean_over_folds": 0.06634354322596536,
+          "bias_mean_over_folds": 0.006354256566957539,
+          "mae_std_over_folds": 0.012217468630246857,
+          "rmse_std_over_folds": 0.036211811547815234,
+          "bias_std_over_folds": 0.018668586767960016,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 54308,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.021137631255175943,
+            "rmse": 0.06864384556152989,
+            "bias": 0.0007621200067914715
+          }
+        },
+        "C_hgb": {
+          "mae_mean_over_folds": 0.02048737364578675,
+          "rmse_mean_over_folds": 0.13340530284092078,
+          "bias_mean_over_folds": -0.0030440150018848817,
+          "mae_std_over_folds": 0.004186758010319027,
+          "rmse_std_over_folds": 0.03023487928054746,
+          "bias_std_over_folds": 0.007581348576149477,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 15597,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.019721426734032505,
+            "rmse": 0.1297671851379059,
+            "bias": -0.002869386124772887
+          }
+        }
+      },
+      "constrained_diagnostic": {
+        "A_bilinear": {
+          "mae_mean_over_folds": 0.014398890949688707,
+          "rmse_mean_over_folds": 0.06359350491271074,
+          "bias_mean_over_folds": 0.005609258420782073,
+          "mae_std_over_folds": 0.008604110975476729,
+          "rmse_std_over_folds": 0.03785618740834665,
+          "bias_std_over_folds": 0.004392311359262707,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.013225814374306269,
+            "rmse": 0.06787928510221763,
+            "bias": 0.005038295857122683
+          }
+        },
+        "A_nearest": {
+          "mae_mean_over_folds": 0.026382614779248754,
+          "rmse_mean_over_folds": 0.13155095446005743,
+          "bias_mean_over_folds": 0.00682589454940381,
+          "mae_std_over_folds": 0.008410754741234108,
+          "rmse_std_over_folds": 0.04151673895321801,
+          "bias_std_over_folds": 0.003335163751721376,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.028271884855867953,
+            "rmse": 0.14633025404818187,
+            "bias": 0.006914130888257681
+          }
+        },
+        "B_ridge": {
+          "mae_mean_over_folds": 0.02139167803049765,
+          "rmse_mean_over_folds": 0.0658942602761563,
+          "bias_mean_over_folds": 0.010721325064329091,
+          "mae_std_over_folds": 0.013074905148021523,
+          "rmse_std_over_folds": 0.03635227036380115,
+          "bias_std_over_folds": 0.01562923806249447,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.016436465923539426,
+            "rmse": 0.06827841004930704,
+            "bias": 0.005463285338427985
+          }
+        },
+        "C_hgb": {
+          "mae_mean_over_folds": 0.02030811431904019,
+          "rmse_mean_over_folds": 0.1333960820542939,
+          "bias_mean_over_folds": -0.0028647556751383177,
+          "mae_std_over_folds": 0.0042459243497433435,
+          "rmse_std_over_folds": 0.030240597792936388,
+          "bias_std_over_folds": 0.00751696934553708,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.01952440588054735,
+            "rmse": 0.12975662370693875,
+            "bias": -0.0026723652712877326
+          }
+        }
+      },
+      "C_minus_A_bilinear_mean_over_folds": {
+        "mae": 0.006088482696098043,
+        "rmse": 0.06981179792821005,
+        "bias": -0.008653273422666955
+      },
+      "folds_where_C_mae_below_A_bilinear": [],
+      "C_minus_B_ridge_mean_over_folds": {
+        "mae": -0.005271372882082452,
+        "rmse": 0.06706175961495542,
+        "bias": -0.00939827156884242
+      },
+      "folds_where_C_mae_below_B_ridge": [
+        "split_fold_1",
+        "split_fold_2",
+        "split_fold_4"
+      ]
+    },
+    "wind_speed_kmph": {
+      "raw": {
+        "A_bilinear": {
+          "mae_mean_over_folds": 1.3681750902546428,
+          "rmse_mean_over_folds": 1.7311134830409258,
+          "bias_mean_over_folds": 1.1543842620947118,
+          "mae_std_over_folds": 0.0349171738919329,
+          "rmse_std_over_folds": 0.04449727028340098,
+          "bias_std_over_folds": 0.05592729875955314,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 1.3626986611106342,
+            "rmse": 1.7285775948449609,
+            "bias": 1.137370571299126
+          }
+        },
+        "A_nearest": {
+          "mae_mean_over_folds": 1.3781236856614782,
+          "rmse_mean_over_folds": 1.7688243630859923,
+          "bias_mean_over_folds": 0.9907297712689733,
+          "mae_std_over_folds": 0.2207307723702729,
+          "rmse_std_over_folds": 0.24020295147496004,
+          "bias_std_over_folds": 0.3793562827578108,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 1.3461460267594385,
+            "rmse": 1.7529773845323116,
+            "bias": 0.8845358395302313
+          }
+        },
+        "B_ridge": {
+          "mae_mean_over_folds": 0.8606679337680102,
+          "rmse_mean_over_folds": 1.1427669284190047,
+          "bias_mean_over_folds": -0.17802881691184202,
+          "mae_std_over_folds": 0.1335791818129182,
+          "rmse_std_over_folds": 0.11888814631026672,
+          "bias_std_over_folds": 0.45601395552822915,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 37,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.8210082341754134,
+            "rmse": 1.1096821159381411,
+            "bias": -0.046734420740918464
+          }
+        },
+        "C_hgb": {
+          "mae_mean_over_folds": 0.7503056268330351,
+          "rmse_mean_over_folds": 1.0273988655888118,
+          "bias_mean_over_folds": 0.06924755336847983,
+          "mae_std_over_folds": 0.03249001288820697,
+          "rmse_std_over_folds": 0.03551685152369174,
+          "bias_std_over_folds": 0.1096108394090362,
+          "n_test_records_total": 87600,
+          "invalid_predictions_total": 0,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.7536915748774194,
+            "rmse": 1.0337779894158552,
+            "bias": 0.02964144547002371
+          }
+        }
+      },
+      "constrained_diagnostic": {
+        "A_bilinear": {
+          "mae_mean_over_folds": 1.3681750902546428,
+          "rmse_mean_over_folds": 1.7311134830409258,
+          "bias_mean_over_folds": 1.1543842620947118,
+          "mae_std_over_folds": 0.0349171738919329,
+          "rmse_std_over_folds": 0.04449727028340098,
+          "bias_std_over_folds": 0.05592729875955314,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 1.3626986611106342,
+            "rmse": 1.7285775948449609,
+            "bias": 1.137370571299126
+          }
+        },
+        "A_nearest": {
+          "mae_mean_over_folds": 1.3781236856614782,
+          "rmse_mean_over_folds": 1.7688243630859923,
+          "bias_mean_over_folds": 0.9907297712689733,
+          "mae_std_over_folds": 0.2207307723702729,
+          "rmse_std_over_folds": 0.24020295147496004,
+          "bias_std_over_folds": 0.3793562827578108,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 1.3461460267594385,
+            "rmse": 1.7529773845323116,
+            "bias": 0.8845358395302313
+          }
+        },
+        "B_ridge": {
+          "mae_mean_over_folds": 0.8604209660022962,
+          "rmse_mean_over_folds": 1.1425173239310307,
+          "bias_mean_over_folds": -0.1777818491461279,
+          "mae_std_over_folds": 0.13308873008855202,
+          "rmse_std_over_folds": 0.11839292620001708,
+          "bias_std_over_folds": 0.45552653716065344,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.8209094470691277,
+            "rmse": 1.1095634184863028,
+            "bias": -0.04663563363463281
+          }
+        },
+        "C_hgb": {
+          "mae_mean_over_folds": 0.7503056268330351,
+          "rmse_mean_over_folds": 1.0273988655888118,
+          "bias_mean_over_folds": 0.06924755336847983,
+          "mae_std_over_folds": 0.03249001288820697,
+          "rmse_std_over_folds": 0.03551685152369174,
+          "bias_std_over_folds": 0.1096108394090362,
+          "n_test_records_total": 87600,
+          "row_pooled": {
+            "n": 87600,
+            "mae": 0.7536915748774194,
+            "rmse": 1.0337779894158552,
+            "bias": 0.02964144547002371
+          }
+        }
+      },
+      "C_minus_A_bilinear_mean_over_folds": {
+        "mae": -0.6178694634216076,
+        "rmse": -0.703714617452114,
+        "bias": -1.085136708726232
+      },
+      "folds_where_C_mae_below_A_bilinear": [
+        "split_fold_1",
+        "split_fold_2",
+        "split_fold_3",
+        "split_fold_4"
+      ],
+      "C_minus_B_ridge_mean_over_folds": {
+        "mae": -0.11036230693497506,
+        "rmse": -0.11536806283019296,
+        "bias": 0.24727637028032184
+      },
+      "folds_where_C_mae_below_B_ridge": [
+        "split_fold_1",
+        "split_fold_2",
+        "split_fold_3",
+        "split_fold_4"
+      ]
+    }
+  },
+  "population": {
+    "agara": "PARTIAL -- excluded from every fold",
+    "mamballi": "UNAVAILABLE -- zero rows"
+  },
+  "rainfall": {
+    "processing": "Unchanged Phase 2D rainfall processing.",
+    "missing_first_hour_rows": 11,
+    "tiny_negative_steps_clamped_target_rows": 5001,
+    "max_abs_clamped_step_mm": 3.357490641064942e-05
+  },
+  "stop_condition": "Stage 2 only: no neural network, no hyperparameter tuning."
+}

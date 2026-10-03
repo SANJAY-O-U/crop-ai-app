@@ -1,0 +1,2518 @@
+{
+  "type": "Stage4CAcquisitionRecord",
+  "design_manifest": "research/stage4_spatial_generalization/stage4_acquisition_manifest.json",
+  "design_manifest_sha256": "42d070f67497ea4a71b8419301e6d505cb2171621742159f4579e0ae7bc96249",
+  "land_sea_validation": {
+    "rule": "cell is ERA5-Land land iff its 2m_temperature value is not missing (NaN) in the land/sea probe",
+    "request": {
+      "request_id": "01e596a4-5d8b-478e-b1c1-6f868d1866d4",
+      "result_url": "https://cds.climate.copernicus.eu/api/retrieve/v1/jobs/01e596a4-5d8b-478e-b1c1-6f868d1866d4/results",
+      "content_length_bytes": 30831,
+      "dataset": "reanalysis-era5-land",
+      "request": {
+        "variable": [
+          "2m_temperature"
+        ],
+        "year": [
+          "2023"
+        ],
+        "month": [
+          "01"
+        ],
+        "day": [
+          "01"
+        ],
+        "time": [
+          "00:00"
+        ],
+        "area": [
+          18.5,
+          74.0,
+          11.9,
+          78.7
+        ],
+        "data_format": "netcdf"
+      },
+      "downloaded_utc": "2026-09-28T05:41:05+00:00"
+    },
+    "file": "data/raw/era5_land/stage4/land_sea_probe_2023010100.nc",
+    "sha256": "e209f31015d87a6e55675026cd0d19c9f5894d905e2302d8fc94d29426881667",
+    "cells_checked": 111,
+    "land_cells": 110,
+    "non_land_cells": [
+      "E5L_14.90N_74.10E"
+    ],
+    "cell_status": {
+      "E5L_12.50N_76.10E": true,
+      "E5L_12.60N_76.00E": true,
+      "E5L_12.60N_76.10E": true,
+      "E5L_12.60N_76.20E": true,
+      "E5L_12.60N_77.30E": true,
+      "E5L_12.70N_76.00E": true,
+      "E5L_12.70N_76.10E": true,
+      "E5L_12.70N_76.20E": true,
+      "E5L_12.70N_77.20E": true,
+      "E5L_12.70N_77.30E": true,
+      "E5L_12.70N_77.40E": true,
+      "E5L_12.80N_76.00E": true,
+      "E5L_12.80N_76.10E": true,
+      "E5L_12.80N_76.20E": true,
+      "E5L_12.80N_77.20E": true,
+      "E5L_12.80N_77.30E": true,
+      "E5L_12.80N_77.40E": true,
+      "E5L_12.90N_77.40E": true,
+      "E5L_13.10N_74.80E": true,
+      "E5L_13.10N_74.90E": true,
+      "E5L_13.10N_75.00E": true,
+      "E5L_13.20N_74.90E": true,
+      "E5L_13.20N_75.00E": true,
+      "E5L_13.20N_75.10E": true,
+      "E5L_13.30N_74.90E": true,
+      "E5L_13.30N_75.00E": true,
+      "E5L_13.30N_75.10E": true,
+      "E5L_13.30N_77.90E": true,
+      "E5L_13.30N_78.00E": true,
+      "E5L_13.30N_78.10E": true,
+      "E5L_13.40N_78.00E": true,
+      "E5L_13.40N_78.10E": true,
+      "E5L_13.40N_78.20E": true,
+      "E5L_13.50N_78.00E": true,
+      "E5L_13.50N_78.10E": true,
+      "E5L_13.50N_78.20E": true,
+      "E5L_13.60N_78.00E": true,
+      "E5L_13.60N_78.10E": true,
+      "E5L_13.80N_76.50E": true,
+      "E5L_13.80N_76.60E": true,
+      "E5L_13.80N_76.70E": true,
+      "E5L_13.90N_76.50E": true,
+      "E5L_13.90N_76.60E": true,
+      "E5L_13.90N_76.70E": true,
+      "E5L_14.00N_76.60E": true,
+      "E5L_14.00N_76.70E": true,
+      "E5L_14.00N_76.80E": true,
+      "E5L_14.10N_76.50E": true,
+      "E5L_14.10N_76.60E": true,
+      "E5L_14.10N_76.70E": true,
+      "E5L_14.10N_76.80E": true,
+      "E5L_14.10N_76.90E": true,
+      "E5L_14.30N_75.00E": true,
+      "E5L_14.30N_75.10E": true,
+      "E5L_14.30N_75.20E": true,
+      "E5L_14.40N_75.00E": true,
+      "E5L_14.40N_75.10E": true,
+      "E5L_14.40N_75.20E": true,
+      "E5L_14.50N_74.90E": true,
+      "E5L_14.50N_75.00E": true,
+      "E5L_14.50N_75.10E": true,
+      "E5L_14.50N_75.20E": true,
+      "E5L_14.60N_75.10E": true,
+      "E5L_14.60N_75.20E": true,
+      "E5L_14.60N_75.30E": true,
+      "E5L_14.80N_74.20E": true,
+      "E5L_14.80N_74.30E": true,
+      "E5L_14.90N_74.10E": false,
+      "E5L_14.90N_74.20E": true,
+      "E5L_14.90N_74.30E": true,
+      "E5L_14.90N_74.40E": true,
+      "E5L_15.10N_76.80E": true,
+      "E5L_15.10N_76.90E": true,
+      "E5L_15.10N_77.00E": true,
+      "E5L_15.10N_77.10E": true,
+      "E5L_15.20N_76.80E": true,
+      "E5L_15.20N_76.90E": true,
+      "E5L_15.20N_77.00E": true,
+      "E5L_15.20N_77.10E": true,
+      "E5L_15.30N_77.00E": true,
+      "E5L_15.30N_77.10E": true,
+      "E5L_15.40N_74.60E": true,
+      "E5L_15.40N_74.70E": true,
+      "E5L_15.40N_77.00E": true,
+      "E5L_15.50N_74.40E": true,
+      "E5L_15.50N_74.50E": true,
+      "E5L_15.50N_74.60E": true,
+      "E5L_15.50N_74.70E": true,
+      "E5L_15.60N_74.40E": true,
+      "E5L_15.60N_74.50E": true,
+      "E5L_15.60N_74.60E": true,
+      "E5L_15.60N_74.70E": true,
+      "E5L_15.70N_74.20E": true,
+      "E5L_15.70N_74.30E": true,
+      "E5L_15.70N_74.40E": true,
+      "E5L_15.70N_74.50E": true,
+      "E5L_15.70N_74.60E": true,
+      "E5L_15.70N_74.70E": true,
+      "E5L_16.30N_75.90E": true,
+      "E5L_16.30N_76.00E": true,
+      "E5L_16.40N_75.80E": true,
+      "E5L_16.40N_75.90E": true,
+      "E5L_16.40N_76.00E": true,
+      "E5L_16.50N_75.90E": true,
+      "E5L_17.60N_77.20E": true,
+      "E5L_17.60N_77.30E": true,
+      "E5L_17.60N_77.40E": true,
+      "E5L_17.70N_77.20E": true,
+      "E5L_17.70N_77.30E": true,
+      "E5L_17.70N_77.40E": true,
+      "E5L_17.80N_77.20E": true
+    }
+  },
+  "elevation_tiles": {
+    "Copernicus_DSM_COG_10_N12_00_E075_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N12_00_E075_00_DEM.tif",
+      "sha256": "ce45161b6c116922b673e1ee8af78c9a6640d5251120af591dbd0f6d7b226191",
+      "size_bytes": 45575204
+    },
+    "Copernicus_DSM_COG_10_N12_00_E076_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N12_00_E076_00_DEM.tif",
+      "sha256": "906c8faa9341c5426aa4394c82fab0ffd4e34485992f6d8293d6a1c61b5066f7",
+      "size_bytes": 39759475
+    },
+    "Copernicus_DSM_COG_10_N12_00_E077_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N12_00_E077_00_DEM.tif",
+      "sha256": "a58736cc901e3baca38721d0dd4b1048bf2a67328592e93420c7413d5012ae02",
+      "size_bytes": 41962096
+    },
+    "Copernicus_DSM_COG_10_N13_00_E074_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N13_00_E074_00_DEM.tif",
+      "sha256": "0efc88506d1fbd8362cd6f3ba578bea7047b57bdc1cccdf47cf7d9ff8495c992",
+      "size_bytes": 16461475
+    },
+    "Copernicus_DSM_COG_10_N13_00_E075_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N13_00_E075_00_DEM.tif",
+      "sha256": "bd44b14ce90950a77f43b931d621f3f82e21c39809deb9a8ca72d1fb3bf4e231",
+      "size_bytes": 42888146
+    },
+    "Copernicus_DSM_COG_10_N13_00_E076_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N13_00_E076_00_DEM.tif",
+      "sha256": "9bf031a1f280cf56a5ee5c21c454a7225f1ca3d37168dfe271057a86df6c1ce1",
+      "size_bytes": 39869343
+    },
+    "Copernicus_DSM_COG_10_N13_00_E077_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N13_00_E077_00_DEM.tif",
+      "sha256": "3bacdbc63c1a0b95f570893578ed4a6b93c9e5ed2d6783f9caf6fc5bdd43c1f1",
+      "size_bytes": 39995768
+    },
+    "Copernicus_DSM_COG_10_N13_00_E078_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N13_00_E078_00_DEM.tif",
+      "sha256": "0e494bf17f5012eacda208cd6fbe313d98e24a3a121035aa120af770afd33744",
+      "size_bytes": 41179785
+    },
+    "Copernicus_DSM_COG_10_N14_00_E074_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N14_00_E074_00_DEM.tif",
+      "sha256": "e7f6fb7a993b0c51055daecb67aa779f90ef1dd61ac3d549e85a1599fa01cc63",
+      "size_bytes": 32296244
+    },
+    "Copernicus_DSM_COG_10_N14_00_E075_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N14_00_E075_00_DEM.tif",
+      "sha256": "2043dc4582b0fe378855973a0f061ddb685880aa476076d62a0ce14219de5963",
+      "size_bytes": 39328339
+    },
+    "Copernicus_DSM_COG_10_N14_00_E076_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N14_00_E076_00_DEM.tif",
+      "sha256": "f911ee2345af6c54633771d93907b59d60c7d21cc271c13d715d72010d6718f2",
+      "size_bytes": 39078798
+    },
+    "Copernicus_DSM_COG_10_N15_00_E074_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N15_00_E074_00_DEM.tif",
+      "sha256": "3eceffe0e9fc4a2fb65229bf70e4049c6a43221d5f193d4d90dc16164dd6a0e9",
+      "size_bytes": 43264778
+    },
+    "Copernicus_DSM_COG_10_N15_00_E076_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N15_00_E076_00_DEM.tif",
+      "sha256": "5fafd4ddeb82765b5194be1104a41cec24e7b15607c222b7085d0bf08286ad55",
+      "size_bytes": 38633116
+    },
+    "Copernicus_DSM_COG_10_N15_00_E077_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N15_00_E077_00_DEM.tif",
+      "sha256": "0bcd1d0f48e12b009b82e60a386e16860aee065800a436ce9719bc3f7290b5d6",
+      "size_bytes": 39933222
+    },
+    "Copernicus_DSM_COG_10_N16_00_E075_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N16_00_E075_00_DEM.tif",
+      "sha256": "4902769a1106256b57b9247255d19612ba832b11636a49f760d23247711c923e",
+      "size_bytes": 37462174
+    },
+    "Copernicus_DSM_COG_10_N16_00_E076_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N16_00_E076_00_DEM.tif",
+      "sha256": "f438251158a731426f66aecc3d95c0b9d068e598a58141bc941d8ea97ca4a65f",
+      "size_bytes": 39175253
+    },
+    "Copernicus_DSM_COG_10_N17_00_E077_00_DEM": {
+      "file": "data/raw/elevation/Copernicus_DSM_COG_10_N17_00_E077_00_DEM.tif",
+      "sha256": "0914b19a5e3fdb3c92b46db143e2a34029d87cdfc02e20fee9e1aca8316adb06",
+      "size_bytes": 38667156
+    }
+  },
+  "weather_request_batching": {
+    "strategy": "one combined area per product per month (union of the frozen per-area request boxes)",
+    "era5_land_area_nwse": [
+      17.9,
+      74.0,
+      12.4,
+      78.3
+    ],
+    "era5_area_nwse": [
+      18.25,
+      73.75,
+      12.25,
+      78.5
+    ],
+    "requests": 72,
+    "rationale": "CDS queue cost is per request (fields = variables x hours); 72 requests instead of 792"
+  },
+  "weather_requests": {
+    "era5_land": {
+      "2021-01": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202101.nc"
+        ],
+        "sha256": [
+          "b8c3ce2385d291023356852c678ef892275cf235d757daf7ab3d7129bd71456c"
+        ],
+        "combined_sha256": "cc686cb9dee0fa9fe9066e2d7e8be9d102c7828631c5c6beffab88101c221e35",
+        "request_id": "567d7904-3735-4305-a971-1e9c6e16e6ee",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2021-02": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202102.nc"
+        ],
+        "sha256": [
+          "35779498ce51e3fd9125c04b6baf469f22ea5656baf342e2d88cfe3130ccf2b7"
+        ],
+        "combined_sha256": "b76f33542d6a6357c015518b7b89dfaba39f777950d29c2e11c6303af62c4d9a",
+        "request_id": "24eb5c46-d3e5-4940-ab95-a0c178b3d4ce",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 672,
+        "dims": {
+          "valid_time": 672,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2021-03": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202103.nc"
+        ],
+        "sha256": [
+          "30f3d6368006cdf271f27605382750c7d337acffa9cc7771bc8f09d54ccfcd3c"
+        ],
+        "combined_sha256": "9b4c572a53ae9833a01e020609ac5d062ef00f05986a34916f6b4d8472274542",
+        "request_id": "1dc16c81-9f18-49cd-8cf7-fee12eb76760",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2021-04": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202104.nc"
+        ],
+        "sha256": [
+          "a1eeaeed7a17b88a545c585e126eb694ad6daf4237305722f442151aadca73a5"
+        ],
+        "combined_sha256": "4681c1179dd58b716ca78f7b479273d271f953cadfec61bee8dce51f9ecdfc1b",
+        "request_id": "af8719eb-2c41-4c5f-97a6-ffeb4bb75730",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2021-05": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202105.nc"
+        ],
+        "sha256": [
+          "b63175efb6a76b6bc3955ea63dbc02c43488f4d54c018577221569dd049a47dd"
+        ],
+        "combined_sha256": "169b8e90c58c504ca05478d4e75632f152e4560d6657e65c387e0e1edec8ec89",
+        "request_id": "196155c2-a48e-4d81-a4cf-209cafec1d40",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2021-06": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202106.nc"
+        ],
+        "sha256": [
+          "8e09c5bb33c4345ee7422d35c6e7d3b04a8609320e301b008a1d0b815ff5c70c"
+        ],
+        "combined_sha256": "67d3a059cfe15349b3ac02fa7e855986b42d787e14772ef51b01e0aa18622b27",
+        "request_id": "fa5b7c08-e0b4-40e5-82d4-c31a926a7ad3",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2021-07": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202107.nc"
+        ],
+        "sha256": [
+          "82fa1885a367b7b2a520b067ed40a4c1b86436cd1a3db6d1ce2f5e4f89233b51"
+        ],
+        "combined_sha256": "87e758bfc74fcbd418eb51330b1121ccf709ca8c3fac86090f6d881cf99eb849",
+        "request_id": "f02f723f-87fe-4522-95de-605985c8f185",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2021-08": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202108.nc"
+        ],
+        "sha256": [
+          "0a1fcaca5abf81654fb21f7a2e3d1502fd503bc01c4025497ab02b6789586f11"
+        ],
+        "combined_sha256": "fdc29dca6e79d98da59e955409222f55a46bfdade2d94c89682d505516fea8e3",
+        "request_id": "74cb71ad-8c4b-4386-a3a4-d2a50149bf85",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2021-09": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202109.nc"
+        ],
+        "sha256": [
+          "6900aa59e8e7e687c7d8f73f15498dffdbe9a5a8e81a46efc5bbfb6f76702e25"
+        ],
+        "combined_sha256": "9294aac87d92696b2049b44596607097cd89fd904ba31838816a40b35e88adf6",
+        "request_id": "a2b1a99d-02d1-44be-86c1-245cbf224a3d",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2021-10": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202110.nc"
+        ],
+        "sha256": [
+          "0812557d2518fb0a484ed9ce445829cfb9286af36ad5082dec8b739f7381ffa1"
+        ],
+        "combined_sha256": "b3f8d4d532690c3aae30a93392b467c25eda796c5a018035c2ed985c14f1edf8",
+        "request_id": "2ed7ec06-4da0-4359-b000-3327273fd543",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2021-11": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202111.nc"
+        ],
+        "sha256": [
+          "a940c35537b6acb01a680b299d5fcc89e73fa6e8170234e598bcff90c503e194"
+        ],
+        "combined_sha256": "49f4c2e8dc28324e1c4aec87332f85b91d24da5eba827647bf3e9274e073ccf3",
+        "request_id": "32fb2d37-20fc-4b02-a7a7-112e851b8d11",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2021-12": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202112.nc"
+        ],
+        "sha256": [
+          "fdfa3919efbca7825dd71a57cfc9f61ea6879db13b47c15c64ddd55a08d62314"
+        ],
+        "combined_sha256": "ca7ab13ee201ffd8edc7c44f36bcb54f78801fbe34f52f1ad4340feeb9fcc381",
+        "request_id": "cffadb38-8b7c-4055-9a7b-e96b333fab7d",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2022-01": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202201.nc"
+        ],
+        "sha256": [
+          "378c161cb8a1349f0323697148f8a82bc885e402a769cd4a9fba28dff7be2e51"
+        ],
+        "combined_sha256": "3d2487663045a7a7988a6bb133f4872503ee54abd9ca1afc45c2a11f8e1e29af",
+        "request_id": "7fa07005-4303-414e-a996-d87eb22093bb",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2022-02": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202202.nc"
+        ],
+        "sha256": [
+          "5bc634d96f8515952d273e5f9a5b8309d2dcc9b02730b8029626426ca742a274"
+        ],
+        "combined_sha256": "a3af2e995ffc5f066f77f3873ca9d7bc838cddb8e1a4d4b6f81ca256b7567d6d",
+        "request_id": "deb6b677-40d8-460b-bf28-fde7a2240b02",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 672,
+        "dims": {
+          "valid_time": 672,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2022-03": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202203.nc"
+        ],
+        "sha256": [
+          "8c74b08646035c65d705788b3d9f03867889954bf20657855c734dd743e9a93d"
+        ],
+        "combined_sha256": "8ecfba2624f0343da340ce31d31362f99a734a5f3be07ddb507c7d04b1157e13",
+        "request_id": "0f683fa1-e2f1-44fd-aa51-ad9252cf6214",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2022-04": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202204.nc"
+        ],
+        "sha256": [
+          "9d9943846f18d666df525f43dbe53d8b76da76aa7c51a486c089915b25311457"
+        ],
+        "combined_sha256": "7657290f4bb52488f43e8400cbac7ee7e6f6ec1fdf37ee980eeb41cccedd1118",
+        "request_id": "7d6f3d6c-1bd9-43b7-96e5-4abe569b9ad6",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2022-05": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202205.nc"
+        ],
+        "sha256": [
+          "b472c54160c127e107fed4c4a25d72b7086d9d5db640dee086efc5d5cfa88905"
+        ],
+        "combined_sha256": "cced1b1e632a8419d53fb3426c7d0b9eb0dc893dc7a6305b6012df894754cb85",
+        "request_id": "ff40752d-a243-4a6f-8411-771b2c6363c7",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2022-06": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202206.nc"
+        ],
+        "sha256": [
+          "da95a7f7c2219f2abfaa5e61867d49f5f14ff50ecd54d69d290facfa65ae3030"
+        ],
+        "combined_sha256": "b847a23cb1feb1530cd99fc942eb4469542908d0dbb325e8180f662172c1f3a7",
+        "request_id": "48ea771e-d80c-408f-a361-c59e85b2f133",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2022-07": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202207.nc"
+        ],
+        "sha256": [
+          "c92e8a54cc736d6faab7fe4b64b962c9ea6f0f689978ef9bcd2ecc27aff3a50f"
+        ],
+        "combined_sha256": "b95c7723b658f561d8edbf2d94dc811a97252bd5962bf14b86cf58dc8a5c2f7f",
+        "request_id": "b7c1d269-6137-42e3-9162-f8ea27146055",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2022-08": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202208.nc"
+        ],
+        "sha256": [
+          "7fbf802e49f14e5cb3cee8dc4c4d6ad3feeddee8ccac91dc18c6c2feaefb7a9b"
+        ],
+        "combined_sha256": "74b43df2d56e9a5c9801721d958c4b307b9213414a2329cfb3e7842d3afc9fa3",
+        "request_id": "74c4d8e6-3d75-4a32-aee6-09275d0df0a4",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2022-09": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202209.nc"
+        ],
+        "sha256": [
+          "a09aa4c968ebfda0803cbc798695adc49a2b5eeca7ae683b5540acd08f430153"
+        ],
+        "combined_sha256": "c500f405e65255535f58c7f265400d9969290c03fbc1b6c351ea13f983bb487d",
+        "request_id": "74640f66-27de-48fd-bed2-fddcdc3b8e5c",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2022-10": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202210.nc"
+        ],
+        "sha256": [
+          "608da596331901b2e0fe45ff14eed79e3556a2e84ffe2a38b4f0d1645943f027"
+        ],
+        "combined_sha256": "d24a03fb247b8d42afdaa669acfb916057e076dcfe8b21a7328e927a7a3e4f27",
+        "request_id": "9a5def6d-adde-468b-8255-884b24d73c8c",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2022-11": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202211.nc"
+        ],
+        "sha256": [
+          "8ca085cbbfc73d74e5a4484a3ca6f98163920a11caad475e6f089258e88fe13f"
+        ],
+        "combined_sha256": "e89c90cad52f5944520c2e550efc19b3e7261d30879da4c52384c4a93f985a93",
+        "request_id": "12ef7c93-1a5c-4723-bdfb-91acf47e3ff2",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2022-12": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202212.nc"
+        ],
+        "sha256": [
+          "ce8d4721dcb70836b84348fd07691765daeba048405c2051c17bb2cd5e3792e5"
+        ],
+        "combined_sha256": "57a12408feb82e53f8edac32489a7dd9a9c595abad6d575a36b7320825ee1a61",
+        "request_id": "95024159-f84a-4480-955c-b4d42d9f75cf",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2023-01": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202301.nc"
+        ],
+        "sha256": [
+          "ad448f867bcaad939513b65eb32b3d2802dd467836e0d593a651c96d0a11a418"
+        ],
+        "combined_sha256": "e0e7587b9c7ede88a97be0735da9a9da9ac22e42bb98b1882d35da3c9cbb092c",
+        "request_id": "0d18d394-2740-481c-aed6-cc0105d23204",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2023-02": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202302.nc"
+        ],
+        "sha256": [
+          "1259f715b5243db8a779e0fa11083e279285fe671d2da2686ca097a37ecdf4e0"
+        ],
+        "combined_sha256": "e8c3b770cdc0ab49f5da1bac42bf47f01cba919681f3d749598583f76f446169",
+        "request_id": "27d94fe1-950f-46c6-9b4b-853de3a92b1e",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 672,
+        "dims": {
+          "valid_time": 672,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2023-03": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202303.nc"
+        ],
+        "sha256": [
+          "dffdbeb62a371586ac546cdb28fbbc78f2d2b717b8e2ea6ffcb3d81be1d1fb8a"
+        ],
+        "combined_sha256": "77faeffbfbf6de208c71426f4e9040d568826d299206c54978f2b5c424bdd1e2",
+        "request_id": "bcd91d1b-82ed-44d8-b3c9-14e448775bd2",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2023-04": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202304.nc"
+        ],
+        "sha256": [
+          "49babaa180d6411e0ef80fab900cb6205b99ef130f3f0dbfab3f6feb5786b2c1"
+        ],
+        "combined_sha256": "c2d22f9148873417fa54f74d9dd2fb61ee6e15f324c7dccfd52561d97897957c",
+        "request_id": "f6792233-fe7b-49e3-886a-fa7853759c1d",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2023-05": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202305.nc"
+        ],
+        "sha256": [
+          "80177126d9374e977fe92743727431ddbb89fa0432ec1f579ab912cf145f3e88"
+        ],
+        "combined_sha256": "b55036241fb47ae70a70b77750463785819b60d920fe5007c3c63ed860c297df",
+        "request_id": "ddf0549e-5f6f-40b8-aefe-3ca1b830b386",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2023-06": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202306.nc"
+        ],
+        "sha256": [
+          "2ac5cb0f1b0939ce1ef85b6dba2372c0c910b711a353244d67470da2e9b5f5b5"
+        ],
+        "combined_sha256": "4d604530615e678a8fcb30f62b56b5fbc98b812080cb323c6c743c469008ddfe",
+        "request_id": "7dbfe107-48f8-4a54-8133-f3b4bbb0dde2",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2023-07": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202307.nc"
+        ],
+        "sha256": [
+          "85b61cff0f81b8fcfcb301da5513575d1484cd38e577ff02b28870408a54301b"
+        ],
+        "combined_sha256": "90336f3282b299e7ed971dc0767a4ff25cc7e5838b4a0803549bed569603b3dd",
+        "request_id": "335016c9-d2c2-4496-8cfa-265df734bb47",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2023-08": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202308.nc"
+        ],
+        "sha256": [
+          "a1070a097123a39e3a9182c7ed057493ffe719cb19cb7a6478895f5443a4739a"
+        ],
+        "combined_sha256": "4ad668a14ebb167fb1a7a6ba9a228dd35b1c030cdd5dd345c71d5d611ce77bc8",
+        "request_id": "1ad86df1-0638-467a-80aa-4fd410243c58",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2023-09": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202309.nc"
+        ],
+        "sha256": [
+          "f7ea06990ee1ab3efe05966da5a393d54cb7f476e657b5019772e25ffad0cc37"
+        ],
+        "combined_sha256": "2be7cfc0142d1eb216eba120cd333c430d7618daea617e97cb451bfdd4c873d5",
+        "request_id": "0c82748b-6a96-4e8b-b2b5-557fea098c25",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2023-10": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202310.nc"
+        ],
+        "sha256": [
+          "ecbff0e58d96eb7bd6fe2c7141972b76b58a5e20150952f13988f2dea339df93"
+        ],
+        "combined_sha256": "f505a90e5f0c9139afb59fa63f9d9e0dd4942aa74392ac0248b599f3ec61470c",
+        "request_id": "2e14372c-770a-4060-8438-98e5c80aec39",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2023-11": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202311.nc"
+        ],
+        "sha256": [
+          "065dc8d296fd7ad8404c9113a12884be01da2d536b732ad3fe6f67de845d7345"
+        ],
+        "combined_sha256": "b9bcc9ef966899c3411d89d4f96b0c4bfc9ed6aa6ec5d4608b8064a0aac16150",
+        "request_id": "885ca48e-f062-423b-9321-4b60c3706224",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 56,
+          "longitude": 44
+        }
+      },
+      "2023-12": {
+        "product": "reanalysis-era5-land",
+        "files": [
+          "data/raw/era5_land/stage4/era5_land_stage4_202312.nc"
+        ],
+        "sha256": [
+          "b40834c6538095e8879e6cea9a228255c665af93ac3b2e09a2ed91075d6f6de7"
+        ],
+        "combined_sha256": "80c3d9b093681c28ac5aacc79d2985903eae91175474be45c5a3abd1f6021289",
+        "request_id": "d572b2cc-45ce-4b36-95ee-bc99cd468e96",
+        "request_area_nwse": [
+          17.9,
+          74.0,
+          12.4,
+          78.3
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 56,
+          "longitude": 44
+        }
+      }
+    },
+    "era5": {
+      "2021-01": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202101.nc",
+          "data/raw/era5/stage4/era5_stage4_202101__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "4665eb620e47631d4e2941d5a0a1df679795dd6951afb7f58bedad154a465069",
+          "999d4ff7f2516ad450486966ca3f26e00fc950ac83713de317a520aa342e620f"
+        ],
+        "combined_sha256": "c85d29a8b57859e46a1bea0929bf22563afc01bc97e7f2cf91226bb05886a050",
+        "request_id": "648a0733-9144-4369-82b1-b3f5eaa7d679",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2021-02": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202102.nc",
+          "data/raw/era5/stage4/era5_stage4_202102__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "0e88fbf147f60ac04bb8aea986f6e05314baa52fa2c1027ec31aab4d2e7d31bd",
+          "85efdf6555eaee0c12159c0859781d4aab53a4a4cb00788c733d39629b576c77"
+        ],
+        "combined_sha256": "4e969669807018f6c95d1d34fb6e56efd34bb28ebc53c90a9904179d83e40553",
+        "request_id": "00ee3303-1e30-4b2d-887e-e030f7ed2a36",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 672,
+        "dims": {
+          "valid_time": 672,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2021-03": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202103.nc",
+          "data/raw/era5/stage4/era5_stage4_202103__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "361aa590556f143c54b1dca159310512918552b63101e8ddbc329e9b3ad5a376",
+          "a2eab5cf879777a56b3a3ef8013b0a97de0fa4213f0120078437dcc2282270aa"
+        ],
+        "combined_sha256": "3ac3104f0268706582c1b02b33d67a2a7d35b86741ad8fd92f3f16576638313b",
+        "request_id": "93b2b774-9d61-4190-ae5d-babd5f8dad82",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2021-04": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202104.nc",
+          "data/raw/era5/stage4/era5_stage4_202104__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "4d922046cc7de68a551fae67ba91a7dbd4f4c612b28991c5315f99473e720ed9",
+          "9f62226257143ad8706eec839fe34203e9e1410bdb36fd0bf4990c7f57db7161"
+        ],
+        "combined_sha256": "39e7e2cde84db8af24f75a6f2af0d2b7d729871f517458904e43fa6f188e34c0",
+        "request_id": "0744b627-66e5-4ac4-9fd2-d63f29d7569b",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2021-05": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202105.nc",
+          "data/raw/era5/stage4/era5_stage4_202105__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "39878b7563f6371deae1620e7a35a28be38c59b3eb7549f3cc67921950387d27",
+          "a98dbb5d9aadabdb0fd25e0d6dd9fcd084c63887415b7cbf2340d75628628ab6"
+        ],
+        "combined_sha256": "afb2264a2703609e731a083ee45a7f820c0b66deff221ff048dab82468e92e1c",
+        "request_id": "e7ed79cf-3501-44cd-af29-ae5ad53a6b8a",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2021-06": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202106.nc",
+          "data/raw/era5/stage4/era5_stage4_202106__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "a68b5bc51495a729afea0680aa8c8adc7612d1ce90c69bc6b781d9cc7a7c5b0b",
+          "5a0a051350c75bc614b2c7c908573532e472ab8873052215249d32d6ba688e19"
+        ],
+        "combined_sha256": "9df44727e1153f57ed1b0daec04c79b330aabea3cf1abf1a397d9f53b2b79b2e",
+        "request_id": "b5e76605-f712-4dc3-a423-7395b1ce8a4d",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2021-07": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202107.nc",
+          "data/raw/era5/stage4/era5_stage4_202107__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "779f75b94fdcdec5e5873380c1b762f7b6103d259d732009957f41872e100662",
+          "7efab7afcd8b88ebb9a1b90869bca74b14fec70e77249a50d5420da89cfe3b15"
+        ],
+        "combined_sha256": "c75bd3e6d3db08109e7f56fba34470c66b2054c83479f63d6bd8d5f62132b06a",
+        "request_id": "e806dd79-8ef0-4dac-9a5a-cfa5a5dea514",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2021-08": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202108.nc",
+          "data/raw/era5/stage4/era5_stage4_202108__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "08b6fea1eed9ae0032b40138d6d8cdfb11eb8a2cf9cf943c4216451e616a3546",
+          "be196f1e54ad766d017f1423e00b956b9e895d31a1c63ca4b801aacc42fcd6ed"
+        ],
+        "combined_sha256": "582ea9082bf5bc16c1441122a0e597d35cc34276540b90cb1d94c05e2e09f7c5",
+        "request_id": "9509343a-ee64-47e6-8153-5d70a23aa280",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2021-09": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202109.nc",
+          "data/raw/era5/stage4/era5_stage4_202109__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "fe5c526549fbb73d4f9418f39fd4c4967c4fe5f70d0da11cb9c0e8a21aaf7ed6",
+          "3ce4cd35be45e7a1e9a29268040471eb4c7cfafaaaca34ddd1333522e4e0e1f9"
+        ],
+        "combined_sha256": "7fa129f936ff6fdf69cda85f441c17c99d857061326f087b0839e31db267b6ce",
+        "request_id": "73488171-e35a-4bb0-8cbb-4586463c5cad",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2021-10": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202110.nc",
+          "data/raw/era5/stage4/era5_stage4_202110__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "b24709316089f1d9c0a7c9cdb9bb0b3be4491ba2f1b8a25b19ed2ea36cf22243",
+          "ce42617d5ddd423ca6293b43cf9f9ecd03b3a0ae5604e932728952f77ff025b4"
+        ],
+        "combined_sha256": "2034b21ee2b405fd0fb5b0df85f7f9415be380cdf00d4807a2b1ea74d7ab1b35",
+        "request_id": "0184e00d-e202-4144-9984-870c254606d4",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2021-11": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202111.nc",
+          "data/raw/era5/stage4/era5_stage4_202111__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "47fa7dd52746a7fcf2c06df7dac55ce53df5914fb57e1484d19e9e769510aaa2",
+          "69c4c869cc641139e8808e11a986f1b32217b6c62b2aa55c97b47293a8b39385"
+        ],
+        "combined_sha256": "612f2ef2d331daaf8750dfa948549a0f095b29882c7b5c4b050886121b2e23fd",
+        "request_id": "f8f2af5b-8b86-4729-9b93-96bbe63f17c8",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2021-12": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202112.nc",
+          "data/raw/era5/stage4/era5_stage4_202112__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "9240ccf7b0594bdb32124f60dc6ed4a601abc941167459416119b4f16256e126",
+          "0a247d2fa96617de63d1aea8b973b1f3734f1af925cdfa7057bd84a5975544c1"
+        ],
+        "combined_sha256": "076fe66052a3acaaf7cb97b98f18b1a13696f65be684dad5d0511c6165ee1b16",
+        "request_id": "ad9238d1-f0f7-463d-893b-dbb54efbd1db",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2022-01": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202201.nc",
+          "data/raw/era5/stage4/era5_stage4_202201__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "8ef9a4e190a8296f149271ae872b4106e731f19fec58680dace271141748cdda",
+          "2d631dfb8607d887ec1579529dd4ac08385b7f3569f7a5d50b54292fa6677c02"
+        ],
+        "combined_sha256": "ea0c321ddceaaf983936cfefc0d99e75f2fa6fc6bc64641960fb500020b28baa",
+        "request_id": "a20fd2f5-bd59-4a21-9081-4101df2de6c8",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2022-02": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202202.nc",
+          "data/raw/era5/stage4/era5_stage4_202202__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "7c6ca178a866c50a547e97b0745dfba4ee832e3cd815b9048133d599f1c26fce",
+          "4086ad039d718b085860c3a5f3cfa1cc4609a5e836b16dcf40f8b747fd38764b"
+        ],
+        "combined_sha256": "e7f3ed612c42446dd06a50e4dd59ac6b5673bd9d627e612f7cae1918f70881f9",
+        "request_id": "62b0c59b-8937-4c9d-8dc3-bea9cc5c79a8",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 672,
+        "dims": {
+          "valid_time": 672,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2022-03": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202203.nc",
+          "data/raw/era5/stage4/era5_stage4_202203__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "912c3ee8344804c381340c1697655306b744254540b34e93b90f589671487577",
+          "63bc8ea3c9a9029c0b6f62c49cd3b5d06bc45aa50f4d5e08c6bbd4e0620b0609"
+        ],
+        "combined_sha256": "1d61c3ff57cb49ea14806ac02d62b4162f7b54148a5adff4470b2831f136e026",
+        "request_id": "fe2ff930-a0bb-4b3f-8af6-fc9c2201d3e6",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2022-04": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202204.nc",
+          "data/raw/era5/stage4/era5_stage4_202204__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "79208e5ee8241f3dd795a62d56829fcebb4367ac12cb08266f261028a601f2dd",
+          "d7d981d38351c0319cbabf783eb5a353e85a5c0c026e20222d6fea93f3fa5f82"
+        ],
+        "combined_sha256": "c68d67f04fb0f719d2c026022d289f8a308774a9f4da2a3798450d64dd06166f",
+        "request_id": "f00b860b-d5f5-42a4-adbf-6df70ee6286e",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2022-05": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202205.nc",
+          "data/raw/era5/stage4/era5_stage4_202205__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "fc9d99932d11204bcd3eca6c6d2768d105b5a2722c5538c724f3a281b3c51684",
+          "541f4f620a9283bd00cb6bf0730c600666deb4fbb972b4d6d0615d45febe1de0"
+        ],
+        "combined_sha256": "5f0aeba99b27ba10ce913af31e9f8aab6d8def44bb101d0b31c6f1bce7cfed44",
+        "request_id": "4ed85154-97df-4b28-a198-9085ee705625",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2022-06": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202206.nc",
+          "data/raw/era5/stage4/era5_stage4_202206__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "2805c61906a6bc18d95cdd1b492bf7e02b18126329f6e5c2040ab365d75c4d94",
+          "d0cb0a1ae0b65c5359eb9d6a4eff76f564bf93dc52d691693557258237bfdf3c"
+        ],
+        "combined_sha256": "c68c0842957e5e156242b22be1b86cbc3b01dccc5936c277b1db62ea1d7b19a5",
+        "request_id": "78ec1c43-bb0b-4ec7-bb8e-38d719cd967b",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2022-07": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202207.nc",
+          "data/raw/era5/stage4/era5_stage4_202207__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "0c961a401e966d3b4e5e83bafa3144bd4d7f465e19780e2eeb3a1e18a8864354",
+          "9c776a5aa46f1ac2865e489a7b360cc31401654be1dded643c62a1a83c8f2f9d"
+        ],
+        "combined_sha256": "8207b538b9411ed2f414461fea16208a14c63b727a62092fdc67a0ca2fd4f7a3",
+        "request_id": "a339f806-98e0-42d6-86e1-4815c56625cd",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2022-08": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202208.nc",
+          "data/raw/era5/stage4/era5_stage4_202208__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "38f9436828bc2dce77121a90786b69b7544374a1aeecaa31240fc220aa658d78",
+          "1a234a51f8181485b7beeef91720b4a8dc0d9833414a522434e67b48d4e6b18d"
+        ],
+        "combined_sha256": "0be539db3439910b6017d41be7ffa7c0a9af3664ec54f3db36855cd3d97deab6",
+        "request_id": "b2469aeb-4459-4841-b956-86d8fc014eb6",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2022-09": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202209.nc",
+          "data/raw/era5/stage4/era5_stage4_202209__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "2061ef044755e9f6aa39c7ec7ac15c5e7b8aed08e2515992f8a7929d4f966e74",
+          "4a449ae7d85efa0d1d95cd1859df2001ab481000805e5cadd001438fc95e7b48"
+        ],
+        "combined_sha256": "cd0e4b344fee167c350b4458b06c621bc2b6da61b8dce84d9713e1c7061ddea6",
+        "request_id": "0a4df076-5414-4384-a125-515ff9e32865",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2022-10": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202210.nc",
+          "data/raw/era5/stage4/era5_stage4_202210__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "0841a8a02d5383880142e37fba0fcc303df9b31200d4579c83101b5865bc2ee5",
+          "4d6888b7de1ee232818f87c3f6ec0288394aee93c81e5cf3aefd02b288c18a31"
+        ],
+        "combined_sha256": "2a8477aa2561ae62c668821af2092713aa8da99e974a749ed6bad34809b75eb6",
+        "request_id": "9254b5ca-f127-4c16-b82b-02e2bb4904f0",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2022-11": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202211.nc",
+          "data/raw/era5/stage4/era5_stage4_202211__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "730948f23c04dccb6ab55e5a6007b271806e3e60e3e9cc0fe8f9f4735bc1b166",
+          "aeb423177020f8979ac68e3e2097726481975510f0a93f757d53ac474f49f55c"
+        ],
+        "combined_sha256": "8c6350def0764ac19ef31e385c460b1d7688d86e67cf3374dd0577216e3890e4",
+        "request_id": "0a31bf76-d208-4805-bfd5-b043283799f7",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2022-12": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202212.nc",
+          "data/raw/era5/stage4/era5_stage4_202212__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "dc260e0cf9ff4363769467c142d835558bfc01b9149353b342f18059437186ce",
+          "439cc5f881b3b23f93b609f9736756382dfaf10bac81dbf2624ca67742ed9635"
+        ],
+        "combined_sha256": "de03bae7fb86ff911b716144bbd60d98e86fd84c9a2935a0c2822c5afd146b0c",
+        "request_id": "2ebd2d07-3637-4148-a5e3-1feb23cf8c19",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2023-01": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202301.nc",
+          "data/raw/era5/stage4/era5_stage4_202301__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "e85fc2bc31ae527ea207bb17e5eff28c9d67129eef9229544a3011aad719f22a",
+          "3b8134c20decd335c466beb6c61abe22c2dae53a91a00d63503f855400ad9e2e"
+        ],
+        "combined_sha256": "4cdd96b6cf3009b1e37b90cdbb428c8c2459a030e7617b97f8b21deba25bb11c",
+        "request_id": "6301e329-2a62-4a4c-883e-042578eba389",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2023-02": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202302.nc",
+          "data/raw/era5/stage4/era5_stage4_202302__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "ff190d0b72fbb50319b1db7caaa846117052e6a05682e28198cefa8b3759df34",
+          "9470323ddefa17a704161a79d6321bb3d2413e0e72d30e9d62b198b7fb6c0814"
+        ],
+        "combined_sha256": "eb4559bc40122fd99a38ddd8fa9c90d47ff50a1e62c564f4194f06d7fc53d7a0",
+        "request_id": "70ff97cd-a368-447d-97bf-05b109a91ccb",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 672,
+        "dims": {
+          "valid_time": 672,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2023-03": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202303.nc",
+          "data/raw/era5/stage4/era5_stage4_202303__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "71a58d336527c4f4f42f4c3eb86197e2960100a7d132a6f9df4fb8c4c84630d8",
+          "d380aa91c1fea676b2678d9cb040da973de029a310dfd2dea32b530af4f51207"
+        ],
+        "combined_sha256": "15c676c85a97ca9e19ee7775c588c8f5e4ca3fa1eae0c4924c0c67ab4893370c",
+        "request_id": "3ff7c0d3-1fd5-4d2b-b39d-1c8a7253a464",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2023-04": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202304.nc",
+          "data/raw/era5/stage4/era5_stage4_202304__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "70085a7d835f0f7f86a29a9c73b75a2f5975478646287c046a141d29b05f05b2",
+          "ae4e51c4623152016db28cfc8aeaac0f5a02d15f376b09a3e5824258bdf55c09"
+        ],
+        "combined_sha256": "62d063053251df4eeea43b6e2b38ca72405e604d8d6be8d755e095a7c13f4440",
+        "request_id": "09977488-911e-4c32-a399-d2a8d9037ff0",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2023-05": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202305.nc",
+          "data/raw/era5/stage4/era5_stage4_202305__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "163e3e03283d66a75cf06a4e3b4b96e349854fa0d50d2bcdb701195e58b90cc2",
+          "3443911c9dea329bda24553010e2ee44b9ac72d32f5ee67f1213405207e8f7e9"
+        ],
+        "combined_sha256": "231437ddb285c6e520199802796c90d9aa62d4e62325ccc087ec53db434b9218",
+        "request_id": "f77c8b18-471c-41fa-9a9a-fbe866b21c78",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2023-06": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202306.nc",
+          "data/raw/era5/stage4/era5_stage4_202306__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "0303b6a35505a7eb6b9f0fe03a511386f6ad589b2f665f0ac36752eac3b52c12",
+          "e6e98fd24c2da951c908b80c8e2da871fe1775c0486e15eb6f26a8426e09c347"
+        ],
+        "combined_sha256": "8c6dc60c6ac3aac6c2e98cc6100d0ea5fb554531449c0f9f864d225b0dbda7c0",
+        "request_id": "f6de0533-3321-4fc2-b953-0b5bd5045890",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2023-07": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202307.nc",
+          "data/raw/era5/stage4/era5_stage4_202307__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "61a5a8ff146a87b75a1e2c7174d3dcf1f9e566f262f65faa0e1c264714ffacf0",
+          "cdb3e66dddd2fbd2e443a42d4d0aee11bc39bb9a5d8365c514a4baabb6685537"
+        ],
+        "combined_sha256": "78434ed9fa17648294e358ae1a62122b0edd629222ad75d2528943be75b9b7f2",
+        "request_id": "fba45e70-8a01-4e42-8b9b-869222f610a6",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2023-08": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202308.nc",
+          "data/raw/era5/stage4/era5_stage4_202308__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "c80976478609c95abb7f3f1f83f5e30d88864362e6a718579d51a461af82b62c",
+          "54eb35ec8ef9d55a2580fbd40ee726159ad322761a8090cc40090b30e59b6ae6"
+        ],
+        "combined_sha256": "d5f9d1170eea6669d09b5bd528df7f7d8989f2fd7fbf2928eea6941e8cb034a9",
+        "request_id": "722d9041-58c8-434a-8114-04c252376bdb",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2023-09": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202309.nc",
+          "data/raw/era5/stage4/era5_stage4_202309__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "eb357a403900ce32c3e83b4f23a2353bf2178b08a18050f99f1ae562001797a5",
+          "4a1dfbb701fa1294d5caec8bf4953138c47e37db7b170baa140629868191181a"
+        ],
+        "combined_sha256": "051b5acc5518ee2e2e06850de2f169af782b129036633ad12338f00ae0bd2933",
+        "request_id": "a7964245-9f00-4558-a210-a4c5cae41414",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2023-10": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202310.nc",
+          "data/raw/era5/stage4/era5_stage4_202310__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "1a4a408454d271d3fa20cf7be34583cab7901a5292b8eaf3e43c91747dc3ca1c",
+          "7c6c77ffa3a5187ddcfa935d6aa5892c57be076cf7c532c81bfe9fee94fd7b1e"
+        ],
+        "combined_sha256": "752bceea4a69c50c5af545f94dd684c768ac53e4664e4faad9f9fa1f095ace6e",
+        "request_id": "4ebfac7d-0190-4f8a-a0b2-ccd092dce746",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2023-11": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202311.nc",
+          "data/raw/era5/stage4/era5_stage4_202311__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "aac405f09a0c8da4f49419de3bdb5a733aa082c6ba63a242d55816a27f3099f4",
+          "3b530fed1b309a2d50d48e847dd1d83b5d499de88a25ae685ef6cc6ecc4ff6f2"
+        ],
+        "combined_sha256": "626ca376c5f165527ba9025f10011050464e3f338c9000d3947e37d4aa374c95",
+        "request_id": "de2f1fd7-ddbb-45b8-810b-3a3291c6a9fe",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 720,
+        "dims": {
+          "valid_time": 720,
+          "latitude": 25,
+          "longitude": 20
+        }
+      },
+      "2023-12": {
+        "product": "reanalysis-era5-single-levels",
+        "files": [
+          "data/raw/era5/stage4/era5_stage4_202312.nc",
+          "data/raw/era5/stage4/era5_stage4_202312__data_stream-oper_stepType-accum.nc"
+        ],
+        "sha256": [
+          "ccb316f52e5f92b4a1f956698c07d853c7681fcbee9a63bc923061d1260380e8",
+          "d7536fd64171eb5402aa1661c2a733b9135dfd924226300a754d0f92cf775136"
+        ],
+        "combined_sha256": "6c8e9edaeee3c86948f1705791588367f2b4b82a38a351b34996e9b65c85084b",
+        "request_id": "98a19868-ff28-4c1a-b9ea-5e907d377d46",
+        "request_area_nwse": [
+          18.25,
+          73.75,
+          12.25,
+          78.5
+        ],
+        "variables": [
+          "2m_temperature",
+          "2m_dewpoint_temperature",
+          "total_precipitation",
+          "10m_u_component_of_wind",
+          "10m_v_component_of_wind"
+        ],
+        "hours": 744,
+        "dims": {
+          "valid_time": 744,
+          "latitude": 25,
+          "longitude": 20
+        }
+      }
+    }
+  },
+  "grids": {
+    "era5_land": {
+      "n_lat": 56,
+      "n_lon": 44
+    },
+    "era5": {
+      "n_lat": 25,
+      "n_lon": 20
+    }
+  },
+  "validity": "all 36 months x 2 products present; hours per month and grid identity verified on load",
+  "storage_bytes": {
+    "era5_land_raw_bytes": 541673510,
+    "era5_raw_bytes": 121505682,
+    "glo30_tiles_bytes": 655530372,
+    "dataset_parquet_bytes": 949163993
+  }
+}

@@ -1,0 +1,55 @@
+{
+ "fold_id": "taluka_6253",
+ "compared": 15,
+ "mismatches": [],
+ "reproduced": true,
+ "expected_hashes": {
+  "temperature_c/A1_bilinear": "1aee4e0269e8896e19ec5361228651986af0b077f7a3b628632aeeb9db6567ed",
+  "temperature_c/A2_nearest": "0abaa99d36579818f0e13fab7b013b64100e56f2efcea83f44877d0eac6e6ab3",
+  "temperature_c/C4": "8c15f1fb9ff7c9226dabe15b5442d51ef8787249db9f84700e5421a19c7705cb",
+  "dewpoint_c/A1_bilinear": "2418edd098960c1a543a5a400d3ea758abb5f2315c457e33f39d98445420e61a",
+  "dewpoint_c/A2_nearest": "6c60f82e077449061767c1188825389ee1b5fc3b2becbdfb6fc4204e34751308",
+  "dewpoint_c/C4": "2b0367c95a810454a2cd6988ca1fa2561955344c71dcbc5e0b0e71b130e0909d",
+  "relative_humidity_pct/A1_bilinear": "6770c9853e22589aff12d90258a43b65df981ea7434b993b57037cf543f5a2d1",
+  "relative_humidity_pct/A2_nearest": "0b497f3a12cfae4557dc60f6b19afd501e26c68b06de7a8f27515ee49bda8256",
+  "relative_humidity_pct/C4": "239bb1379ce7da204d6bd6723590f042b72ef0a0eead14789c5f6cfe597c3aa7",
+  "rainfall_mm/A1_bilinear": "3fe8a308cb36344dd71d81e35bb8b99be867c9786094f000a1aa6ff1aecf1a6f",
+  "rainfall_mm/A2_nearest": "b504c67dd2eeba7089a0471194b3901c791e8075923a36f14965ea179078e304",
+  "rainfall_mm/C4": "389d0763ce9e2e5306d6aa4238e9a31fd9d17b4e3ba5395d9cabedbb075cb725",
+  "wind_speed_kmph/A1_bilinear": "4123e698df79f7979c871a68411285e81b1217359582ac149b0708284d3ca51d",
+  "wind_speed_kmph/A2_nearest": "4c1196202f8a68ec23721d04cded32e45c889499cd42f5c0dded808ff7f37211",
+  "wind_speed_kmph/C4": "b4ca6e865c231c48440ab7cc3fefb49847a50f1c058f1581ec4455fbd43eeca8"
+ },
+ "computed_hashes": {
+  "temperature_c/A1_bilinear": "1aee4e0269e8896e19ec5361228651986af0b077f7a3b628632aeeb9db6567ed",
+  "temperature_c/A2_nearest": "0abaa99d36579818f0e13fab7b013b64100e56f2efcea83f44877d0eac6e6ab3",
+  "temperature_c/C4": "8c15f1fb9ff7c9226dabe15b5442d51ef8787249db9f84700e5421a19c7705cb",
+  "dewpoint_c/A1_bilinear": "2418edd098960c1a543a5a400d3ea758abb5f2315c457e33f39d98445420e61a",
+  "dewpoint_c/A2_nearest": "6c60f82e077449061767c1188825389ee1b5fc3b2becbdfb6fc4204e34751308",
+  "dewpoint_c/C4": "2b0367c95a810454a2cd6988ca1fa2561955344c71dcbc5e0b0e71b130e0909d",
+  "relative_humidity_pct/A1_bilinear": "6770c9853e22589aff12d90258a43b65df981ea7434b993b57037cf543f5a2d1",
+  "relative_humidity_pct/A2_nearest": "0b497f3a12cfae4557dc60f6b19afd501e26c68b06de7a8f27515ee49bda8256",
+  "relative_humidity_pct/C4": "239bb1379ce7da204d6bd6723590f042b72ef0a0eead14789c5f6cfe597c3aa7",
+  "rainfall_mm/A1_bilinear": "3fe8a308cb36344dd71d81e35bb8b99be867c9786094f000a1aa6ff1aecf1a6f",
+  "rainfall_mm/A2_nearest": "b504c67dd2eeba7089a0471194b3901c791e8075923a36f14965ea179078e304",
+  "rainfall_mm/C4": "389d0763ce9e2e5306d6aa4238e9a31fd9d17b4e3ba5395d9cabedbb075cb725",
+  "wind_speed_kmph/A1_bilinear": "4123e698df79f7979c871a68411285e81b1217359582ac149b0708284d3ca51d",
+  "wind_speed_kmph/A2_nearest": "4c1196202f8a68ec23721d04cded32e45c889499cd42f5c0dded808ff7f37211",
+  "wind_speed_kmph/C4": "b4ca6e865c231c48440ab7cc3fefb49847a50f1c058f1581ec4455fbd43eeca8"
+ },
+ "keep_gps": [
+  "220658"
+ ],
+ "elapsed_s": 595.5,
+ "stage4d_fold_file_sha256": "d23c261c5b773d70d239af50193f915fee2edc4d883dbad90f64ef8721220240",
+ "dataset_manifest_sha256": "9fc24239d4833ecd23ec9ac86697a3c0bb5bee38e49a856200daf434a513af2f",
+ "design_manifest_sha256": "42d070f67497ea4a71b8419301e6d505cb2171621742159f4579e0ae7bc96249",
+ "predictions_file": "gate6_taluka_6253_predictions.parquet",
+ "predictions_sha256": "d13f16334a655a74d9bb2d376c9ae9d0011e67e1e5f4c255f4e0fa55cc9535f4",
+ "prediction_rows": 43800,
+ "completed_utc": "2026-10-02T09:10:46+00:00",
+ "versions": {
+  "python": "3.12.6",
+  "pandas": "3.0.1"
+ }
+}

@@ -1,0 +1,463 @@
+{
+  "type": "YelandurEra5LandSpatialLinkage",
+  "dataset_label": "Yelandur ERA5-Land spatial linkage",
+  "source": "ERA5-Land (reanalysis-era5-land)",
+  "source_type": "reanalysis",
+  "spatial_proxy_source": "research/spatial_proxy/yelandur_spatial_proxy.json (read-only; not modified)",
+  "spatial_proxy_vintage": "1991-vintage spatial proxy derived from village polygons",
+  "elevation_source": "research/elevation/yelandur_elevation.json (read-only; not modified; referenced, not duplicated)",
+  "methodology": "Centroid link: nearest ERA5-Land grid cell to each GP's existing spatial-proxy centroid, via pipeline.coordinates.nearest_gridpoint (xarray .sel(method='nearest')) + haversine_km -- the same existing coordinate utility used by the Phase 2A/2B normalization pipeline, not a second implementation. Geometry intersection: grid cells are CENTER points; cell polygons are derived from midpoints to neighboring centers (era5_linkage/linkage.py:_cell_edges_1d), with the outermost cell on each axis mirroring its one real interior half-width outward -- never an assumed spacing. A cell is 'intersecting' if its derived polygon intersects the GP geometry (shapely .intersects), evaluated in native WGS84 -- no reprojection, since intersection topology is unaffected by it.",
+  "terminology_note": "This artifact establishes spatial linkage between historical village-union spatial proxies and ERA5-Land grid cells. It does not constitute Panchayat-level downscaling. ERA5-Land values are reanalysis data, not direct sensor readings. The underlying geometry is a historical village-union spatial proxy (1991-vintage spatial proxy derived from village polygons), not a present-day Gram Panchayat boundary.",
+  "grid_metadata": {
+    "acquisition_status": "AVAILABLE",
+    "source_dataset": "reanalysis-era5-land",
+    "source_file": "data/raw/era5_land/era5_land_yelandur_202306.nc",
+    "source_file_sha256": "c67d301ed048988b5ae86a065c83fba4d007eca13bf5167ca9124bbf528fbead",
+    "latitude_order": "descending",
+    "longitude_order": "ascending",
+    "latitude_spacing_deg": 0.09999999999999964,
+    "longitude_spacing_deg": 0.09999999999999432,
+    "n_latitude": 4,
+    "n_longitude": 5,
+    "latitude_min": 11.9,
+    "latitude_max": 12.2,
+    "longitude_min": 76.9,
+    "longitude_max": 77.3
+  },
+  "acquisition_status": "AVAILABLE",
+  "acquisition_blocker": null,
+  "coverage_summary": {
+    "expected_gp_count": 12,
+    "complete_gp_count": 10,
+    "partial_gp_count": 1,
+    "unavailable_gp_count": 1
+  },
+  "spatial_variation_audit": {
+    "available_gp_count": 11,
+    "complete_gp_count": 10,
+    "centroid_latitude_extent_deg": 0.11368754626611022,
+    "centroid_longitude_extent_deg": 0.1512530747685048,
+    "centroid_nearest_neighbor_separation_km": {
+      "Agara": 5.278829005385556,
+      "Ambale": 2.14397758843508,
+      "Biligiri Ranganabetta": 7.295394173645768,
+      "Duggatti": 1.8742948106776998,
+      "Gowdahalli": 0.6939496974900751,
+      "Gumballi": 2.9943350675376124,
+      "Honnuru": 1.8742948106776998,
+      "Kestur": 3.7301016215497658,
+      "Madduru": 0.6939496974900751,
+      "Yariyuru": 2.8232886117449563,
+      "Yeragamballi": 2.9943350675376124
+    },
+    "centroid_min_pairwise_distance_km": {
+      "gp_a": "Gowdahalli",
+      "gp_b": "Madduru",
+      "distance_km": 0.6939496974900751
+    },
+    "centroid_max_pairwise_distance_km": {
+      "gp_a": "Biligiri Ranganabetta",
+      "gp_b": "Kestur",
+      "distance_km": 18.50501911666942
+    },
+    "elevation_mean_range_across_complete_gps": {
+      "min_mean_m": 650.7275498354945,
+      "max_mean_m": 1168.4132664354756,
+      "spread_m": 517.6857165999811,
+      "n_gps": 10
+    },
+    "era5_grid_cell_distribution": {
+      "status": "COMPUTED",
+      "distinct_cell_count": 4,
+      "distinct_cells": [
+        {
+          "latitude": 12.0,
+          "longitude": 77.1
+        },
+        {
+          "latitude": 12.0,
+          "longitude": 77.19999999999999
+        },
+        {
+          "latitude": 12.1,
+          "longitude": 77.0
+        },
+        {
+          "latitude": 12.1,
+          "longitude": 77.1
+        }
+      ],
+      "gps_per_cell": {
+        "12.1,77.1": [
+          "Agara",
+          "Gowdahalli",
+          "Madduru",
+          "Yariyuru"
+        ],
+        "12.1,77.0": [
+          "Ambale",
+          "Duggatti",
+          "Honnuru",
+          "Kestur"
+        ],
+        "12.0,77.19999999999999": [
+          "Biligiri Ranganabetta"
+        ],
+        "12.0,77.1": [
+          "Gumballi",
+          "Yeragamballi"
+        ]
+      },
+      "all_gps_collapse_onto_one_cell": false
+    }
+  },
+  "panchayats": [
+    {
+      "panchayat_lgd_code": "216777",
+      "gp_name": "Agara",
+      "coverage_status": "PARTIAL",
+      "centroid_latitude": 12.118663039285245,
+      "centroid_longitude": 77.07363487873965,
+      "nearest_grid_latitude": 12.1,
+      "nearest_grid_longitude": 77.1,
+      "latitude_difference_deg": 0.018663039285245375,
+      "longitude_difference_deg": -0.02636512126034063,
+      "centroid_to_grid_distance_km": 3.5387975472311117,
+      "intersecting_cell_count": 1,
+      "intersecting_cells": [
+        {
+          "latitude": 12.1,
+          "longitude": 77.1
+        }
+      ],
+      "linkage_status": "SINGLE_CELL",
+      "note": "Computed from the spatial proxy's PARTIAL geometry only (missing villages excluded).",
+      "elevation_mean_m": 642.5449031500685,
+      "elevation_min_m": 630.9764404296875,
+      "elevation_max_m": 658.4443359375,
+      "elevation_range_m": 27.4678955078125
+    },
+    {
+      "panchayat_lgd_code": "216778",
+      "gp_name": "Ambale",
+      "coverage_status": "COMPLETE",
+      "centroid_latitude": 12.054906769799176,
+      "centroid_longitude": 77.03189456810011,
+      "nearest_grid_latitude": 12.1,
+      "nearest_grid_longitude": 77.0,
+      "latitude_difference_deg": -0.04509323020082334,
+      "longitude_difference_deg": 0.03189456810011393,
+      "centroid_to_grid_distance_km": 6.09662281644681,
+      "intersecting_cell_count": 3,
+      "intersecting_cells": [
+        {
+          "latitude": 12.1,
+          "longitude": 77.0
+        },
+        {
+          "latitude": 12.1,
+          "longitude": 77.1
+        },
+        {
+          "latitude": 12.0,
+          "longitude": 77.0
+        }
+      ],
+      "linkage_status": "MULTI_CELL",
+      "note": "Computed from the spatial proxy's full GP union.",
+      "elevation_mean_m": 656.8147419072616,
+      "elevation_min_m": 649.5,
+      "elevation_max_m": 667.9345092773438,
+      "elevation_range_m": 18.43450927734375
+    },
+    {
+      "panchayat_lgd_code": "272943",
+      "gp_name": "Biligiri Ranganabetta",
+      "coverage_status": "COMPLETE",
+      "centroid_latitude": 12.004975493019135,
+      "centroid_longitude": 77.16350986205353,
+      "nearest_grid_latitude": 12.0,
+      "nearest_grid_longitude": 77.19999999999999,
+      "latitude_difference_deg": 0.004975493019134802,
+      "longitude_difference_deg": -0.03649013794645839,
+      "centroid_to_grid_distance_km": 4.007196338741653,
+      "intersecting_cell_count": 2,
+      "intersecting_cells": [
+        {
+          "latitude": 12.0,
+          "longitude": 77.1
+        },
+        {
+          "latitude": 12.0,
+          "longitude": 77.19999999999999
+        }
+      ],
+      "linkage_status": "MULTI_CELL",
+      "note": "Computed from the spatial proxy's full GP union.",
+      "elevation_mean_m": 1168.4132664354756,
+      "elevation_min_m": 940.5697631835938,
+      "elevation_max_m": 1404.0411376953125,
+      "elevation_range_m": 463.47137451171875
+    },
+    {
+      "panchayat_lgd_code": "216779",
+      "gp_name": "Duggatti",
+      "coverage_status": "COMPLETE",
+      "centroid_latitude": 12.056623321385326,
+      "centroid_longitude": 77.01225678728503,
+      "nearest_grid_latitude": 12.1,
+      "nearest_grid_longitude": 77.0,
+      "latitude_difference_deg": -0.04337667861467409,
+      "longitude_difference_deg": 0.012256787285025439,
+      "centroid_to_grid_distance_km": 5.004010038413582,
+      "intersecting_cell_count": 2,
+      "intersecting_cells": [
+        {
+          "latitude": 12.1,
+          "longitude": 77.0
+        },
+        {
+          "latitude": 12.0,
+          "longitude": 77.0
+        }
+      ],
+      "linkage_status": "MULTI_CELL",
+      "note": "Computed from the spatial proxy's full GP union.",
+      "elevation_mean_m": 662.4958782498414,
+      "elevation_min_m": 654.1382446289062,
+      "elevation_max_m": 679.0906982421875,
+      "elevation_range_m": 24.95245361328125
+    },
+    {
+      "panchayat_lgd_code": "216780",
+      "gp_name": "Gowdahalli",
+      "coverage_status": "COMPLETE",
+      "centroid_latitude": 12.072210701738607,
+      "centroid_longitude": 77.10345231811425,
+      "nearest_grid_latitude": 12.1,
+      "nearest_grid_longitude": 77.1,
+      "latitude_difference_deg": -0.02778929826139276,
+      "longitude_difference_deg": 0.003452318114256059,
+      "centroid_to_grid_distance_km": 3.1127494917107055,
+      "intersecting_cell_count": 2,
+      "intersecting_cells": [
+        {
+          "latitude": 12.1,
+          "longitude": 77.1
+        },
+        {
+          "latitude": 12.0,
+          "longitude": 77.1
+        }
+      ],
+      "linkage_status": "MULTI_CELL",
+      "note": "Computed from the spatial proxy's full GP union.",
+      "elevation_mean_m": 701.6102518518519,
+      "elevation_min_m": 637.7197265625,
+      "elevation_max_m": 984.149658203125,
+      "elevation_range_m": 346.429931640625
+    },
+    {
+      "panchayat_lgd_code": "216781",
+      "gp_name": "Gumballi",
+      "coverage_status": "COMPLETE",
+      "centroid_latitude": 12.037176236081608,
+      "centroid_longitude": 77.09310481794172,
+      "nearest_grid_latitude": 12.0,
+      "nearest_grid_longitude": 77.1,
+      "latitude_difference_deg": 0.03717623608160814,
+      "longitude_difference_deg": -0.006895182058272553,
+      "centroid_to_grid_distance_km": 4.201283007950818,
+      "intersecting_cell_count": 4,
+      "intersecting_cells": [
+        {
+          "latitude": 12.1,
+          "longitude": 77.0
+        },
+        {
+          "latitude": 12.1,
+          "longitude": 77.1
+        },
+        {
+          "latitude": 12.0,
+          "longitude": 77.0
+        },
+        {
+          "latitude": 12.0,
+          "longitude": 77.1
+        }
+      ],
+      "linkage_status": "MULTI_CELL",
+      "note": "Computed from the spatial proxy's full GP union.",
+      "elevation_mean_m": 741.9442781738043,
+      "elevation_min_m": 647.7974853515625,
+      "elevation_max_m": 970.5319213867188,
+      "elevation_range_m": 322.73443603515625
+    },
+    {
+      "panchayat_lgd_code": "216782",
+      "gp_name": "Honnuru",
+      "coverage_status": "COMPLETE",
+      "centroid_latitude": 12.073219311636059,
+      "centroid_longitude": 77.01527211601837,
+      "nearest_grid_latitude": 12.1,
+      "nearest_grid_longitude": 77.0,
+      "latitude_difference_deg": -0.02678068836394054,
+      "longitude_difference_deg": 0.015272116018365978,
+      "centroid_to_grid_distance_km": 3.409569509946629,
+      "intersecting_cell_count": 1,
+      "intersecting_cells": [
+        {
+          "latitude": 12.1,
+          "longitude": 77.0
+        }
+      ],
+      "linkage_status": "SINGLE_CELL",
+      "note": "Computed from the spatial proxy's full GP union.",
+      "elevation_mean_m": 659.2401741293532,
+      "elevation_min_m": 650.9205322265625,
+      "elevation_max_m": 678.348388671875,
+      "elevation_range_m": 27.4278564453125
+    },
+    {
+      "panchayat_lgd_code": "216783",
+      "gp_name": "Kestur",
+      "coverage_status": "COMPLETE",
+      "centroid_latitude": 12.104656803351892,
+      "centroid_longitude": 77.02724178690617,
+      "nearest_grid_latitude": 12.1,
+      "nearest_grid_longitude": 77.0,
+      "latitude_difference_deg": 0.004656803351892336,
+      "longitude_difference_deg": 0.02724178690617407,
+      "centroid_to_grid_distance_km": 3.0067526345853732,
+      "intersecting_cell_count": 2,
+      "intersecting_cells": [
+        {
+          "latitude": 12.1,
+          "longitude": 77.0
+        },
+        {
+          "latitude": 12.1,
+          "longitude": 77.1
+        }
+      ],
+      "linkage_status": "MULTI_CELL",
+      "note": "Computed from the spatial proxy's full GP union.",
+      "elevation_mean_m": 650.7275498354945,
+      "elevation_min_m": 638.2010498046875,
+      "elevation_max_m": 681.0884399414062,
+      "elevation_range_m": 42.88739013671875
+    },
+    {
+      "panchayat_lgd_code": "216784",
+      "gp_name": "Madduru",
+      "coverage_status": "COMPLETE",
+      "centroid_latitude": 12.077182980409916,
+      "centroid_longitude": 77.09959546093167,
+      "nearest_grid_latitude": 12.1,
+      "nearest_grid_longitude": 77.1,
+      "latitude_difference_deg": -0.022817019590084087,
+      "longitude_difference_deg": -0.00040453906832738085,
+      "centroid_to_grid_distance_km": 2.537521571681282,
+      "intersecting_cell_count": 3,
+      "intersecting_cells": [
+        {
+          "latitude": 12.1,
+          "longitude": 77.0
+        },
+        {
+          "latitude": 12.1,
+          "longitude": 77.1
+        },
+        {
+          "latitude": 12.1,
+          "longitude": 77.19999999999999
+        }
+      ],
+      "linkage_status": "MULTI_CELL",
+      "note": "Computed from the spatial proxy's full GP union.",
+      "elevation_mean_m": 692.5060259520234,
+      "elevation_min_m": 642.6785278320312,
+      "elevation_max_m": 890.07861328125,
+      "elevation_range_m": 247.40008544921875
+    },
+    {
+      "panchayat_lgd_code": "216785",
+      "gp_name": "Mamballi",
+      "coverage_status": "UNAVAILABLE",
+      "centroid_latitude": null,
+      "centroid_longitude": null,
+      "nearest_grid_latitude": null,
+      "nearest_grid_longitude": null,
+      "latitude_difference_deg": null,
+      "longitude_difference_deg": null,
+      "centroid_to_grid_distance_km": null,
+      "intersecting_cell_count": null,
+      "intersecting_cells": null,
+      "linkage_status": "UNAVAILABLE",
+      "elevation_mean_m": null,
+      "elevation_min_m": null,
+      "elevation_max_m": null,
+      "elevation_range_m": null,
+      "note": "No spatial-proxy geometry is available for this GP (missing constituent villages: ['Mamballi']). No centroid, grid linkage, or elevation is attempted or inferred -- never fabricated."
+    },
+    {
+      "panchayat_lgd_code": "216786",
+      "gp_name": "Yariyuru",
+      "coverage_status": "COMPLETE",
+      "centroid_latitude": 12.06781655167549,
+      "centroid_longitude": 77.05425156225185,
+      "nearest_grid_latitude": 12.1,
+      "nearest_grid_longitude": 77.1,
+      "latitude_difference_deg": -0.03218344832450981,
+      "longitude_difference_deg": -0.045748437748144966,
+      "centroid_to_grid_distance_km": 6.127819407518389,
+      "intersecting_cell_count": 3,
+      "intersecting_cells": [
+        {
+          "latitude": 12.1,
+          "longitude": 77.0
+        },
+        {
+          "latitude": 12.1,
+          "longitude": 77.1
+        },
+        {
+          "latitude": 12.0,
+          "longitude": 77.1
+        }
+      ],
+      "linkage_status": "MULTI_CELL",
+      "note": "Computed from the spatial proxy's full GP union.",
+      "elevation_mean_m": 651.8226641359676,
+      "elevation_min_m": 645.9254150390625,
+      "elevation_max_m": 664.759521484375,
+      "elevation_range_m": 18.8341064453125
+    },
+    {
+      "panchayat_lgd_code": "216787",
+      "gp_name": "Yeragamballi",
+      "coverage_status": "COMPLETE",
+      "centroid_latitude": 12.010474188057188,
+      "centroid_longitude": 77.09666922307578,
+      "nearest_grid_latitude": 12.0,
+      "nearest_grid_longitude": 77.1,
+      "latitude_difference_deg": 0.010474188057187916,
+      "longitude_difference_deg": -0.0033307769242156837,
+      "centroid_to_grid_distance_km": 1.219717843331922,
+      "intersecting_cell_count": 1,
+      "intersecting_cells": [
+        {
+          "latitude": 12.0,
+          "longitude": 77.1
+        }
+      ],
+      "linkage_status": "SINGLE_CELL",
+      "note": "Computed from the spatial proxy's full GP union.",
+      "elevation_mean_m": 772.3933110367893,
+      "elevation_min_m": 643.400634765625,
+      "elevation_max_m": 1347.7911376953125,
+      "elevation_range_m": 704.3905029296875
+    }
+  ]
+}

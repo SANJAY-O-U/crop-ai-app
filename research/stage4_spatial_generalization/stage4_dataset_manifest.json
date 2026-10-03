@@ -1,0 +1,7161 @@
+{
+  "type": "Stage4ExpandedMultiGpDataset",
+  "target_framing": "Target is the ERA5-Land reanalysis proxy — not observation. Coarse input is ERA5 reanalysis. No model trained.",
+  "source_note": "reanalysis proxy — not observation",
+  "frozen_inputs": {
+    "design_manifest": "research/stage4_spatial_generalization/stage4_acquisition_manifest.json",
+    "design_manifest_sha256": "42d070f67497ea4a71b8419301e6d505cb2171621742159f4579e0ae7bc96249",
+    "protected_artifact_sha256": {
+      "stage4_feasibility_audit": "439ebe03bf093034f9b649d9a92e9c00aceb630034348411ed68e02037849a80",
+      "stage4_taluka_audit_csv": "89dc959fc924ac5d026e449213e9db43a14147f67bd9749b3bc84575ba1d7897",
+      "stage1_results": "c53e715e28b18c1182b26ebf6d3131bb475f6c80e4a8ff747dc812d922b408ae",
+      "stage2_results": "5a8ac45eff4a1073b05630eb80a501ce97f05e2c7ed612ca9f792221f917d14e",
+      "stage3a_results": "9774019feb73d81cbd491611db2b3cf246c55c5b934b664618e4e153fc591627",
+      "stage3b_results": "bfa27dc1564711939843ddbf78ba53eee171f176a8f091263b96fa2467a8dd38",
+      "phase2d_manifest": "1983cff9539fb2a175bd78f477b47c1dd793850fd8f746d5b6d9a6d0a4f2b1a2",
+      "yelandur_era5_linkage": "890b05040c0cb27c8b51c94a51eb084983ba29cac2d89a4dba8317e933a08ef4",
+      "yelandur_spatial_proxy": "8c8a68f7f3b6286a1dbca1be1926a54c8f91e99b9c8feae63b348c8888a20c94",
+      "yelandur_elevation": "f72e85d08aaa510eaae80c51f412cc713d92f4ee8eadeb8c9fe131d580caba05"
+    }
+  },
+  "dataset_files": [
+    {
+      "tp_code": "6108",
+      "tp_name": "Khanapur",
+      "zp_name": "Belagavi",
+      "geographic_regime": "western_ghats_malnad",
+      "file": "data/training/stage4/6108.parquet",
+      "sha256": "ed1d4e6ad76b1d379a0dc30095a21e163e84f995cd6ff1c6b92202138669e395",
+      "size_bytes": 163766220,
+      "gps_included": 48,
+      "rows": 6307200,
+      "cells": [
+        "E5L_15.40N_74.60E",
+        "E5L_15.40N_74.70E",
+        "E5L_15.50N_74.40E",
+        "E5L_15.50N_74.50E",
+        "E5L_15.50N_74.60E",
+        "E5L_15.50N_74.70E",
+        "E5L_15.60N_74.40E",
+        "E5L_15.60N_74.50E",
+        "E5L_15.60N_74.60E",
+        "E5L_15.60N_74.70E",
+        "E5L_15.70N_74.20E",
+        "E5L_15.70N_74.30E",
+        "E5L_15.70N_74.40E",
+        "E5L_15.70N_74.50E",
+        "E5L_15.70N_74.60E",
+        "E5L_15.70N_74.70E"
+      ],
+      "gps_per_cell": {
+        "E5L_15.40N_74.60E": 2,
+        "E5L_15.40N_74.70E": 2,
+        "E5L_15.50N_74.40E": 1,
+        "E5L_15.50N_74.50E": 4,
+        "E5L_15.50N_74.60E": 3,
+        "E5L_15.50N_74.70E": 3,
+        "E5L_15.60N_74.40E": 1,
+        "E5L_15.60N_74.50E": 5,
+        "E5L_15.60N_74.60E": 5,
+        "E5L_15.60N_74.70E": 2,
+        "E5L_15.70N_74.20E": 2,
+        "E5L_15.70N_74.30E": 2,
+        "E5L_15.70N_74.40E": 2,
+        "E5L_15.70N_74.50E": 6,
+        "E5L_15.70N_74.60E": 7,
+        "E5L_15.70N_74.70E": 1
+      },
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6108",
+        "district_holdout": "taluka_6108",
+        "regional_holdout": "regime_western_ghats_malnad",
+        "cell_group_diagnostic": [
+          "cellblock_0",
+          "cellblock_1",
+          "cellblock_4"
+        ]
+      }
+    },
+    {
+      "tp_code": "6246",
+      "tp_name": "Karkal",
+      "zp_name": "Udupi",
+      "geographic_regime": "coastal_inland_coast",
+      "file": "data/training/stage4/6246.parquet",
+      "sha256": "3a52fdbb4246fb1f7ef6bab4af1f7c4ef5ead1db242130c1002fb8ab5e5e1119",
+      "size_bytes": 93027190,
+      "gps_included": 27,
+      "rows": 3547800,
+      "cells": [
+        "E5L_13.10N_74.80E",
+        "E5L_13.10N_74.90E",
+        "E5L_13.10N_75.00E",
+        "E5L_13.20N_74.90E",
+        "E5L_13.20N_75.00E",
+        "E5L_13.20N_75.10E",
+        "E5L_13.30N_74.90E",
+        "E5L_13.30N_75.00E",
+        "E5L_13.30N_75.10E"
+      ],
+      "gps_per_cell": {
+        "E5L_13.10N_74.80E": 1,
+        "E5L_13.10N_74.90E": 2,
+        "E5L_13.10N_75.00E": 3,
+        "E5L_13.20N_74.90E": 5,
+        "E5L_13.20N_75.00E": 4,
+        "E5L_13.20N_75.10E": 4,
+        "E5L_13.30N_74.90E": 3,
+        "E5L_13.30N_75.00E": 3,
+        "E5L_13.30N_75.10E": 2
+      },
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6246",
+        "district_holdout": "taluka_6246",
+        "regional_holdout": "regime_coastal_inland_coast",
+        "cell_group_diagnostic": [
+          "cellblock_0",
+          "cellblock_1",
+          "cellblock_3",
+          "cellblock_4"
+        ]
+      }
+    },
+    {
+      "tp_code": "296804",
+      "tp_name": "Chittaguppa",
+      "zp_name": "Bidar",
+      "geographic_regime": "northern_dry_plains",
+      "file": "data/training/stage4/296804.parquet",
+      "sha256": "fc25da115e4054a462d96a937481982330fa2ad60899e576df029fa5bf4e6c21",
+      "size_bytes": 41509137,
+      "gps_included": 12,
+      "rows": 1576800,
+      "cells": [
+        "E5L_17.60N_77.20E",
+        "E5L_17.60N_77.30E",
+        "E5L_17.60N_77.40E",
+        "E5L_17.70N_77.20E",
+        "E5L_17.70N_77.30E",
+        "E5L_17.70N_77.40E",
+        "E5L_17.80N_77.20E"
+      ],
+      "gps_per_cell": {
+        "E5L_17.60N_77.20E": 1,
+        "E5L_17.60N_77.30E": 1,
+        "E5L_17.60N_77.40E": 2,
+        "E5L_17.70N_77.20E": 1,
+        "E5L_17.70N_77.30E": 4,
+        "E5L_17.70N_77.40E": 2,
+        "E5L_17.80N_77.20E": 1
+      },
+      "fold_assignment": {
+        "taluka_holdout": "taluka_296804",
+        "district_holdout": "taluka_296804",
+        "regional_holdout": "regime_northern_dry_plains",
+        "cell_group_diagnostic": [
+          "cellblock_0",
+          "cellblock_1",
+          "cellblock_2",
+          "cellblock_3"
+        ]
+      }
+    },
+    {
+      "tp_code": "6112",
+      "tp_name": "Ballari",
+      "zp_name": "Ballari",
+      "geographic_regime": "central_plateau",
+      "file": "data/training/stage4/6112.parquet",
+      "sha256": "c6fb49663380608cbbfe3cb4b0311115547dae4bd80772ba1f08622d58c2204d",
+      "size_bytes": 85460548,
+      "gps_included": 25,
+      "rows": 3285000,
+      "cells": [
+        "E5L_15.10N_76.80E",
+        "E5L_15.10N_76.90E",
+        "E5L_15.10N_77.00E",
+        "E5L_15.10N_77.10E",
+        "E5L_15.20N_76.80E",
+        "E5L_15.20N_76.90E",
+        "E5L_15.20N_77.00E",
+        "E5L_15.20N_77.10E",
+        "E5L_15.30N_77.00E",
+        "E5L_15.30N_77.10E",
+        "E5L_15.40N_77.00E"
+      ],
+      "gps_per_cell": {
+        "E5L_15.10N_76.80E": 1,
+        "E5L_15.10N_76.90E": 2,
+        "E5L_15.10N_77.00E": 3,
+        "E5L_15.10N_77.10E": 3,
+        "E5L_15.20N_76.80E": 1,
+        "E5L_15.20N_76.90E": 2,
+        "E5L_15.20N_77.00E": 4,
+        "E5L_15.20N_77.10E": 2,
+        "E5L_15.30N_77.00E": 4,
+        "E5L_15.30N_77.10E": 2,
+        "E5L_15.40N_77.00E": 1
+      },
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6112",
+        "district_holdout": "taluka_6112",
+        "regional_holdout": "regime_central_plateau",
+        "cell_group_diagnostic": [
+          "cellblock_2",
+          "cellblock_3",
+          "cellblock_4"
+        ]
+      }
+    },
+    {
+      "tp_code": "6178",
+      "tp_name": "Arkalgud",
+      "zp_name": "Hassan",
+      "geographic_regime": "southern_plateau",
+      "file": "data/training/stage4/6178.parquet",
+      "sha256": "5c9a0710d5def3402ebd5b0591cc7da921686813260ba7399731cbe4d681560a",
+      "size_bytes": 106648653,
+      "gps_included": 31,
+      "rows": 4073400,
+      "cells": [
+        "E5L_12.50N_76.10E",
+        "E5L_12.60N_76.00E",
+        "E5L_12.60N_76.10E",
+        "E5L_12.60N_76.20E",
+        "E5L_12.70N_76.00E",
+        "E5L_12.70N_76.10E",
+        "E5L_12.70N_76.20E",
+        "E5L_12.80N_76.00E",
+        "E5L_12.80N_76.10E",
+        "E5L_12.80N_76.20E"
+      ],
+      "gps_per_cell": {
+        "E5L_12.50N_76.10E": 1,
+        "E5L_12.60N_76.00E": 5,
+        "E5L_12.60N_76.10E": 7,
+        "E5L_12.60N_76.20E": 2,
+        "E5L_12.70N_76.00E": 3,
+        "E5L_12.70N_76.10E": 8,
+        "E5L_12.70N_76.20E": 1,
+        "E5L_12.80N_76.00E": 1,
+        "E5L_12.80N_76.10E": 2,
+        "E5L_12.80N_76.20E": 1
+      },
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6178",
+        "district_holdout": "taluka_6178",
+        "regional_holdout": "regime_southern_plateau",
+        "cell_group_diagnostic": [
+          "cellblock_0",
+          "cellblock_1",
+          "cellblock_2"
+        ]
+      }
+    },
+    {
+      "tp_code": "6198",
+      "tp_name": "Chintamani",
+      "zp_name": "Chikballapur",
+      "geographic_regime": "eastern_plateau",
+      "file": "data/training/stage4/6198.parquet",
+      "sha256": "d8948b0c1c019094ac7096d171349e9a35cea8f7eb0b3e5e48e67bf0398c59ff",
+      "size_bytes": 87900850,
+      "gps_included": 26,
+      "rows": 3416400,
+      "cells": [
+        "E5L_13.30N_77.90E",
+        "E5L_13.30N_78.00E",
+        "E5L_13.30N_78.10E",
+        "E5L_13.40N_78.00E",
+        "E5L_13.40N_78.10E",
+        "E5L_13.40N_78.20E",
+        "E5L_13.50N_78.00E",
+        "E5L_13.50N_78.10E",
+        "E5L_13.50N_78.20E",
+        "E5L_13.60N_78.00E",
+        "E5L_13.60N_78.10E"
+      ],
+      "gps_per_cell": {
+        "E5L_13.30N_77.90E": 1,
+        "E5L_13.30N_78.00E": 3,
+        "E5L_13.30N_78.10E": 2,
+        "E5L_13.40N_78.00E": 3,
+        "E5L_13.40N_78.10E": 4,
+        "E5L_13.40N_78.20E": 1,
+        "E5L_13.50N_78.00E": 3,
+        "E5L_13.50N_78.10E": 5,
+        "E5L_13.50N_78.20E": 1,
+        "E5L_13.60N_78.00E": 1,
+        "E5L_13.60N_78.10E": 2
+      },
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6198",
+        "district_holdout": "taluka_6198",
+        "regional_holdout": "regime_eastern_plateau",
+        "cell_group_diagnostic": [
+          "cellblock_0",
+          "cellblock_1",
+          "cellblock_2"
+        ]
+      }
+    },
+    {
+      "tp_code": "6234",
+      "tp_name": "Sorab",
+      "zp_name": "Shivamogga",
+      "geographic_regime": "western_ghats_malnad",
+      "file": "data/training/stage4/6234.parquet",
+      "sha256": "b3b65524e6e231e5ab7e4a957d887ab88dfa0012dd5a2b8969e64b7a7d91df60",
+      "size_bytes": 116354726,
+      "gps_included": 34,
+      "rows": 4467600,
+      "cells": [
+        "E5L_14.30N_75.00E",
+        "E5L_14.30N_75.10E",
+        "E5L_14.30N_75.20E",
+        "E5L_14.40N_75.00E",
+        "E5L_14.40N_75.10E",
+        "E5L_14.40N_75.20E",
+        "E5L_14.50N_74.90E",
+        "E5L_14.50N_75.00E",
+        "E5L_14.50N_75.10E",
+        "E5L_14.50N_75.20E",
+        "E5L_14.60N_75.10E",
+        "E5L_14.60N_75.20E",
+        "E5L_14.60N_75.30E"
+      ],
+      "gps_per_cell": {
+        "E5L_14.30N_75.00E": 2,
+        "E5L_14.30N_75.10E": 4,
+        "E5L_14.30N_75.20E": 3,
+        "E5L_14.40N_75.00E": 4,
+        "E5L_14.40N_75.10E": 2,
+        "E5L_14.40N_75.20E": 3,
+        "E5L_14.50N_74.90E": 1,
+        "E5L_14.50N_75.00E": 1,
+        "E5L_14.50N_75.10E": 4,
+        "E5L_14.50N_75.20E": 2,
+        "E5L_14.60N_75.10E": 5,
+        "E5L_14.60N_75.20E": 2,
+        "E5L_14.60N_75.30E": 1
+      },
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6234",
+        "district_holdout": "taluka_6234",
+        "regional_holdout": "regime_western_ghats_malnad",
+        "cell_group_diagnostic": [
+          "cellblock_0",
+          "cellblock_3",
+          "cellblock_4"
+        ]
+      }
+    },
+    {
+      "tp_code": "6253",
+      "tp_name": "Karwar",
+      "zp_name": "Uttara Kannada",
+      "geographic_regime": "coastal_inland_coast",
+      "file": "data/training/stage4/6253.parquet",
+      "sha256": "7f16485ea951bb1369d18f661b24d4876861aa19bf28dfeb5cf70150aebd4ef1",
+      "size_bytes": 48557278,
+      "gps_included": 14,
+      "rows": 1839600,
+      "cells": [
+        "E5L_14.80N_74.20E",
+        "E5L_14.80N_74.30E",
+        "E5L_14.90N_74.20E",
+        "E5L_14.90N_74.30E",
+        "E5L_14.90N_74.40E"
+      ],
+      "gps_per_cell": {
+        "E5L_14.80N_74.20E": 5,
+        "E5L_14.80N_74.30E": 1,
+        "E5L_14.90N_74.20E": 4,
+        "E5L_14.90N_74.30E": 2,
+        "E5L_14.90N_74.40E": 2
+      },
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6253",
+        "district_holdout": "taluka_6253",
+        "regional_holdout": "regime_coastal_inland_coast",
+        "cell_group_diagnostic": [
+          "cellblock_1",
+          "cellblock_2"
+        ]
+      }
+    },
+    {
+      "tp_code": "296820",
+      "tp_name": "Nidagundi",
+      "zp_name": "Vijayapura",
+      "geographic_regime": "northern_dry_plains",
+      "file": "data/training/stage4/296820.parquet",
+      "sha256": "8bb50ed3215c0e6679615c5cea0ead57aeaa842e2a6099f1b05c9f64d9cca057",
+      "size_bytes": 37746512,
+      "gps_included": 11,
+      "rows": 1445400,
+      "cells": [
+        "E5L_16.30N_75.90E",
+        "E5L_16.30N_76.00E",
+        "E5L_16.40N_75.80E",
+        "E5L_16.40N_75.90E",
+        "E5L_16.40N_76.00E",
+        "E5L_16.50N_75.90E"
+      ],
+      "gps_per_cell": {
+        "E5L_16.30N_75.90E": 1,
+        "E5L_16.30N_76.00E": 2,
+        "E5L_16.40N_75.80E": 2,
+        "E5L_16.40N_75.90E": 4,
+        "E5L_16.40N_76.00E": 1,
+        "E5L_16.50N_75.90E": 1
+      },
+      "fold_assignment": {
+        "taluka_holdout": "taluka_296820",
+        "district_holdout": "taluka_296820",
+        "regional_holdout": "regime_northern_dry_plains",
+        "cell_group_diagnostic": [
+          "cellblock_2",
+          "cellblock_3",
+          "cellblock_4"
+        ]
+      }
+    },
+    {
+      "tp_code": "6142",
+      "tp_name": "Hiriyur",
+      "zp_name": "Chitradurga",
+      "geographic_regime": "central_plateau",
+      "file": "data/training/stage4/6142.parquet",
+      "sha256": "60d1ac4c419f3b65de7cac18e17d06d2b5aa9f6321c2901db2e96268f68f779b",
+      "size_bytes": 99195103,
+      "gps_included": 29,
+      "rows": 3810600,
+      "cells": [
+        "E5L_13.80N_76.50E",
+        "E5L_13.80N_76.60E",
+        "E5L_13.80N_76.70E",
+        "E5L_13.90N_76.50E",
+        "E5L_13.90N_76.60E",
+        "E5L_13.90N_76.70E",
+        "E5L_14.00N_76.60E",
+        "E5L_14.00N_76.70E",
+        "E5L_14.00N_76.80E",
+        "E5L_14.10N_76.50E",
+        "E5L_14.10N_76.60E",
+        "E5L_14.10N_76.70E",
+        "E5L_14.10N_76.80E",
+        "E5L_14.10N_76.90E"
+      ],
+      "gps_per_cell": {
+        "E5L_13.80N_76.50E": 1,
+        "E5L_13.80N_76.60E": 1,
+        "E5L_13.80N_76.70E": 2,
+        "E5L_13.90N_76.50E": 2,
+        "E5L_13.90N_76.60E": 2,
+        "E5L_13.90N_76.70E": 1,
+        "E5L_14.00N_76.60E": 2,
+        "E5L_14.00N_76.70E": 4,
+        "E5L_14.00N_76.80E": 2,
+        "E5L_14.10N_76.50E": 3,
+        "E5L_14.10N_76.60E": 3,
+        "E5L_14.10N_76.70E": 1,
+        "E5L_14.10N_76.80E": 3,
+        "E5L_14.10N_76.90E": 2
+      },
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6142",
+        "district_holdout": "taluka_6142",
+        "regional_holdout": "regime_central_plateau",
+        "cell_group_diagnostic": [
+          "cellblock_1",
+          "cellblock_2",
+          "cellblock_3",
+          "cellblock_4"
+        ]
+      }
+    },
+    {
+      "tp_code": "6101",
+      "tp_name": "Ramanagara",
+      "zp_name": "Bengaluru South",
+      "geographic_regime": "southern_plateau",
+      "file": "data/training/stage4/6101.parquet",
+      "sha256": "2ad914f401647dbcd6d831ef8af65515a777369e83759c20bf9c84fe5c22849d",
+      "size_bytes": 68997776,
+      "gps_included": 20,
+      "rows": 2628000,
+      "cells": [
+        "E5L_12.60N_77.30E",
+        "E5L_12.70N_77.20E",
+        "E5L_12.70N_77.30E",
+        "E5L_12.70N_77.40E",
+        "E5L_12.80N_77.20E",
+        "E5L_12.80N_77.30E",
+        "E5L_12.80N_77.40E",
+        "E5L_12.90N_77.40E"
+      ],
+      "gps_per_cell": {
+        "E5L_12.60N_77.30E": 2,
+        "E5L_12.70N_77.20E": 1,
+        "E5L_12.70N_77.30E": 3,
+        "E5L_12.70N_77.40E": 2,
+        "E5L_12.80N_77.20E": 4,
+        "E5L_12.80N_77.30E": 5,
+        "E5L_12.80N_77.40E": 2,
+        "E5L_12.90N_77.40E": 1
+      },
+      "fold_assignment": {
+        "taluka_holdout": "taluka_6101",
+        "district_holdout": "taluka_6101",
+        "regional_holdout": "regime_southern_plateau",
+        "cell_group_diagnostic": [
+          "cellblock_2",
+          "cellblock_3",
+          "cellblock_4"
+        ]
+      }
+    }
+  ],
+  "columns": [
+    "panchayat_lgd_code",
+    "gp_name",
+    "gp_status",
+    "taluka_panchayat_lgd_code",
+    "taluka_panchayat_name",
+    "zila_panchayat_lgd_code",
+    "district_name",
+    "geographic_regime",
+    "timestamp_utc",
+    "local_date_ist",
+    "variable",
+    "target_value",
+    "target_unit",
+    "target_definition",
+    "target_missing_reason",
+    "target_rainfall_clamped",
+    "cell_group_id",
+    "target_cell_latitude",
+    "target_cell_longitude",
+    "cell_group_complete_gp_count",
+    "coarse_bilinear_value",
+    "coarse_nearest_value",
+    "coarse_unit",
+    "coarse_nearest_latitude",
+    "coarse_nearest_longitude",
+    "coarse_nearest_distance_km",
+    "centroid_latitude",
+    "centroid_longitude",
+    "centroid_to_cell_km",
+    "intersecting_cell_count",
+    "elevation_mean_m",
+    "elevation_min_m",
+    "elevation_max_m",
+    "elevation_range_m",
+    "elevation_std_m",
+    "temporal_period",
+    "taluka_holdout_fold",
+    "district_holdout_fold",
+    "regional_holdout_fold",
+    "cell_diagnostic_fold",
+    "target_source_file",
+    "target_source_sha256",
+    "coarse_source_file",
+    "coarse_source_sha256",
+    "source_note"
+  ],
+  "row_grain": "one row per included GP x UTC hour x variable",
+  "row_total": 36397800,
+  "coverage": {
+    "areas": 11,
+    "gps_included": 277,
+    "gps_excluded": 25,
+    "excluded_by_status": {
+      "PARTIAL": 21,
+      "UNAVAILABLE": 1,
+      "NO_LGD_VILLAGES": 1,
+      "NON_LAND_TARGET_CELL": 2
+    },
+    "cells": 110,
+    "per_area": [
+      {
+        "tp_name": "Khanapur",
+        "regime": "western_ghats_malnad",
+        "gps": 48,
+        "cells": 16,
+        "rows": 6307200
+      },
+      {
+        "tp_name": "Karkal",
+        "regime": "coastal_inland_coast",
+        "gps": 27,
+        "cells": 9,
+        "rows": 3547800
+      },
+      {
+        "tp_name": "Chittaguppa",
+        "regime": "northern_dry_plains",
+        "gps": 12,
+        "cells": 7,
+        "rows": 1576800
+      },
+      {
+        "tp_name": "Ballari",
+        "regime": "central_plateau",
+        "gps": 25,
+        "cells": 11,
+        "rows": 3285000
+      },
+      {
+        "tp_name": "Arkalgud",
+        "regime": "southern_plateau",
+        "gps": 31,
+        "cells": 10,
+        "rows": 4073400
+      },
+      {
+        "tp_name": "Chintamani",
+        "regime": "eastern_plateau",
+        "gps": 26,
+        "cells": 11,
+        "rows": 3416400
+      },
+      {
+        "tp_name": "Sorab",
+        "regime": "western_ghats_malnad",
+        "gps": 34,
+        "cells": 13,
+        "rows": 4467600
+      },
+      {
+        "tp_name": "Karwar",
+        "regime": "coastal_inland_coast",
+        "gps": 14,
+        "cells": 5,
+        "rows": 1839600
+      },
+      {
+        "tp_name": "Nidagundi",
+        "regime": "northern_dry_plains",
+        "gps": 11,
+        "cells": 6,
+        "rows": 1445400
+      },
+      {
+        "tp_name": "Hiriyur",
+        "regime": "central_plateau",
+        "gps": 29,
+        "cells": 14,
+        "rows": 3810600
+      },
+      {
+        "tp_name": "Ramanagara",
+        "regime": "southern_plateau",
+        "gps": 20,
+        "cells": 8,
+        "rows": 2628000
+      }
+    ]
+  },
+  "corrections": [
+    {
+      "tp_code": "6253",
+      "tp_name": "Karwar",
+      "gp_code": "220655",
+      "gp_name": "Majali",
+      "era5_land_cell": "E5L_14.90N_74.10E",
+      "correction": "excluded: nearest ERA5-Land cell is not land (missing value); not re-assigned to another cell"
+    },
+    {
+      "tp_code": "6253",
+      "tp_name": "Karwar",
+      "gp_code": "220657",
+      "gp_name": "Mudgeri",
+      "era5_land_cell": "E5L_14.90N_74.10E",
+      "correction": "excluded: nearest ERA5-Land cell is not land (missing value); not re-assigned to another cell"
+    }
+  ],
+  "excluded_gps": [
+    {
+      "tp_code": "6108",
+      "gp_code": "215944",
+      "gp_name": "Bailur",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215977",
+      "gp_name": "Londa",
+      "status": "UNAVAILABLE"
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215987",
+      "gp_name": "Nittur",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216437",
+      "gp_name": "Bemalkheda",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216458",
+      "gp_name": "Mustari",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218219",
+      "gp_name": "Belavadi",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218225",
+      "gp_name": "Ganjalagodu",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218242",
+      "gp_name": "Vaddarahalli",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218243",
+      "gp_name": "Vijapura Forest",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "272838",
+      "gp_name": "Aladahalli",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218847",
+      "gp_name": "Batlahalli",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218854",
+      "gp_name": "Iragampalli",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218857",
+      "gp_name": "Kaiwara",
+      "status": "NO_LGD_VILLAGES"
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218871",
+      "gp_name": "Peddur",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218877",
+      "gp_name": "Upparapet",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "272730",
+      "gp_name": "Mindigal",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220052",
+      "gp_name": "Tatturu",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220645",
+      "gp_name": "Chendiya",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220646",
+      "gp_name": "Chittakula",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220655",
+      "gp_name": "Majali",
+      "status": "NON_LAND_TARGET_CELL",
+      "era5_land_cell": "E5L_14.90N_74.10E"
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220657",
+      "gp_name": "Mudgeri",
+      "status": "NON_LAND_TARGET_CELL",
+      "era5_land_cell": "E5L_14.90N_74.10E"
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217088",
+      "gp_name": "Abbenahole",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217090",
+      "gp_name": "Babbur",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217115",
+      "gp_name": "Suragondanahally",
+      "status": "PARTIAL"
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217116",
+      "gp_name": "Uduvally",
+      "status": "PARTIAL"
+    }
+  ],
+  "gps": [
+    {
+      "tp_code": "6108",
+      "gp_code": "215943",
+      "gp_name": "Amate",
+      "era5_land_cell": "E5L_15.70N_74.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 761.4628871932864,
+      "elevation_range_m": 763.4558410644531,
+      "elevation_sample_count": 81387
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215945",
+      "gp_name": "Baragaon",
+      "era5_land_cell": "E5L_15.70N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 676.3512976785591,
+      "elevation_range_m": 81.67138671875,
+      "elevation_sample_count": 14603
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215946",
+      "gp_name": "Beedi",
+      "era5_land_cell": "E5L_15.50N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 670.4768098944451,
+      "elevation_range_m": 151.30712890625,
+      "elevation_sample_count": 28137
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215947",
+      "gp_name": "Bekawad",
+      "era5_land_cell": "E5L_15.60N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 717.1444081598032,
+      "elevation_range_m": 130.5030517578125,
+      "elevation_sample_count": 23579
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215948",
+      "gp_name": "Bhurunaki",
+      "era5_land_cell": "E5L_15.50N_74.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 632.5325048505538,
+      "elevation_range_m": 280.91314697265625,
+      "elevation_sample_count": 40717
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215949",
+      "gp_name": "Bijagarni",
+      "era5_land_cell": "E5L_15.50N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 687.6244483180654,
+      "elevation_range_m": 226.7374267578125,
+      "elevation_sample_count": 26963
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215950",
+      "gp_name": "Chapagaon",
+      "era5_land_cell": "E5L_15.60N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 654.020581655481,
+      "elevation_range_m": 84.37823486328125,
+      "elevation_sample_count": 13410
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215951",
+      "gp_name": "Devalatti",
+      "era5_land_cell": "E5L_15.70N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 666.5343293070566,
+      "elevation_range_m": 132.68804931640625,
+      "elevation_sample_count": 15730
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215952",
+      "gp_name": "Gandigawad",
+      "era5_land_cell": "E5L_15.60N_74.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 676.9763632593821,
+      "elevation_range_m": 66.07623291015625,
+      "elevation_sample_count": 19292
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215953",
+      "gp_name": "Godoli",
+      "era5_land_cell": "E5L_15.40N_74.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 623.3784162578837,
+      "elevation_range_m": 171.061279296875,
+      "elevation_sample_count": 37102
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215954",
+      "gp_name": "Golalli",
+      "era5_land_cell": "E5L_15.70N_74.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 811.9818859882791,
+      "elevation_range_m": 294.95440673828125,
+      "elevation_sample_count": 28155
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215955",
+      "gp_name": "Gotagali",
+      "era5_land_cell": "E5L_15.40N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 696.0344777692801,
+      "elevation_range_m": 196.5604248046875,
+      "elevation_sample_count": 48379
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215956",
+      "gp_name": "Gunji",
+      "era5_land_cell": "E5L_15.50N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 714.1355819759423,
+      "elevation_range_m": 372.06787109375,
+      "elevation_sample_count": 57279
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215957",
+      "gp_name": "Gurlagunji",
+      "era5_land_cell": "E5L_15.70N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 706.8191860465116,
+      "elevation_range_m": 108.0726318359375,
+      "elevation_sample_count": 8600
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215958",
+      "gp_name": "Halaga",
+      "era5_land_cell": "E5L_15.50N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 693.8841272034584,
+      "elevation_range_m": 247.15008544921875,
+      "elevation_sample_count": 50659
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215959",
+      "gp_name": "Halakarni",
+      "era5_land_cell": "E5L_15.70N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 676.5194598526871,
+      "elevation_range_m": 114.03851318359375,
+      "elevation_sample_count": 10997
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215960",
+      "gp_name": "Halasi",
+      "era5_land_cell": "E5L_15.50N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 683.867114312016,
+      "elevation_range_m": 172.71600341796875,
+      "elevation_sample_count": 18467
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215961",
+      "gp_name": "Hebbal",
+      "era5_land_cell": "E5L_15.60N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 671.4606306147613,
+      "elevation_range_m": 195.12042236328125,
+      "elevation_sample_count": 28385
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215962",
+      "gp_name": "Hirehattiholi",
+      "era5_land_cell": "E5L_15.70N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 656.5509266592745,
+      "elevation_range_m": 49.799560546875,
+      "elevation_sample_count": 12626
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215963",
+      "gp_name": "Hiremunolli",
+      "era5_land_cell": "E5L_15.70N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 649.0859903976364,
+      "elevation_range_m": 147.4193115234375,
+      "elevation_sample_count": 16246
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215964",
+      "gp_name": "Iddalahonda",
+      "era5_land_cell": "E5L_15.70N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 704.7732644017725,
+      "elevation_range_m": 106.7889404296875,
+      "elevation_sample_count": 10832
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215965",
+      "gp_name": "Itagi",
+      "era5_land_cell": "E5L_15.70N_74.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 667.7568361167187,
+      "elevation_range_m": 164.5731201171875,
+      "elevation_sample_count": 21796
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215966",
+      "gp_name": "Jamboti",
+      "era5_land_cell": "E5L_15.70N_74.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 794.1049482977662,
+      "elevation_range_m": 405.9140625,
+      "elevation_sample_count": 62183
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215967",
+      "gp_name": "Kadatanabagewadi",
+      "era5_land_cell": "E5L_15.60N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 700.7835152838428,
+      "elevation_range_m": 105.93402099609375,
+      "elevation_sample_count": 18320
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215968",
+      "gp_name": "Kakkeri",
+      "era5_land_cell": "E5L_15.50N_74.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 601.8811437513336,
+      "elevation_range_m": 50.2418212890625,
+      "elevation_sample_count": 14059
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215969",
+      "gp_name": "Kanakumbi",
+      "era5_land_cell": "E5L_15.70N_74.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 739.751868338302,
+      "elevation_range_m": 681.0334320068359,
+      "elevation_sample_count": 73461
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215970",
+      "gp_name": "Kapoli Kg",
+      "era5_land_cell": "E5L_15.50N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 670.7017937219731,
+      "elevation_range_m": 138.34600830078125,
+      "elevation_sample_count": 42816
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215971",
+      "gp_name": "Karmbla",
+      "era5_land_cell": "E5L_15.60N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 656.8611451206338,
+      "elevation_range_m": 94.03424072265625,
+      "elevation_sample_count": 13885
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215972",
+      "gp_name": "Kasaba Nandagad",
+      "era5_land_cell": "E5L_15.60N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 694.7307207905445,
+      "elevation_range_m": 161.9073486328125,
+      "elevation_sample_count": 20644
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215973",
+      "gp_name": "Kherawad",
+      "era5_land_cell": "E5L_15.60N_74.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 653.1385638724155,
+      "elevation_range_m": 77.95269775390625,
+      "elevation_sample_count": 24956
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215974",
+      "gp_name": "Kodacawad",
+      "era5_land_cell": "E5L_15.70N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 662.793488518402,
+      "elevation_range_m": 123.79766845703125,
+      "elevation_sample_count": 19074
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215975",
+      "gp_name": "Linganamath",
+      "era5_land_cell": "E5L_15.40N_74.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 591.3431804494596,
+      "elevation_range_m": 142.17132568359375,
+      "elevation_sample_count": 31549
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215976",
+      "gp_name": "Lokoli",
+      "era5_land_cell": "E5L_15.70N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 663.7870941224826,
+      "elevation_range_m": 71.51312255859375,
+      "elevation_sample_count": 17031
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215978",
+      "gp_name": "Mangenkopp",
+      "era5_land_cell": "E5L_15.50N_74.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 650.1072558647027,
+      "elevation_range_m": 85.87921142578125,
+      "elevation_sample_count": 18330
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215979",
+      "gp_name": "Manturga",
+      "era5_land_cell": "E5L_15.60N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 672.6895933397375,
+      "elevation_range_m": 155.69659423828125,
+      "elevation_sample_count": 31230
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215980",
+      "gp_name": "Mohisett",
+      "era5_land_cell": "E5L_15.50N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 678.7492132440938,
+      "elevation_range_m": 444.90118408203125,
+      "elevation_sample_count": 90244
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215981",
+      "gp_name": "Nagargali",
+      "era5_land_cell": "E5L_15.40N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 669.6457409726218,
+      "elevation_range_m": 405.9288635253906,
+      "elevation_sample_count": 59098
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215982",
+      "gp_name": "Nagurda",
+      "era5_land_cell": "E5L_15.70N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 722.5826543545174,
+      "elevation_range_m": 161.403564453125,
+      "elevation_sample_count": 38661
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215983",
+      "gp_name": "Nandagad",
+      "era5_land_cell": "E5L_15.60N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 753.3204387372926,
+      "elevation_range_m": 238.27264404296875,
+      "elevation_sample_count": 18690
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215984",
+      "gp_name": "Nanjanakodal",
+      "era5_land_cell": "E5L_15.60N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 688.5025190348119,
+      "elevation_range_m": 138.56842041015625,
+      "elevation_sample_count": 26399
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215985",
+      "gp_name": "Nerase",
+      "era5_land_cell": "E5L_15.60N_74.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 676.4502036882558,
+      "elevation_range_m": 771.9364852905273,
+      "elevation_sample_count": 123473
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215986",
+      "gp_name": "Nilawade",
+      "era5_land_cell": "E5L_15.70N_74.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 729.5273316756193,
+      "elevation_range_m": 382.9332275390625,
+      "elevation_sample_count": 72791
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215988",
+      "gp_name": "Parawad",
+      "era5_land_cell": "E5L_15.70N_74.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 6,
+      "elevation_mean_m": 740.2653306613227,
+      "elevation_range_m": 820.9837036132812,
+      "elevation_sample_count": 119760
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215989",
+      "gp_name": "Parisawad",
+      "era5_land_cell": "E5L_15.70N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 667.2094266970907,
+      "elevation_range_m": 67.3193359375,
+      "elevation_sample_count": 7012
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215990",
+      "gp_name": "Ramagurwadi",
+      "era5_land_cell": "E5L_15.70N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 684.9906247656191,
+      "elevation_range_m": 134.67401123046875,
+      "elevation_sample_count": 26666
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215991",
+      "gp_name": "Shindolli",
+      "era5_land_cell": "E5L_15.60N_74.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 681.7409264565425,
+      "elevation_range_m": 124.168212890625,
+      "elevation_sample_count": 25128
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215992",
+      "gp_name": "Shiroli",
+      "era5_land_cell": "E5L_15.50N_74.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 7,
+      "elevation_mean_m": 664.6503168113529,
+      "elevation_range_m": 946.3168640136719,
+      "elevation_sample_count": 164609
+    },
+    {
+      "tp_code": "6108",
+      "gp_code": "215993",
+      "gp_name": "Topinakatti",
+      "era5_land_cell": "E5L_15.70N_74.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 675.4446052885544,
+      "elevation_range_m": 47.5960693359375,
+      "elevation_sample_count": 10362
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220417",
+      "gp_name": "Bailoor",
+      "era5_land_cell": "E5L_13.30N_74.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 65.59473795883726,
+      "elevation_range_m": 142.2587432861328,
+      "elevation_sample_count": 23565
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220418",
+      "gp_name": "Belman",
+      "era5_land_cell": "E5L_13.20N_74.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 44.87817947850917,
+      "elevation_range_m": 104.7715835571289,
+      "elevation_sample_count": 26616
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220419",
+      "gp_name": "Bola",
+      "era5_land_cell": "E5L_13.10N_74.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 44.64190463362069,
+      "elevation_range_m": 143.0654296875,
+      "elevation_sample_count": 20416
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220420",
+      "gp_name": "Durga",
+      "era5_land_cell": "E5L_13.20N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 113.08593189535607,
+      "elevation_range_m": 282.9931640625,
+      "elevation_sample_count": 20909
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220421",
+      "gp_name": "Erlapadi",
+      "era5_land_cell": "E5L_13.30N_74.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 58.01764327108822,
+      "elevation_range_m": 125.86049270629883,
+      "elevation_sample_count": 23295
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220423",
+      "gp_name": "Hirgana",
+      "era5_land_cell": "E5L_13.30N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 64.95773650243979,
+      "elevation_range_m": 83.62460708618164,
+      "elevation_sample_count": 25412
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220424",
+      "gp_name": "Idu",
+      "era5_land_cell": "E5L_13.20N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 239.29536176736798,
+      "elevation_range_m": 1059.9615325927734,
+      "elevation_sample_count": 54137
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220425",
+      "gp_name": "Inna",
+      "era5_land_cell": "E5L_13.10N_74.80E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 14.008520926547353,
+      "elevation_range_m": 102.90853488445282,
+      "elevation_sample_count": 13410
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220426",
+      "gp_name": "Kadthala",
+      "era5_land_cell": "E5L_13.30N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 54.442773046092185,
+      "elevation_range_m": 111.46539306640625,
+      "elevation_sample_count": 39920
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220427",
+      "gp_name": "Kanthavara",
+      "era5_land_cell": "E5L_13.10N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 73.58635080465902,
+      "elevation_range_m": 232.3188591003418,
+      "elevation_sample_count": 22494
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220429",
+      "gp_name": "Kukkundoor",
+      "era5_land_cell": "E5L_13.20N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 66.89889004218844,
+      "elevation_range_m": 169.47134399414062,
+      "elevation_sample_count": 29866
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220430",
+      "gp_name": "Mala",
+      "era5_land_cell": "E5L_13.20N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 291.8531941364202,
+      "elevation_range_m": 1103.66796875,
+      "elevation_sample_count": 55461
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220431",
+      "gp_name": "Marne",
+      "era5_land_cell": "E5L_13.30N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 52.725396264512874,
+      "elevation_range_m": 134.84750366210938,
+      "elevation_sample_count": 49525
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220432",
+      "gp_name": "Miyaru",
+      "era5_land_cell": "E5L_13.20N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 91.61456904204665,
+      "elevation_range_m": 141.50680541992188,
+      "elevation_sample_count": 24782
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220433",
+      "gp_name": "Mudaru",
+      "era5_land_cell": "E5L_13.20N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 91.53849026758645,
+      "elevation_range_m": 94.18087768554688,
+      "elevation_sample_count": 22759
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220435",
+      "gp_name": "Mundkoor",
+      "era5_land_cell": "E5L_13.10N_74.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 21.433746260521247,
+      "elevation_range_m": 105.78268432617188,
+      "elevation_sample_count": 19722
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220437",
+      "gp_name": "Nalloor",
+      "era5_land_cell": "E5L_13.20N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 127.9142574365307,
+      "elevation_range_m": 230.80029296875,
+      "elevation_sample_count": 27533
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220438",
+      "gp_name": "Neere",
+      "era5_land_cell": "E5L_13.30N_74.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 63.78432174561006,
+      "elevation_range_m": 111.33235359191895,
+      "elevation_sample_count": 30866
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220439",
+      "gp_name": "Nitte",
+      "era5_land_cell": "E5L_13.20N_74.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 60.95993008230817,
+      "elevation_range_m": 115.82001495361328,
+      "elevation_sample_count": 45196
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220440",
+      "gp_name": "Palli",
+      "era5_land_cell": "E5L_13.20N_74.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 49.928497689043795,
+      "elevation_range_m": 95.66876983642578,
+      "elevation_sample_count": 26396
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220441",
+      "gp_name": "Renjala",
+      "era5_land_cell": "E5L_13.10N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 149.39727974544886,
+      "elevation_range_m": 318.822322845459,
+      "elevation_sample_count": 19171
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220442",
+      "gp_name": "Sanoor",
+      "era5_land_cell": "E5L_13.20N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 75.70235439173321,
+      "elevation_range_m": 197.74612426757812,
+      "elevation_sample_count": 17032
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "220443",
+      "gp_name": "Shirlal",
+      "era5_land_cell": "E5L_13.30N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 143.90109547386066,
+      "elevation_range_m": 759.7840576171875,
+      "elevation_sample_count": 51302
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "273009",
+      "gp_name": "Irvathauru",
+      "era5_land_cell": "E5L_13.10N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 96.11120270058093,
+      "elevation_range_m": 136.00900268554688,
+      "elevation_sample_count": 12738
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "273010",
+      "gp_name": "Kalya",
+      "era5_land_cell": "E5L_13.20N_74.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 49.17477786752827,
+      "elevation_range_m": 121.59878253936768,
+      "elevation_sample_count": 21046
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "273011",
+      "gp_name": "Kervashe",
+      "era5_land_cell": "E5L_13.30N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 5,
+      "elevation_mean_m": 281.96017199782085,
+      "elevation_range_m": 1163.9754638671875,
+      "elevation_sample_count": 51396
+    },
+    {
+      "tp_code": "6246",
+      "gp_code": "273012",
+      "gp_name": "Nandalike",
+      "era5_land_cell": "E5L_13.20N_74.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 53.52341665700035,
+      "elevation_range_m": 102.96963882446289,
+      "elevation_sample_count": 17242
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216436",
+      "gp_name": "Belkera",
+      "era5_land_cell": "E5L_17.70N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 613.7005095895488,
+      "elevation_range_m": 63.76739501953125,
+      "elevation_sample_count": 53965
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216440",
+      "gp_name": "Changlera",
+      "era5_land_cell": "E5L_17.60N_77.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 615.0090031173021,
+      "elevation_range_m": 121.30804443359375,
+      "elevation_sample_count": 45873
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216449",
+      "gp_name": "Itga",
+      "era5_land_cell": "E5L_17.70N_77.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 635.743477636471,
+      "elevation_range_m": 118.3145751953125,
+      "elevation_sample_count": 62669
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216452",
+      "gp_name": "Kodambal",
+      "era5_land_cell": "E5L_17.60N_77.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 630.9257256687536,
+      "elevation_range_m": 82.06005859375,
+      "elevation_sample_count": 24598
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216454",
+      "gp_name": "Manekheli",
+      "era5_land_cell": "E5L_17.70N_77.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 606.8932718827116,
+      "elevation_range_m": 65.4727783203125,
+      "elevation_sample_count": 6889
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216455",
+      "gp_name": "Mangalgi",
+      "era5_land_cell": "E5L_17.70N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 609.7530172591341,
+      "elevation_range_m": 66.15087890625,
+      "elevation_sample_count": 24277
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216457",
+      "gp_name": "Meenkera",
+      "era5_land_cell": "E5L_17.70N_77.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 624.2116652335912,
+      "elevation_range_m": 60.879638671875,
+      "elevation_sample_count": 27912
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216459",
+      "gp_name": "Mutangi",
+      "era5_land_cell": "E5L_17.60N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 628.7972097658196,
+      "elevation_range_m": 118.350830078125,
+      "elevation_sample_count": 48168
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216461",
+      "gp_name": "Nirna",
+      "era5_land_cell": "E5L_17.70N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 629.1113063119589,
+      "elevation_range_m": 54.61199951171875,
+      "elevation_sample_count": 47814
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216466",
+      "gp_name": "Talmadgi",
+      "era5_land_cell": "E5L_17.80N_77.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 606.072230990623,
+      "elevation_range_m": 61.78948974609375,
+      "elevation_sample_count": 32313
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216467",
+      "gp_name": "Udbal",
+      "era5_land_cell": "E5L_17.70N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 627.7528545368556,
+      "elevation_range_m": 59.36602783203125,
+      "elevation_sample_count": 29602
+    },
+    {
+      "tp_code": "296804",
+      "gp_code": "216468",
+      "gp_name": "Udbanalli",
+      "era5_land_cell": "E5L_17.60N_77.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 605.4655769174835,
+      "elevation_range_m": 120.36602783203125,
+      "elevation_sample_count": 34381
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216105",
+      "gp_name": "Amarapura",
+      "era5_land_cell": "E5L_15.10N_77.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 425.4730928118976,
+      "elevation_range_m": 63.40716552734375,
+      "elevation_sample_count": 54465
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216106",
+      "gp_name": "B.D.Halli",
+      "era5_land_cell": "E5L_15.20N_77.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 413.99150058616647,
+      "elevation_range_m": 46.165618896484375,
+      "elevation_sample_count": 40944
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216108",
+      "gp_name": "Basarakod",
+      "era5_land_cell": "E5L_15.30N_77.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 397.36741282823937,
+      "elevation_range_m": 33.903717041015625,
+      "elevation_sample_count": 41814
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216109",
+      "gp_name": "Belagallu",
+      "era5_land_cell": "E5L_15.10N_76.80E",
+      "rows": 131400,
+      "intersecting_cell_count": 6,
+      "elevation_mean_m": 524.7079695788331,
+      "elevation_range_m": 336.1966247558594,
+      "elevation_sample_count": 78235
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216110",
+      "gp_name": "Chalagurki",
+      "era5_land_cell": "E5L_15.10N_77.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 431.5369337166835,
+      "elevation_range_m": 78.30752563476562,
+      "elevation_sample_count": 64345
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216114",
+      "gp_name": "Halakundi",
+      "era5_land_cell": "E5L_15.10N_76.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 499.0888967257141,
+      "elevation_range_m": 229.1807861328125,
+      "elevation_sample_count": 36863
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216115",
+      "gp_name": "Handihal",
+      "era5_land_cell": "E5L_15.30N_77.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 407.96295644212825,
+      "elevation_range_m": 110.32931518554688,
+      "elevation_sample_count": 28399
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216117",
+      "gp_name": "Kappagal",
+      "era5_land_cell": "E5L_15.20N_77.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 431.11948366276727,
+      "elevation_range_m": 28.156341552734375,
+      "elevation_sample_count": 24790
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216118",
+      "gp_name": "Karekal",
+      "era5_land_cell": "E5L_15.20N_77.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 410.15049371200666,
+      "elevation_range_m": 118.53866577148438,
+      "elevation_sample_count": 62182
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216119",
+      "gp_name": "Kolagallu",
+      "era5_land_cell": "E5L_15.20N_76.80E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 459.5223778483057,
+      "elevation_range_m": 49.355316162109375,
+      "elevation_sample_count": 52619
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216121",
+      "gp_name": "Koralgundhi",
+      "era5_land_cell": "E5L_15.30N_77.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 422.99609492340045,
+      "elevation_range_m": 34.4573974609375,
+      "elevation_sample_count": 26632
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216124",
+      "gp_name": "M.Gonal",
+      "era5_land_cell": "E5L_15.30N_77.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 401.85995182342725,
+      "elevation_range_m": 102.60287475585938,
+      "elevation_sample_count": 53553
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216125",
+      "gp_name": "Moka",
+      "era5_land_cell": "E5L_15.20N_77.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 414.820174651594,
+      "elevation_range_m": 39.9141845703125,
+      "elevation_sample_count": 33438
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216128",
+      "gp_name": "P.D.Halli",
+      "era5_land_cell": "E5L_15.10N_77.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 417.8964748229586,
+      "elevation_range_m": 41.882904052734375,
+      "elevation_sample_count": 25559
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216129",
+      "gp_name": "Rupanagudi",
+      "era5_land_cell": "E5L_15.10N_77.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 424.7994594414228,
+      "elevation_range_m": 43.070648193359375,
+      "elevation_sample_count": 59938
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216130",
+      "gp_name": "Sanganakal",
+      "era5_land_cell": "E5L_15.20N_76.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 447.08225324027916,
+      "elevation_range_m": 90.50991821289062,
+      "elevation_sample_count": 12036
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216131",
+      "gp_name": "Sanjeevarayanakote",
+      "era5_land_cell": "E5L_15.10N_76.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 472.2953417405052,
+      "elevation_range_m": 150.57315063476562,
+      "elevation_sample_count": 27199
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216132",
+      "gp_name": "Shankarabanda",
+      "era5_land_cell": "E5L_15.10N_77.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 437.679207635166,
+      "elevation_range_m": 44.432220458984375,
+      "elevation_sample_count": 41597
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216134",
+      "gp_name": "Sidiginamola",
+      "era5_land_cell": "E5L_15.20N_77.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 417.75172074729596,
+      "elevation_range_m": 96.58218383789062,
+      "elevation_sample_count": 61020
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216136",
+      "gp_name": "Sirivar",
+      "era5_land_cell": "E5L_15.20N_77.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 437.9293490274094,
+      "elevation_range_m": 169.6199951171875,
+      "elevation_sample_count": 18096
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216138",
+      "gp_name": "Sridharagadda",
+      "era5_land_cell": "E5L_15.20N_76.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 438.88886578337593,
+      "elevation_range_m": 39.375457763671875,
+      "elevation_sample_count": 33662
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216139",
+      "gp_name": "Vanenoor",
+      "era5_land_cell": "E5L_15.30N_77.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 408.9375796178344,
+      "elevation_range_m": 36.524444580078125,
+      "elevation_sample_count": 41605
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216140",
+      "gp_name": "Yathenabudihal",
+      "era5_land_cell": "E5L_15.10N_77.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 446.93168910117237,
+      "elevation_range_m": 238.092529296875,
+      "elevation_sample_count": 57575
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "216144",
+      "gp_name": "Yerragudi",
+      "era5_land_cell": "E5L_15.30N_77.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 396.3726606392082,
+      "elevation_range_m": 24.401336669921875,
+      "elevation_sample_count": 26877
+    },
+    {
+      "tp_code": "6112",
+      "gp_code": "273253",
+      "gp_name": "Chanalu",
+      "era5_land_cell": "E5L_15.40N_77.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 410.5436231884058,
+      "elevation_range_m": 56.311309814453125,
+      "elevation_sample_count": 27600
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218216",
+      "gp_name": "Agrahara",
+      "era5_land_cell": "E5L_12.70N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 852.3077940027642,
+      "elevation_range_m": 90.95416259765625,
+      "elevation_sample_count": 16641
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218217",
+      "gp_name": "Bannur",
+      "era5_land_cell": "E5L_12.60N_76.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 864.4083666966255,
+      "elevation_range_m": 136.29180908203125,
+      "elevation_sample_count": 24478
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218218",
+      "gp_name": "Basavapatna",
+      "era5_land_cell": "E5L_12.60N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 823.5349610270518,
+      "elevation_range_m": 57.3616943359375,
+      "elevation_sample_count": 17448
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218220",
+      "gp_name": "Bychanahalli",
+      "era5_land_cell": "E5L_12.80N_76.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 904.2173621959384,
+      "elevation_range_m": 74.31787109375,
+      "elevation_sample_count": 17924
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218221",
+      "gp_name": "Chikkanahalli",
+      "era5_land_cell": "E5L_12.70N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 846.3595687768501,
+      "elevation_range_m": 76.17608642578125,
+      "elevation_sample_count": 24674
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218222",
+      "gp_name": "Dodda Bemmathi",
+      "era5_land_cell": "E5L_12.70N_76.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 903.9090482210584,
+      "elevation_range_m": 169.1387939453125,
+      "elevation_sample_count": 27685
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218223",
+      "gp_name": "Dodda Magge",
+      "era5_land_cell": "E5L_12.70N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 885.3284219832032,
+      "elevation_range_m": 106.24786376953125,
+      "elevation_sample_count": 20361
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218224",
+      "gp_name": "Gangoor",
+      "era5_land_cell": "E5L_12.60N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 847.7763551818587,
+      "elevation_range_m": 100.565185546875,
+      "elevation_sample_count": 15699
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218226",
+      "gp_name": "Handrangi",
+      "era5_land_cell": "E5L_12.60N_76.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 862.7909502940405,
+      "elevation_range_m": 120.88458251953125,
+      "elevation_sample_count": 26697
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218227",
+      "gp_name": "Hebbale",
+      "era5_land_cell": "E5L_12.80N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 871.0284690113772,
+      "elevation_range_m": 74.2672119140625,
+      "elevation_sample_count": 19249
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218228",
+      "gp_name": "Holalagodu",
+      "era5_land_cell": "E5L_12.70N_76.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 954.846440160336,
+      "elevation_range_m": 99.796142578125,
+      "elevation_sample_count": 20956
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218229",
+      "gp_name": "Honnavalli",
+      "era5_land_cell": "E5L_12.80N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 888.2976933120557,
+      "elevation_range_m": 80.2789306640625,
+      "elevation_sample_count": 20679
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218230",
+      "gp_name": "Hulikallu",
+      "era5_land_cell": "E5L_12.70N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 904.324848770524,
+      "elevation_range_m": 146.49395751953125,
+      "elevation_sample_count": 25458
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218231",
+      "gp_name": "Kalenahalli",
+      "era5_land_cell": "E5L_12.60N_76.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 820.9411321566939,
+      "elevation_range_m": 61.58929443359375,
+      "elevation_sample_count": 18584
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218232",
+      "gp_name": "Kattepura",
+      "era5_land_cell": "E5L_12.60N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 840.6736245869828,
+      "elevation_range_m": 161.2125244140625,
+      "elevation_sample_count": 38134
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218233",
+      "gp_name": "Katti Mallenahalli",
+      "era5_land_cell": "E5L_12.70N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 929.7125812483305,
+      "elevation_range_m": 106.81787109375,
+      "elevation_sample_count": 22462
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218234",
+      "gp_name": "Keralapura",
+      "era5_land_cell": "E5L_12.60N_76.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 818.8073101007351,
+      "elevation_range_m": 53.17852783203125,
+      "elevation_sample_count": 7346
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218235",
+      "gp_name": "Konanur",
+      "era5_land_cell": "E5L_12.60N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 812.0592651367188,
+      "elevation_range_m": 27.30419921875,
+      "elevation_sample_count": 512
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218236",
+      "gp_name": "Lakkur",
+      "era5_land_cell": "E5L_12.50N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 841.4707344189393,
+      "elevation_range_m": 102.85638427734375,
+      "elevation_sample_count": 15291
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218237",
+      "gp_name": "Mallipatna",
+      "era5_land_cell": "E5L_12.80N_76.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 938.8129920331872,
+      "elevation_range_m": 137.0115966796875,
+      "elevation_sample_count": 21213
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218238",
+      "gp_name": "Ramanathapura",
+      "era5_land_cell": "E5L_12.60N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 825.1200794299731,
+      "elevation_range_m": 70.5748291015625,
+      "elevation_sample_count": 17122
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218239",
+      "gp_name": "Rudrapatna",
+      "era5_land_cell": "E5L_12.60N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 811.2404474907429,
+      "elevation_range_m": 57.9993896484375,
+      "elevation_sample_count": 12693
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218240",
+      "gp_name": "Santhemarur",
+      "era5_land_cell": "E5L_12.70N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 898.2960969044415,
+      "elevation_range_m": 74.21966552734375,
+      "elevation_sample_count": 27491
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218241",
+      "gp_name": "Saragoor",
+      "era5_land_cell": "E5L_12.60N_76.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 822.8482919981282,
+      "elevation_range_m": 64.16009521484375,
+      "elevation_sample_count": 21370
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "218244",
+      "gp_name": "Yalagathavalli",
+      "era5_land_cell": "E5L_12.70N_76.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 881.5442479908152,
+      "elevation_range_m": 71.32696533203125,
+      "elevation_sample_count": 21775
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "272741",
+      "gp_name": "Koratikere",
+      "era5_land_cell": "E5L_12.70N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 871.5294002830235,
+      "elevation_range_m": 61.61273193359375,
+      "elevation_sample_count": 20493
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "272742",
+      "gp_name": "Tarigalale",
+      "era5_land_cell": "E5L_12.60N_76.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 874.7574457128144,
+      "elevation_range_m": 98.978271484375,
+      "elevation_sample_count": 23302
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "272839",
+      "gp_name": "Mokali",
+      "era5_land_cell": "E5L_12.70N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 915.750698974837,
+      "elevation_range_m": 61.87841796875,
+      "elevation_sample_count": 15022
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "272840",
+      "gp_name": "Hanyalu",
+      "era5_land_cell": "E5L_12.60N_76.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 840.8277882219211,
+      "elevation_range_m": 96.21197509765625,
+      "elevation_sample_count": 22873
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "272841",
+      "gp_name": "Heggadihalli",
+      "era5_land_cell": "E5L_12.70N_76.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 891.2756633936541,
+      "elevation_range_m": 114.97576904296875,
+      "elevation_sample_count": 12323
+    },
+    {
+      "tp_code": "6178",
+      "gp_code": "272844",
+      "gp_name": "Kaduvinahosahalli",
+      "era5_land_cell": "E5L_12.60N_76.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 844.2242952747921,
+      "elevation_range_m": 105.5838623046875,
+      "elevation_sample_count": 24655
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218846",
+      "gp_name": "Anur",
+      "era5_land_cell": "E5L_13.30N_78.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 841.7424673109722,
+      "elevation_range_m": 90.70721435546875,
+      "elevation_sample_count": 21108
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218848",
+      "gp_name": "Bhommisettihalli",
+      "era5_land_cell": "E5L_13.50N_78.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 804.4326854422848,
+      "elevation_range_m": 122.7681884765625,
+      "elevation_sample_count": 25210
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218851",
+      "gp_name": "Chinnasandra",
+      "era5_land_cell": "E5L_13.40N_78.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 864.1175461525894,
+      "elevation_range_m": 212.70977783203125,
+      "elevation_sample_count": 12242
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218852",
+      "gp_name": "Doddaganjur",
+      "era5_land_cell": "E5L_13.40N_78.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 845.2954177023668,
+      "elevation_range_m": 39.88824462890625,
+      "elevation_sample_count": 18506
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218853",
+      "gp_name": "Hirekattigenahalli",
+      "era5_land_cell": "E5L_13.30N_78.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 871.3341499265066,
+      "elevation_range_m": 137.20037841796875,
+      "elevation_sample_count": 20410
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218855",
+      "gp_name": "Kadadanamari",
+      "era5_land_cell": "E5L_13.60N_78.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 732.710780669145,
+      "elevation_range_m": 117.7615966796875,
+      "elevation_sample_count": 40350
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218856",
+      "gp_name": "Kagathi",
+      "era5_land_cell": "E5L_13.40N_78.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 851.7924551237894,
+      "elevation_range_m": 242.8958740234375,
+      "elevation_sample_count": 24679
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218858",
+      "gp_name": "Kattariguppa",
+      "era5_land_cell": "E5L_13.40N_78.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 5,
+      "elevation_mean_m": 905.2728135472582,
+      "elevation_range_m": 243.43939208984375,
+      "elevation_sample_count": 33719
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218859",
+      "gp_name": "Kencharlahalli",
+      "era5_land_cell": "E5L_13.60N_78.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 5,
+      "elevation_mean_m": 769.3515546116082,
+      "elevation_range_m": 148.6749267578125,
+      "elevation_sample_count": 28721
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218860",
+      "gp_name": "Konapalli",
+      "era5_land_cell": "E5L_13.50N_78.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 5,
+      "elevation_mean_m": 865.5360641970701,
+      "elevation_range_m": 556.1914672851562,
+      "elevation_sample_count": 21434
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218861",
+      "gp_name": "Korlaparthi",
+      "era5_land_cell": "E5L_13.60N_78.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 784.5071664829107,
+      "elevation_range_m": 129.60107421875,
+      "elevation_sample_count": 35373
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218862",
+      "gp_name": "Kotagal",
+      "era5_land_cell": "E5L_13.50N_78.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 831.8951568519537,
+      "elevation_range_m": 157.85870361328125,
+      "elevation_sample_count": 29072
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218863",
+      "gp_name": "Kurubur",
+      "era5_land_cell": "E5L_13.30N_78.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 858.6884160488937,
+      "elevation_range_m": 217.31463623046875,
+      "elevation_sample_count": 17671
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218864",
+      "gp_name": "Mastenahalli",
+      "era5_land_cell": "E5L_13.40N_78.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 901.3761386490004,
+      "elevation_range_m": 107.42047119140625,
+      "elevation_sample_count": 16906
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218865",
+      "gp_name": "Mitta Halli",
+      "era5_land_cell": "E5L_13.50N_78.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 5,
+      "elevation_mean_m": 773.5333313214835,
+      "elevation_range_m": 215.1292724609375,
+      "elevation_sample_count": 33137
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218866",
+      "gp_name": "Moodlagollahalli",
+      "era5_land_cell": "E5L_13.50N_78.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 6,
+      "elevation_mean_m": 777.2858762496994,
+      "elevation_range_m": 160.7158203125,
+      "elevation_sample_count": 29107
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218867",
+      "gp_name": "Munaganahalli",
+      "era5_land_cell": "E5L_13.40N_78.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 6,
+      "elevation_mean_m": 837.3638397538978,
+      "elevation_range_m": 241.92291259765625,
+      "elevation_sample_count": 28606
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218868",
+      "gp_name": "Muragamalla",
+      "era5_land_cell": "E5L_13.50N_78.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 846.3485911804755,
+      "elevation_range_m": 378.17138671875,
+      "elevation_sample_count": 28641
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218869",
+      "gp_name": "Nandiganahalli",
+      "era5_land_cell": "E5L_13.40N_78.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 847.1218645948945,
+      "elevation_range_m": 83.86053466796875,
+      "elevation_sample_count": 22525
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218870",
+      "gp_name": "Oolavadi",
+      "era5_land_cell": "E5L_13.40N_78.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 856.6337702390131,
+      "elevation_range_m": 46.99298095703125,
+      "elevation_sample_count": 22049
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218872",
+      "gp_name": "Perumachana Halli",
+      "era5_land_cell": "E5L_13.30N_78.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 896.1121402706308,
+      "elevation_range_m": 416.4984130859375,
+      "elevation_sample_count": 26235
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218873",
+      "gp_name": "Raguttahalli",
+      "era5_land_cell": "E5L_13.50N_78.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 5,
+      "elevation_mean_m": 784.233180568286,
+      "elevation_range_m": 455.951904296875,
+      "elevation_sample_count": 32730
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218874",
+      "gp_name": "Santekalla Halli",
+      "era5_land_cell": "E5L_13.30N_77.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 878.1726537133433,
+      "elevation_range_m": 65.14910888671875,
+      "elevation_sample_count": 19403
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218875",
+      "gp_name": "Settyhalli",
+      "era5_land_cell": "E5L_13.50N_78.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 863.0185430795025,
+      "elevation_range_m": 173.8897705078125,
+      "elevation_sample_count": 39961
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218876",
+      "gp_name": "Talagawara",
+      "era5_land_cell": "E5L_13.30N_78.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 884.8509821888781,
+      "elevation_range_m": 68.3671875,
+      "elevation_sample_count": 17461
+    },
+    {
+      "tp_code": "6198",
+      "gp_code": "218878",
+      "gp_name": "Yagavakote",
+      "era5_land_cell": "E5L_13.50N_78.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 5,
+      "elevation_mean_m": 801.3369456950476,
+      "elevation_range_m": 200.52227783203125,
+      "elevation_sample_count": 25099
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220018",
+      "gp_name": "Agasanahalli",
+      "era5_land_cell": "E5L_14.60N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 546.9235524597301,
+      "elevation_range_m": 38.6531982421875,
+      "elevation_sample_count": 22970
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220020",
+      "gp_name": "Barangi",
+      "era5_land_cell": "E5L_14.60N_75.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 582.0213995117982,
+      "elevation_range_m": 85.38995361328125,
+      "elevation_sample_count": 24580
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220021",
+      "gp_name": "Bennur",
+      "era5_land_cell": "E5L_14.50N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 571.0593978332074,
+      "elevation_range_m": 126.158447265625,
+      "elevation_sample_count": 31752
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220022",
+      "gp_name": "Bilavalni",
+      "era5_land_cell": "E5L_14.40N_75.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 602.6393485116862,
+      "elevation_range_m": 69.4415283203125,
+      "elevation_sample_count": 23147
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220023",
+      "gp_name": "Chandragutti",
+      "era5_land_cell": "E5L_14.40N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 6,
+      "elevation_mean_m": 588.3884123587359,
+      "elevation_range_m": 306.9573974609375,
+      "elevation_sample_count": 56543
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220024",
+      "gp_name": "Chitturu",
+      "era5_land_cell": "E5L_14.30N_75.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 649.0301040334566,
+      "elevation_range_m": 166.43682861328125,
+      "elevation_sample_count": 28933
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220025",
+      "gp_name": "Dyavanahalli",
+      "era5_land_cell": "E5L_14.50N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 586.6115712812177,
+      "elevation_range_m": 126.82513427734375,
+      "elevation_sample_count": 31993
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220026",
+      "gp_name": "Gendla",
+      "era5_land_cell": "E5L_14.50N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 576.0245136318881,
+      "elevation_range_m": 159.49725341796875,
+      "elevation_sample_count": 58906
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220027",
+      "gp_name": "Guduvi",
+      "era5_land_cell": "E5L_14.40N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 578.5695085751979,
+      "elevation_range_m": 120.62652587890625,
+      "elevation_sample_count": 48512
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220029",
+      "gp_name": "Hanchi",
+      "era5_land_cell": "E5L_14.50N_75.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 636.462941274887,
+      "elevation_range_m": 109.9017333984375,
+      "elevation_sample_count": 23908
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220030",
+      "gp_name": "Harishi",
+      "era5_land_cell": "E5L_14.50N_74.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 580.6438470231369,
+      "elevation_range_m": 171.8853759765625,
+      "elevation_sample_count": 67252
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220031",
+      "gp_name": "Heche",
+      "era5_land_cell": "E5L_14.40N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 573.0038395519017,
+      "elevation_range_m": 99.68896484375,
+      "elevation_sample_count": 44276
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220032",
+      "gp_name": "Heggodu",
+      "era5_land_cell": "E5L_14.30N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 616.2421761076837,
+      "elevation_range_m": 120.5968017578125,
+      "elevation_sample_count": 35660
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220033",
+      "gp_name": "Hosabale",
+      "era5_land_cell": "E5L_14.30N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 596.1934052195655,
+      "elevation_range_m": 90.401611328125,
+      "elevation_sample_count": 31995
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220034",
+      "gp_name": "Hurali",
+      "era5_land_cell": "E5L_14.60N_75.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 580.6629675650199,
+      "elevation_range_m": 93.50701904296875,
+      "elevation_sample_count": 23339
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220035",
+      "gp_name": "Induvalli",
+      "era5_land_cell": "E5L_14.30N_75.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 661.9616262186269,
+      "elevation_range_m": 237.55072021484375,
+      "elevation_sample_count": 28926
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220036",
+      "gp_name": "Jade",
+      "era5_land_cell": "E5L_14.60N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 551.6183202154101,
+      "elevation_range_m": 45.82763671875,
+      "elevation_sample_count": 19312
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220037",
+      "gp_name": "Katuvalli",
+      "era5_land_cell": "E5L_14.50N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 558.3316258972751,
+      "elevation_range_m": 68.47314453125,
+      "elevation_sample_count": 28698
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220040",
+      "gp_name": "Kuppagadde",
+      "era5_land_cell": "E5L_14.50N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 587.9585511811024,
+      "elevation_range_m": 94.3828125,
+      "elevation_sample_count": 31750
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220041",
+      "gp_name": "Mavali",
+      "era5_land_cell": "E5L_14.40N_75.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 618.1005599104143,
+      "elevation_range_m": 99.45416259765625,
+      "elevation_sample_count": 22325
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220042",
+      "gp_name": "Mudi--Doddikoppa",
+      "era5_land_cell": "E5L_14.60N_75.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 549.4846346671618,
+      "elevation_range_m": 55.45648193359375,
+      "elevation_sample_count": 10771
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220043",
+      "gp_name": "Mutuguppe",
+      "era5_land_cell": "E5L_14.30N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 583.2349910443801,
+      "elevation_range_m": 85.57623291015625,
+      "elevation_sample_count": 45223
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220044",
+      "gp_name": "Nisarani",
+      "era5_land_cell": "E5L_14.30N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 606.2012212520688,
+      "elevation_range_m": 96.66656494140625,
+      "elevation_sample_count": 35046
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220045",
+      "gp_name": "Nyarsi",
+      "era5_land_cell": "E5L_14.40N_75.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 572.2319974953037,
+      "elevation_range_m": 226.2491455078125,
+      "elevation_sample_count": 19164
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220047",
+      "gp_name": "Shakunavalli",
+      "era5_land_cell": "E5L_14.60N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 553.0153344039786,
+      "elevation_range_m": 58.5616455078125,
+      "elevation_sample_count": 19303
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220048",
+      "gp_name": "Shigga",
+      "era5_land_cell": "E5L_14.30N_75.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 640.6475846178294,
+      "elevation_range_m": 102.88189697265625,
+      "elevation_sample_count": 25172
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220049",
+      "gp_name": "Talagaddi",
+      "era5_land_cell": "E5L_14.60N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 576.9335093408328,
+      "elevation_range_m": 81.651123046875,
+      "elevation_sample_count": 34847
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220050",
+      "gp_name": "Thelagunda",
+      "era5_land_cell": "E5L_14.60N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 563.4071900505247,
+      "elevation_range_m": 63.6773681640625,
+      "elevation_sample_count": 25730
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220053",
+      "gp_name": "Tavanandi",
+      "era5_land_cell": "E5L_14.40N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 606.1615607182367,
+      "elevation_range_m": 106.882568359375,
+      "elevation_sample_count": 47004
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220054",
+      "gp_name": "Udri",
+      "era5_land_cell": "E5L_14.40N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 579.3663380517031,
+      "elevation_range_m": 95.0653076171875,
+      "elevation_sample_count": 41893
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220055",
+      "gp_name": "Ulavi",
+      "era5_land_cell": "E5L_14.30N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 631.8908450704225,
+      "elevation_range_m": 239.44268798828125,
+      "elevation_sample_count": 46576
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "220056",
+      "gp_name": "Ennekoppa",
+      "era5_land_cell": "E5L_14.50N_75.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 616.1910030773487,
+      "elevation_range_m": 118.73785400390625,
+      "elevation_sample_count": 28921
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "272954",
+      "gp_name": "Andige",
+      "era5_land_cell": "E5L_14.40N_75.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 608.8669543169788,
+      "elevation_range_m": 92.1566162109375,
+      "elevation_sample_count": 22481
+    },
+    {
+      "tp_code": "6234",
+      "gp_code": "272956",
+      "gp_name": "Duguru",
+      "era5_land_cell": "E5L_14.30N_75.10E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 605.5986299779403,
+      "elevation_range_m": 95.43597412109375,
+      "elevation_sample_count": 25839
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220642",
+      "gp_name": "Amdalli",
+      "era5_land_cell": "E5L_14.80N_74.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 98.59936755952381,
+      "elevation_range_m": 481.5460372939706,
+      "elevation_sample_count": 13440
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220644",
+      "gp_name": "Asnoti",
+      "era5_land_cell": "E5L_14.90N_74.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 43.13280690642728,
+      "elevation_range_m": 336.30648267269135,
+      "elevation_sample_count": 18157
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220647",
+      "gp_name": "Devalmakki",
+      "era5_land_cell": "E5L_14.80N_74.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 241.23609256786827,
+      "elevation_range_m": 607.7526178359985,
+      "elevation_sample_count": 80892
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220648",
+      "gp_name": "Ghadsai",
+      "era5_land_cell": "E5L_14.90N_74.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 9.061637792987284,
+      "elevation_range_m": 66.85938262939453,
+      "elevation_sample_count": 10538
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220649",
+      "gp_name": "Gotegali",
+      "era5_land_cell": "E5L_14.90N_74.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 198.351719506323,
+      "elevation_range_m": 860.58935546875,
+      "elevation_sample_count": 157836
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220650",
+      "gp_name": "Hankon",
+      "era5_land_cell": "E5L_14.90N_74.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 60.19333567169414,
+      "elevation_range_m": 335.8072791993618,
+      "elevation_sample_count": 42765
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220651",
+      "gp_name": "Kadra",
+      "era5_land_cell": "E5L_14.90N_74.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 5,
+      "elevation_mean_m": 124.53954647503035,
+      "elevation_range_m": 549.5241088867188,
+      "elevation_sample_count": 93093
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220652",
+      "gp_name": "Kadwad",
+      "era5_land_cell": "E5L_14.80N_74.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 104.76410009374024,
+      "elevation_range_m": 445.4939880371094,
+      "elevation_sample_count": 9601
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220653",
+      "gp_name": "Kerwadi",
+      "era5_land_cell": "E5L_14.90N_74.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 63.55745647525962,
+      "elevation_range_m": 369.3002014160156,
+      "elevation_sample_count": 16370
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220654",
+      "gp_name": "Kinner",
+      "era5_land_cell": "E5L_14.90N_74.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 60.90333575798269,
+      "elevation_range_m": 277.63509207963943,
+      "elevation_sample_count": 13404
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220656",
+      "gp_name": "Mallapur",
+      "era5_land_cell": "E5L_14.90N_74.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 6,
+      "elevation_mean_m": 366.5637758704555,
+      "elevation_range_m": 770.6883716583252,
+      "elevation_sample_count": 127462
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220658",
+      "gp_name": "Shirwad",
+      "era5_land_cell": "E5L_14.80N_74.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 183.69672814421173,
+      "elevation_range_m": 550.8493782281876,
+      "elevation_sample_count": 28791
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "220659",
+      "gp_name": "Wailwada",
+      "era5_land_cell": "E5L_14.80N_74.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 134.91946568700953,
+      "elevation_range_m": 446.0542775988579,
+      "elevation_sample_count": 20007
+    },
+    {
+      "tp_code": "6253",
+      "gp_code": "273205",
+      "gp_name": "Thoduru",
+      "era5_land_cell": "E5L_14.80N_74.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 133.9915170496416,
+      "elevation_range_m": 471.8606536388397,
+      "elevation_sample_count": 14927
+    },
+    {
+      "tp_code": "296820",
+      "gp_code": "216469",
+      "gp_name": "Alamatti",
+      "era5_land_cell": "E5L_16.30N_75.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 510.4308661548732,
+      "elevation_range_m": 65.58074951171875,
+      "elevation_sample_count": 5992
+    },
+    {
+      "tp_code": "296820",
+      "gp_code": "216471",
+      "gp_name": "Beeraladinni",
+      "era5_land_cell": "E5L_16.40N_75.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 555.2303506508737,
+      "elevation_range_m": 67.1436767578125,
+      "elevation_sample_count": 42635
+    },
+    {
+      "tp_code": "296820",
+      "gp_code": "216473",
+      "gp_name": "Chimmalagi",
+      "era5_land_cell": "E5L_16.40N_75.80E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 527.5181664279203,
+      "elevation_range_m": 56.676849365234375,
+      "elevation_sample_count": 38395
+    },
+    {
+      "tp_code": "296820",
+      "gp_code": "216476",
+      "gp_name": "Golasangi",
+      "era5_land_cell": "E5L_16.50N_75.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 568.3416325372045,
+      "elevation_range_m": 52.503662109375,
+      "elevation_sample_count": 24661
+    },
+    {
+      "tp_code": "296820",
+      "gp_code": "216479",
+      "gp_name": "Hebbal",
+      "era5_land_cell": "E5L_16.40N_75.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 569.2259357706218,
+      "elevation_range_m": 80.3370361328125,
+      "elevation_sample_count": 45898
+    },
+    {
+      "tp_code": "296820",
+      "gp_code": "216482",
+      "gp_name": "Itagi",
+      "era5_land_cell": "E5L_16.40N_76.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 550.0026317612023,
+      "elevation_range_m": 87.24581909179688,
+      "elevation_sample_count": 72195
+    },
+    {
+      "tp_code": "296820",
+      "gp_code": "216504",
+      "gp_name": "Vandal",
+      "era5_land_cell": "E5L_16.40N_75.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 537.1081521588994,
+      "elevation_range_m": 60.417724609375,
+      "elevation_sample_count": 36199
+    },
+    {
+      "tp_code": "296820",
+      "gp_code": "216626",
+      "gp_name": "Yalagur",
+      "era5_land_cell": "E5L_16.30N_76.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 518.4143690129113,
+      "elevation_range_m": 92.71844482421875,
+      "elevation_sample_count": 12005
+    },
+    {
+      "tp_code": "296820",
+      "gp_code": "273044",
+      "gp_name": "Benala R.C",
+      "era5_land_cell": "E5L_16.40N_75.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 520.8443583233106,
+      "elevation_range_m": 56.40533447265625,
+      "elevation_sample_count": 22449
+    },
+    {
+      "tp_code": "296820",
+      "gp_code": "273045",
+      "gp_name": "Gani R.C",
+      "era5_land_cell": "E5L_16.40N_75.80E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 521.3734854478078,
+      "elevation_range_m": 46.53375244140625,
+      "elevation_sample_count": 24017
+    },
+    {
+      "tp_code": "296820",
+      "gp_code": "273057",
+      "gp_name": "Balabatti",
+      "era5_land_cell": "E5L_16.30N_76.00E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 505.0196220600897,
+      "elevation_range_m": 37.43603515625,
+      "elevation_sample_count": 22067
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217089",
+      "gp_name": "Adivala",
+      "era5_land_cell": "E5L_13.90N_76.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 605.8826904686006,
+      "elevation_range_m": 79.3726806640625,
+      "elevation_sample_count": 25096
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217091",
+      "gp_name": "Buruginarolppa",
+      "era5_land_cell": "E5L_14.10N_76.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 725.2560719816518,
+      "elevation_range_m": 295.27679443359375,
+      "elevation_sample_count": 51013
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217092",
+      "gp_name": "Dharampura",
+      "era5_land_cell": "E5L_14.10N_76.80E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 591.8686936244826,
+      "elevation_range_m": 52.16607666015625,
+      "elevation_sample_count": 55321
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217093",
+      "gp_name": "Dindavara",
+      "era5_land_cell": "E5L_13.80N_76.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 670.5997111830887,
+      "elevation_range_m": 215.4638671875,
+      "elevation_sample_count": 122569
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217094",
+      "gp_name": "Eshwaragere",
+      "era5_land_cell": "E5L_14.00N_76.80E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 591.1081446083524,
+      "elevation_range_m": 121.2452392578125,
+      "elevation_sample_count": 77008
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217095",
+      "gp_name": "Gananaikanahally",
+      "era5_land_cell": "E5L_14.00N_76.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 630.9902631123421,
+      "elevation_range_m": 72.04345703125,
+      "elevation_sample_count": 46216
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217096",
+      "gp_name": "Gowdanahally",
+      "era5_land_cell": "E5L_13.90N_76.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 636.532632946426,
+      "elevation_range_m": 223.6212158203125,
+      "elevation_sample_count": 70818
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217097",
+      "gp_name": "Hariyebbe",
+      "era5_land_cell": "E5L_14.10N_76.80E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 575.7992734275834,
+      "elevation_range_m": 55.40740966796875,
+      "elevation_sample_count": 45694
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217098",
+      "gp_name": "Harthikote",
+      "era5_land_cell": "E5L_14.10N_76.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 624.5954684918574,
+      "elevation_range_m": 88.41497802734375,
+      "elevation_sample_count": 42370
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217099",
+      "gp_name": "Hosayelanadu",
+      "era5_land_cell": "E5L_14.00N_76.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 604.2985784674634,
+      "elevation_range_m": 40.76739501953125,
+      "elevation_sample_count": 17657
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217100",
+      "gp_name": "Ikkanur",
+      "era5_land_cell": "E5L_14.00N_76.80E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 602.1031383934744,
+      "elevation_range_m": 56.69775390625,
+      "elevation_sample_count": 94029
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217101",
+      "gp_name": "Imangala",
+      "era5_land_cell": "E5L_14.10N_76.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 712.2248299610467,
+      "elevation_range_m": 308.5537109375,
+      "elevation_sample_count": 81893
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217102",
+      "gp_name": "Javanagondanahally",
+      "era5_land_cell": "E5L_13.80N_76.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 5,
+      "elevation_mean_m": 636.6599556389694,
+      "elevation_range_m": 116.84661865234375,
+      "elevation_sample_count": 70332
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217103",
+      "gp_name": "K R Hally",
+      "era5_land_cell": "E5L_13.90N_76.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 615.3482963426071,
+      "elevation_range_m": 72.029052734375,
+      "elevation_sample_count": 47985
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217104",
+      "gp_name": "Kanajanahalli",
+      "era5_land_cell": "E5L_14.10N_76.80E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 569.6282457678559,
+      "elevation_range_m": 46.1058349609375,
+      "elevation_sample_count": 59308
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217105",
+      "gp_name": "Kariyala",
+      "era5_land_cell": "E5L_13.80N_76.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 636.9627711527542,
+      "elevation_range_m": 139.84027099609375,
+      "elevation_sample_count": 44025
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217106",
+      "gp_name": "Khandenahally",
+      "era5_land_cell": "E5L_14.10N_76.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 595.1507957630276,
+      "elevation_range_m": 66.95819091796875,
+      "elevation_sample_count": 56361
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217107",
+      "gp_name": "Kunikere",
+      "era5_land_cell": "E5L_13.90N_76.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 624.7070834915412,
+      "elevation_range_m": 92.74090576171875,
+      "elevation_sample_count": 71109
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217108",
+      "gp_name": "M.D.Kote",
+      "era5_land_cell": "E5L_14.10N_76.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 630.4354893328818,
+      "elevation_range_m": 74.48199462890625,
+      "elevation_sample_count": 62013
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217109",
+      "gp_name": "Maradihally",
+      "era5_land_cell": "E5L_14.10N_76.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 659.9185910396935,
+      "elevation_range_m": 75.067138671875,
+      "elevation_sample_count": 37588
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217110",
+      "gp_name": "Maskal",
+      "era5_land_cell": "E5L_14.00N_76.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 612.2199492744585,
+      "elevation_range_m": 59.613525390625,
+      "elevation_sample_count": 24051
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217111",
+      "gp_name": "Metikurke",
+      "era5_land_cell": "E5L_14.00N_76.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 640.1634302844536,
+      "elevation_range_m": 163.10736083984375,
+      "elevation_sample_count": 59377
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217112",
+      "gp_name": "P.D.Kote",
+      "era5_land_cell": "E5L_14.10N_76.90E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 595.244510558484,
+      "elevation_range_m": 56.2811279296875,
+      "elevation_sample_count": 30923
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217113",
+      "gp_name": "Ranganathapura",
+      "era5_land_cell": "E5L_14.00N_76.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 589.8534738378723,
+      "elevation_range_m": 38.48150634765625,
+      "elevation_sample_count": 21921
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217114",
+      "gp_name": "Rangenahally",
+      "era5_land_cell": "E5L_14.10N_76.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 585.445084031454,
+      "elevation_range_m": 47.270751953125,
+      "elevation_sample_count": 38914
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217117",
+      "gp_name": "V.V.Pura",
+      "era5_land_cell": "E5L_13.90N_76.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 652.0027509528039,
+      "elevation_range_m": 218.13360595703125,
+      "elevation_sample_count": 34897
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217118",
+      "gp_name": "Yelladakere",
+      "era5_land_cell": "E5L_13.80N_76.50E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 752.7565451293534,
+      "elevation_range_m": 472.5205078125,
+      "elevation_sample_count": 142014
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "217119",
+      "gp_name": "Yeraballi",
+      "era5_land_cell": "E5L_14.10N_76.60E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 626.8054740197889,
+      "elevation_range_m": 84.598388671875,
+      "elevation_sample_count": 51443
+    },
+    {
+      "tp_code": "6142",
+      "gp_code": "272697",
+      "gp_name": "Byadarahalli",
+      "era5_land_cell": "E5L_14.00N_76.70E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 593.8797868290826,
+      "elevation_range_m": 52.84222412109375,
+      "elevation_sample_count": 26270
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215597",
+      "gp_name": "Akkur",
+      "era5_land_cell": "E5L_12.80N_77.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 799.5390632362643,
+      "elevation_range_m": 125.75152587890625,
+      "elevation_sample_count": 10611
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215598",
+      "gp_name": "Bannikuppe",
+      "era5_land_cell": "E5L_12.90N_77.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 774.2732431779764,
+      "elevation_range_m": 113.0450439453125,
+      "elevation_sample_count": 33128
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215599",
+      "gp_name": "Bannikuppe2",
+      "era5_land_cell": "E5L_12.60N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 725.5454686369743,
+      "elevation_range_m": 136.890869140625,
+      "elevation_sample_count": 19354
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215600",
+      "gp_name": "Belugumba",
+      "era5_land_cell": "E5L_12.70N_77.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 742.641583127197,
+      "elevation_range_m": 170.5718994140625,
+      "elevation_sample_count": 30724
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215602",
+      "gp_name": "Byaramangal",
+      "era5_land_cell": "E5L_12.80N_77.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 731.4398968739929,
+      "elevation_range_m": 148.67218017578125,
+      "elevation_sample_count": 31030
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215603",
+      "gp_name": "Doddagangavadi",
+      "era5_land_cell": "E5L_12.80N_77.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 780.8519393116477,
+      "elevation_range_m": 131.2078857421875,
+      "elevation_sample_count": 16939
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215604",
+      "gp_name": "Gopahalli",
+      "era5_land_cell": "E5L_12.70N_77.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 706.890418245894,
+      "elevation_range_m": 227.4873046875,
+      "elevation_sample_count": 30078
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215605",
+      "gp_name": "Harisandra",
+      "era5_land_cell": "E5L_12.80N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 730.9570390822732,
+      "elevation_range_m": 223.19195556640625,
+      "elevation_sample_count": 30423
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215606",
+      "gp_name": "Hulikeregunnur(Averhalli)",
+      "era5_land_cell": "E5L_12.60N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 704.3951646327423,
+      "elevation_range_m": 237.1669921875,
+      "elevation_sample_count": 21715
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215607",
+      "gp_name": "Hunasanahalli",
+      "era5_land_cell": "E5L_12.70N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 695.3532596536758,
+      "elevation_range_m": 224.51055908203125,
+      "elevation_sample_count": 22349
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215609",
+      "gp_name": "Jalamagal",
+      "era5_land_cell": "E5L_12.80N_77.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 1,
+      "elevation_mean_m": 813.1084347826087,
+      "elevation_range_m": 301.0635986328125,
+      "elevation_sample_count": 23000
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215610",
+      "gp_name": "Kailancha",
+      "era5_land_cell": "E5L_12.70N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 5,
+      "elevation_mean_m": 731.2752671220879,
+      "elevation_range_m": 225.62835693359375,
+      "elevation_sample_count": 22836
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215612",
+      "gp_name": "Kootagal",
+      "era5_land_cell": "E5L_12.80N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 752.1693410720383,
+      "elevation_range_m": 197.47784423828125,
+      "elevation_sample_count": 29290
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215613",
+      "gp_name": "Kunchugaranahalli",
+      "era5_land_cell": "E5L_12.70N_77.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 713.2090451875456,
+      "elevation_range_m": 118.0867919921875,
+      "elevation_sample_count": 26047
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215614",
+      "gp_name": "Lakshmipura",
+      "era5_land_cell": "E5L_12.80N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 795.3763201778766,
+      "elevation_range_m": 181.8155517578125,
+      "elevation_sample_count": 32382
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215615",
+      "gp_name": "Manchanayakanahalli",
+      "era5_land_cell": "E5L_12.80N_77.40E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 737.8340262335234,
+      "elevation_range_m": 123.41595458984375,
+      "elevation_sample_count": 31029
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215616",
+      "gp_name": "Mayaganahalli",
+      "era5_land_cell": "E5L_12.80N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 4,
+      "elevation_mean_m": 756.9512321660181,
+      "elevation_range_m": 150.23443603515625,
+      "elevation_sample_count": 23130
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215617",
+      "gp_name": "Shanaboganahalli",
+      "era5_land_cell": "E5L_12.80N_77.20E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 723.1408376325304,
+      "elevation_range_m": 177.83612060546875,
+      "elevation_sample_count": 24617
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215618",
+      "gp_name": "Sugganahalli",
+      "era5_land_cell": "E5L_12.80N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 3,
+      "elevation_mean_m": 754.1074676679183,
+      "elevation_range_m": 247.359375,
+      "elevation_sample_count": 35955
+    },
+    {
+      "tp_code": "6101",
+      "gp_code": "215619",
+      "gp_name": "Vibuthi Kere",
+      "era5_land_cell": "E5L_12.70N_77.30E",
+      "rows": 131400,
+      "intersecting_cell_count": 2,
+      "elevation_mean_m": 717.8816124773572,
+      "elevation_range_m": 156.49334716796875,
+      "elevation_sample_count": 32571
+    }
+  ],
+  "temporal_coverage": {
+    "time_range_utc": [
+      "2021-01-01 00:00:00+00:00",
+      "2023-12-31 23:00:00+00:00"
+    ],
+    "hours": 26280,
+    "months": 36,
+    "variables": [
+      "temperature_c",
+      "dewpoint_c",
+      "relative_humidity_pct",
+      "rainfall_mm",
+      "wind_speed_kmph"
+    ],
+    "units": {
+      "temperature_c": "C",
+      "dewpoint_c": "C",
+      "relative_humidity_pct": "%",
+      "wind_speed_kmph": "km/h",
+      "rainfall_mm": "mm"
+    },
+    "temporal_split": {
+      "train_period_utc": [
+        "2021-01-01T00:00Z",
+        "2022-12-24T23:00Z"
+      ],
+      "embargo_utc": [
+        "2022-12-25T00:00Z",
+        "2022-12-31T23:00Z"
+      ],
+      "test_period_utc": [
+        "2023-01-01T00:00Z",
+        "2023-12-31T23:00Z"
+      ],
+      "note": "Identical to Phase 2D; applied inside every spatial fold."
+    }
+  },
+  "elevation_coverage": {
+    "tiles": [
+      "Copernicus_DSM_COG_10_N12_00_E075_00_DEM",
+      "Copernicus_DSM_COG_10_N12_00_E076_00_DEM",
+      "Copernicus_DSM_COG_10_N12_00_E077_00_DEM",
+      "Copernicus_DSM_COG_10_N13_00_E074_00_DEM",
+      "Copernicus_DSM_COG_10_N13_00_E075_00_DEM",
+      "Copernicus_DSM_COG_10_N13_00_E076_00_DEM",
+      "Copernicus_DSM_COG_10_N13_00_E077_00_DEM",
+      "Copernicus_DSM_COG_10_N13_00_E078_00_DEM",
+      "Copernicus_DSM_COG_10_N14_00_E074_00_DEM",
+      "Copernicus_DSM_COG_10_N14_00_E075_00_DEM",
+      "Copernicus_DSM_COG_10_N14_00_E076_00_DEM",
+      "Copernicus_DSM_COG_10_N15_00_E074_00_DEM",
+      "Copernicus_DSM_COG_10_N15_00_E076_00_DEM",
+      "Copernicus_DSM_COG_10_N15_00_E077_00_DEM",
+      "Copernicus_DSM_COG_10_N16_00_E075_00_DEM",
+      "Copernicus_DSM_COG_10_N16_00_E076_00_DEM",
+      "Copernicus_DSM_COG_10_N17_00_E077_00_DEM"
+    ],
+    "gps_with_elevation": 277,
+    "gp_mean_elevation_range_m": [
+      9.061637792987284,
+      954.846440160336
+    ]
+  },
+  "rainfall_quality": {
+    "missing_first_hour_per_cell": [
+      1
+    ],
+    "missing_target_rows": 277,
+    "clamped_target_rows": 114404,
+    "max_abs_clamped_step_mm": 4.870526026934385e-05,
+    "month_boundary_rainfall_missing": 0,
+    "deaccumulation": "ERA5-Land de-accumulated over the continuous 2021-2023 series (all 36 months concatenated first)"
+  },
+  "integrity_checks": {
+    "complete_gps_match_frozen_design": true,
+    "no_cell_shared_between_areas": true,
+    "all_target_cells_land": true,
+    "bilinear_corners_inside_era5_grid": true,
+    "unexpected_missing_values": 0,
+    "month_boundary_rainfall_missing": 0,
+    "months_present": 36
+  },
+  "pairing": {
+    "E5L_12.50N_76.10E": {
+      "bilinear": [
+        {
+          "latitude": 12.5,
+          "longitude": 76.0,
+          "weight": 0.6000000000000227
+        },
+        {
+          "latitude": 12.5,
+          "longitude": 76.25,
+          "weight": 0.39999999999997726
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.0,
+          "weight": 0.0
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 12.5,
+        "longitude": 76.0,
+        "distance_km": 10.855931219789053
+      }
+    },
+    "E5L_12.60N_76.00E": {
+      "bilinear": [
+        {
+          "latitude": 12.5,
+          "longitude": 76.0,
+          "weight": 0.6000000000000014
+        },
+        {
+          "latitude": 12.5,
+          "longitude": 76.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.0,
+          "weight": 0.3999999999999986
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 12.5,
+        "longitude": 76.0,
+        "distance_km": 11.119508023353252
+      }
+    },
+    "E5L_12.60N_76.10E": {
+      "bilinear": [
+        {
+          "latitude": 12.5,
+          "longitude": 76.0,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 12.5,
+          "longitude": 76.25,
+          "weight": 0.23999999999998692
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.0,
+          "weight": 0.24000000000000823
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.25,
+          "weight": 0.15999999999999034
+        }
+      ],
+      "nearest": {
+        "latitude": 12.5,
+        "longitude": 76.0,
+        "distance_km": 15.538628686325406
+      }
+    },
+    "E5L_12.60N_76.20E": {
+      "bilinear": [
+        {
+          "latitude": 12.5,
+          "longitude": 76.0,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 12.5,
+          "longitude": 76.25,
+          "weight": 0.480000000000008
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.0,
+          "weight": 0.07999999999999517
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.25,
+          "weight": 0.3200000000000034
+        }
+      ],
+      "nearest": {
+        "latitude": 12.5,
+        "longitude": 76.25,
+        "distance_km": 12.373149948120775
+      }
+    },
+    "E5L_12.60N_77.30E": {
+      "bilinear": [
+        {
+          "latitude": 12.5,
+          "longitude": 77.25,
+          "weight": 0.480000000000008
+        },
+        {
+          "latitude": 12.5,
+          "longitude": 77.5,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 77.25,
+          "weight": 0.3200000000000034
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 77.5,
+          "weight": 0.07999999999999517
+        }
+      ],
+      "nearest": {
+        "latitude": 12.5,
+        "longitude": 77.25,
+        "distance_km": 12.373149948120775
+      }
+    },
+    "E5L_12.70N_76.00E": {
+      "bilinear": [
+        {
+          "latitude": 12.5,
+          "longitude": 76.0,
+          "weight": 0.20000000000000284
+        },
+        {
+          "latitude": 12.5,
+          "longitude": 76.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.0,
+          "weight": 0.7999999999999972
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 12.75,
+        "longitude": 76.0,
+        "distance_km": 5.559754011676724
+      }
+    },
+    "E5L_12.70N_76.10E": {
+      "bilinear": [
+        {
+          "latitude": 12.5,
+          "longitude": 76.0,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 12.5,
+          "longitude": 76.25,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.0,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.25,
+          "weight": 0.3199999999999807
+        }
+      ],
+      "nearest": {
+        "latitude": 12.75,
+        "longitude": 76.0,
+        "distance_km": 12.188321122176259
+      }
+    },
+    "E5L_12.70N_76.20E": {
+      "bilinear": [
+        {
+          "latitude": 12.5,
+          "longitude": 76.0,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 12.5,
+          "longitude": 76.25,
+          "weight": 0.16000000000000456
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.0,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.25,
+          "weight": 0.6400000000000068
+        }
+      ],
+      "nearest": {
+        "latitude": 12.75,
+        "longitude": 76.25,
+        "distance_km": 7.766720139078818
+      }
+    },
+    "E5L_12.70N_77.20E": {
+      "bilinear": [
+        {
+          "latitude": 12.5,
+          "longitude": 77.0,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 12.5,
+          "longitude": 77.25,
+          "weight": 0.16000000000000456
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 77.0,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 77.25,
+          "weight": 0.6400000000000068
+        }
+      ],
+      "nearest": {
+        "latitude": 12.75,
+        "longitude": 77.25,
+        "distance_km": 7.766720139078818
+      }
+    },
+    "E5L_12.70N_77.30E": {
+      "bilinear": [
+        {
+          "latitude": 12.5,
+          "longitude": 77.25,
+          "weight": 0.16000000000000456
+        },
+        {
+          "latitude": 12.5,
+          "longitude": 77.5,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 77.25,
+          "weight": 0.6400000000000068
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 77.5,
+          "weight": 0.15999999999999034
+        }
+      ],
+      "nearest": {
+        "latitude": 12.75,
+        "longitude": 77.25,
+        "distance_km": 7.766720139078818
+      }
+    },
+    "E5L_12.70N_77.40E": {
+      "bilinear": [
+        {
+          "latitude": 12.5,
+          "longitude": 77.25,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 12.5,
+          "longitude": 77.5,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 77.25,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 77.5,
+          "weight": 0.48000000000001647
+        }
+      ],
+      "nearest": {
+        "latitude": 12.75,
+        "longitude": 77.5,
+        "distance_km": 12.188321122176259
+      }
+    },
+    "E5L_12.80N_76.00E": {
+      "bilinear": [
+        {
+          "latitude": 12.75,
+          "longitude": 76.0,
+          "weight": 0.7999999999999972
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 76.0,
+          "weight": 0.20000000000000284
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 76.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 12.75,
+        "longitude": 76.0,
+        "distance_km": 5.559754011676724
+      }
+    },
+    "E5L_12.80N_76.10E": {
+      "bilinear": [
+        {
+          "latitude": 12.75,
+          "longitude": 76.0,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.25,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 76.0,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 76.25,
+          "weight": 0.07999999999999659
+        }
+      ],
+      "nearest": {
+        "latitude": 12.75,
+        "longitude": 76.0,
+        "distance_km": 12.186415384863647
+      }
+    },
+    "E5L_12.80N_76.20E": {
+      "bilinear": [
+        {
+          "latitude": 12.75,
+          "longitude": 76.0,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 76.25,
+          "weight": 0.6400000000000068
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 76.0,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 76.25,
+          "weight": 0.16000000000000456
+        }
+      ],
+      "nearest": {
+        "latitude": 12.75,
+        "longitude": 76.25,
+        "distance_km": 7.765972492840573
+      }
+    },
+    "E5L_12.80N_77.20E": {
+      "bilinear": [
+        {
+          "latitude": 12.75,
+          "longitude": 77.0,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 77.25,
+          "weight": 0.6400000000000068
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 77.0,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 77.25,
+          "weight": 0.16000000000000456
+        }
+      ],
+      "nearest": {
+        "latitude": 12.75,
+        "longitude": 77.25,
+        "distance_km": 7.765972492840573
+      }
+    },
+    "E5L_12.80N_77.30E": {
+      "bilinear": [
+        {
+          "latitude": 12.75,
+          "longitude": 77.25,
+          "weight": 0.6400000000000068
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 77.5,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 77.25,
+          "weight": 0.16000000000000456
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 77.5,
+          "weight": 0.039999999999998294
+        }
+      ],
+      "nearest": {
+        "latitude": 12.75,
+        "longitude": 77.25,
+        "distance_km": 7.765972492840573
+      }
+    },
+    "E5L_12.80N_77.40E": {
+      "bilinear": [
+        {
+          "latitude": 12.75,
+          "longitude": 77.25,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 77.5,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 77.25,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 77.5,
+          "weight": 0.12000000000000625
+        }
+      ],
+      "nearest": {
+        "latitude": 12.75,
+        "longitude": 77.5,
+        "distance_km": 12.186415384863647
+      }
+    },
+    "E5L_12.90N_77.40E": {
+      "bilinear": [
+        {
+          "latitude": 12.75,
+          "longitude": 77.25,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 12.75,
+          "longitude": 77.5,
+          "weight": 0.24000000000000823
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 77.25,
+          "weight": 0.23999999999998692
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 77.5,
+          "weight": 0.3600000000000145
+        }
+      ],
+      "nearest": {
+        "latitude": 13.0,
+        "longitude": 77.5,
+        "distance_km": 15.526666400832042
+      }
+    },
+    "E5L_13.10N_74.80E": {
+      "bilinear": [
+        {
+          "latitude": 13.0,
+          "longitude": 74.75,
+          "weight": 0.480000000000008
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 75.0,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 74.75,
+          "weight": 0.3200000000000034
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 75.0,
+          "weight": 0.07999999999999517
+        }
+      ],
+      "nearest": {
+        "latitude": 13.0,
+        "longitude": 74.75,
+        "distance_km": 12.368439137868792
+      }
+    },
+    "E5L_13.10N_74.90E": {
+      "bilinear": [
+        {
+          "latitude": 13.0,
+          "longitude": 74.75,
+          "weight": 0.23999999999998692
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 75.0,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 74.75,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 75.0,
+          "weight": 0.24000000000000823
+        }
+      ],
+      "nearest": {
+        "latitude": 13.0,
+        "longitude": 75.0,
+        "distance_km": 15.523619733985514
+      }
+    },
+    "E5L_13.10N_75.00E": {
+      "bilinear": [
+        {
+          "latitude": 13.0,
+          "longitude": 75.0,
+          "weight": 0.6000000000000014
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 75.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 75.0,
+          "weight": 0.3999999999999986
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 75.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 13.0,
+        "longitude": 75.0,
+        "distance_km": 11.119508023353252
+      }
+    },
+    "E5L_13.20N_74.90E": {
+      "bilinear": [
+        {
+          "latitude": 13.0,
+          "longitude": 74.75,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 75.0,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 74.75,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 75.0,
+          "weight": 0.48000000000001647
+        }
+      ],
+      "nearest": {
+        "latitude": 13.25,
+        "longitude": 75.0,
+        "distance_km": 12.168936880718343
+      }
+    },
+    "E5L_13.20N_75.00E": {
+      "bilinear": [
+        {
+          "latitude": 13.0,
+          "longitude": 75.0,
+          "weight": 0.20000000000000284
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 75.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 75.0,
+          "weight": 0.7999999999999972
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 75.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 13.25,
+        "longitude": 75.0,
+        "distance_km": 5.559754011676724
+      }
+    },
+    "E5L_13.20N_75.10E": {
+      "bilinear": [
+        {
+          "latitude": 13.0,
+          "longitude": 75.0,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 13.0,
+          "longitude": 75.25,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 75.0,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 75.25,
+          "weight": 0.3199999999999807
+        }
+      ],
+      "nearest": {
+        "latitude": 13.25,
+        "longitude": 75.0,
+        "distance_km": 12.168936880718343
+      }
+    },
+    "E5L_13.30N_74.90E": {
+      "bilinear": [
+        {
+          "latitude": 13.25,
+          "longitude": 74.75,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 75.0,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 74.75,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 75.0,
+          "weight": 0.12000000000000625
+        }
+      ],
+      "nearest": {
+        "latitude": 13.25,
+        "longitude": 75.0,
+        "distance_km": 12.16695855078365
+      }
+    },
+    "E5L_13.30N_75.00E": {
+      "bilinear": [
+        {
+          "latitude": 13.25,
+          "longitude": 75.0,
+          "weight": 0.7999999999999972
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 75.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 75.0,
+          "weight": 0.20000000000000284
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 75.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 13.25,
+        "longitude": 75.0,
+        "distance_km": 5.559754011676724
+      }
+    },
+    "E5L_13.30N_75.10E": {
+      "bilinear": [
+        {
+          "latitude": 13.25,
+          "longitude": 75.0,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 75.25,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 75.0,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 75.25,
+          "weight": 0.07999999999999659
+        }
+      ],
+      "nearest": {
+        "latitude": 13.25,
+        "longitude": 75.0,
+        "distance_km": 12.16695855078365
+      }
+    },
+    "E5L_13.30N_77.90E": {
+      "bilinear": [
+        {
+          "latitude": 13.25,
+          "longitude": 77.75,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 78.0,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 77.75,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.0,
+          "weight": 0.12000000000000625
+        }
+      ],
+      "nearest": {
+        "latitude": 13.25,
+        "longitude": 78.0,
+        "distance_km": 12.16695855078365
+      }
+    },
+    "E5L_13.30N_78.00E": {
+      "bilinear": [
+        {
+          "latitude": 13.25,
+          "longitude": 78.0,
+          "weight": 0.7999999999999972
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 78.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.0,
+          "weight": 0.20000000000000284
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 13.25,
+        "longitude": 78.0,
+        "distance_km": 5.559754011676724
+      }
+    },
+    "E5L_13.30N_78.10E": {
+      "bilinear": [
+        {
+          "latitude": 13.25,
+          "longitude": 78.0,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 78.25,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.0,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.25,
+          "weight": 0.07999999999999659
+        }
+      ],
+      "nearest": {
+        "latitude": 13.25,
+        "longitude": 78.0,
+        "distance_km": 12.16695855078365
+      }
+    },
+    "E5L_13.40N_78.00E": {
+      "bilinear": [
+        {
+          "latitude": 13.25,
+          "longitude": 78.0,
+          "weight": 0.3999999999999986
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 78.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.0,
+          "weight": 0.6000000000000014
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 13.5,
+        "longitude": 78.0,
+        "distance_km": 11.119508023353252
+      }
+    },
+    "E5L_13.40N_78.10E": {
+      "bilinear": [
+        {
+          "latitude": 13.25,
+          "longitude": 78.0,
+          "weight": 0.24000000000000823
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 78.25,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.0,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.25,
+          "weight": 0.23999999999998692
+        }
+      ],
+      "nearest": {
+        "latitude": 13.5,
+        "longitude": 78.0,
+        "distance_km": 15.511209402723866
+      }
+    },
+    "E5L_13.40N_78.20E": {
+      "bilinear": [
+        {
+          "latitude": 13.25,
+          "longitude": 78.0,
+          "weight": 0.07999999999999517
+        },
+        {
+          "latitude": 13.25,
+          "longitude": 78.25,
+          "weight": 0.3200000000000034
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.0,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.25,
+          "weight": 0.480000000000008
+        }
+      ],
+      "nearest": {
+        "latitude": 13.5,
+        "longitude": 78.25,
+        "distance_km": 12.364546032750702
+      }
+    },
+    "E5L_13.50N_78.00E": {
+      "bilinear": [
+        {
+          "latitude": 13.5,
+          "longitude": 78.0,
+          "weight": 1.0
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 78.0,
+          "weight": 0.0
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 78.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 13.5,
+        "longitude": 78.0,
+        "distance_km": 0.0
+      }
+    },
+    "E5L_13.50N_78.10E": {
+      "bilinear": [
+        {
+          "latitude": 13.5,
+          "longitude": 78.0,
+          "weight": 0.6000000000000227
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.25,
+          "weight": 0.39999999999997726
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 78.0,
+          "weight": 0.0
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 78.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 13.5,
+        "longitude": 78.0,
+        "distance_km": 10.812275056740871
+      }
+    },
+    "E5L_13.50N_78.20E": {
+      "bilinear": [
+        {
+          "latitude": 13.5,
+          "longitude": 78.0,
+          "weight": 0.19999999999998863
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.25,
+          "weight": 0.8000000000000114
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 78.0,
+          "weight": 0.0
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 78.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 13.5,
+        "longitude": 78.25,
+        "distance_km": 5.406137556415892
+      }
+    },
+    "E5L_13.60N_78.00E": {
+      "bilinear": [
+        {
+          "latitude": 13.5,
+          "longitude": 78.0,
+          "weight": 0.6000000000000014
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 78.0,
+          "weight": 0.3999999999999986
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 78.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 13.5,
+        "longitude": 78.0,
+        "distance_km": 11.119508023353252
+      }
+    },
+    "E5L_13.60N_78.10E": {
+      "bilinear": [
+        {
+          "latitude": 13.5,
+          "longitude": 78.0,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 13.5,
+          "longitude": 78.25,
+          "weight": 0.23999999999998692
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 78.0,
+          "weight": 0.24000000000000823
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 78.25,
+          "weight": 0.15999999999999034
+        }
+      ],
+      "nearest": {
+        "latitude": 13.5,
+        "longitude": 78.0,
+        "distance_km": 15.508051025953815
+      }
+    },
+    "E5L_13.80N_76.50E": {
+      "bilinear": [
+        {
+          "latitude": 13.75,
+          "longitude": 76.5,
+          "weight": 0.7999999999999972
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 76.75,
+          "weight": 0.0
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.5,
+          "weight": 0.20000000000000284
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 13.75,
+        "longitude": 76.5,
+        "distance_km": 5.559754011676724
+      }
+    },
+    "E5L_13.80N_76.60E": {
+      "bilinear": [
+        {
+          "latitude": 13.75,
+          "longitude": 76.5,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 76.75,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.5,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.07999999999999659
+        }
+      ],
+      "nearest": {
+        "latitude": 13.75,
+        "longitude": 76.5,
+        "distance_km": 12.146777152819316
+      }
+    },
+    "E5L_13.80N_76.70E": {
+      "bilinear": [
+        {
+          "latitude": 13.75,
+          "longitude": 76.5,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 76.75,
+          "weight": 0.6400000000000068
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.5,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.16000000000000456
+        }
+      ],
+      "nearest": {
+        "latitude": 13.75,
+        "longitude": 76.75,
+        "distance_km": 7.750432092313944
+      }
+    },
+    "E5L_13.90N_76.50E": {
+      "bilinear": [
+        {
+          "latitude": 13.75,
+          "longitude": 76.5,
+          "weight": 0.3999999999999986
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 76.75,
+          "weight": 0.0
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.5,
+          "weight": 0.6000000000000014
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 14.0,
+        "longitude": 76.5,
+        "distance_km": 11.119508023353252
+      }
+    },
+    "E5L_13.90N_76.60E": {
+      "bilinear": [
+        {
+          "latitude": 13.75,
+          "longitude": 76.5,
+          "weight": 0.24000000000000823
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 76.75,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.5,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.23999999999998692
+        }
+      ],
+      "nearest": {
+        "latitude": 14.0,
+        "longitude": 76.5,
+        "distance_km": 15.495195089225257
+      }
+    },
+    "E5L_13.90N_76.70E": {
+      "bilinear": [
+        {
+          "latitude": 13.75,
+          "longitude": 76.5,
+          "weight": 0.07999999999999517
+        },
+        {
+          "latitude": 13.75,
+          "longitude": 76.75,
+          "weight": 0.3200000000000034
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.5,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.480000000000008
+        }
+      ],
+      "nearest": {
+        "latitude": 14.0,
+        "longitude": 76.75,
+        "distance_km": 12.359525154571802
+      }
+    },
+    "E5L_14.00N_76.60E": {
+      "bilinear": [
+        {
+          "latitude": 14.0,
+          "longitude": 76.5,
+          "weight": 0.6000000000000227
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.39999999999997726
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 76.5,
+          "weight": 0.0
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 76.75,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 14.0,
+        "longitude": 76.5,
+        "distance_km": 10.789211033204404
+      }
+    },
+    "E5L_14.00N_76.70E": {
+      "bilinear": [
+        {
+          "latitude": 14.0,
+          "longitude": 76.5,
+          "weight": 0.19999999999998863
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.8000000000000114
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 76.5,
+          "weight": 0.0
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 76.75,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 14.0,
+        "longitude": 76.75,
+        "distance_km": 5.394605546657078
+      }
+    },
+    "E5L_14.00N_76.80E": {
+      "bilinear": [
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.8000000000000114
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 77.0,
+          "weight": 0.19999999999998863
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 76.75,
+          "weight": 0.0
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 77.0,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 14.0,
+        "longitude": 76.75,
+        "distance_km": 5.394605546657078
+      }
+    },
+    "E5L_14.10N_76.50E": {
+      "bilinear": [
+        {
+          "latitude": 14.0,
+          "longitude": 76.5,
+          "weight": 0.6000000000000014
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.0
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 76.5,
+          "weight": 0.3999999999999986
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 76.75,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 14.0,
+        "longitude": 76.5,
+        "distance_km": 11.119508023353252
+      }
+    },
+    "E5L_14.10N_76.60E": {
+      "bilinear": [
+        {
+          "latitude": 14.0,
+          "longitude": 76.5,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.23999999999998692
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 76.5,
+          "weight": 0.24000000000000823
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 76.75,
+          "weight": 0.15999999999999034
+        }
+      ],
+      "nearest": {
+        "latitude": 14.0,
+        "longitude": 76.5,
+        "distance_km": 15.49192562434237
+      }
+    },
+    "E5L_14.10N_76.70E": {
+      "bilinear": [
+        {
+          "latitude": 14.0,
+          "longitude": 76.5,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.480000000000008
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 76.5,
+          "weight": 0.07999999999999517
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 76.75,
+          "weight": 0.3200000000000034
+        }
+      ],
+      "nearest": {
+        "latitude": 14.0,
+        "longitude": 76.75,
+        "distance_km": 12.358500484484438
+      }
+    },
+    "E5L_14.10N_76.80E": {
+      "bilinear": [
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.480000000000008
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 77.0,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 76.75,
+          "weight": 0.3200000000000034
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 77.0,
+          "weight": 0.07999999999999517
+        }
+      ],
+      "nearest": {
+        "latitude": 14.0,
+        "longitude": 76.75,
+        "distance_km": 12.358500484484438
+      }
+    },
+    "E5L_14.10N_76.90E": {
+      "bilinear": [
+        {
+          "latitude": 14.0,
+          "longitude": 76.75,
+          "weight": 0.23999999999998692
+        },
+        {
+          "latitude": 14.0,
+          "longitude": 77.0,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 76.75,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 77.0,
+          "weight": 0.24000000000000823
+        }
+      ],
+      "nearest": {
+        "latitude": 14.0,
+        "longitude": 77.0,
+        "distance_km": 15.49192562434237
+      }
+    },
+    "E5L_14.30N_75.00E": {
+      "bilinear": [
+        {
+          "latitude": 14.25,
+          "longitude": 75.0,
+          "weight": 0.7999999999999972
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 75.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.0,
+          "weight": 0.20000000000000284
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 14.25,
+        "longitude": 75.0,
+        "distance_km": 5.559754011676724
+      }
+    },
+    "E5L_14.30N_75.10E": {
+      "bilinear": [
+        {
+          "latitude": 14.25,
+          "longitude": 75.0,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 75.25,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.0,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.25,
+          "weight": 0.07999999999999659
+        }
+      ],
+      "nearest": {
+        "latitude": 14.25,
+        "longitude": 75.0,
+        "distance_km": 12.12587373640756
+      }
+    },
+    "E5L_14.30N_75.20E": {
+      "bilinear": [
+        {
+          "latitude": 14.25,
+          "longitude": 75.0,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 75.25,
+          "weight": 0.6400000000000068
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.0,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.25,
+          "weight": 0.16000000000000456
+        }
+      ],
+      "nearest": {
+        "latitude": 14.25,
+        "longitude": 75.25,
+        "distance_km": 7.742244655566195
+      }
+    },
+    "E5L_14.40N_75.00E": {
+      "bilinear": [
+        {
+          "latitude": 14.25,
+          "longitude": 75.0,
+          "weight": 0.3999999999999986
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 75.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.0,
+          "weight": 0.6000000000000014
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 14.5,
+        "longitude": 75.0,
+        "distance_km": 11.119508023353252
+      }
+    },
+    "E5L_14.40N_75.10E": {
+      "bilinear": [
+        {
+          "latitude": 14.25,
+          "longitude": 75.0,
+          "weight": 0.24000000000000823
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 75.25,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.0,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.25,
+          "weight": 0.23999999999998692
+        }
+      ],
+      "nearest": {
+        "latitude": 14.5,
+        "longitude": 75.0,
+        "distance_km": 15.478626616390757
+      }
+    },
+    "E5L_14.40N_75.20E": {
+      "bilinear": [
+        {
+          "latitude": 14.25,
+          "longitude": 75.0,
+          "weight": 0.07999999999999517
+        },
+        {
+          "latitude": 14.25,
+          "longitude": 75.25,
+          "weight": 0.3200000000000034
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.0,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.25,
+          "weight": 0.480000000000008
+        }
+      ],
+      "nearest": {
+        "latitude": 14.5,
+        "longitude": 75.25,
+        "distance_km": 12.354333848374871
+      }
+    },
+    "E5L_14.50N_74.90E": {
+      "bilinear": [
+        {
+          "latitude": 14.5,
+          "longitude": 74.75,
+          "weight": 0.39999999999997726
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.0,
+          "weight": 0.6000000000000227
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 74.75,
+          "weight": 0.0
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 75.0,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 14.5,
+        "longitude": 75.0,
+        "distance_km": 10.765325369315892
+      }
+    },
+    "E5L_14.50N_75.00E": {
+      "bilinear": [
+        {
+          "latitude": 14.5,
+          "longitude": 75.0,
+          "weight": 1.0
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 75.0,
+          "weight": 0.0
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 75.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 14.5,
+        "longitude": 75.0,
+        "distance_km": 0.0
+      }
+    },
+    "E5L_14.50N_75.10E": {
+      "bilinear": [
+        {
+          "latitude": 14.5,
+          "longitude": 75.0,
+          "weight": 0.6000000000000227
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.25,
+          "weight": 0.39999999999997726
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 75.0,
+          "weight": 0.0
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 75.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 14.5,
+        "longitude": 75.0,
+        "distance_km": 10.765325369315892
+      }
+    },
+    "E5L_14.50N_75.20E": {
+      "bilinear": [
+        {
+          "latitude": 14.5,
+          "longitude": 75.0,
+          "weight": 0.19999999999998863
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.25,
+          "weight": 0.8000000000000114
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 75.0,
+          "weight": 0.0
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 75.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 14.5,
+        "longitude": 75.25,
+        "distance_km": 5.382662716779856
+      }
+    },
+    "E5L_14.60N_75.10E": {
+      "bilinear": [
+        {
+          "latitude": 14.5,
+          "longitude": 75.0,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.25,
+          "weight": 0.23999999999998692
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 75.0,
+          "weight": 0.24000000000000823
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 75.25,
+          "weight": 0.15999999999999034
+        }
+      ],
+      "nearest": {
+        "latitude": 14.5,
+        "longitude": 75.0,
+        "distance_km": 15.475246708716401
+      }
+    },
+    "E5L_14.60N_75.20E": {
+      "bilinear": [
+        {
+          "latitude": 14.5,
+          "longitude": 75.0,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.25,
+          "weight": 0.480000000000008
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 75.0,
+          "weight": 0.07999999999999517
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 75.25,
+          "weight": 0.3200000000000034
+        }
+      ],
+      "nearest": {
+        "latitude": 14.5,
+        "longitude": 75.25,
+        "distance_km": 12.353275255289818
+      }
+    },
+    "E5L_14.60N_75.30E": {
+      "bilinear": [
+        {
+          "latitude": 14.5,
+          "longitude": 75.25,
+          "weight": 0.480000000000008
+        },
+        {
+          "latitude": 14.5,
+          "longitude": 75.5,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 75.25,
+          "weight": 0.3200000000000034
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 75.5,
+          "weight": 0.07999999999999517
+        }
+      ],
+      "nearest": {
+        "latitude": 14.5,
+        "longitude": 75.25,
+        "distance_km": 12.353275255289818
+      }
+    },
+    "E5L_14.80N_74.20E": {
+      "bilinear": [
+        {
+          "latitude": 14.75,
+          "longitude": 74.0,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 74.25,
+          "weight": 0.6400000000000068
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 74.0,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 74.25,
+          "weight": 0.16000000000000456
+        }
+      ],
+      "nearest": {
+        "latitude": 14.75,
+        "longitude": 74.25,
+        "distance_km": 7.733781196566549
+      }
+    },
+    "E5L_14.80N_74.30E": {
+      "bilinear": [
+        {
+          "latitude": 14.75,
+          "longitude": 74.25,
+          "weight": 0.6400000000000068
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 74.5,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 74.25,
+          "weight": 0.16000000000000456
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 74.5,
+          "weight": 0.039999999999998294
+        }
+      ],
+      "nearest": {
+        "latitude": 14.75,
+        "longitude": 74.25,
+        "distance_km": 7.733781196566549
+      }
+    },
+    "E5L_14.90N_74.20E": {
+      "bilinear": [
+        {
+          "latitude": 14.75,
+          "longitude": 74.0,
+          "weight": 0.07999999999999517
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 74.25,
+          "weight": 0.3200000000000034
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 74.0,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 74.25,
+          "weight": 0.480000000000008
+        }
+      ],
+      "nearest": {
+        "latitude": 15.0,
+        "longitude": 74.25,
+        "distance_km": 12.348973481565753
+      }
+    },
+    "E5L_14.90N_74.30E": {
+      "bilinear": [
+        {
+          "latitude": 14.75,
+          "longitude": 74.25,
+          "weight": 0.3200000000000034
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 74.5,
+          "weight": 0.07999999999999517
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 74.25,
+          "weight": 0.480000000000008
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 74.5,
+          "weight": 0.11999999999999346
+        }
+      ],
+      "nearest": {
+        "latitude": 15.0,
+        "longitude": 74.25,
+        "distance_km": 12.348973481565753
+      }
+    },
+    "E5L_14.90N_74.40E": {
+      "bilinear": [
+        {
+          "latitude": 14.75,
+          "longitude": 74.25,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 14.75,
+          "longitude": 74.5,
+          "weight": 0.24000000000000823
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 74.25,
+          "weight": 0.23999999999998692
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 74.5,
+          "weight": 0.3600000000000145
+        }
+      ],
+      "nearest": {
+        "latitude": 15.0,
+        "longitude": 74.5,
+        "distance_km": 15.46150725793061
+      }
+    },
+    "E5L_15.10N_76.80E": {
+      "bilinear": [
+        {
+          "latitude": 15.0,
+          "longitude": 76.75,
+          "weight": 0.480000000000008
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 77.0,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 76.75,
+          "weight": 0.3200000000000034
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.0,
+          "weight": 0.07999999999999517
+        }
+      ],
+      "nearest": {
+        "latitude": 15.0,
+        "longitude": 76.75,
+        "distance_km": 12.347881244520247
+      }
+    },
+    "E5L_15.10N_76.90E": {
+      "bilinear": [
+        {
+          "latitude": 15.0,
+          "longitude": 76.75,
+          "weight": 0.23999999999998692
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 77.0,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 76.75,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.0,
+          "weight": 0.24000000000000823
+        }
+      ],
+      "nearest": {
+        "latitude": 15.0,
+        "longitude": 77.0,
+        "distance_km": 15.458017576348311
+      }
+    },
+    "E5L_15.10N_77.00E": {
+      "bilinear": [
+        {
+          "latitude": 15.0,
+          "longitude": 77.0,
+          "weight": 0.6000000000000014
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 77.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.0,
+          "weight": 0.3999999999999986
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 15.0,
+        "longitude": 77.0,
+        "distance_km": 11.119508023353252
+      }
+    },
+    "E5L_15.10N_77.10E": {
+      "bilinear": [
+        {
+          "latitude": 15.0,
+          "longitude": 77.0,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 77.25,
+          "weight": 0.23999999999998692
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.0,
+          "weight": 0.24000000000000823
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.25,
+          "weight": 0.15999999999999034
+        }
+      ],
+      "nearest": {
+        "latitude": 15.0,
+        "longitude": 77.0,
+        "distance_km": 15.458017576348311
+      }
+    },
+    "E5L_15.20N_76.80E": {
+      "bilinear": [
+        {
+          "latitude": 15.0,
+          "longitude": 76.75,
+          "weight": 0.16000000000000456
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 77.0,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 76.75,
+          "weight": 0.6400000000000068
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.0,
+          "weight": 0.15999999999999034
+        }
+      ],
+      "nearest": {
+        "latitude": 15.25,
+        "longitude": 76.75,
+        "distance_km": 7.7259294677427555
+      }
+    },
+    "E5L_15.20N_76.90E": {
+      "bilinear": [
+        {
+          "latitude": 15.0,
+          "longitude": 76.75,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 77.0,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 76.75,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.0,
+          "weight": 0.48000000000001647
+        }
+      ],
+      "nearest": {
+        "latitude": 15.25,
+        "longitude": 77.0,
+        "distance_km": 12.084177631912734
+      }
+    },
+    "E5L_15.20N_77.00E": {
+      "bilinear": [
+        {
+          "latitude": 15.0,
+          "longitude": 77.0,
+          "weight": 0.20000000000000284
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 77.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.0,
+          "weight": 0.7999999999999972
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 15.25,
+        "longitude": 77.0,
+        "distance_km": 5.559754011676724
+      }
+    },
+    "E5L_15.20N_77.10E": {
+      "bilinear": [
+        {
+          "latitude": 15.0,
+          "longitude": 77.0,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 15.0,
+          "longitude": 77.25,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.0,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.25,
+          "weight": 0.3199999999999807
+        }
+      ],
+      "nearest": {
+        "latitude": 15.25,
+        "longitude": 77.0,
+        "distance_km": 12.084177631912734
+      }
+    },
+    "E5L_15.30N_77.00E": {
+      "bilinear": [
+        {
+          "latitude": 15.25,
+          "longitude": 77.0,
+          "weight": 0.7999999999999972
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 77.0,
+          "weight": 0.20000000000000284
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 77.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 15.25,
+        "longitude": 77.0,
+        "distance_km": 5.559754011676724
+      }
+    },
+    "E5L_15.30N_77.10E": {
+      "bilinear": [
+        {
+          "latitude": 15.25,
+          "longitude": 77.0,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.25,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 77.0,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 77.25,
+          "weight": 0.07999999999999659
+        }
+      ],
+      "nearest": {
+        "latitude": 15.25,
+        "longitude": 77.0,
+        "distance_km": 12.081911521255577
+      }
+    },
+    "E5L_15.40N_74.60E": {
+      "bilinear": [
+        {
+          "latitude": 15.25,
+          "longitude": 74.5,
+          "weight": 0.24000000000000823
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 74.75,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.75,
+          "weight": 0.23999999999998692
+        }
+      ],
+      "nearest": {
+        "latitude": 15.5,
+        "longitude": 74.5,
+        "distance_km": 15.443840405471338
+      }
+    },
+    "E5L_15.40N_74.70E": {
+      "bilinear": [
+        {
+          "latitude": 15.25,
+          "longitude": 74.5,
+          "weight": 0.07999999999999517
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 74.75,
+          "weight": 0.3200000000000034
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.75,
+          "weight": 0.480000000000008
+        }
+      ],
+      "nearest": {
+        "latitude": 15.5,
+        "longitude": 74.75,
+        "distance_km": 12.34344546779728
+      }
+    },
+    "E5L_15.40N_77.00E": {
+      "bilinear": [
+        {
+          "latitude": 15.25,
+          "longitude": 77.0,
+          "weight": 0.3999999999999986
+        },
+        {
+          "latitude": 15.25,
+          "longitude": 77.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 77.0,
+          "weight": 0.6000000000000014
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 77.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 15.5,
+        "longitude": 77.0,
+        "distance_km": 11.119508023353252
+      }
+    },
+    "E5L_15.50N_74.40E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.25,
+          "weight": 0.39999999999997726
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.6000000000000227
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.5,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 15.5,
+        "longitude": 74.5,
+        "distance_km": 10.715096458873829
+      }
+    },
+    "E5L_15.50N_74.50E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 1.0
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.75,
+          "weight": 0.0
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.5,
+          "weight": 0.0
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.75,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 15.5,
+        "longitude": 74.5,
+        "distance_km": 0.0
+      }
+    },
+    "E5L_15.50N_74.60E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.6000000000000227
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.75,
+          "weight": 0.39999999999997726
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.5,
+          "weight": 0.0
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.75,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 15.5,
+        "longitude": 74.5,
+        "distance_km": 10.715096458873829
+      }
+    },
+    "E5L_15.50N_74.70E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.19999999999998863
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.75,
+          "weight": 0.8000000000000114
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.5,
+          "weight": 0.0
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.75,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 15.5,
+        "longitude": 74.75,
+        "distance_km": 5.357548265859322
+      }
+    },
+    "E5L_15.60N_74.40E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.25,
+          "weight": 0.23999999999998692
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.25,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.5,
+          "weight": 0.24000000000000823
+        }
+      ],
+      "nearest": {
+        "latitude": 15.5,
+        "longitude": 74.5,
+        "distance_km": 15.440241642479856
+      }
+    },
+    "E5L_15.60N_74.50E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.6000000000000014
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.75,
+          "weight": 0.0
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.5,
+          "weight": 0.3999999999999986
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.75,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 15.5,
+        "longitude": 74.5,
+        "distance_km": 11.119508023353252
+      }
+    },
+    "E5L_15.60N_74.60E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.3600000000000145
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.75,
+          "weight": 0.23999999999998692
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.5,
+          "weight": 0.24000000000000823
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.75,
+          "weight": 0.15999999999999034
+        }
+      ],
+      "nearest": {
+        "latitude": 15.5,
+        "longitude": 74.5,
+        "distance_km": 15.440241642479856
+      }
+    },
+    "E5L_15.60N_74.70E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.11999999999999346
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.75,
+          "weight": 0.480000000000008
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.5,
+          "weight": 0.07999999999999517
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.75,
+          "weight": 0.3200000000000034
+        }
+      ],
+      "nearest": {
+        "latitude": 15.5,
+        "longitude": 74.75,
+        "distance_km": 12.342319875053661
+      }
+    },
+    "E5L_15.70N_74.20E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.0,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.25,
+          "weight": 0.16000000000000456
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.0,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.25,
+          "weight": 0.6400000000000068
+        }
+      ],
+      "nearest": {
+        "latitude": 15.75,
+        "longitude": 74.25,
+        "distance_km": 7.71694623033121
+      }
+    },
+    "E5L_15.70N_74.30E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.25,
+          "weight": 0.16000000000000456
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.25,
+          "weight": 0.6400000000000068
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.5,
+          "weight": 0.15999999999999034
+        }
+      ],
+      "nearest": {
+        "latitude": 15.75,
+        "longitude": 74.25,
+        "distance_km": 7.71694623033121
+      }
+    },
+    "E5L_15.70N_74.40E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.25,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.25,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.5,
+          "weight": 0.48000000000001647
+        }
+      ],
+      "nearest": {
+        "latitude": 15.75,
+        "longitude": 74.5,
+        "distance_km": 12.061195665197042
+      }
+    },
+    "E5L_15.70N_74.50E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.20000000000000284
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.75,
+          "weight": 0.0
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.5,
+          "weight": 0.7999999999999972
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.75,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 15.75,
+        "longitude": 74.5,
+        "distance_km": 5.559754011676724
+      }
+    },
+    "E5L_15.70N_74.60E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.75,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.5,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.75,
+          "weight": 0.3199999999999807
+        }
+      ],
+      "nearest": {
+        "latitude": 15.75,
+        "longitude": 74.5,
+        "distance_km": 12.061195665197042
+      }
+    },
+    "E5L_15.70N_74.70E": {
+      "bilinear": [
+        {
+          "latitude": 15.5,
+          "longitude": 74.5,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 15.5,
+          "longitude": 74.75,
+          "weight": 0.16000000000000456
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.5,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 15.75,
+          "longitude": 74.75,
+          "weight": 0.6400000000000068
+        }
+      ],
+      "nearest": {
+        "latitude": 15.75,
+        "longitude": 74.75,
+        "distance_km": 7.71694623033121
+      }
+    },
+    "E5L_16.30N_75.90E": {
+      "bilinear": [
+        {
+          "latitude": 16.25,
+          "longitude": 75.75,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 16.25,
+          "longitude": 76.0,
+          "weight": 0.48000000000001647
+        },
+        {
+          "latitude": 16.5,
+          "longitude": 75.75,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 16.5,
+          "longitude": 76.0,
+          "weight": 0.12000000000000625
+        }
+      ],
+      "nearest": {
+        "latitude": 16.25,
+        "longitude": 76.0,
+        "distance_km": 12.03509424074091
+      }
+    },
+    "E5L_16.30N_76.00E": {
+      "bilinear": [
+        {
+          "latitude": 16.25,
+          "longitude": 76.0,
+          "weight": 0.7999999999999972
+        },
+        {
+          "latitude": 16.25,
+          "longitude": 76.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 16.5,
+          "longitude": 76.0,
+          "weight": 0.20000000000000284
+        },
+        {
+          "latitude": 16.5,
+          "longitude": 76.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 16.25,
+        "longitude": 76.0,
+        "distance_km": 5.559754011676724
+      }
+    },
+    "E5L_16.40N_75.80E": {
+      "bilinear": [
+        {
+          "latitude": 16.25,
+          "longitude": 75.75,
+          "weight": 0.3200000000000091
+        },
+        {
+          "latitude": 16.25,
+          "longitude": 76.0,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 16.5,
+          "longitude": 75.75,
+          "weight": 0.48000000000000226
+        },
+        {
+          "latitude": 16.5,
+          "longitude": 76.0,
+          "weight": 0.11999999999999204
+        }
+      ],
+      "nearest": {
+        "latitude": 16.5,
+        "longitude": 75.75,
+        "distance_km": 12.33189238399286
+      }
+    },
+    "E5L_16.40N_75.90E": {
+      "bilinear": [
+        {
+          "latitude": 16.25,
+          "longitude": 75.75,
+          "weight": 0.15999999999999318
+        },
+        {
+          "latitude": 16.25,
+          "longitude": 76.0,
+          "weight": 0.2400000000000125
+        },
+        {
+          "latitude": 16.5,
+          "longitude": 75.75,
+          "weight": 0.2399999999999841
+        },
+        {
+          "latitude": 16.5,
+          "longitude": 76.0,
+          "weight": 0.36000000000001026
+        }
+      ],
+      "nearest": {
+        "latitude": 16.5,
+        "longitude": 76.0,
+        "distance_km": 15.40687837626291
+      }
+    },
+    "E5L_16.40N_76.00E": {
+      "bilinear": [
+        {
+          "latitude": 16.25,
+          "longitude": 76.0,
+          "weight": 0.4000000000000057
+        },
+        {
+          "latitude": 16.25,
+          "longitude": 76.25,
+          "weight": 0.0
+        },
+        {
+          "latitude": 16.5,
+          "longitude": 76.0,
+          "weight": 0.5999999999999943
+        },
+        {
+          "latitude": 16.5,
+          "longitude": 76.25,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 16.5,
+        "longitude": 76.0,
+        "distance_km": 11.119508023353449
+      }
+    },
+    "E5L_16.50N_75.90E": {
+      "bilinear": [
+        {
+          "latitude": 16.5,
+          "longitude": 75.75,
+          "weight": 0.39999999999997726
+        },
+        {
+          "latitude": 16.5,
+          "longitude": 76.0,
+          "weight": 0.6000000000000227
+        },
+        {
+          "latitude": 16.75,
+          "longitude": 75.75,
+          "weight": 0.0
+        },
+        {
+          "latitude": 16.75,
+          "longitude": 76.0,
+          "weight": 0.0
+        }
+      ],
+      "nearest": {
+        "latitude": 16.5,
+        "longitude": 76.0,
+        "distance_km": 10.661603625659202
+      }
+    },
+    "E5L_17.60N_77.20E": {
+      "bilinear": [
+        {
+          "latitude": 17.5,
+          "longitude": 77.0,
+          "weight": 0.11999999999999204
+        },
+        {
+          "latitude": 17.5,
+          "longitude": 77.25,
+          "weight": 0.48000000000000226
+        },
+        {
+          "latitude": 17.75,
+          "longitude": 77.0,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 17.75,
+          "longitude": 77.25,
+          "weight": 0.3200000000000091
+        }
+      ],
+      "nearest": {
+        "latitude": 17.5,
+        "longitude": 77.25,
+        "distance_km": 12.318430873231442
+      }
+    },
+    "E5L_17.60N_77.30E": {
+      "bilinear": [
+        {
+          "latitude": 17.5,
+          "longitude": 77.25,
+          "weight": 0.48000000000000226
+        },
+        {
+          "latitude": 17.5,
+          "longitude": 77.5,
+          "weight": 0.11999999999999204
+        },
+        {
+          "latitude": 17.75,
+          "longitude": 77.25,
+          "weight": 0.3200000000000091
+        },
+        {
+          "latitude": 17.75,
+          "longitude": 77.5,
+          "weight": 0.07999999999999659
+        }
+      ],
+      "nearest": {
+        "latitude": 17.5,
+        "longitude": 77.25,
+        "distance_km": 12.318430873231442
+      }
+    },
+    "E5L_17.60N_77.40E": {
+      "bilinear": [
+        {
+          "latitude": 17.5,
+          "longitude": 77.25,
+          "weight": 0.2399999999999841
+        },
+        {
+          "latitude": 17.5,
+          "longitude": 77.5,
+          "weight": 0.36000000000001026
+        },
+        {
+          "latitude": 17.75,
+          "longitude": 77.25,
+          "weight": 0.15999999999999318
+        },
+        {
+          "latitude": 17.75,
+          "longitude": 77.5,
+          "weight": 0.2400000000000125
+        }
+      ],
+      "nearest": {
+        "latitude": 17.5,
+        "longitude": 77.5,
+        "distance_km": 15.363742341119156
+      }
+    },
+    "E5L_17.70N_77.20E": {
+      "bilinear": [
+        {
+          "latitude": 17.5,
+          "longitude": 77.0,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 17.5,
+          "longitude": 77.25,
+          "weight": 0.16000000000000456
+        },
+        {
+          "latitude": 17.75,
+          "longitude": 77.0,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 17.75,
+          "longitude": 77.25,
+          "weight": 0.6400000000000068
+        }
+      ],
+      "nearest": {
+        "latitude": 17.75,
+        "longitude": 77.25,
+        "distance_km": 7.678322030787547
+      }
+    },
+    "E5L_17.70N_77.30E": {
+      "bilinear": [
+        {
+          "latitude": 17.5,
+          "longitude": 77.25,
+          "weight": 0.16000000000000456
+        },
+        {
+          "latitude": 17.5,
+          "longitude": 77.5,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 17.75,
+          "longitude": 77.25,
+          "weight": 0.6400000000000068
+        },
+        {
+          "latitude": 17.75,
+          "longitude": 77.5,
+          "weight": 0.15999999999999034
+        }
+      ],
+      "nearest": {
+        "latitude": 17.75,
+        "longitude": 77.25,
+        "distance_km": 7.678322030787547
+      }
+    },
+    "E5L_17.70N_77.40E": {
+      "bilinear": [
+        {
+          "latitude": 17.5,
+          "longitude": 77.25,
+          "weight": 0.07999999999999659
+        },
+        {
+          "latitude": 17.5,
+          "longitude": 77.5,
+          "weight": 0.12000000000000625
+        },
+        {
+          "latitude": 17.75,
+          "longitude": 77.25,
+          "weight": 0.3199999999999807
+        },
+        {
+          "latitude": 17.75,
+          "longitude": 77.5,
+          "weight": 0.48000000000001647
+        }
+      ],
+      "nearest": {
+        "latitude": 17.75,
+        "longitude": 77.5,
+        "distance_km": 11.962187126240064
+      }
+    },
+    "E5L_17.80N_77.20E": {
+      "bilinear": [
+        {
+          "latitude": 17.75,
+          "longitude": 77.0,
+          "weight": 0.15999999999999034
+        },
+        {
+          "latitude": 17.75,
+          "longitude": 77.25,
+          "weight": 0.6400000000000068
+        },
+        {
+          "latitude": 18.0,
+          "longitude": 77.0,
+          "weight": 0.039999999999998294
+        },
+        {
+          "latitude": 18.0,
+          "longitude": 77.25,
+          "weight": 0.16000000000000456
+        }
+      ],
+      "nearest": {
+        "latitude": 17.75,
+        "longitude": 77.25,
+        "distance_km": 7.677301925223124
+      }
+    }
+  },
+  "storage_bytes": {
+    "era5_land_raw_bytes": 541673510,
+    "era5_raw_bytes": 121505682,
+    "glo30_tiles_bytes": 655530372,
+    "dataset_parquet_bytes": 949163993
+  }
+}

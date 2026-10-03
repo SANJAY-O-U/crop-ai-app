@@ -61,17 +61,17 @@ function AdjustmentCard({ adjustment }) {
   );
 }
 
-export default function PanchayatWeatherPage({ onNavigate }) {
+export default function PanchayatWeatherPage({ onNavigate, initialPanchayatId = null }) {
   const { loading, error, panchayats, forecasts } = useBlockData(5);
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState(initialPanchayatId);
   const [variable, setVariable] = useState(VARIABLES[0]);
 
   const forecast = forecasts.find((f) => f.panchayat_id === (selectedId ?? forecasts[0]?.panchayat_id));
 
   return (
     <div style={{ maxWidth: 900, margin: "0 auto", padding: "48px 5%" }}>
-      <button onClick={() => onNavigate("dashboard")} style={{ background: "none", border: "1px solid var(--border)", color: "var(--text2)", padding: "6px 14px", borderRadius: 8, cursor: "pointer", fontSize: 13, marginBottom: 18 }}>
-        ← Dashboard
+      <button onClick={() => onNavigate("home")} style={{ background: "none", border: "1px solid var(--border)", color: "var(--text2)", padding: "6px 14px", borderRadius: 8, cursor: "pointer", fontSize: 13, marginBottom: 18 }}>
+        ← Map
       </button>
       <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(1.6rem,4vw,2.2rem)", fontWeight: 800, marginBottom: 8 }}>
         Panchayat Weather

@@ -1,0 +1,1857 @@
+{
+  "type": "YelandurBaselinesStage1",
+  "evaluation_statement": "Evaluation against ERA5-Land reanalysis proxy — not observation.",
+  "spatial_sample_statement": "The effective spatial sample comprises 4 ERA5-Land cell groups, so these results are exploratory and do not establish generalized Panchayat-level forecasting skill.",
+  "framing": "This experiment measures reanalysis-to-reanalysis spatial transfer (ERA5 0.25 deg -> ERA5-Land 0.1 deg).",
+  "effective_spatial_sample_size": "4 ERA5-Land spatial cell groups",
+  "row_independence_note": "The dataset's 1,445,400 rows are NOT independent samples: GPs in the same cell group share identical target series, hourly values are autocorrelated, and neighbouring cells are highly correlated.",
+  "dataset": {
+    "file": "data/training/yelandur_multi_gp.parquet",
+    "sha256": "c25017849d5b47f43d622a03a89a99ab155e4de3e3aa7cd25e00c32aeac5bf28",
+    "row_count": 1445400,
+    "manifest": "research/multi_gp/yelandur_multi_gp_manifest.json"
+  },
+  "methods": {
+    "A_bilinear": "prediction = coarse_bilinear_value (ERA5 0.25 deg bilinear to target cell center); no training",
+    "A_nearest": "prediction = coarse_nearest_value (nearest ERA5 0.25 deg point); no training; transparency only",
+    "B_ridge": "ridge regression (alpha=1.0, fixed a priori, no tuning) on standardized features fit per fold and per variable on that fold's TRAINING rows only"
+  },
+  "features_B": [
+    "coarse_bilinear_value",
+    "elevation_mean_m",
+    "elevation_range_m",
+    "centroid_to_cell_km",
+    "intersecting_cell_count"
+  ],
+  "excluded_from_features": [
+    "area_weighted_cell_count",
+    "area_weighted_rainfall_clamped",
+    "area_weighted_value",
+    "cell_group_complete_gp_count",
+    "cell_group_id",
+    "gp_name",
+    "panchayat_lgd_code",
+    "split_fold_1",
+    "split_fold_2",
+    "split_fold_3",
+    "split_fold_4",
+    "target_cell_latitude",
+    "target_cell_longitude",
+    "target_missing_reason",
+    "target_rainfall_clamped",
+    "target_source_file",
+    "target_source_sha256",
+    "target_value",
+    "temporal_period"
+  ],
+  "variables": [
+    "temperature_c",
+    "dewpoint_c",
+    "relative_humidity_pct",
+    "rainfall_mm",
+    "wind_speed_kmph"
+  ],
+  "error_sign_convention": "bias = mean(prediction - target)",
+  "folds": {
+    "split_fold_1": {
+      "held_out_cell_group": "E5L_12.00N_77.10E",
+      "leakage_audit": {
+        "train_cell_groups": [
+          "E5L_12.00N_77.20E",
+          "E5L_12.10N_77.00E",
+          "E5L_12.10N_77.10E"
+        ],
+        "test_cell_groups": [
+          "E5L_12.00N_77.10E"
+        ],
+        "cell_groups_disjoint": true,
+        "train_last_timestamp_utc": "2022-12-24 23:00:00+00:00",
+        "test_first_timestamp_utc": "2023-01-01 00:00:00+00:00",
+        "temporal_gap_hours": 169.0,
+        "temporal_gap_at_least_7_days": true,
+        "partial_or_nonprimary_rows_used": 0,
+        "agara_rows_used": 0,
+        "missing_target_rows_used": 0
+      },
+      "by_variable": {
+        "temperature_c": {
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "n_test_records": 17520,
+          "n_test_hours": 8760,
+          "n_train_records": 138816,
+          "metrics": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 1.0693124180623867,
+              "rmse": 1.3071339430185605,
+              "bias": 0.8346228166693339,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 0.975017613798516,
+              "rmse": 1.2130412346716195,
+              "bias": 0.6878158639010773,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 0.7740977069503643,
+              "rmse": 0.9989683461057282,
+              "bias": -0.08033836063184492,
+              "physically_out_of_range_predictions": 0
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.29521471111202247,
+            "rmse": -0.3081655969128323,
+            "bias": -0.9149611773011789
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 138816,
+            "intercept_at_training_feature_means": 23.492143034946015,
+            "coef_standardized": {
+              "coarse_bilinear_value": 3.631038311077436,
+              "elevation_mean_m": -0.4156549342998484,
+              "elevation_range_m": -0.047897965287534,
+              "centroid_to_cell_km": -0.014447320412126756,
+              "intersecting_cell_count": -0.035895840997198065
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.0380938456428874,
+              "elevation_mean_m": -0.0024966850875610706,
+              "elevation_range_m": -0.00028690497122937523,
+              "centroid_to_cell_km": -0.010928661190677383,
+              "intersecting_cell_count": -0.05426941050291592
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 24.2356117286524,
+              "elevation_mean_m": 730.4538190621587,
+              "elevation_range_m": 148.7297134399414,
+              "centroid_to_cell_km": 4.162780226130554,
+              "intersecting_cell_count": 2.25
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 3.4977938905212835,
+              "elevation_mean_m": 166.48272398097592,
+              "elevation_range_m": 166.94714309861317,
+              "centroid_to_cell_km": 1.3219661731714165,
+              "intersecting_cell_count": 0.6614378277661477
+            }
+          }
+        },
+        "dewpoint_c": {
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "n_test_records": 17520,
+          "n_test_hours": 8760,
+          "n_train_records": 138816,
+          "metrics": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 1.2729446487775085,
+              "rmse": 1.534125130289404,
+              "bias": 1.2503192340728848,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 1.1972511082479398,
+              "rmse": 1.47398236540293,
+              "bias": 1.159414732075173,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 0.5983624525095438,
+              "rmse": 0.8142985515486922,
+              "bias": -0.15806687964167032,
+              "physically_out_of_range_predictions": 0
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.6745821962679647,
+            "rmse": -0.7198265787407117,
+            "bias": -1.4083861137145552
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 138816,
+            "intercept_at_training_feature_means": 17.677893828290486,
+            "coef_standardized": {
+              "coarse_bilinear_value": 3.442888377065703,
+              "elevation_mean_m": -0.334345227138345,
+              "elevation_range_m": -0.13012085430354245,
+              "centroid_to_cell_km": -0.0261147653314194,
+              "intersecting_cell_count": -0.05652600953598445
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.1247891006491666,
+              "elevation_mean_m": -0.0020082878219637424,
+              "elevation_range_m": -0.0007794134831446742,
+              "centroid_to_cell_km": -0.019754488323078412,
+              "intersecting_cell_count": -0.08545929362233166
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 18.683370888034247,
+              "elevation_mean_m": 730.4538190621587,
+              "elevation_range_m": 148.7297134399414,
+              "centroid_to_cell_km": 4.162780226130554,
+              "intersecting_cell_count": 2.25
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 3.0609190425819888,
+              "elevation_mean_m": 166.48272398097592,
+              "elevation_range_m": 166.94714309861317,
+              "centroid_to_cell_km": 1.3219661731714165,
+              "intersecting_cell_count": 0.6614378277661477
+            }
+          }
+        },
+        "relative_humidity_pct": {
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "n_test_records": 17520,
+          "n_test_hours": 8760,
+          "n_train_records": 138816,
+          "metrics": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 3.956193381450355,
+              "rmse": 5.005644954755171,
+              "bias": 0.9593679193386084,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 4.089516917052891,
+              "rmse": 5.152814135599666,
+              "bias": 1.246392585056129,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 3.5534445900161056,
+              "rmse": 4.5466411190499665,
+              "bias": -0.34792534555260035,
+              "physically_out_of_range_predictions": 13
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.4027487914342496,
+            "rmse": -0.45900383570520464,
+            "bias": -1.3072932648912088
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 138816,
+            "intercept_at_training_feature_means": 73.5843884136815,
+            "coef_standardized": {
+              "coarse_bilinear_value": 19.598512063047714,
+              "elevation_mean_m": 0.15246780250886444,
+              "elevation_range_m": -0.2820399167435005,
+              "centroid_to_cell_km": -0.042110711794176435,
+              "intersecting_cell_count": -0.07728583860299396
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.0926100236236471,
+              "elevation_mean_m": 0.0009158175627057076,
+              "elevation_range_m": -0.0016893964850713482,
+              "centroid_to_cell_km": -0.031854606153160644,
+              "intersecting_cell_count": -0.1168452050346272
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 74.09608647692437,
+              "elevation_mean_m": 730.4538190621587,
+              "elevation_range_m": 148.7297134399414,
+              "centroid_to_cell_km": 4.162780226130554,
+              "intersecting_cell_count": 2.25
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 17.937335041142255,
+              "elevation_mean_m": 166.48272398097592,
+              "elevation_range_m": 166.94714309861317,
+              "centroid_to_cell_km": 1.3219661731714165,
+              "intersecting_cell_count": 0.6614378277661477
+            }
+          }
+        },
+        "rainfall_mm": {
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "n_test_records": 17520,
+          "n_test_hours": 8760,
+          "n_train_records": 138808,
+          "metrics": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 0.02290517884030442,
+              "rmse": 0.10317110301333139,
+              "bias": 0.009255335526962023,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 0.020855326674740673,
+              "rmse": 0.09703504067421621,
+              "bias": 0.005383885930156584,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 0.03335665567776887,
+              "rmse": 0.1029021237528404,
+              "bias": -0.005159774308398331,
+              "physically_out_of_range_predictions": 12721
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": 0.010451476837464446,
+            "rmse": -0.0002689792604909924,
+            "bias": -0.014415109835360353
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 138808,
+            "intercept_at_training_feature_means": 0.1379962922258753,
+            "coef_standardized": {
+              "coarse_bilinear_value": 0.45245933160084334,
+              "elevation_mean_m": 0.003119674027757773,
+              "elevation_range_m": -0.00508195946201316,
+              "centroid_to_cell_km": -0.0007526217439848008,
+              "intersecting_cell_count": -0.001373375542473531
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.0046998012274044,
+              "elevation_mean_m": 1.873872527526796e-05,
+              "elevation_range_m": -3.0440529665196624e-05,
+              "centroid_to_cell_km": -0.0005693199714628477,
+              "intersecting_cell_count": -0.0020763486526190786
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 0.14190499620831704,
+              "elevation_mean_m": 730.4538190621588,
+              "elevation_range_m": 148.7297134399414,
+              "centroid_to_cell_km": 4.162780226130553,
+              "intersecting_cell_count": 2.25
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 0.45034280991007525,
+              "elevation_mean_m": 166.48272398097592,
+              "elevation_range_m": 166.94714309861317,
+              "centroid_to_cell_km": 1.3219661731714167,
+              "intersecting_cell_count": 0.6614378277661477
+            }
+          }
+        },
+        "wind_speed_kmph": {
+          "test_gps": [
+            "Gumballi",
+            "Yeragamballi"
+          ],
+          "n_test_records": 17520,
+          "n_test_hours": 8760,
+          "n_train_records": 138816,
+          "metrics": {
+            "A_bilinear": {
+              "n": 17520,
+              "mae": 1.3820992157443708,
+              "rmse": 1.7445572571927621,
+              "bias": 1.1539061322657824,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 17520,
+              "mae": 1.6985968353622545,
+              "rmse": 2.115005913630847,
+              "bias": 1.469476337582592,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 17520,
+              "mae": 0.8048569126841479,
+              "rmse": 1.0946411772082607,
+              "bias": 0.116577367493754,
+              "physically_out_of_range_predictions": 0
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.5772423030602228,
+            "rmse": -0.6499160799845014,
+            "bias": -1.0373287647720284
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 138816,
+            "intercept_at_training_feature_means": 7.516587683143675,
+            "coef_standardized": {
+              "coarse_bilinear_value": 4.115406079854908,
+              "elevation_mean_m": -0.0816024750293308,
+              "elevation_range_m": 0.00817311459694693,
+              "centroid_to_cell_km": -5.502147775409304e-05,
+              "intersecting_cell_count": -0.001740753237530893
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 0.8480051750209848,
+              "elevation_mean_m": -0.0004901558136365883,
+              "elevation_range_m": 4.8956301049843024e-05,
+              "centroid_to_cell_km": -4.162094225308027e-05,
+              "intersecting_cell_count": -0.0026317715202498803
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 8.583139929360074,
+              "elevation_mean_m": 730.4538190621587,
+              "elevation_range_m": 148.7297134399414,
+              "centroid_to_cell_km": 4.162780226130554,
+              "intersecting_cell_count": 2.25
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 4.853043591099627,
+              "elevation_mean_m": 166.48272398097592,
+              "elevation_range_m": 166.94714309861317,
+              "centroid_to_cell_km": 1.3219661731714165,
+              "intersecting_cell_count": 0.6614378277661477
+            }
+          }
+        }
+      }
+    },
+    "split_fold_2": {
+      "held_out_cell_group": "E5L_12.00N_77.20E",
+      "leakage_audit": {
+        "train_cell_groups": [
+          "E5L_12.00N_77.10E",
+          "E5L_12.10N_77.00E",
+          "E5L_12.10N_77.10E"
+        ],
+        "test_cell_groups": [
+          "E5L_12.00N_77.20E"
+        ],
+        "cell_groups_disjoint": true,
+        "train_last_timestamp_utc": "2022-12-24 23:00:00+00:00",
+        "test_first_timestamp_utc": "2023-01-01 00:00:00+00:00",
+        "temporal_gap_hours": 169.0,
+        "temporal_gap_at_least_7_days": true,
+        "partial_or_nonprimary_rows_used": 0,
+        "agara_rows_used": 0,
+        "missing_target_rows_used": 0
+      },
+      "by_variable": {
+        "temperature_c": {
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "n_test_records": 8760,
+          "n_test_hours": 8760,
+          "n_train_records": 156168,
+          "metrics": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 1.7708696227748486,
+              "rmse": 1.9779173653669395,
+              "bias": 1.732887478484394,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 1.8412428555423266,
+              "rmse": 2.048263673744193,
+              "bias": 1.806290954868543,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 0.8635867488365682,
+              "rmse": 1.0776917994599602,
+              "bias": -0.4648096192985837,
+              "physically_out_of_range_predictions": 0
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.9072828739382804,
+            "rmse": -0.9002255659069793,
+            "bias": -2.1976970977829775
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 156168,
+            "intercept_at_training_feature_means": 23.497217634033113,
+            "coef_standardized": {
+              "coarse_bilinear_value": 3.6469719102724243,
+              "elevation_mean_m": -0.1258825852327612,
+              "elevation_range_m": -0.0710441794478184,
+              "centroid_to_cell_km": -0.02261157515572622,
+              "intersecting_cell_count": -0.05171537003915822
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.0424683292637766,
+              "elevation_mean_m": -0.003044631904134258,
+              "elevation_range_m": -0.00031992509516164943,
+              "centroid_to_cell_km": -0.014535272068074742,
+              "intersecting_cell_count": -0.05485243326939058
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 24.167970893367038,
+              "elevation_mean_m": 687.7283194747095,
+              "elevation_range_m": 194.83236355251736,
+              "centroid_to_cell_km": 3.857338480176168,
+              "intersecting_cell_count": 2.3333333333333335
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 3.498400678366919,
+              "elevation_mean_m": 41.34574858189826,
+              "elevation_range_m": 222.06504123073472,
+              "centroid_to_cell_km": 1.5556348068221069,
+              "intersecting_cell_count": 0.9428090415820635
+            }
+          }
+        },
+        "dewpoint_c": {
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "n_test_records": 8760,
+          "n_test_hours": 8760,
+          "n_train_records": 156168,
+          "metrics": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 2.0085413134152383,
+              "rmse": 2.192654662148675,
+              "bias": 2.0048655115414866,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 2.05322758574464,
+              "rmse": 2.235169207288824,
+              "bias": 2.0503177625403555,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 0.8681140769335032,
+              "rmse": 1.0891720283325173,
+              "bias": 0.7244609172951492,
+              "physically_out_of_range_predictions": 0
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -1.1404272364817352,
+            "rmse": -1.1034826338161579,
+            "bias": -1.2804045942463373
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 156168,
+            "intercept_at_training_feature_means": 17.72965852252702,
+            "coef_standardized": {
+              "coarse_bilinear_value": 3.4287432686049995,
+              "elevation_mean_m": -0.0032217673754617905,
+              "elevation_range_m": -0.2239515808911223,
+              "centroid_to_cell_km": -0.02455905021000078,
+              "intersecting_cell_count": -0.0973464775366097
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.125961990364739,
+              "elevation_mean_m": -7.792257936943786e-05,
+              "elevation_range_m": -0.001008495437417488,
+              "centroid_to_cell_km": -0.015787156537189262,
+              "intersecting_cell_count": -0.10325153158614095
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 18.673522830273534,
+              "elevation_mean_m": 687.7283194747095,
+              "elevation_range_m": 194.83236355251736,
+              "centroid_to_cell_km": 3.857338480176168,
+              "intersecting_cell_count": 2.3333333333333335
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 3.045167863521137,
+              "elevation_mean_m": 41.34574858189826,
+              "elevation_range_m": 222.06504123073472,
+              "centroid_to_cell_km": 1.5556348068221069,
+              "intersecting_cell_count": 0.9428090415820635
+            }
+          }
+        },
+        "relative_humidity_pct": {
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "n_test_records": 8760,
+          "n_test_hours": 8760,
+          "n_train_records": 156168,
+          "metrics": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 3.7899845905399148,
+              "rmse": 4.786140670505069,
+              "bias": 0.7477463117865722,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 3.8102032425613803,
+              "rmse": 4.820159932749591,
+              "bias": 0.6042339789277713,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 4.448522238316982,
+              "rmse": 5.55211817101132,
+              "bias": 3.2277963247586925,
+              "physically_out_of_range_predictions": 197
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": 0.658537647777067,
+            "rmse": 0.765977500506251,
+            "bias": 2.48005001297212
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 156168,
+            "intercept_at_training_feature_means": 73.79811343419428,
+            "coef_standardized": {
+              "coarse_bilinear_value": 19.631021557837474,
+              "elevation_mean_m": 0.32914228297335246,
+              "elevation_range_m": -0.49951311877119714,
+              "centroid_to_cell_km": -0.014856250632335763,
+              "intersecting_cell_count": -0.16100709853752154
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.0953838454191889,
+              "elevation_mean_m": 0.00796072859392986,
+              "elevation_range_m": -0.002249400067668384,
+              "centroid_to_cell_km": -0.009549960290927481,
+              "intersecting_cell_count": -0.1707738167925782
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 74.31979057911786,
+              "elevation_mean_m": 687.7283194747095,
+              "elevation_range_m": 194.83236355251736,
+              "centroid_to_cell_km": 3.857338480176168,
+              "intersecting_cell_count": 2.3333333333333335
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 17.921591266780954,
+              "elevation_mean_m": 41.34574858189826,
+              "elevation_range_m": 222.06504123073472,
+              "centroid_to_cell_km": 1.5556348068221069,
+              "intersecting_cell_count": 0.9428090415820635
+            }
+          }
+        },
+        "rainfall_mm": {
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "n_test_records": 8760,
+          "n_test_hours": 8760,
+          "n_train_records": 156159,
+          "metrics": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 0.010827625988131006,
+              "rmse": 0.050038611889804664,
+              "bias": 0.003920723048282213,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 0.019842544311111356,
+              "rmse": 0.10053943922442328,
+              "bias": 0.005856447846685484,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 0.037162945092688755,
+              "rmse": 0.06025617426115311,
+              "bias": 0.03329094087590946,
+              "physically_out_of_range_predictions": 0
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": 0.026335319104557747,
+            "rmse": 0.010217562371348445,
+            "bias": 0.02937021782762725
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 156159,
+            "intercept_at_training_feature_means": 0.13681435338346146,
+            "coef_standardized": {
+              "coarse_bilinear_value": 0.4539402873609299,
+              "elevation_mean_m": 0.0037142807359781416,
+              "elevation_range_m": -0.007738183222244482,
+              "centroid_to_cell_km": -0.00039449552496504943,
+              "intersecting_cell_count": -0.0027252688263192538
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.004702179575517,
+              "elevation_mean_m": 8.983464717347756e-05,
+              "elevation_range_m": -3.484647191362368e-05,
+              "centroid_to_cell_km": -0.0002535913462690743,
+              "intersecting_cell_count": -0.002890584101469971
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 0.14199932388034894,
+              "elevation_mean_m": 687.7283194747096,
+              "elevation_range_m": 194.83236355251736,
+              "centroid_to_cell_km": 3.8573384801761685,
+              "intersecting_cell_count": 2.3333333333333335
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 0.45181576848247507,
+              "elevation_mean_m": 41.34574858189827,
+              "elevation_range_m": 222.06504123073472,
+              "centroid_to_cell_km": 1.5556348068221069,
+              "intersecting_cell_count": 0.9428090415820635
+            }
+          }
+        },
+        "wind_speed_kmph": {
+          "test_gps": [
+            "Biligiri Ranganabetta"
+          ],
+          "n_test_records": 8760,
+          "n_test_hours": 8760,
+          "n_train_records": 156168,
+          "metrics": {
+            "A_bilinear": {
+              "n": 8760,
+              "mae": 1.3943075183895306,
+              "rmse": 1.7542808775393903,
+              "bias": 1.230437754676758,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 8760,
+              "mae": 1.2871383722658847,
+              "rmse": 1.637313425087382,
+              "bias": 1.0726526520183086,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 8760,
+              "mae": 1.0596286804602646,
+              "rmse": 1.3196801664069542,
+              "bias": -0.8530342421381439,
+              "physically_out_of_range_predictions": 37
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.334678837929266,
+            "rmse": -0.43460071113243615,
+            "bias": -2.083471996814902
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 156168,
+            "intercept_at_training_feature_means": 7.493668970320116,
+            "coef_standardized": {
+              "coarse_bilinear_value": 4.124522995451935,
+              "elevation_mean_m": -0.09854233253127596,
+              "elevation_range_m": 0.04838019678452945,
+              "centroid_to_cell_km": -0.006473913538615975,
+              "intersecting_cell_count": 0.004470897269320676
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 0.8491565977960005,
+              "elevation_mean_m": -0.0023833727991665666,
+              "elevation_range_m": 0.00021786498458467596,
+              "centroid_to_cell_km": -0.004161589539026234,
+              "intersecting_cell_count": 0.004742102665687601
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 8.556217684658549,
+              "elevation_mean_m": 687.7283194747095,
+              "elevation_range_m": 194.83236355251736,
+              "centroid_to_cell_km": 3.857338480176168,
+              "intersecting_cell_count": 2.3333333333333335
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 4.857199492010308,
+              "elevation_mean_m": 41.34574858189826,
+              "elevation_range_m": 222.06504123073472,
+              "centroid_to_cell_km": 1.5556348068221069,
+              "intersecting_cell_count": 0.9428090415820635
+            }
+          }
+        }
+      }
+    },
+    "split_fold_3": {
+      "held_out_cell_group": "E5L_12.10N_77.00E",
+      "leakage_audit": {
+        "train_cell_groups": [
+          "E5L_12.00N_77.10E",
+          "E5L_12.00N_77.20E",
+          "E5L_12.10N_77.10E"
+        ],
+        "test_cell_groups": [
+          "E5L_12.10N_77.00E"
+        ],
+        "cell_groups_disjoint": true,
+        "train_last_timestamp_utc": "2022-12-24 23:00:00+00:00",
+        "test_first_timestamp_utc": "2023-01-01 00:00:00+00:00",
+        "temporal_gap_hours": 169.0,
+        "temporal_gap_at_least_7_days": true,
+        "partial_or_nonprimary_rows_used": 0,
+        "agara_rows_used": 0,
+        "missing_target_rows_used": 0
+      },
+      "by_variable": {
+        "temperature_c": {
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "n_test_records": 35040,
+          "n_test_hours": 8760,
+          "n_train_records": 104112,
+          "metrics": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 0.8559899776929039,
+              "rmse": 1.0880264985160155,
+              "bias": 0.33818677928349505,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 0.8692710911302262,
+              "rmse": 1.1012975798245253,
+              "bias": -0.3143562073032606,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 0.8108412691976811,
+              "rmse": 1.0441092185871705,
+              "bias": -0.17961109527535546,
+              "physically_out_of_range_predictions": 0
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.04514870849522279,
+            "rmse": -0.04391727992884498,
+            "bias": -0.5177978745588505
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 104112,
+            "intercept_at_training_feature_means": 23.0980623260775,
+            "coef_standardized": {
+              "coarse_bilinear_value": 3.5989665941726825,
+              "elevation_mean_m": -0.38331095914948055,
+              "elevation_range_m": -0.13585886813691872,
+              "centroid_to_cell_km": -0.0998523857541164,
+              "intersecting_cell_count": -0.04848984486788262
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.0319644359058326,
+              "elevation_mean_m": -0.0021996126448439357,
+              "elevation_range_m": -0.0006533736119862156,
+              "centroid_to_cell_km": -0.06554829168544311,
+              "intersecting_cell_count": -0.05064599119353858
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 24.102356563466707,
+              "elevation_mean_m": 788.1149662643188,
+              "elevation_range_m": 350.5434061686198,
+              "centroid_to_cell_km": 3.534381276822461,
+              "intersecting_cell_count": 2.5
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 3.4874909143681867,
+              "elevation_mean_m": 174.26293672569642,
+              "elevation_range_m": 207.9344277830813,
+              "centroid_to_cell_km": 1.5233407795476002,
+              "intersecting_cell_count": 0.9574271077563381
+            }
+          }
+        },
+        "dewpoint_c": {
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "n_test_records": 35040,
+          "n_test_hours": 8760,
+          "n_train_records": 104112,
+          "metrics": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 0.7716887849433237,
+              "rmse": 1.0793512505528653,
+              "bias": 0.6541798665643282,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 0.8467472964770173,
+              "rmse": 1.2298729820847725,
+              "bias": 0.6661291566613602,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 0.6456384599073562,
+              "rmse": 0.8429597409596485,
+              "bias": -0.367321627805138,
+              "physically_out_of_range_predictions": 0
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.12605032503596747,
+            "rmse": -0.23639150959321675,
+            "bias": -1.0215014943694662
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 104112,
+            "intercept_at_training_feature_means": 17.395662116212986,
+            "coef_standardized": {
+              "coarse_bilinear_value": 3.399988614652818,
+              "elevation_mean_m": -0.34567643668737547,
+              "elevation_range_m": -0.08660995304172286,
+              "centroid_to_cell_km": -0.07352042328149296,
+              "intersecting_cell_count": -0.031551987696507036
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.1317630160626104,
+              "elevation_mean_m": -0.0019836486356906596,
+              "elevation_range_m": -0.0004165253150482372,
+              "centroid_to_cell_km": -0.04826262400940055,
+              "intersecting_cell_count": -0.03295497635370578
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 18.695124589876972,
+              "elevation_mean_m": 788.1149662643188,
+              "elevation_range_m": 350.5434061686198,
+              "centroid_to_cell_km": 3.534381276822461,
+              "intersecting_cell_count": 2.5
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 3.0041524297916506,
+              "elevation_mean_m": 174.26293672569642,
+              "elevation_range_m": 207.9344277830813,
+              "centroid_to_cell_km": 1.5233407795476002,
+              "intersecting_cell_count": 0.9574271077563381
+            }
+          }
+        },
+        "relative_humidity_pct": {
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "n_test_records": 35040,
+          "n_test_hours": 8760,
+          "n_train_records": 104112,
+          "metrics": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 3.933883392090913,
+              "rmse": 4.926891975792737,
+              "bias": 0.5405383095754083,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 4.901239201537404,
+              "rmse": 6.176485747465296,
+              "bias": 2.9894646137159464,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 3.587848576971871,
+              "rmse": 4.586642837561745,
+              "bias": -0.7327021279411061,
+              "physically_out_of_range_predictions": 6
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.346034815119042,
+            "rmse": -0.340249138230992,
+            "bias": -1.2732404375165145
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 104112,
+            "intercept_at_training_feature_means": 73.94581224356266,
+            "coef_standardized": {
+              "coarse_bilinear_value": 19.50146576347889,
+              "elevation_mean_m": 0.03836595639523338,
+              "elevation_range_m": 0.061153703131786086,
+              "centroid_to_cell_km": 0.031882569481053204,
+              "intersecting_cell_count": 0.020979368642173337
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.0942366158434844,
+              "elevation_mean_m": 0.00022016130977767473,
+              "elevation_range_m": 0.0002941009037502057,
+              "centroid_to_cell_km": 0.02092937437841167,
+              "intersecting_cell_count": 0.021912235899960036
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 74.62411563789631,
+              "elevation_mean_m": 788.1149662643188,
+              "elevation_range_m": 350.5434061686198,
+              "centroid_to_cell_km": 3.534381276822461,
+              "intersecting_cell_count": 2.5
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 17.82198244978882,
+              "elevation_mean_m": 174.26293672569642,
+              "elevation_range_m": 207.9344277830813,
+              "centroid_to_cell_km": 1.5233407795476002,
+              "intersecting_cell_count": 0.9574271077563381
+            }
+          }
+        },
+        "rainfall_mm": {
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "n_test_records": 35040,
+          "n_test_hours": 8760,
+          "n_train_records": 104106,
+          "metrics": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 0.004031883163364626,
+              "rmse": 0.017336394830746893,
+              "bias": 0.00016863914536839074,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 0.026667886504657918,
+              "rmse": 0.14344681712680893,
+              "bias": 0.004327355913258644,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 0.009953900080475368,
+              "rmse": 0.018734702754531974,
+              "bias": -0.007207771292155169,
+              "physically_out_of_range_predictions": 24569
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": 0.005922016917110742,
+            "rmse": 0.001398307923785081,
+            "bias": -0.00737641043752356
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 104106,
+            "intercept_at_training_feature_means": 0.13628837606999453,
+            "coef_standardized": {
+              "coarse_bilinear_value": 0.45712803248051725,
+              "elevation_mean_m": 0.002172505332530462,
+              "elevation_range_m": -0.00169623763748846,
+              "centroid_to_cell_km": -0.000569198552812047,
+              "intersecting_cell_count": -0.0005614734055988886
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 0.9959330561081557,
+              "elevation_mean_m": 1.2466823831565262e-05,
+              "elevation_range_m": -8.157560321170033e-06,
+              "centroid_to_cell_km": -0.0003736514904964909,
+              "intersecting_cell_count": -0.000586439845968704
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 0.1448649987087439,
+              "elevation_mean_m": 788.1149662643187,
+              "elevation_range_m": 350.5434061686198,
+              "centroid_to_cell_km": 3.5343812768224616,
+              "intersecting_cell_count": 2.5
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 0.45899473832794874,
+              "elevation_mean_m": 174.26293672569645,
+              "elevation_range_m": 207.93442778308133,
+              "centroid_to_cell_km": 1.5233407795476,
+              "intersecting_cell_count": 0.9574271077563381
+            }
+          }
+        },
+        "wind_speed_kmph": {
+          "test_gps": [
+            "Ambale",
+            "Duggatti",
+            "Honnuru",
+            "Kestur"
+          ],
+          "n_test_records": 35040,
+          "n_test_hours": 8760,
+          "n_train_records": 104112,
+          "metrics": {
+            "A_bilinear": {
+              "n": 35040,
+              "mae": 1.379599780574061,
+              "rmse": 1.7605172747427085,
+              "bias": 1.1358762094740151,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 35040,
+              "mae": 1.1968496195506717,
+              "rmse": 1.581134078760972,
+              "bias": 0.5713827816938428,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 35040,
+              "mae": 0.8061814101426854,
+              "rmse": 1.094116182189466,
+              "bias": 0.07951047875038605,
+              "physically_out_of_range_predictions": 0
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.5734183704313756,
+            "rmse": -0.6664010925532424,
+            "bias": -1.0563657307236292
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 104112,
+            "intercept_at_training_feature_means": 7.169659169384887,
+            "coef_standardized": {
+              "coarse_bilinear_value": 4.045665843880502,
+              "elevation_mean_m": -0.04256211581523857,
+              "elevation_range_m": -0.09438460579481021,
+              "centroid_to_cell_km": -0.04758624309152037,
+              "intersecting_cell_count": -0.03227440590241091
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 0.8526408999316847,
+              "elevation_mean_m": -0.00024424078128692785,
+              "elevation_range_m": -0.000453915240497225,
+              "centroid_to_cell_km": -0.03123808128188656,
+              "intersecting_cell_count": -0.03370951756112658
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 8.238461246871434,
+              "elevation_mean_m": 788.1149662643188,
+              "elevation_range_m": 350.5434061686198,
+              "centroid_to_cell_km": 3.534381276822461,
+              "intersecting_cell_count": 2.5
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 4.744864859526031,
+              "elevation_mean_m": 174.26293672569642,
+              "elevation_range_m": 207.9344277830813,
+              "centroid_to_cell_km": 1.5233407795476002,
+              "intersecting_cell_count": 0.9574271077563381
+            }
+          }
+        }
+      }
+    },
+    "split_fold_4": {
+      "held_out_cell_group": "E5L_12.10N_77.10E",
+      "leakage_audit": {
+        "train_cell_groups": [
+          "E5L_12.00N_77.10E",
+          "E5L_12.00N_77.20E",
+          "E5L_12.10N_77.00E"
+        ],
+        "test_cell_groups": [
+          "E5L_12.10N_77.10E"
+        ],
+        "cell_groups_disjoint": true,
+        "train_last_timestamp_utc": "2022-12-24 23:00:00+00:00",
+        "test_first_timestamp_utc": "2023-01-01 00:00:00+00:00",
+        "temporal_gap_hours": 169.0,
+        "temporal_gap_at_least_7_days": true,
+        "partial_or_nonprimary_rows_used": 0,
+        "agara_rows_used": 0,
+        "missing_target_rows_used": 0
+      },
+      "by_variable": {
+        "temperature_c": {
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "n_test_records": 26280,
+          "n_test_hours": 8760,
+          "n_train_records": 121464,
+          "metrics": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 0.9044370119974435,
+              "rmse": 1.1401491734791271,
+              "bias": 0.4751440334929599,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 0.8801244308959404,
+              "rmse": 1.1050370815137651,
+              "bias": -0.34246403942369436,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 0.810696999685829,
+              "rmse": 1.042816674201964,
+              "bias": -0.17911265667888754,
+              "physically_out_of_range_predictions": 0
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.09374001231161455,
+            "rmse": -0.09733249927716314,
+            "bias": -0.6542566901718474
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 121464,
+            "intercept_at_training_feature_means": 23.20504382443212,
+            "coef_standardized": {
+              "coarse_bilinear_value": 3.596432678310008,
+              "elevation_mean_m": -0.43663348334496327,
+              "elevation_range_m": -0.0752962314624106,
+              "centroid_to_cell_km": 0.049491977781493196,
+              "intersecting_cell_count": -0.08387891236866533
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.0319729453475273,
+              "elevation_mean_m": -0.0025237954802060578,
+              "elevation_range_m": -0.000296642487668706,
+              "centroid_to_cell_km": 0.034565986469711964,
+              "intersecting_cell_count": -0.08474814711191844
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 24.044521182244356,
+              "elevation_mean_m": 758.8613142525744,
+              "elevation_range_m": 229.18550327845983,
+              "centroid_to_cell_km": 3.84930745563097,
+              "intersecting_cell_count": 2.142857142857143
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 3.485006748019807,
+              "elevation_mean_m": 173.00668250238482,
+              "elevation_range_m": 253.82820935112426,
+              "centroid_to_cell_km": 1.431811524455116,
+              "intersecting_cell_count": 0.9897433186107869
+            }
+          }
+        },
+        "dewpoint_c": {
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "n_test_records": 26280,
+          "n_test_hours": 8760,
+          "n_train_records": 121464,
+          "metrics": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 1.0414456813585775,
+              "rmse": 1.348691751998647,
+              "bias": 0.9934313737703739,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 1.039554658654618,
+              "rmse": 1.4379422415664067,
+              "bias": 0.9329628199747164,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 0.5874019568084604,
+              "rmse": 0.8101752622157341,
+              "bias": -0.0009318842517906089,
+              "physically_out_of_range_predictions": 0
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.4540437245501171,
+            "rmse": -0.5385164897829129,
+            "bias": -0.9943632580221645
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 121464,
+            "intercept_at_training_feature_means": 17.600798964888313,
+            "coef_standardized": {
+              "coarse_bilinear_value": 3.3821998161158935,
+              "elevation_mean_m": -0.40946849566076066,
+              "elevation_range_m": -0.10867520996355896,
+              "centroid_to_cell_km": 0.05637497068224879,
+              "intersecting_cell_count": -0.10001569695479964
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.121145124425885,
+              "elevation_mean_m": -0.0023667784951319224,
+              "elevation_range_m": -0.0004281447292299453,
+              "centroid_to_cell_km": 0.03937317846614107,
+              "intersecting_cell_count": -0.10105215673007283
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 18.666179340410054,
+              "elevation_mean_m": 758.8613142525744,
+              "elevation_range_m": 229.18550327845983,
+              "centroid_to_cell_km": 3.84930745563097,
+              "intersecting_cell_count": 2.142857142857143
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 3.016736854515465,
+              "elevation_mean_m": 173.00668250238482,
+              "elevation_range_m": 253.82820935112426,
+              "centroid_to_cell_km": 1.431811524455116,
+              "intersecting_cell_count": 0.9897433186107869
+            }
+          }
+        },
+        "relative_humidity_pct": {
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "n_test_records": 26280,
+          "n_test_hours": 8760,
+          "n_train_records": 121464,
+          "metrics": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 4.0861864927176175,
+              "rmse": 5.133457843724353,
+              "bias": 1.3032694974380994,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 5.563498429888731,
+              "rmse": 6.868935126599067,
+              "bias": 4.154214558697276,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 3.546986073063811,
+              "rmse": 4.559111898103522,
+              "bias": 0.3970304742975875,
+              "physically_out_of_range_predictions": 4
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.5392004196538065,
+            "rmse": -0.5743459456208315,
+            "bias": -0.906239023140512
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 121464,
+            "intercept_at_training_feature_means": 74.3653030233339,
+            "coef_standardized": {
+              "coarse_bilinear_value": 19.452915693768876,
+              "elevation_mean_m": -0.017385744330821618,
+              "elevation_range_m": -0.15208002382998717,
+              "centroid_to_cell_km": 0.04098890899124012,
+              "intersecting_cell_count": -0.08698128688661191
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 1.0888128559114916,
+              "elevation_mean_m": -0.00010049175025699925,
+              "elevation_range_m": -0.0005991454780331869,
+              "centroid_to_cell_km": 0.0286273076387192,
+              "intersecting_cell_count": -0.08788267144727956
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 74.75265415674873,
+              "elevation_mean_m": 758.8613142525744,
+              "elevation_range_m": 229.18550327845983,
+              "centroid_to_cell_km": 3.84930745563097,
+              "intersecting_cell_count": 2.142857142857143
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 17.866170102743702,
+              "elevation_mean_m": 173.00668250238482,
+              "elevation_range_m": 253.82820935112426,
+              "centroid_to_cell_km": 1.431811524455116,
+              "intersecting_cell_count": 0.9897433186107869
+            }
+          }
+        },
+        "rainfall_mm": {
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "n_test_records": 26280,
+          "n_test_hours": 8760,
+          "n_train_records": 121457,
+          "metrics": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 0.019830875806954775,
+              "rmse": 0.08382790991696001,
+              "bias": 0.009092335962515664,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 0.03816470162648506,
+              "rmse": 0.18518252081478126,
+              "bias": 0.011735888507514527,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 0.02256148526054382,
+              "rmse": 0.08348117213533596,
+              "bias": 0.004493630992474196,
+              "physically_out_of_range_predictions": 17018
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": 0.0027306094535890432,
+            "rmse": -0.0003467377816240569,
+            "bias": -0.0045987049700414685
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 121457,
+            "intercept_at_training_feature_means": 0.1402726110889676,
+            "coef_standardized": {
+              "coarse_bilinear_value": 0.4644142879455057,
+              "elevation_mean_m": 0.0008725075790907468,
+              "elevation_range_m": -0.004078195933668141,
+              "centroid_to_cell_km": 0.0010078415792582006,
+              "intersecting_cell_count": -0.0022048485372619733
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 0.9997192232728971,
+              "elevation_mean_m": 5.043201606265814e-06,
+              "elevation_range_m": -1.6066756110731224e-05,
+              "centroid_to_cell_km": 0.0007038926297521878,
+              "intersecting_cell_count": -0.0022276973188934675
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 0.14378664002951297,
+              "elevation_mean_m": 758.8613142525744,
+              "elevation_range_m": 229.18550327845983,
+              "centroid_to_cell_km": 3.849307455630969,
+              "intersecting_cell_count": 2.142857142857143
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 0.464544721291943,
+              "elevation_mean_m": 173.00668250238482,
+              "elevation_range_m": 253.8282093511243,
+              "centroid_to_cell_km": 1.4318115244551162,
+              "intersecting_cell_count": 0.989743318610787
+            }
+          }
+        },
+        "wind_speed_kmph": {
+          "test_gps": [
+            "Gowdahalli",
+            "Madduru",
+            "Yariyuru"
+          ],
+          "n_test_records": 26280,
+          "n_test_hours": 8760,
+          "n_train_records": 121464,
+          "metrics": {
+            "A_bilinear": {
+              "n": 26280,
+              "mae": 1.3166938463106095,
+              "rmse": 1.6650985226888417,
+              "bias": 1.0973169519622918,
+              "physically_out_of_range_predictions": 0
+            },
+            "A_nearest": {
+              "n": 26280,
+              "mae": 1.3299099154671021,
+              "rmse": 1.7418440348647681,
+              "bias": 0.8494073137811495,
+              "physically_out_of_range_predictions": 0
+            },
+            "B_ridge": {
+              "n": 26280,
+              "mae": 0.7720047317849431,
+              "rmse": 1.062630187871339,
+              "bias": -0.05516887175336429,
+              "physically_out_of_range_predictions": 0
+            }
+          },
+          "B_minus_A_bilinear": {
+            "mae": -0.5446891145256664,
+            "rmse": -0.6024683348175028,
+            "bias": -1.152485823715656
+          },
+          "B_ridge_model": {
+            "alpha": 1.0,
+            "n_train": 121464,
+            "intercept_at_training_feature_means": 7.368042632328114,
+            "coef_standardized": {
+              "coarse_bilinear_value": 4.095761344172692,
+              "elevation_mean_m": -0.05799800319132829,
+              "elevation_range_m": -0.03627109640685802,
+              "centroid_to_cell_km": 0.013449365497737143,
+              "intersecting_cell_count": -0.02587996305912838
+            },
+            "coef_per_original_unit": {
+              "coarse_bilinear_value": 0.8421028488992567,
+              "elevation_mean_m": -0.00033523562415300817,
+              "elevation_range_m": -0.00014289623875762242,
+              "centroid_to_cell_km": 0.009393251323951576,
+              "intersecting_cell_count": -0.02614815636790935
+            },
+            "training_feature_mean": {
+              "coarse_bilinear_value": 8.453475232517873,
+              "elevation_mean_m": 758.8613142525744,
+              "elevation_range_m": 229.18550327845983,
+              "centroid_to_cell_km": 3.84930745563097,
+              "intersecting_cell_count": 2.142857142857143
+            },
+            "training_feature_std": {
+              "coarse_bilinear_value": 4.863730540190442,
+              "elevation_mean_m": 173.00668250238482,
+              "elevation_range_m": 253.82820935112426,
+              "centroid_to_cell_km": 1.431811524455116,
+              "intersecting_cell_count": 0.9897433186107869
+            }
+          }
+        }
+      }
+    }
+  },
+  "aggregate_by_variable": {
+    "temperature_c": {
+      "A_bilinear": {
+        "mae_mean_over_folds": 1.1501522576318957,
+        "rmse_mean_over_folds": 1.3783067450951607,
+        "bias_mean_over_folds": 0.8452102769825456,
+        "mae_std_over_folds": 0.4237658771569269,
+        "rmse_std_over_folds": 0.41052004180479734,
+        "bias_std_over_folds": 0.6277220085811631,
+        "n_test_records_total": 87600
+      },
+      "A_nearest": {
+        "mae_mean_over_folds": 1.1414139978417523,
+        "rmse_mean_over_folds": 1.3669098924385257,
+        "bias_mean_over_folds": 0.4593216430106664,
+        "mae_std_over_folds": 0.46896417281823816,
+        "rmse_std_over_folds": 0.4571818780515814,
+        "bias_std_over_folds": 1.0178365344674802,
+        "n_test_records_total": 87600
+      },
+      "B_ridge": {
+        "mae_mean_over_folds": 0.8148056811676105,
+        "rmse_mean_over_folds": 1.0408965095887057,
+        "bias_mean_over_folds": -0.2259679329711679,
+        "mae_std_over_folds": 0.03682992240729207,
+        "rmse_std_over_folds": 0.032279367925532876,
+        "bias_std_over_folds": 0.16592939942943566,
+        "n_test_records_total": 87600
+      },
+      "B_minus_A_bilinear_mean_over_folds": {
+        "mae": -0.3353465764642851,
+        "rmse": -0.337410235506455,
+        "bias": -1.0711782099537135
+      },
+      "row_pooled": {
+        "A_bilinear": {
+          "n": 87600,
+          "mae": 1.0046765405663567,
+          "rmse": 1.263502372512616,
+          "bias": 0.6180312329435922
+        },
+        "A_nearest": {
+          "n": 87600,
+          "mae": 0.9908735740348085,
+          "rmse": 1.2511222339595023,
+          "bias": 0.08971057351865724
+        },
+        "B_ridge": {
+          "n": 87600,
+          "mae": 0.808723823858551,
+          "rmse": 1.0382847016594947,
+          "bias": -0.18812686917003582
+        }
+      }
+    },
+    "dewpoint_c": {
+      "A_bilinear": {
+        "mae_mean_over_folds": 1.2736551071236621,
+        "rmse_mean_over_folds": 1.538705698747398,
+        "bias_mean_over_folds": 1.2256989964872684,
+        "mae_std_over_folds": 0.5310209182841709,
+        "rmse_std_over_folds": 0.47426505858227425,
+        "bias_std_over_folds": 0.5739596323525838,
+        "n_test_records_total": 87600
+      },
+      "A_nearest": {
+        "mae_mean_over_folds": 1.284195162281054,
+        "rmse_mean_over_folds": 1.5942416990857333,
+        "bias_mean_over_folds": 1.2022061178129013,
+        "mae_std_over_folds": 0.5323469257858989,
+        "rmse_std_over_folds": 0.4406224613956248,
+        "bias_std_over_folds": 0.6002763048030229,
+        "n_test_records_total": 87600
+      },
+      "B_ridge": {
+        "mae_mean_over_folds": 0.6748792365397158,
+        "rmse_mean_over_folds": 0.889151395764148,
+        "bias_mean_over_folds": 0.04953513139913756,
+        "mae_std_over_folds": 0.1312781008236285,
+        "rmse_std_over_folds": 0.1341418408303052,
+        "bias_std_over_folds": 0.4743205276387614,
+        "n_test_records_total": 87600
+      },
+      "B_minus_A_bilinear_mean_over_folds": {
+        "mae": -0.5987758705839463,
+        "rmse": -0.6495543029832499,
+        "bias": -1.176163865088131
+      },
+      "row_pooled": {
+        "A_bilinear": {
+          "n": 87600,
+          "mae": 1.0765522794819284,
+          "rmse": 1.401132367487846,
+          "bias": 1.0102517567255689
+        },
+        "A_nearest": {
+          "n": 87600,
+          "mae": 1.0953382964112444,
+          "rmse": 1.4695105746724388,
+          "bias": 0.9832552313260292
+        },
+        "B_ridge": {
+          "n": 87600,
+          "mae": 0.6409598692007397,
+          "rmse": 0.8557999962283592,
+          "bias": -0.10637550059641153
+        }
+      }
+    },
+    "relative_humidity_pct": {
+      "A_bilinear": {
+        "mae_mean_over_folds": 3.9415619641997,
+        "rmse_mean_over_folds": 4.963033861194332,
+        "bias_mean_over_folds": 0.887730509534672,
+        "mae_std_over_folds": 0.12133286624683999,
+        "rmse_std_over_folds": 0.14543896303771064,
+        "bias_std_over_folds": 0.3255470105749984,
+        "n_test_records_total": 87600
+      },
+      "A_nearest": {
+        "mae_mean_over_folds": 4.591114447760102,
+        "rmse_mean_over_folds": 5.7545987356034045,
+        "bias_mean_over_folds": 2.248576434099281,
+        "mae_std_over_folds": 0.7964777387184682,
+        "rmse_std_over_folds": 0.9407540989644996,
+        "bias_std_over_folds": 1.6215842596855163,
+        "n_test_records_total": 87600
+      },
+      "B_ridge": {
+        "mae_mean_over_folds": 3.784200369592192,
+        "rmse_mean_over_folds": 4.811128506431638,
+        "bias_mean_over_folds": 0.6360498313906434,
+        "mae_std_over_folds": 0.4432442607323237,
+        "rmse_std_over_folds": 0.4942757150616318,
+        "bias_std_over_folds": 1.7903416074375071,
+        "n_test_records_total": 87600
+      },
+      "B_minus_A_bilinear_mean_over_folds": {
+        "mae": -0.15736159460750798,
+        "rmse": -0.15190535476269407,
+        "bias": -0.2516806781440286
+      },
+      "row_pooled": {
+        "A_bilinear": {
+          "n": 87600,
+          "mae": 3.9696464399957128,
+          "rmse": 4.991736489523493,
+          "bias": 0.8738443881079719
+        },
+        "A_nearest": {
+          "n": 87600,
+          "mae": 4.828468917248297,
+          "rmse": 6.086703893604513,
+          "bias": 2.7517521279995645
+        },
+        "B_ridge": {
+          "n": 87600,
+          "mae": 3.6547763945428113,
+          "rmse": 4.67627609419567,
+          "bias": 0.07922285447818299
+        }
+      }
+    },
+    "rainfall_mm": {
+      "A_bilinear": {
+        "mae_mean_over_folds": 0.014398890949688707,
+        "rmse_mean_over_folds": 0.06359350491271074,
+        "bias_mean_over_folds": 0.005609258420782073,
+        "mae_std_over_folds": 0.008604110975476729,
+        "rmse_std_over_folds": 0.03785618740834665,
+        "bias_std_over_folds": 0.004392311359262707,
+        "n_test_records_total": 87600
+      },
+      "A_nearest": {
+        "mae_mean_over_folds": 0.026382614779248754,
+        "rmse_mean_over_folds": 0.13155095446005743,
+        "bias_mean_over_folds": 0.00682589454940381,
+        "mae_std_over_folds": 0.008410754741234108,
+        "rmse_std_over_folds": 0.04151673895321801,
+        "bias_std_over_folds": 0.003335163751721376,
+        "n_test_records_total": 87600
+      },
+      "B_ridge": {
+        "mae_mean_over_folds": 0.025758746527869202,
+        "rmse_mean_over_folds": 0.06634354322596536,
+        "bias_mean_over_folds": 0.006354256566957539,
+        "mae_std_over_folds": 0.012217468630246857,
+        "rmse_std_over_folds": 0.036211811547815234,
+        "bias_std_over_folds": 0.018668586767960016,
+        "n_test_records_total": 87600
+      },
+      "B_minus_A_bilinear_mean_over_folds": {
+        "mae": 0.011359855578180495,
+        "rmse": 0.002750038313254627,
+        "bias": 0.000744998146175466
+      },
+      "row_pooled": {
+        "A_bilinear": {
+          "n": 87600,
+          "mae": 0.013225814374306269,
+          "rmse": 0.06787928510221763,
+          "bias": 0.005038295857122683
+        },
+        "A_nearest": {
+          "n": 87600,
+          "mae": 0.028271884855867953,
+          "rmse": 0.14633025404818187,
+          "bias": 0.006914130888257681
+        },
+        "B_ridge": {
+          "n": 87600,
+          "mae": 0.021137631255175943,
+          "rmse": 0.06864384556152989,
+          "bias": 0.0007621200067914715
+        }
+      }
+    },
+    "wind_speed_kmph": {
+      "A_bilinear": {
+        "mae_mean_over_folds": 1.3681750902546428,
+        "rmse_mean_over_folds": 1.7311134830409258,
+        "bias_mean_over_folds": 1.1543842620947118,
+        "mae_std_over_folds": 0.0349171738919329,
+        "rmse_std_over_folds": 0.04449727028340098,
+        "bias_std_over_folds": 0.05592729875955314,
+        "n_test_records_total": 87600
+      },
+      "A_nearest": {
+        "mae_mean_over_folds": 1.3781236856614782,
+        "rmse_mean_over_folds": 1.7688243630859923,
+        "bias_mean_over_folds": 0.9907297712689733,
+        "mae_std_over_folds": 0.2207307723702729,
+        "rmse_std_over_folds": 0.24020295147496004,
+        "bias_std_over_folds": 0.3793562827578108,
+        "n_test_records_total": 87600
+      },
+      "B_ridge": {
+        "mae_mean_over_folds": 0.8606679337680102,
+        "rmse_mean_over_folds": 1.1427669284190047,
+        "bias_mean_over_folds": -0.17802881691184202,
+        "mae_std_over_folds": 0.1335791818129182,
+        "rmse_std_over_folds": 0.11888814631026672,
+        "bias_std_over_folds": 0.45601395552822915,
+        "n_test_records_total": 87600
+      },
+      "B_minus_A_bilinear_mean_over_folds": {
+        "mae": -0.5075071564866326,
+        "rmse": -0.5883465546219211,
+        "bias": -1.3324130790065538
+      },
+      "row_pooled": {
+        "A_bilinear": {
+          "n": 87600,
+          "mae": 1.3626986611106342,
+          "rmse": 1.7285775948449609,
+          "bias": 1.137370571299126
+        },
+        "A_nearest": {
+          "n": 87600,
+          "mae": 1.3461460267594385,
+          "rmse": 1.7529773845323116,
+          "bias": 0.8845358395302313
+        },
+        "B_ridge": {
+          "n": 87600,
+          "mae": 0.8210082341754134,
+          "rmse": 1.1096821159381411,
+          "bias": -0.046734420740918464
+        }
+      }
+    }
+  },
+  "population": {
+    "primary_gps": [
+      "Ambale",
+      "Biligiri Ranganabetta",
+      "Duggatti",
+      "Gowdahalli",
+      "Gumballi",
+      "Honnuru",
+      "Kestur",
+      "Madduru",
+      "Yariyuru",
+      "Yeragamballi"
+    ],
+    "agara": "PARTIAL -- excluded from every fold's train and test rows (see leakage_audit.agara_rows_used)",
+    "mamballi": "UNAVAILABLE -- zero rows in the dataset"
+  },
+  "rainfall": {
+    "processing": "Unchanged Phase 2D rainfall (ERA5-Land de-accumulated with pipeline.units; ERA5 tp already hourly).",
+    "missing_first_hour_rows": 11,
+    "missing_first_hour_rows_used_in_any_fold": 0,
+    "tiny_negative_steps_clamped_target_rows": 5001,
+    "tiny_negative_steps_clamped_area_weighted_rows": 7179,
+    "max_abs_clamped_step_mm": 3.357490641064942e-05,
+    "note": "Clamped steps are a ~0.000034 mm float32 rounding artifact, documented in the Phase 2D manifest."
+  },
+  "stop_condition": "Stage 1 only: no neural network, no tree ensembles, no hyperparameter optimization."
+}

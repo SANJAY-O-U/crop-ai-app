@@ -1,0 +1,216 @@
+{
+ "rows_inspected": {
+  "432250-99999": 1383,
+  "432330-99999": 1945,
+  "432720-99999": 205,
+  "432840-99999": 19328
+ },
+ "by_station": {
+  "432250-99999": {
+   "reports": 1383,
+   "report_types": {
+    "FM-12": 1383
+   },
+   "variables": {
+    "temperature_c": {
+     "status_counts": {
+      "OK": 1371,
+      "REJECTED_SOURCE_QC": 8,
+      "SUSPICIOUS_CONSTANT_RUN": 4
+     },
+     "accepted_hours": 1371
+    },
+    "dewpoint_c": {
+     "status_counts": {
+      "OK": 1377,
+      "REJECTED_SOURCE_QC": 4,
+      "SUSPICIOUS_CONSTANT_RUN": 2
+     },
+     "accepted_hours": 1377
+    },
+    "relative_humidity_pct": {
+     "status_counts": {
+      "OK": 1367,
+      "NEEDS_BOTH_T_AND_TD": 16
+     },
+     "accepted_hours": 1367
+    },
+    "wind_speed_kmph": {
+     "status_counts": {
+      "OK": 1383
+     },
+     "accepted_hours": 1383
+    },
+    "rainfall_periods": {
+     "status_counts": {
+      "CONDITION_NOT_USABLE": 323,
+      "PERIOD_NOT_ACCEPTED": 80,
+      "OK": 11
+     },
+     "accepted_by_period_h": {
+      "3.0": 5,
+      "6.0": 4,
+      "24.0": 2
+     },
+     "trace_reports": 9
+    }
+   }
+  },
+  "432330-99999": {
+   "reports": 1945,
+   "report_types": {
+    "FM-12": 1945
+   },
+   "variables": {
+    "temperature_c": {
+     "status_counts": {
+      "OK": 1943,
+      "REJECTED_SOURCE_QC": 2
+     },
+     "accepted_hours": 1943
+    },
+    "dewpoint_c": {
+     "status_counts": {
+      "OK": 1924,
+      "REJECTED_SOURCE_QC": 19,
+      "MISSING_SENTINEL": 2
+     },
+     "accepted_hours": 1924
+    },
+    "relative_humidity_pct": {
+     "status_counts": {
+      "OK": 1922,
+      "NEEDS_BOTH_T_AND_TD": 23
+     },
+     "accepted_hours": 1922
+    },
+    "wind_speed_kmph": {
+     "status_counts": {
+      "OK": 1945
+     },
+     "accepted_hours": 1945
+    },
+    "rainfall_periods": {
+     "status_counts": {
+      "CONDITION_NOT_USABLE": 150,
+      "PERIOD_NOT_ACCEPTED": 69,
+      "OK": 16
+     },
+     "accepted_by_period_h": {
+      "3.0": 2,
+      "6.0": 5,
+      "12.0": 1,
+      "24.0": 8
+     },
+     "trace_reports": 15
+    }
+   }
+  },
+  "432720-99999": {
+   "reports": 205,
+   "report_types": {
+    "FM-12": 205
+   },
+   "variables": {
+    "temperature_c": {
+     "status_counts": {
+      "OK": 177,
+      "SUSPICIOUS_CONSTANT_RUN": 27,
+      "MISSING_SENTINEL": 1
+     },
+     "accepted_hours": 177
+    },
+    "dewpoint_c": {
+     "status_counts": {
+      "OK": 196,
+      "SUSPICIOUS_CONSTANT_RUN": 6,
+      "MISSING_SENTINEL": 3
+     },
+     "accepted_hours": 196
+    },
+    "relative_humidity_pct": {
+     "status_counts": {
+      "OK": 171,
+      "NEEDS_BOTH_T_AND_TD": 34
+     },
+     "accepted_hours": 171
+    },
+    "wind_speed_kmph": {
+     "status_counts": {
+      "OK": 205
+     },
+     "accepted_hours": 205
+    },
+    "rainfall_periods": {
+     "status_counts": {
+      "CONDITION_NOT_USABLE": 41,
+      "OK": 8,
+      "PERIOD_NOT_ACCEPTED": 1
+     },
+     "accepted_by_period_h": {
+      "24.0": 8
+     },
+     "trace_reports": 0
+    }
+   }
+  },
+  "432840-99999": {
+   "reports": 19328,
+   "report_types": {
+    "FM-15": 16516,
+    "FM-12": 2812
+   },
+   "variables": {
+    "temperature_c": {
+     "status_counts": {
+      "OK": 8361,
+      "OFF_HOUR_REPORT": 8291,
+      "DUPLICATE_HOUR": 2675,
+      "MISSING_SENTINEL": 1
+     },
+     "accepted_hours": 8361
+    },
+    "dewpoint_c": {
+     "status_counts": {
+      "OK": 8354,
+      "OFF_HOUR_REPORT": 8281,
+      "DUPLICATE_HOUR": 2675,
+      "REJECTED_SOURCE_QC": 11,
+      "MISSING_SENTINEL": 7
+     },
+     "accepted_hours": 8354
+    },
+    "relative_humidity_pct": {
+     "status_counts": {
+      "NEEDS_BOTH_T_AND_TD": 10975,
+      "OK": 8353
+     },
+     "accepted_hours": 8353
+    },
+    "wind_speed_kmph": {
+     "status_counts": {
+      "OK": 8361,
+      "OFF_HOUR_REPORT": 8288,
+      "DUPLICATE_HOUR": 2675,
+      "MISSING_SENTINEL": 4
+     },
+     "accepted_hours": 8361
+    },
+    "rainfall_periods": {
+     "status_counts": {
+      "PERIOD_NOT_ACCEPTED": 489,
+      "CONDITION_NOT_USABLE": 432,
+      "OK": 58
+     },
+     "accepted_by_period_h": {
+      "3.0": 15,
+      "6.0": 18,
+      "12.0": 15,
+      "24.0": 10
+     },
+     "trace_reports": 61
+    }
+   }
+  }
+ }
+}

@@ -40,8 +40,11 @@ export default function CropCastDashboard({ onNavigate }) {
 
   return (
     <div style={{ maxWidth: 980, margin: "0 auto", padding: "48px 5%" }}>
+      <button onClick={() => onNavigate("home")} style={{ background: "none", border: "1px solid var(--border)", color: "var(--text2)", padding: "6px 14px", borderRadius: 8, cursor: "pointer", fontSize: 13, marginBottom: 18 }}>
+        ← Map
+      </button>
       <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, textTransform: "uppercase", color: "var(--green)", marginBottom: 10 }}>
-        CropCast — SIH26074
+        CropCastAI · Weather Intelligence · SIH26074
       </div>
       <h1 style={{ fontFamily: "var(--display)", fontSize: "clamp(1.8rem,4vw,2.4rem)", fontWeight: 800, letterSpacing: "-1px", marginBottom: 10 }}>
         Block → Panchayat Weather Dashboard

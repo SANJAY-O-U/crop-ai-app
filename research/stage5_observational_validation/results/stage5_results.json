@@ -1,0 +1,1535 @@
+{
+ "type": "Stage5ObservationalValidation",
+ "framing": "Stage 4D was evaluated against the ERA5-Land reanalysis proxy. Stage 5 evaluates the frozen Stage 4D model against independent observations.",
+ "terminology": "Observations are an independent validation source with their own errors (siting, instrument, reporting); ERA5-Land is a reanalysis proxy. Neither is treated as error-free.",
+ "karwar_exception": "KARWAR EXCEPTION: Karwar is evaluated with 14 Panchayats and 5 ERA5-Land cells, below the frozen >= 6-cell criterion (E5L_14.90N_74.10E is sea; Majali 220655 and Mudgeri 220657 excluded).",
+ "evaluation_period_utc": [
+  "2023-01-01T00:00Z",
+  "2023-12-31T23:00Z"
+ ],
+ "primary_matched_station_count": 0,
+ "primary_set_note": "EMPTY: no ISD station lies inside an included Stage 4 Panchayat polygon. All results below are the NEARBY DIAGNOSTIC set and must not be read as Panchayat-level validation.",
+ "diagnostic_stations": [
+  {
+   "station_id": "432250-99999",
+   "station_name": "KARWAR",
+   "latitude": 14.783,
+   "longitude": 74.133,
+   "elevation_m": 4.0,
+   "tp_name": "Karwar",
+   "district": "Uttara Kannada",
+   "region": "coastal_inland_coast",
+   "gp_code": "220658",
+   "gp_name": "Shirwad",
+   "model_target_cell": "E5L_14.80N_74.20E",
+   "station_to_target_cell_km": 7.447090879253504,
+   "station_to_gp_centroid_km": 6.184449038471105,
+   "station_minus_gp_elevation_m": -179.69672814421173,
+   "match_set": "NEARBY_DIAGNOSTIC"
+  },
+  {
+   "station_id": "432330-99999",
+   "station_name": "CHITRADURGA",
+   "latitude": 14.233,
+   "longitude": 76.433,
+   "elevation_m": 733.0,
+   "tp_name": "Hiriyur",
+   "district": "Chitradurga",
+   "region": "central_plateau",
+   "gp_code": "217091",
+   "gp_name": "Buruginarolppa",
+   "model_target_cell": "E5L_14.10N_76.50E",
+   "station_to_target_cell_km": 16.458793609217523,
+   "station_to_gp_centroid_km": 12.177201817880595,
+   "station_minus_gp_elevation_m": 7.743928018348242,
+   "match_set": "NEARBY_DIAGNOSTIC"
+  },
+  {
+   "station_id": "432720-99999",
+   "station_name": "CHINTAMANI",
+   "latitude": 13.2,
+   "longitude": 78.067,
+   "elevation_m": 857.0,
+   "tp_name": "Chintamani",
+   "district": "Chikballapur",
+   "region": "eastern_plateau",
+   "gp_code": "218853",
+   "gp_name": "Hirekattigenahalli",
+   "model_target_cell": "E5L_13.30N_78.00E",
+   "station_to_target_cell_km": 13.275211241833588,
+   "station_to_gp_centroid_km": 12.7966657441488,
+   "station_minus_gp_elevation_m": -14.334149926506598,
+   "match_set": "NEARBY_DIAGNOSTIC"
+  },
+  {
+   "station_id": "432840-99999",
+   "station_name": "MANGALORE",
+   "latitude": 12.961,
+   "longitude": 74.89,
+   "elevation_m": 102.7,
+   "tp_name": "Karkal",
+   "district": "Udupi",
+   "region": "coastal_inland_coast",
+   "gp_code": "220435",
+   "gp_name": "Mundkoor",
+   "model_target_cell": "E5L_13.10N_74.90E",
+   "station_to_target_cell_km": 15.4940344752993,
+   "station_to_gp_centroid_km": 17.247865354238197,
+   "station_minus_gp_elevation_m": 81.26625373947876,
+   "match_set": "NEARBY_DIAGNOSTIC"
+  }
+ ],
+ "counts": {
+  "stations": 4,
+  "areas": 4,
+  "regions": [
+   "central_plateau",
+   "coastal_inland_coast",
+   "eastern_plateau"
+  ],
+  "hourly_pairs_by_variable": {
+   "dewpoint_c": 11851,
+   "relative_humidity_pct": 11813,
+   "temperature_c": 11852,
+   "wind_speed_kmph": 11894
+  }
+ },
+ "dataset_identity": {
+  "dataset_manifest_sha256": "9fc24239d4833ecd23ec9ac86697a3c0bb5bee38e49a856200daf434a513af2f",
+  "row_total": 36397800
+ },
+ "frozen_model": {
+  "configuration": {
+   "A1_bilinear": "ERA5 bilinear value of the target variable; no training",
+   "A2_nearest": "ERA5 nearest-point value of the target variable; no training",
+   "B_ridge": {
+    "source": "baselines.baseline (Stage 1)",
+    "alpha": 1.0,
+    "features": "Stage 1 FEATURES with coarse_bilinear_value -> era5_<variable>",
+    "standardization": "fit on training rows only"
+   },
+   "C1..C4": {
+    "source": "ml_stage2.model.CONFIG (Stage 2) + ml_stage3_ablation.variants (Stage 3A)",
+    "hgb_config": {
+     "loss": "squared_error",
+     "learning_rate": 0.1,
+     "max_iter": 200,
+     "max_leaf_nodes": 31,
+     "max_depth": null,
+     "min_samples_leaf": 200,
+     "l2_regularization": 0.0,
+     "max_bins": 255,
+     "early_stopping": false,
+     "random_state": 0
+    },
+    "variants": {
+     "C1": [
+      "era5_temperature_c",
+      "era5_dewpoint_c",
+      "era5_relative_humidity_pct",
+      "era5_rainfall_mm",
+      "era5_wind_speed_kmph"
+     ],
+     "C2": [
+      "era5_temperature_c",
+      "era5_dewpoint_c",
+      "era5_relative_humidity_pct",
+      "era5_rainfall_mm",
+      "era5_wind_speed_kmph",
+      "elevation_mean_m",
+      "elevation_range_m"
+     ],
+     "C3": [
+      "era5_temperature_c",
+      "era5_dewpoint_c",
+      "era5_relative_humidity_pct",
+      "era5_rainfall_mm",
+      "era5_wind_speed_kmph",
+      "elevation_mean_m",
+      "elevation_range_m",
+      "centroid_to_cell_km",
+      "intersecting_cell_count"
+     ],
+     "C4": [
+      "era5_temperature_c",
+      "era5_dewpoint_c",
+      "era5_relative_humidity_pct",
+      "era5_rainfall_mm",
+      "era5_wind_speed_kmph",
+      "elevation_mean_m",
+      "elevation_range_m",
+      "centroid_to_cell_km",
+      "intersecting_cell_count",
+      "sin_hour",
+      "cos_hour",
+      "sin_day_of_year",
+      "cos_day_of_year"
+     ]
+    }
+   }
+  },
+  "features_C4": [
+   "era5_temperature_c",
+   "era5_dewpoint_c",
+   "era5_relative_humidity_pct",
+   "era5_rainfall_mm",
+   "era5_wind_speed_kmph",
+   "elevation_mean_m",
+   "elevation_range_m",
+   "centroid_to_cell_km",
+   "intersecting_cell_count",
+   "sin_hour",
+   "cos_hour",
+   "sin_day_of_year",
+   "cos_day_of_year"
+  ],
+  "gate6_reproduction": [
+   {
+    "fold_id": "taluka_6142",
+    "compared": 15,
+    "mismatches": [],
+    "reproduced": true,
+    "expected_hashes": {
+     "temperature_c/A1_bilinear": "91b383229e5e8275c824ac9214fbcdcc0b439eb1bce252de5691373e0553f872",
+     "temperature_c/A2_nearest": "740a1bf63b6d8e1b4de8f3968b0550f8d9a936314452c88341d623f8c1049f64",
+     "temperature_c/C4": "6454f0967ded87cd2a59822e6da487da102929035147d6643ea0a71ea881dac1",
+     "dewpoint_c/A1_bilinear": "716fe8301d1b740537039c0b8b19b18db2ea89375b71466875896bc1d1fbcd79",
+     "dewpoint_c/A2_nearest": "0c7741a46ee91122942ff3c7b75b9e84d48bfb3361f05e64ea5cbb61656e27e1",
+     "dewpoint_c/C4": "38e07e23aaac8b86ac7d6e7c931c7e5cdd465f2c2708d9ad575073f10f2941e3",
+     "relative_humidity_pct/A1_bilinear": "c6d9e0f3b04ea11fa32e054213631d1e81647260ef2e681b367a5e53dc6c488b",
+     "relative_humidity_pct/A2_nearest": "b0fbdb9239c60614c938489ac6659f15a80ab2fe98a823a18ea1f4cca51c9b04",
+     "relative_humidity_pct/C4": "e625efd3bed7df64da38417f3b54c5abd6d11cd7383994c64bb29434f4a80e57",
+     "rainfall_mm/A1_bilinear": "81fb16ebb756173bdc0d2c62e843682f55ec6249109a9b38958b0f9fd0443caf",
+     "rainfall_mm/A2_nearest": "e90f7b2aa1fae2f4b0193a40b7cf6916bf6d8c96f6fd15e7ea6eaafb96d2ec3d",
+     "rainfall_mm/C4": "f2253e437d0c4c5f32272185bac9b141cbcb534ce5d19a96caaaf49e104aa9dd",
+     "wind_speed_kmph/A1_bilinear": "95fef2d14e52d6626897494c06c070b7d4acbe43224e2f2702355084c8c58610",
+     "wind_speed_kmph/A2_nearest": "6e53425761b509453c66e45c96304894c453602a0fe38ddf5b699ebfb6d9e17d",
+     "wind_speed_kmph/C4": "56631c8e280c5feaade5bc4ad42ed84278d13452e3e3cbe4aa2bd7fc0f664f68"
+    },
+    "computed_hashes": {
+     "temperature_c/A1_bilinear": "91b383229e5e8275c824ac9214fbcdcc0b439eb1bce252de5691373e0553f872",
+     "temperature_c/A2_nearest": "740a1bf63b6d8e1b4de8f3968b0550f8d9a936314452c88341d623f8c1049f64",
+     "temperature_c/C4": "6454f0967ded87cd2a59822e6da487da102929035147d6643ea0a71ea881dac1",
+     "dewpoint_c/A1_bilinear": "716fe8301d1b740537039c0b8b19b18db2ea89375b71466875896bc1d1fbcd79",
+     "dewpoint_c/A2_nearest": "0c7741a46ee91122942ff3c7b75b9e84d48bfb3361f05e64ea5cbb61656e27e1",
+     "dewpoint_c/C4": "38e07e23aaac8b86ac7d6e7c931c7e5cdd465f2c2708d9ad575073f10f2941e3",
+     "relative_humidity_pct/A1_bilinear": "c6d9e0f3b04ea11fa32e054213631d1e81647260ef2e681b367a5e53dc6c488b",
+     "relative_humidity_pct/A2_nearest": "b0fbdb9239c60614c938489ac6659f15a80ab2fe98a823a18ea1f4cca51c9b04",
+     "relative_humidity_pct/C4": "e625efd3bed7df64da38417f3b54c5abd6d11cd7383994c64bb29434f4a80e57",
+     "rainfall_mm/A1_bilinear": "81fb16ebb756173bdc0d2c62e843682f55ec6249109a9b38958b0f9fd0443caf",
+     "rainfall_mm/A2_nearest": "e90f7b2aa1fae2f4b0193a40b7cf6916bf6d8c96f6fd15e7ea6eaafb96d2ec3d",
+     "rainfall_mm/C4": "f2253e437d0c4c5f32272185bac9b141cbcb534ce5d19a96caaaf49e104aa9dd",
+     "wind_speed_kmph/A1_bilinear": "95fef2d14e52d6626897494c06c070b7d4acbe43224e2f2702355084c8c58610",
+     "wind_speed_kmph/A2_nearest": "6e53425761b509453c66e45c96304894c453602a0fe38ddf5b699ebfb6d9e17d",
+     "wind_speed_kmph/C4": "56631c8e280c5feaade5bc4ad42ed84278d13452e3e3cbe4aa2bd7fc0f664f68"
+    },
+    "keep_gps": [
+     "217091"
+    ],
+    "elapsed_s": 364.5,
+    "stage4d_fold_file_sha256": "bec482ff9d4071a0f75d3360e01cf0616cb36e9d031ff1f4ec9ccde4b1a9e99e",
+    "dataset_manifest_sha256": "9fc24239d4833ecd23ec9ac86697a3c0bb5bee38e49a856200daf434a513af2f",
+    "design_manifest_sha256": "42d070f67497ea4a71b8419301e6d505cb2171621742159f4579e0ae7bc96249",
+    "predictions_file": "gate6_taluka_6142_predictions.parquet",
+    "predictions_sha256": "0796dce8456881bf19fbffabaf9e21e5deb569c540efd312af7dbac45e064ee7",
+    "prediction_rows": 43800,
+    "completed_utc": "2026-10-02T08:34:02+00:00",
+    "versions": {
+     "python": "3.12.6",
+     "pandas": "3.0.1"
+    }
+   },
+   {
+    "fold_id": "taluka_6198",
+    "compared": 15,
+    "mismatches": [],
+    "reproduced": true,
+    "expected_hashes": {
+     "temperature_c/A1_bilinear": "9753eed738810b336e79079d87a264f3ef5a22e9644979029ed864072b77b5fd",
+     "temperature_c/A2_nearest": "f2067973ae91fd15c65c0a7681235a6627159a9a1d4cb0fdcc6b0e45cfb2452f",
+     "temperature_c/C4": "818315b13be6a6307c6f4c6473d0d5c94ed6cfd71d31e8f6bb82b4b5331cd593",
+     "dewpoint_c/A1_bilinear": "e92d371985032664c54d5d9118fb68f660477b35dc3131ed4997dcfcffc2bfea",
+     "dewpoint_c/A2_nearest": "ac016bc40891a567dd53aa4017d44b13207dea1ee5aa98a98aef0f86b7915f81",
+     "dewpoint_c/C4": "693ffbe106475347be78930e416f3865c9d532594999aa84d2d11eeaa67d6e38",
+     "relative_humidity_pct/A1_bilinear": "de7f5b9165c038daea21b0e1e5efe5df927f29bfef18246ce1e9600a7bee865d",
+     "relative_humidity_pct/A2_nearest": "e814463332cf345e39940d27059ac667d9e68e8400d3da42735b38b1bee8ad13",
+     "relative_humidity_pct/C4": "93fb1feb63a823709e6b0f0626b7d30cdf791b97b039b66f285f4e308c8c4a48",
+     "rainfall_mm/A1_bilinear": "78eabe3f7862e1eea12b85ad2d88e8177fa81ab699894844671edab24f80135a",
+     "rainfall_mm/A2_nearest": "996dfffdaae07fef2305ad0c76eeaf573005684e66451082ee1c5cceb3389e3c",
+     "rainfall_mm/C4": "3de4e7dcf1297c5df59b139bbfb1b8c5ecca3eada3bf13ac7b72fe030fdda126",
+     "wind_speed_kmph/A1_bilinear": "41eaa7374f10ca9e447c8395aa8bbb72931213a587465831a7bb0ef545f43ee8",
+     "wind_speed_kmph/A2_nearest": "df98b741b7936d6fdd223c2c858f96e8301f8184cc2311c849d1d47aa58d419b",
+     "wind_speed_kmph/C4": "9ba19e0494a59e95d4b1843f71caae1af313e601f5b7ceff65cd11df658b937b"
+    },
+    "computed_hashes": {
+     "temperature_c/A1_bilinear": "9753eed738810b336e79079d87a264f3ef5a22e9644979029ed864072b77b5fd",
+     "temperature_c/A2_nearest": "f2067973ae91fd15c65c0a7681235a6627159a9a1d4cb0fdcc6b0e45cfb2452f",
+     "temperature_c/C4": "818315b13be6a6307c6f4c6473d0d5c94ed6cfd71d31e8f6bb82b4b5331cd593",
+     "dewpoint_c/A1_bilinear": "e92d371985032664c54d5d9118fb68f660477b35dc3131ed4997dcfcffc2bfea",
+     "dewpoint_c/A2_nearest": "ac016bc40891a567dd53aa4017d44b13207dea1ee5aa98a98aef0f86b7915f81",
+     "dewpoint_c/C4": "693ffbe106475347be78930e416f3865c9d532594999aa84d2d11eeaa67d6e38",
+     "relative_humidity_pct/A1_bilinear": "de7f5b9165c038daea21b0e1e5efe5df927f29bfef18246ce1e9600a7bee865d",
+     "relative_humidity_pct/A2_nearest": "e814463332cf345e39940d27059ac667d9e68e8400d3da42735b38b1bee8ad13",
+     "relative_humidity_pct/C4": "93fb1feb63a823709e6b0f0626b7d30cdf791b97b039b66f285f4e308c8c4a48",
+     "rainfall_mm/A1_bilinear": "78eabe3f7862e1eea12b85ad2d88e8177fa81ab699894844671edab24f80135a",
+     "rainfall_mm/A2_nearest": "996dfffdaae07fef2305ad0c76eeaf573005684e66451082ee1c5cceb3389e3c",
+     "rainfall_mm/C4": "3de4e7dcf1297c5df59b139bbfb1b8c5ecca3eada3bf13ac7b72fe030fdda126",
+     "wind_speed_kmph/A1_bilinear": "41eaa7374f10ca9e447c8395aa8bbb72931213a587465831a7bb0ef545f43ee8",
+     "wind_speed_kmph/A2_nearest": "df98b741b7936d6fdd223c2c858f96e8301f8184cc2311c849d1d47aa58d419b",
+     "wind_speed_kmph/C4": "9ba19e0494a59e95d4b1843f71caae1af313e601f5b7ceff65cd11df658b937b"
+    },
+    "keep_gps": [
+     "218853"
+    ],
+    "elapsed_s": 428.3,
+    "stage4d_fold_file_sha256": "6b5573bc036ad7fb89840859c8efcfaebe6cbb87a22ef66f463b4fe7040856ec",
+    "dataset_manifest_sha256": "9fc24239d4833ecd23ec9ac86697a3c0bb5bee38e49a856200daf434a513af2f",
+    "design_manifest_sha256": "42d070f67497ea4a71b8419301e6d505cb2171621742159f4579e0ae7bc96249",
+    "predictions_file": "gate6_taluka_6198_predictions.parquet",
+    "predictions_sha256": "e37c3bd1ffd99537b8c860e51b080ce2ddf06d052e4135915ae0643d3fe95e8b",
+    "prediction_rows": 43800,
+    "completed_utc": "2026-10-02T08:41:10+00:00",
+    "versions": {
+     "python": "3.12.6",
+     "pandas": "3.0.1"
+    }
+   },
+   {
+    "fold_id": "taluka_6246",
+    "compared": 15,
+    "mismatches": [],
+    "reproduced": true,
+    "expected_hashes": {
+     "temperature_c/A1_bilinear": "3c8e4e6aa107e2a2c8b2f525d81ec9a9532ebdc2e8a58dac2046e04cd2363ca7",
+     "temperature_c/A2_nearest": "921e44453056ce566b74a2f417a911cecc4e68d75c37473c8f9a3823b9ad096c",
+     "temperature_c/C4": "33618a5523fdb6ec445e5185b12f08a7c738efffe2c55cf210691cf8fde83f46",
+     "dewpoint_c/A1_bilinear": "f0e9c4a3020b3583db0a83d9c099453c4b54648afa6038d89196f14a080c4a95",
+     "dewpoint_c/A2_nearest": "d9e80e4840ea004338ef049a893eabe711ef5609ef90e1eac51dd09efc7eb784",
+     "dewpoint_c/C4": "ac0acd369b6c6aa9fa56923e314455f04e5b16b8827133b043aa4007c4f57b2e",
+     "relative_humidity_pct/A1_bilinear": "d5e6417def78e3782dd7392a968fcf00115e77ceb397f872443b04ed62178e60",
+     "relative_humidity_pct/A2_nearest": "1ac00afbc4617cbd73c6b381228ae8c4a3b860c3f1ea36b37f422845e7d53e51",
+     "relative_humidity_pct/C4": "0a8d773505bb8d03d2a0c6198a2b28f48b402f08df92e69d5ec1af370635f3eb",
+     "rainfall_mm/A1_bilinear": "e57236b3181c46a407177ca4eaf8c80a1c85466107e9be7ddf958e297fc0f2d0",
+     "rainfall_mm/A2_nearest": "d5caabbc55f235edb7ced13f14cf8eac841f97e19ac292843d859b1b20cc4eb7",
+     "rainfall_mm/C4": "0d5d774a034c056613ad2977a96cfd49186bcbbb760e47730dd486e280c60c4b",
+     "wind_speed_kmph/A1_bilinear": "5afdb75fc32c785aec2dccac6a2ce18a229b5f9c55e79cc635e6d38cbb2ce217",
+     "wind_speed_kmph/A2_nearest": "30582732419d72a1fccb30684ba1efb9408fa44fb21a1a6bd2e60606fef3867a",
+     "wind_speed_kmph/C4": "ab03866cfe53504f05d3646f0aabecb9990f48eca12e9cac2748346fbd2e7213"
+    },
+    "computed_hashes": {
+     "temperature_c/A1_bilinear": "3c8e4e6aa107e2a2c8b2f525d81ec9a9532ebdc2e8a58dac2046e04cd2363ca7",
+     "temperature_c/A2_nearest": "921e44453056ce566b74a2f417a911cecc4e68d75c37473c8f9a3823b9ad096c",
+     "temperature_c/C4": "33618a5523fdb6ec445e5185b12f08a7c738efffe2c55cf210691cf8fde83f46",
+     "dewpoint_c/A1_bilinear": "f0e9c4a3020b3583db0a83d9c099453c4b54648afa6038d89196f14a080c4a95",
+     "dewpoint_c/A2_nearest": "d9e80e4840ea004338ef049a893eabe711ef5609ef90e1eac51dd09efc7eb784",
+     "dewpoint_c/C4": "ac0acd369b6c6aa9fa56923e314455f04e5b16b8827133b043aa4007c4f57b2e",
+     "relative_humidity_pct/A1_bilinear": "d5e6417def78e3782dd7392a968fcf00115e77ceb397f872443b04ed62178e60",
+     "relative_humidity_pct/A2_nearest": "1ac00afbc4617cbd73c6b381228ae8c4a3b860c3f1ea36b37f422845e7d53e51",
+     "relative_humidity_pct/C4": "0a8d773505bb8d03d2a0c6198a2b28f48b402f08df92e69d5ec1af370635f3eb",
+     "rainfall_mm/A1_bilinear": "e57236b3181c46a407177ca4eaf8c80a1c85466107e9be7ddf958e297fc0f2d0",
+     "rainfall_mm/A2_nearest": "d5caabbc55f235edb7ced13f14cf8eac841f97e19ac292843d859b1b20cc4eb7",
+     "rainfall_mm/C4": "0d5d774a034c056613ad2977a96cfd49186bcbbb760e47730dd486e280c60c4b",
+     "wind_speed_kmph/A1_bilinear": "5afdb75fc32c785aec2dccac6a2ce18a229b5f9c55e79cc635e6d38cbb2ce217",
+     "wind_speed_kmph/A2_nearest": "30582732419d72a1fccb30684ba1efb9408fa44fb21a1a6bd2e60606fef3867a",
+     "wind_speed_kmph/C4": "ab03866cfe53504f05d3646f0aabecb9990f48eca12e9cac2748346fbd2e7213"
+    },
+    "keep_gps": [
+     "220435"
+    ],
+    "elapsed_s": 547.3,
+    "stage4d_fold_file_sha256": "c7591b48f451cfa67bdad472494b77830804f2ff20e2e51d3c66ba9d8fb2fb95",
+    "dataset_manifest_sha256": "9fc24239d4833ecd23ec9ac86697a3c0bb5bee38e49a856200daf434a513af2f",
+    "design_manifest_sha256": "42d070f67497ea4a71b8419301e6d505cb2171621742159f4579e0ae7bc96249",
+    "predictions_file": "gate6_taluka_6246_predictions.parquet",
+    "predictions_sha256": "c0f7824fdf2db448adf0addf5cb042a8aded31b98c5f5ce98455d50eda812986",
+    "prediction_rows": 43800,
+    "completed_utc": "2026-10-02T08:50:18+00:00",
+    "versions": {
+     "python": "3.12.6",
+     "pandas": "3.0.1"
+    }
+   },
+   {
+    "fold_id": "taluka_6253",
+    "compared": 15,
+    "mismatches": [],
+    "reproduced": true,
+    "expected_hashes": {
+     "temperature_c/A1_bilinear": "1aee4e0269e8896e19ec5361228651986af0b077f7a3b628632aeeb9db6567ed",
+     "temperature_c/A2_nearest": "0abaa99d36579818f0e13fab7b013b64100e56f2efcea83f44877d0eac6e6ab3",
+     "temperature_c/C4": "8c15f1fb9ff7c9226dabe15b5442d51ef8787249db9f84700e5421a19c7705cb",
+     "dewpoint_c/A1_bilinear": "2418edd098960c1a543a5a400d3ea758abb5f2315c457e33f39d98445420e61a",
+     "dewpoint_c/A2_nearest": "6c60f82e077449061767c1188825389ee1b5fc3b2becbdfb6fc4204e34751308",
+     "dewpoint_c/C4": "2b0367c95a810454a2cd6988ca1fa2561955344c71dcbc5e0b0e71b130e0909d",
+     "relative_humidity_pct/A1_bilinear": "6770c9853e22589aff12d90258a43b65df981ea7434b993b57037cf543f5a2d1",
+     "relative_humidity_pct/A2_nearest": "0b497f3a12cfae4557dc60f6b19afd501e26c68b06de7a8f27515ee49bda8256",
+     "relative_humidity_pct/C4": "239bb1379ce7da204d6bd6723590f042b72ef0a0eead14789c5f6cfe597c3aa7",
+     "rainfall_mm/A1_bilinear": "3fe8a308cb36344dd71d81e35bb8b99be867c9786094f000a1aa6ff1aecf1a6f",
+     "rainfall_mm/A2_nearest": "b504c67dd2eeba7089a0471194b3901c791e8075923a36f14965ea179078e304",
+     "rainfall_mm/C4": "389d0763ce9e2e5306d6aa4238e9a31fd9d17b4e3ba5395d9cabedbb075cb725",
+     "wind_speed_kmph/A1_bilinear": "4123e698df79f7979c871a68411285e81b1217359582ac149b0708284d3ca51d",
+     "wind_speed_kmph/A2_nearest": "4c1196202f8a68ec23721d04cded32e45c889499cd42f5c0dded808ff7f37211",
+     "wind_speed_kmph/C4": "b4ca6e865c231c48440ab7cc3fefb49847a50f1c058f1581ec4455fbd43eeca8"
+    },
+    "computed_hashes": {
+     "temperature_c/A1_bilinear": "1aee4e0269e8896e19ec5361228651986af0b077f7a3b628632aeeb9db6567ed",
+     "temperature_c/A2_nearest": "0abaa99d36579818f0e13fab7b013b64100e56f2efcea83f44877d0eac6e6ab3",
+     "temperature_c/C4": "8c15f1fb9ff7c9226dabe15b5442d51ef8787249db9f84700e5421a19c7705cb",
+     "dewpoint_c/A1_bilinear": "2418edd098960c1a543a5a400d3ea758abb5f2315c457e33f39d98445420e61a",
+     "dewpoint_c/A2_nearest": "6c60f82e077449061767c1188825389ee1b5fc3b2becbdfb6fc4204e34751308",
+     "dewpoint_c/C4": "2b0367c95a810454a2cd6988ca1fa2561955344c71dcbc5e0b0e71b130e0909d",
+     "relative_humidity_pct/A1_bilinear": "6770c9853e22589aff12d90258a43b65df981ea7434b993b57037cf543f5a2d1",
+     "relative_humidity_pct/A2_nearest": "0b497f3a12cfae4557dc60f6b19afd501e26c68b06de7a8f27515ee49bda8256",
+     "relative_humidity_pct/C4": "239bb1379ce7da204d6bd6723590f042b72ef0a0eead14789c5f6cfe597c3aa7",
+     "rainfall_mm/A1_bilinear": "3fe8a308cb36344dd71d81e35bb8b99be867c9786094f000a1aa6ff1aecf1a6f",
+     "rainfall_mm/A2_nearest": "b504c67dd2eeba7089a0471194b3901c791e8075923a36f14965ea179078e304",
+     "rainfall_mm/C4": "389d0763ce9e2e5306d6aa4238e9a31fd9d17b4e3ba5395d9cabedbb075cb725",
+     "wind_speed_kmph/A1_bilinear": "4123e698df79f7979c871a68411285e81b1217359582ac149b0708284d3ca51d",
+     "wind_speed_kmph/A2_nearest": "4c1196202f8a68ec23721d04cded32e45c889499cd42f5c0dded808ff7f37211",
+     "wind_speed_kmph/C4": "b4ca6e865c231c48440ab7cc3fefb49847a50f1c058f1581ec4455fbd43eeca8"
+    },
+    "keep_gps": [
+     "220658"
+    ],
+    "elapsed_s": 595.5,
+    "stage4d_fold_file_sha256": "d23c261c5b773d70d239af50193f915fee2edc4d883dbad90f64ef8721220240",
+    "dataset_manifest_sha256": "9fc24239d4833ecd23ec9ac86697a3c0bb5bee38e49a856200daf434a513af2f",
+    "design_manifest_sha256": "42d070f67497ea4a71b8419301e6d505cb2171621742159f4579e0ae7bc96249",
+    "predictions_file": "gate6_taluka_6253_predictions.parquet",
+    "predictions_sha256": "d13f16334a655a74d9bb2d376c9ae9d0011e67e1e5f4c255f4e0fa55cc9535f4",
+    "prediction_rows": 43800,
+    "completed_utc": "2026-10-02T09:10:46+00:00",
+    "versions": {
+     "python": "3.12.6",
+     "pandas": "3.0.1"
+    }
+   }
+  ],
+  "random_state": 0
+ },
+ "alignment": {
+  "432250-99999": {
+   "temperature_c": {
+    "accepted_obs_hours": 1371,
+    "paired_hours": 1371,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 7389
+   },
+   "dewpoint_c": {
+    "accepted_obs_hours": 1377,
+    "paired_hours": 1377,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 7383
+   },
+   "relative_humidity_pct": {
+    "accepted_obs_hours": 1367,
+    "paired_hours": 1367,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 7393
+   },
+   "rainfall_mm": {
+    "accepted_periods": 11,
+    "paired": 11,
+    "dropped_incomplete_model_window": 0
+   },
+   "wind_speed_kmph": {
+    "accepted_obs_hours": 1383,
+    "paired_hours": 1383,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 7377
+   }
+  },
+  "432330-99999": {
+   "temperature_c": {
+    "accepted_obs_hours": 1943,
+    "paired_hours": 1943,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 6817
+   },
+   "dewpoint_c": {
+    "accepted_obs_hours": 1924,
+    "paired_hours": 1924,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 6836
+   },
+   "relative_humidity_pct": {
+    "accepted_obs_hours": 1922,
+    "paired_hours": 1922,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 6838
+   },
+   "rainfall_mm": {
+    "accepted_periods": 16,
+    "paired": 16,
+    "dropped_incomplete_model_window": 0
+   },
+   "wind_speed_kmph": {
+    "accepted_obs_hours": 1945,
+    "paired_hours": 1945,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 6815
+   }
+  },
+  "432720-99999": {
+   "temperature_c": {
+    "accepted_obs_hours": 177,
+    "paired_hours": 177,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 8583
+   },
+   "dewpoint_c": {
+    "accepted_obs_hours": 196,
+    "paired_hours": 196,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 8564
+   },
+   "relative_humidity_pct": {
+    "accepted_obs_hours": 171,
+    "paired_hours": 171,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 8589
+   },
+   "rainfall_mm": {
+    "accepted_periods": 8,
+    "paired": 8,
+    "dropped_incomplete_model_window": 0
+   },
+   "wind_speed_kmph": {
+    "accepted_obs_hours": 205,
+    "paired_hours": 205,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 8555
+   }
+  },
+  "432840-99999": {
+   "temperature_c": {
+    "accepted_obs_hours": 8361,
+    "paired_hours": 8361,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 399
+   },
+   "dewpoint_c": {
+    "accepted_obs_hours": 8354,
+    "paired_hours": 8354,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 406
+   },
+   "relative_humidity_pct": {
+    "accepted_obs_hours": 8353,
+    "paired_hours": 8353,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 407
+   },
+   "rainfall_mm": {
+    "accepted_periods": 58,
+    "paired": 58,
+    "dropped_incomplete_model_window": 0
+   },
+   "wind_speed_kmph": {
+    "accepted_obs_hours": 8361,
+    "paired_hours": 8361,
+    "model_hours_2023": 8760,
+    "missing_obs_hours_in_2023": 399
+   }
+  }
+ },
+ "pooled_sufficient_stations": {
+  "dewpoint_c": {
+   "stations": [
+    "432250-99999",
+    "432330-99999",
+    "432840-99999"
+   ],
+   "A1_bilinear": {
+    "n": 11655,
+    "mae": 1.2275371747305277,
+    "rmse": 1.8940324650828013,
+    "bias": 0.03777785318800779,
+    "median_abs_error": 0.7719335937499778
+   },
+   "A2_nearest": {
+    "n": 11655,
+    "mae": 1.171162620488794,
+    "rmse": 1.8253604313457348,
+    "bias": -0.052156992371813385,
+    "median_abs_error": 0.7348876953125227
+   },
+   "C4": {
+    "n": 11655,
+    "mae": 1.440029456095676,
+    "rmse": 2.24638506753374,
+    "bias": -0.4611919187194169,
+    "median_abs_error": 0.8857796033296346
+   },
+   "ERA5L_target": {
+    "n": 11655,
+    "mae": 1.5366628752077942,
+    "rmse": 2.391824309895866,
+    "bias": -0.5294938297672446,
+    "median_abs_error": 0.9814941406250242
+   }
+  },
+  "relative_humidity_pct": {
+   "stations": [
+    "432250-99999",
+    "432330-99999",
+    "432840-99999"
+   ],
+   "A1_bilinear": {
+    "n": 11642,
+    "mae": 6.7325036078548,
+    "rmse": 9.056704010837832,
+    "bias": 1.8773609666878062,
+    "median_abs_error": 5.192212471490741
+   },
+   "A2_nearest": {
+    "n": 11642,
+    "mae": 6.25057295720322,
+    "rmse": 8.626630151071122,
+    "bias": 0.9344528633559993,
+    "median_abs_error": 4.606884074847361
+   },
+   "C4": {
+    "n": 11642,
+    "mae": 6.914739310803508,
+    "rmse": 9.35105367832943,
+    "bias": 1.7506037150404643,
+    "median_abs_error": 5.215062515514841
+   },
+   "ERA5L_target": {
+    "n": 11642,
+    "mae": 7.252910658651156,
+    "rmse": 9.871694701159198,
+    "bias": 1.4418951643610902,
+    "median_abs_error": 5.465328669475063
+   }
+  },
+  "temperature_c": {
+   "stations": [
+    "432250-99999",
+    "432330-99999",
+    "432840-99999"
+   ],
+   "A1_bilinear": {
+    "n": 11675,
+    "mae": 1.1560970761676852,
+    "rmse": 1.5466716774846472,
+    "bias": -0.4346539468181111,
+    "median_abs_error": 0.8819140624999768
+   },
+   "A2_nearest": {
+    "n": 11675,
+    "mae": 1.044416427579628,
+    "rmse": 1.4415354311277457,
+    "bias": -0.2552988678566422,
+    "median_abs_error": 0.7697998046875227
+   },
+   "C4": {
+    "n": 11675,
+    "mae": 1.1781599761042412,
+    "rmse": 1.6095854049759792,
+    "bias": -0.7988783845844297,
+    "median_abs_error": 0.8750241096129301
+   },
+   "ERA5L_target": {
+    "n": 11675,
+    "mae": 1.1732252827221532,
+    "rmse": 1.5343789606557496,
+    "bias": -0.7157927847296347,
+    "median_abs_error": 0.9312988281249766
+   }
+  },
+  "wind_speed_kmph": {
+   "stations": [
+    "432250-99999",
+    "432330-99999",
+    "432840-99999"
+   ],
+   "A1_bilinear": {
+    "n": 11689,
+    "mae": 4.301450476895767,
+    "rmse": 5.453401960914075,
+    "bias": 0.6304569438110046,
+    "median_abs_error": 3.5339752706214926
+   },
+   "A2_nearest": {
+    "n": 11689,
+    "mae": 4.313499913340061,
+    "rmse": 5.402334661210933,
+    "bias": -0.16064938820229774,
+    "median_abs_error": 3.612686902033475
+   },
+   "C4": {
+    "n": 11689,
+    "mae": 4.105698934885689,
+    "rmse": 5.128375778336898,
+    "bias": -0.11708630702099376,
+    "median_abs_error": 3.4807671829063658
+   },
+   "ERA5L_target": {
+    "n": 11689,
+    "mae": 4.216450957992623,
+    "rmse": 5.314947634368423,
+    "bias": -0.057431236021696766,
+    "median_abs_error": 3.5313394998933703
+   }
+  }
+ },
+ "uncertainty": {
+  "dewpoint_c": {
+   "C4_minus_A1_bilinear": {
+    "pooled": {
+     "mean_diff": 0.21249228136514833,
+     "ci95": [
+      0.16345723901028864,
+      0.2697885913994517
+     ],
+     "n_hours": 11655,
+     "n_stations": 3,
+     "interval_excludes_zero": true,
+     "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+    },
+    "per_station": {
+     "432250-99999": {
+      "mean_diff": 0.5595379339176124,
+      "ci95": [
+       0.42388478525228757,
+       0.7071705720805274
+      ],
+      "n_hours": 1377,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432330-99999": {
+      "mean_diff": 0.8859124798306147,
+      "ci95": [
+       0.6523069628883365,
+       1.1264314535580366
+      ],
+      "n_hours": 1924,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432840-99999": {
+      "mean_diff": 0.00019370279053729732,
+      "ci95": [
+       -0.036349994902128015,
+       0.03839492680957502
+      ],
+      "n_hours": 8354,
+      "n_stations": 1,
+      "interval_excludes_zero": false,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     }
+    }
+   },
+   "C4_minus_A2_nearest": {
+    "pooled": {
+     "mean_diff": 0.26886683560688207,
+     "ci95": [
+      0.21523569527017536,
+      0.3256319154122379
+     ],
+     "n_hours": 11655,
+     "n_stations": 3,
+     "interval_excludes_zero": true,
+     "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+    },
+    "per_station": {
+     "432250-99999": {
+      "mean_diff": 0.5560077065778309,
+      "ci95": [
+       0.37601571539194195,
+       0.7483176497230776
+      ],
+      "n_hours": 1377,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432330-99999": {
+      "mean_diff": 0.9484162865971165,
+      "ci95": [
+       0.7092078670160871,
+       1.2021741990172756
+      ],
+      "n_hours": 1924,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432840-99999": {
+      "mean_diff": 0.06503081417616538,
+      "ci95": [
+       0.03156167826774335,
+       0.09899562422053035
+      ],
+      "n_hours": 8354,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     }
+    }
+   }
+  },
+  "relative_humidity_pct": {
+   "C4_minus_A1_bilinear": {
+    "pooled": {
+     "mean_diff": 0.1822357029487085,
+     "ci95": [
+      -0.002952165682652728,
+      0.39495469827189134
+     ],
+     "n_hours": 11642,
+     "n_stations": 3,
+     "interval_excludes_zero": false,
+     "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+    },
+    "per_station": {
+     "432250-99999": {
+      "mean_diff": -0.520993926480754,
+      "ci95": [
+       -0.8871557748426989,
+       -0.1833592514731147
+      ],
+      "n_hours": 1367,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432330-99999": {
+      "mean_diff": 1.2649328473325983,
+      "ci95": [
+       0.6890869725705209,
+       1.8031135702750478
+      ],
+      "n_hours": 1922,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432840-99999": {
+      "mean_diff": 0.048196554370262365,
+      "ci95": [
+       -0.17768720332341278,
+       0.30997414651604177
+      ],
+      "n_hours": 8353,
+      "n_stations": 1,
+      "interval_excludes_zero": false,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     }
+    }
+   },
+   "C4_minus_A2_nearest": {
+    "pooled": {
+     "mean_diff": 0.6641663536002894,
+     "ci95": [
+      0.4889731597122624,
+      0.8599067157575258
+     ],
+     "n_hours": 11642,
+     "n_stations": 3,
+     "interval_excludes_zero": true,
+     "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+    },
+    "per_station": {
+     "432250-99999": {
+      "mean_diff": -1.0783602578918092,
+      "ci95": [
+       -1.4644420874101258,
+       -0.713891098185707
+      ],
+      "n_hours": 1367,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432330-99999": {
+      "mean_diff": 1.4919881018812986,
+      "ci95": [
+       0.8887403700178693,
+       2.064017224689046
+      ],
+      "n_hours": 1922,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432840-99999": {
+      "mean_diff": 0.758858138313997,
+      "ci95": [
+       0.5767510581594608,
+       0.9746469337621416
+      ],
+      "n_hours": 8353,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     }
+    }
+   }
+  },
+  "temperature_c": {
+   "C4_minus_A1_bilinear": {
+    "pooled": {
+     "mean_diff": 0.022062899936555812,
+     "ci95": [
+      -0.03638775441422237,
+      0.08782167660876333
+     ],
+     "n_hours": 11675,
+     "n_stations": 3,
+     "interval_excludes_zero": false,
+     "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+    },
+    "per_station": {
+     "432250-99999": {
+      "mean_diff": 0.23366697443389298,
+      "ci95": [
+       0.11745490557853357,
+       0.3654954229378965
+      ],
+      "n_hours": 1371,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432330-99999": {
+      "mean_diff": -0.21544755476186672,
+      "ci95": [
+       -0.3163410777357905,
+       -0.11437471615876489
+      ],
+      "n_hours": 1943,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432840-99999": {
+      "mean_diff": 0.042559685888378045,
+      "ci95": [
+       -0.03407425259915829,
+       0.12726367237462777
+      ],
+      "n_hours": 8361,
+      "n_stations": 1,
+      "interval_excludes_zero": false,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     }
+    }
+   },
+   "C4_minus_A2_nearest": {
+    "pooled": {
+     "mean_diff": 0.1337435485246131,
+     "ci95": [
+      0.07718302461671937,
+      0.1946461810229179
+     ],
+     "n_hours": 11675,
+     "n_stations": 3,
+     "interval_excludes_zero": true,
+     "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+    },
+    "per_station": {
+     "432250-99999": {
+      "mean_diff": 0.3455623746891715,
+      "ci95": [
+       0.23057802506014938,
+       0.4847684385346665
+      ],
+      "n_hours": 1371,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432330-99999": {
+      "mean_diff": -0.22552007068440905,
+      "ci95": [
+       -0.3205455761209052,
+       -0.12505235621360247
+      ],
+      "n_hours": 1943,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432840-99999": {
+      "mean_diff": 0.18249915209494205,
+      "ci95": [
+       0.11171920484281911,
+       0.2629720218536668
+      ],
+      "n_hours": 8361,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     }
+    }
+   }
+  },
+  "wind_speed_kmph": {
+   "C4_minus_A1_bilinear": {
+    "pooled": {
+     "mean_diff": -0.19575154201007838,
+     "ci95": [
+      -0.23866668277129796,
+      -0.1545769233878793
+     ],
+     "n_hours": 11689,
+     "n_stations": 3,
+     "interval_excludes_zero": true,
+     "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+    },
+    "per_station": {
+     "432250-99999": {
+      "mean_diff": -1.6280815956608183,
+      "ci95": [
+       -1.822361862410795,
+       -1.4660790645178132
+      ],
+      "n_hours": 1383,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432330-99999": {
+      "mean_diff": -0.628961460340984,
+      "ci95": [
+       -0.788978107010222,
+       -0.48892558368957323
+      ],
+      "n_hours": 1945,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432840-99999": {
+      "mean_diff": 0.14194798619857907,
+      "ci95": [
+       0.10563715015445337,
+       0.17589291970535628
+      ],
+      "n_hours": 8361,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     }
+    }
+   },
+   "C4_minus_A2_nearest": {
+    "pooled": {
+     "mean_diff": -0.2078009784543717,
+     "ci95": [
+      -0.24974850318522676,
+      -0.16442083979736513
+     ],
+     "n_hours": 11689,
+     "n_stations": 3,
+     "interval_excludes_zero": true,
+     "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+    },
+    "per_station": {
+     "432250-99999": {
+      "mean_diff": -0.7934847502968825,
+      "ci95": [
+       -0.9067293093102059,
+       -0.6995723087862992
+      ],
+      "n_hours": 1383,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432330-99999": {
+      "mean_diff": -0.5486116672402165,
+      "ci95": [
+       -0.6898554612531366,
+       -0.4263303915500365
+      ],
+      "n_hours": 1945,
+      "n_stations": 1,
+      "interval_excludes_zero": true,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     },
+     "432840-99999": {
+      "mean_diff": -0.0316405375804738,
+      "ci95": [
+       -0.07749294811240695,
+       0.01658938887832507
+      ],
+      "n_hours": 8361,
+      "n_stations": 1,
+      "interval_excludes_zero": false,
+      "method": "moving-block bootstrap over days (block 7 d), within station, 2000 replicates, seed 20230101"
+     }
+    }
+   }
+  }
+ },
+ "outcome_by_variable": {
+  "dewpoint_c": "CONTRADICTED",
+  "relative_humidity_pct": "MIXED",
+  "temperature_c": "MIXED",
+  "wind_speed_kmph": "SUPPORTED",
+  "rainfall_mm": "INSUFFICIENT"
+ },
+ "outcome_rule": "see criteria5.py (pre-declared): SUPPORTED / CONTRADICTED / MIXED from pooled paired bootstrap",
+ "rainfall": {
+  "note": "Rainfall periods per station are far below MIN_STATION_HOURS_FOR_METRICS; reported descriptively only.",
+  "periods_by_station": {
+   "432250-99999": 11,
+   "432330-99999": 16,
+   "432720-99999": 8,
+   "432840-99999": 58
+  },
+  "pooled_all_periods": {
+   "A1_bilinear": {
+    "n": 93,
+    "mae": 2.6736690152076137,
+    "rmse": 3.971758723827938,
+    "bias": 2.6736690152076137,
+    "median_abs_error": 1.6074943542480535,
+    "wet_periods_observed": 0,
+    "wet_period_mae": null,
+    "dry_period_mae": 2.6736690152076137,
+    "false_wet_rate": 0.6881720430107527,
+    "hit_rate": null,
+    "total_ratio_pred_to_obs": null,
+    "negative_predictions": 0
+   },
+   "A2_nearest": {
+    "n": 93,
+    "mae": 2.632474386563865,
+    "rmse": 4.027524589162956,
+    "bias": 2.632474386563865,
+    "median_abs_error": 1.483917236328125,
+    "wet_periods_observed": 0,
+    "wet_period_mae": null,
+    "dry_period_mae": 2.632474386563865,
+    "false_wet_rate": 0.5913978494623656,
+    "hit_rate": null,
+    "total_ratio_pred_to_obs": null,
+    "negative_predictions": 0
+   },
+   "C4": {
+    "n": 93,
+    "mae": 2.6911764199070127,
+    "rmse": 4.158404940257608,
+    "bias": 2.6911764199070127,
+    "median_abs_error": 1.5458977103725768,
+    "wet_periods_observed": 0,
+    "wet_period_mae": null,
+    "dry_period_mae": 2.6911764199070127,
+    "false_wet_rate": 0.6774193548387096,
+    "hit_rate": null,
+    "total_ratio_pred_to_obs": null,
+    "negative_predictions": 0
+   },
+   "ERA5L_target": {
+    "n": 93,
+    "mae": 2.6925284291938887,
+    "rmse": 4.009895146990578,
+    "bias": 2.6925284291938887,
+    "median_abs_error": 1.537919044494629,
+    "wet_periods_observed": 0,
+    "wet_period_mae": null,
+    "dry_period_mae": 2.6925284291938887,
+    "false_wet_rate": 0.6774193548387096,
+    "hit_rate": null,
+    "total_ratio_pred_to_obs": null,
+    "negative_predictions": 0
+   }
+  },
+  "by_period_h": {
+   "3": {
+    "n": 22,
+    "A1_bilinear": {
+     "n": 22,
+     "mae": 1.9485300237482286,
+     "rmse": 3.760801644404229,
+     "bias": 1.9485300237482286,
+     "median_abs_error": 0.6644630432128924,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 1.9485300237482286,
+     "false_wet_rate": 0.8181818181818182,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    },
+    "A2_nearest": {
+     "n": 22,
+     "mae": 2.062299034812234,
+     "rmse": 4.005991621337381,
+     "bias": 2.062299034812234,
+     "median_abs_error": 0.576019287109375,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 2.062299034812234,
+     "false_wet_rate": 0.7727272727272727,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    },
+    "C4": {
+     "n": 22,
+     "mae": 2.166445233830849,
+     "rmse": 4.6384607812329355,
+     "bias": 2.166445233830849,
+     "median_abs_error": 0.6524486532707323,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 2.166445233830849,
+     "false_wet_rate": 0.8181818181818182,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    },
+    "ERA5L_target": {
+     "n": 22,
+     "mae": 2.0194663242860273,
+     "rmse": 3.8671556784963457,
+     "bias": 2.0194663242860273,
+     "median_abs_error": 0.7203370332717896,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 2.0194663242860273,
+     "false_wet_rate": 0.8181818181818182,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    }
+   },
+   "6": {
+    "n": 27,
+    "A1_bilinear": {
+     "n": 27,
+     "mae": 2.206735257749222,
+     "rmse": 3.1272963903617033,
+     "bias": 2.206735257749222,
+     "median_abs_error": 1.0893058776855773,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 2.206735257749222,
+     "false_wet_rate": 0.7777777777777778,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    },
+    "A2_nearest": {
+     "n": 27,
+     "mae": 2.215049884937428,
+     "rmse": 3.355530136543272,
+     "bias": 2.215049884937428,
+     "median_abs_error": 0.8702278137207031,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 2.215049884937428,
+     "false_wet_rate": 0.5555555555555556,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    },
+    "C4": {
+     "n": 27,
+     "mae": 2.2091502302583,
+     "rmse": 3.169681701891356,
+     "bias": 2.2091502302583,
+     "median_abs_error": 1.0408126745549615,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 2.2091502302583,
+     "false_wet_rate": 0.7407407407407407,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    },
+    "ERA5L_target": {
+     "n": 27,
+     "mae": 2.272240946897202,
+     "rmse": 3.2589930668290594,
+     "bias": 2.272240946897202,
+     "median_abs_error": 1.1043548583984375,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 2.272240946897202,
+     "false_wet_rate": 0.7407407407407407,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    }
+   },
+   "12": {
+    "n": 16,
+    "A1_bilinear": {
+     "n": 16,
+     "mae": 3.930499553680463,
+     "rmse": 5.037987886077917,
+     "bias": 3.930499553680463,
+     "median_abs_error": 2.3546218872070535,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 3.930499553680463,
+     "false_wet_rate": 0.8125,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    },
+    "A2_nearest": {
+     "n": 16,
+     "mae": 3.8112998008728027,
+     "rmse": 4.999501597014862,
+     "bias": 3.8112998008728027,
+     "median_abs_error": 1.9927024841308594,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 3.8112998008728027,
+     "false_wet_rate": 0.8125,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    },
+    "C4": {
+     "n": 16,
+     "mae": 3.833564698869626,
+     "rmse": 4.937917479552591,
+     "bias": 3.833564698869626,
+     "median_abs_error": 2.2717046442393682,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 3.833564698869626,
+     "false_wet_rate": 0.8125,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    },
+    "ERA5L_target": {
+     "n": 16,
+     "mae": 3.8569676369633044,
+     "rmse": 5.0078457606842495,
+     "bias": 3.8569676369633044,
+     "median_abs_error": 2.1860889391973615,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 3.8569676369633044,
+     "false_wet_rate": 0.875,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    }
+   },
+   "24": {
+    "n": 28,
+    "A1_bilinear": {
+     "n": 28,
+     "mae": 2.9754897526332362,
+     "rmse": 4.1650850703890345,
+     "bias": 2.9754897526332362,
+     "median_abs_error": 2.0371627807617156,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 2.9754897526332362,
+     "false_wet_rate": 0.42857142857142855,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    },
+    "A2_nearest": {
+     "n": 28,
+     "mae": 2.8093712670462474,
+     "rmse": 4.0158811937706504,
+     "bias": 2.8093712670462474,
+     "median_abs_error": 2.0139217376708984,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 2.8093712670462474,
+     "false_wet_rate": 0.35714285714285715,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    },
+    "C4": {
+     "n": 28,
+     "mae": 2.915482875292336,
+     "rmse": 4.112070893565389,
+     "bias": 2.915482875292336,
+     "median_abs_error": 1.9838175315341822,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 2.915482875292336,
+     "false_wet_rate": 0.42857142857142855,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    },
+    "ERA5L_target": {
+     "n": 28,
+     "mae": 2.961246322253633,
+     "rmse": 4.133224160791157,
+     "bias": 2.961246322253633,
+     "median_abs_error": 1.9626244902610779,
+     "wet_periods_observed": 0,
+     "wet_period_mae": null,
+     "dry_period_mae": 2.961246322253633,
+     "false_wet_rate": 0.39285714285714285,
+     "hit_rate": null,
+     "total_ratio_pred_to_obs": null,
+     "negative_predictions": 0
+    }
+   }
+  }
+ },
+ "strata": {
+  "elevation_band": [
+   {
+    "band": "(0, 300]",
+    "variable": "dewpoint_c",
+    "n_stations": 2,
+    "A1_bilinear_mae": 0.9736126931648794,
+    "A2_nearest_mae": 0.9184500063424913,
+    "C4_mae": 1.0529572546813424,
+    "ERA5L_target_mae": 1.1256045359426377
+   },
+   {
+    "band": "(600, 900]",
+    "variable": "dewpoint_c",
+    "n_stations": 1,
+    "A1_bilinear_mae": 2.5118090718798642,
+    "A2_nearest_mae": 2.4493052651133627,
+    "C4_mae": 3.3977215517104793,
+    "ERA5L_target_mae": 3.61566947572195
+   },
+   {
+    "band": "(0, 300]",
+    "variable": "relative_humidity_pct",
+    "n_stations": 2,
+    "A1_bilinear_mae": 5.953772143449047,
+    "A2_nearest_mae": 5.421443292045435,
+    "C4_mae": 5.921918966613204,
+    "ERA5L_target_mae": 6.197333063597286
+   },
+   {
+    "band": "(600, 900]",
+    "variable": "relative_humidity_pct",
+    "n_stations": 1,
+    "A1_bilinear_mae": 10.670729327950493,
+    "A2_nearest_mae": 10.443674073401796,
+    "C4_mae": 11.935662175283094,
+    "ERA5L_target_mae": 12.591211503564587
+   },
+   {
+    "band": "(0, 300]",
+    "variable": "temperature_c",
+    "n_stations": 2,
+    "A1_bilinear_mae": 1.1441798039007793,
+    "A2_nearest_mae": 1.0081910584524576,
+    "C4_mae": 1.213661817429509,
+    "ERA5L_target_mae": 1.1990445100570168
+   },
+   {
+    "band": "(600, 900]",
+    "variable": "temperature_c",
+    "n_stations": 1,
+    "A1_bilinear_mae": 1.2157877059677507,
+    "A2_nearest_mae": 1.2258602218902928,
+    "C4_mae": 1.0003401512058838,
+    "ERA5L_target_mae": 1.0439032444190681
+   },
+   {
+    "band": "(0, 300]",
+    "variable": "wind_speed_kmph",
+    "n_stations": 2,
+    "A1_bilinear_mae": 4.327960361122589,
+    "A2_nearest_mae": 4.3584536092936,
+    "C4_mae": 4.218681858024005,
+    "ERA5L_target_mae": 4.320767945943844
+   },
+   {
+    "band": "(600, 900]",
+    "variable": "wind_speed_kmph",
+    "n_stations": 1,
+    "A1_bilinear_mae": 4.168642090311629,
+    "A2_nearest_mae": 4.088292297210862,
+    "C4_mae": 3.5396806299706456,
+    "ERA5L_target_mae": 3.693846983392779
+   }
+  ],
+  "distance_band_km": [
+   {
+    "band": "(0, 10]",
+    "variable": "dewpoint_c",
+    "n_stations": 1,
+    "A1_bilinear_mae": 1.468787346246363,
+    "A2_nearest_mae": 1.4723175735861442,
+    "C4_mae": 2.0283252801639753,
+    "ERA5L_target_mae": 1.7865465218205219
+   },
+   {
+    "band": "(10, 20]",
+    "variable": "dewpoint_c",
+    "n_stations": 2,
+    "A1_bilinear_mae": 1.1952155668129072,
+    "A2_nearest_mae": 1.1308152406079754,
+    "C4_mae": 1.3612122397362627,
+    "ERA5L_target_mae": 1.503184593306089
+   },
+   {
+    "band": "(0, 10]",
+    "variable": "relative_humidity_pct",
+    "n_stations": 1,
+    "A1_bilinear_mae": 9.20489030812091,
+    "A2_nearest_mae": 9.762256639531966,
+    "C4_mae": 8.683896381640157,
+    "ERA5L_target_mae": 7.519663363787982
+   },
+   {
+    "band": "(10, 20]",
+    "variable": "relative_humidity_pct",
+    "n_stations": 2,
+    "A1_bilinear_mae": 6.403573912549324,
+    "A2_nearest_mae": 5.783373775330382,
+    "C4_mae": 6.679368243569085,
+    "ERA5L_target_mae": 7.21742151530108
+   },
+   {
+    "band": "(0, 10]",
+    "variable": "temperature_c",
+    "n_stations": 1,
+    "A1_bilinear_mae": 2.6154248438639414,
+    "A2_nearest_mae": 2.5035294436086626,
+    "C4_mae": 2.849091818297834,
+    "ERA5L_target_mae": 2.417933081606703
+   },
+   {
+    "band": "(10, 20]",
+    "variable": "temperature_c",
+    "n_stations": 2,
+    "A1_bilinear_mae": 0.9619260387539074,
+    "A2_nearest_mae": 0.8502739639756095,
+    "C4_mae": 0.9558339322719995,
+    "ERA5L_target_mae": 1.0076105319194826
+   },
+   {
+    "band": "(0, 10]",
+    "variable": "wind_speed_kmph",
+    "n_stations": 1,
+    "A1_bilinear_mae": 8.075091335410258,
+    "A2_nearest_mae": 7.240494490046323,
+    "C4_mae": 6.44700973974944,
+    "ERA5L_target_mae": 7.164506906695139
+   },
+   {
+    "band": "(10, 20]",
+    "variable": "wind_speed_kmph",
+    "n_stations": 2,
+    "A1_bilinear_mae": 3.795051747289175,
+    "A2_nearest_mae": 3.920715758519106,
+    "C4_mae": 3.7915098369692743,
+    "ERA5L_target_mae": 3.8208405002926833
+   }
+  ]
+ }
+}

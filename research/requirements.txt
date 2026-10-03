@@ -11,3 +11,10 @@ netCDF4
 pandas
 numpy
 pytest
+py7zr  # extracts LGD release archives in admin_identity/fetch_lgd_identity.py
+shapely     # geometry union/validity for spatial_proxy/build.py
+pyproj      # WGS84 <-> UTM 43N reprojection for spatial_proxy centroid/area math
+rasterio    # reads Copernicus DEM GLO-30 GeoTIFF tiles in elevation/extract.py
+rasterstats # zonal (polygon) elevation statistics in elevation/extract.py
+pyarrow     # Parquet I/O for the multi_gp/build.py dataset
+scikit-learn  # HistGradientBoostingRegressor in ml_stage2/model.py
