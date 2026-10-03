@@ -1,0 +1,78 @@
+{
+  "created_utc": "2026-10-03T19:25:52+00:00",
+  "archive_root": "C:\\crop-ai-app\\data\\raw\\open_meteo_forecast_archive",
+  "reference_tables_found": [],
+  "by_location_set": {
+    "live_demo_pilot": {
+      "location_set": "live_demo_pilot",
+      "counts": {
+        "panchayats": 3,
+        "unique_era5_land_cells": 3,
+        "independent_spatial_groups": 3,
+        "forecast_issuances": 1,
+        "failed_attempts": 0,
+        "forecast_target_days": 16,
+        "forecast_rows": 16,
+        "paired_target_observations": 0,
+        "leads_with_pairs": [],
+        "calendar_quarters_with_pairs": []
+      },
+      "checks": {
+        "has_paired_forecast_reference_records": false,
+        "four_independent_spatial_folds_available (needed by the '3 of 4 folds' rule)": false,
+        "all_four_calendar_quarters_covered (needed by the '3 of 4 quarters' rule)": false
+      },
+      "frozen_evidence_rule": {
+        "pooled_mae_skill_vs_block_gt": 0.01,
+        "pooled_rmse_skill_vs_block_gt": 0.01,
+        "min_folds_mae_positive_of_4": 3,
+        "min_quarters_mae_positive_of_4": 3,
+        "bootstrap_ci_lower_mae_skill_gt": 0.0,
+        "must_beat_production_baseline_mae": true,
+        "rainfall_default": "pass_through"
+      },
+      "ready": false,
+      "statement": "Phase 2C evaluation is not yet statistically ready; prospective forecast archiving must run first.",
+      "failed_checks": [
+        "has_paired_forecast_reference_records",
+        "four_independent_spatial_folds_available (needed by the '3 of 4 folds' rule)",
+        "all_four_calendar_quarters_covered (needed by the '3 of 4 quarters' rule)"
+      ]
+    },
+    "yelandur_research": {
+      "location_set": "yelandur_research",
+      "counts": {
+        "panchayats": 10,
+        "unique_era5_land_cells": 4,
+        "independent_spatial_groups": 4,
+        "forecast_issuances": 1,
+        "failed_attempts": 0,
+        "forecast_target_days": 16,
+        "forecast_rows": 16,
+        "paired_target_observations": 0,
+        "leads_with_pairs": [],
+        "calendar_quarters_with_pairs": []
+      },
+      "checks": {
+        "has_paired_forecast_reference_records": false,
+        "four_independent_spatial_folds_available (needed by the '3 of 4 folds' rule)": true,
+        "all_four_calendar_quarters_covered (needed by the '3 of 4 quarters' rule)": false
+      },
+      "frozen_evidence_rule": {
+        "pooled_mae_skill_vs_block_gt": 0.01,
+        "pooled_rmse_skill_vs_block_gt": 0.01,
+        "min_folds_mae_positive_of_4": 3,
+        "min_quarters_mae_positive_of_4": 3,
+        "bootstrap_ci_lower_mae_skill_gt": 0.0,
+        "must_beat_production_baseline_mae": true,
+        "rainfall_default": "pass_through"
+      },
+      "ready": false,
+      "statement": "Phase 2C evaluation is not yet statistically ready; prospective forecast archiving must run first.",
+      "failed_checks": [
+        "has_paired_forecast_reference_records",
+        "all_four_calendar_quarters_covered (needed by the '3 of 4 quarters' rule)"
+      ]
+    }
+  }
+}

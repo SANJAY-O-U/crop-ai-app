@@ -1,0 +1,110 @@
+{
+  "created_utc": "2026-10-03T19:24:25+00:00",
+  "probes": {
+    "forecast_live": {
+      "url": "https://api.open-meteo.com/v1/forecast",
+      "params": {
+        "latitude": 13.4,
+        "longitude": 77.73,
+        "timezone": "auto",
+        "daily": "temperature_2m_min",
+        "forecast_days": 2
+      },
+      "http_status": 200,
+      "raw_sha256": "41423b728db009971a98884e74bd048be0ef155efd2ad69f7a9493c201b8241f",
+      "variables": [
+        "temperature_2m_min"
+      ],
+      "n_points": 2,
+      "non_null_counts": {
+        "temperature_2m_min": 2
+      }
+    },
+    "historical_forecast_2022": {
+      "url": "https://historical-forecast-api.open-meteo.com/v1/forecast",
+      "params": {
+        "latitude": 13.4,
+        "longitude": 77.73,
+        "timezone": "auto",
+        "daily": "temperature_2m_min",
+        "start_date": "2022-06-01",
+        "end_date": "2022-06-03"
+      },
+      "http_status": 200,
+      "raw_sha256": "0e3512ef2b9d160eca9c2aaba57f010ac051f7a63ef938a062a97de3999e67a7",
+      "variables": [
+        "temperature_2m_min"
+      ],
+      "n_points": 3,
+      "non_null_counts": {
+        "temperature_2m_min": 3
+      }
+    },
+    "historical_forecast_2023": {
+      "url": "https://historical-forecast-api.open-meteo.com/v1/forecast",
+      "params": {
+        "latitude": 13.4,
+        "longitude": 77.73,
+        "timezone": "auto",
+        "daily": "temperature_2m_min",
+        "start_date": "2023-06-01",
+        "end_date": "2023-06-03"
+      },
+      "http_status": 200,
+      "raw_sha256": "6d1f1f4ed50bb897e2e961b6cc82348c1de15d94cd00786d09349d922fa78fcd",
+      "variables": [
+        "temperature_2m_min"
+      ],
+      "n_points": 3,
+      "non_null_counts": {
+        "temperature_2m_min": 3
+      }
+    },
+    "previous_runs_2023": {
+      "url": "https://previous-runs-api.open-meteo.com/v1/forecast",
+      "params": {
+        "latitude": 13.4,
+        "longitude": 77.73,
+        "timezone": "auto",
+        "hourly": "temperature_2m,temperature_2m_previous_day1",
+        "start_date": "2023-06-01",
+        "end_date": "2023-06-01"
+      },
+      "http_status": 200,
+      "raw_sha256": "4ddff81c4c85a57d181c2555550ae89069c1f8037502bae5367b24a2e6af00ad",
+      "variables": [
+        "temperature_2m",
+        "temperature_2m_previous_day1"
+      ],
+      "n_points": 24,
+      "non_null_counts": {
+        "temperature_2m": 24,
+        "temperature_2m_previous_day1": 24
+      }
+    },
+    "previous_runs_2025": {
+      "url": "https://previous-runs-api.open-meteo.com/v1/forecast",
+      "params": {
+        "latitude": 13.4,
+        "longitude": 77.73,
+        "timezone": "auto",
+        "hourly": "temperature_2m,temperature_2m_previous_day1,temperature_2m_previous_day3",
+        "start_date": "2025-06-01",
+        "end_date": "2025-06-01"
+      },
+      "http_status": 200,
+      "raw_sha256": "8077b972fa7ad86d4001fca85e3d8361c043f4488eb91b31c77171996cf92baf",
+      "variables": [
+        "temperature_2m",
+        "temperature_2m_previous_day1",
+        "temperature_2m_previous_day3"
+      ],
+      "n_points": 24,
+      "non_null_counts": {
+        "temperature_2m": 24,
+        "temperature_2m_previous_day1": 24,
+        "temperature_2m_previous_day3": 24
+      }
+    }
+  }
+}
