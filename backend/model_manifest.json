@@ -1,0 +1,57 @@
+{
+  "manifest_version": 1,
+  "note": "Required disease-detection artifacts. Sizes and SHA-256 only: no URLs, no credentials. Regenerate with `python scripts/fetch_models.py --write-manifest`. These are separate from (and unrelated to) weather downscaling, which has no ML model.",
+  "disease_models": {
+    "tomato": {
+      "file": "tomato_model.pth",
+      "size_bytes": 44791947,
+      "sha256": "8f6f0275a941eb0cafca57d441d528d0d159894c3c24291d47080b2bc2fa473b"
+    },
+    "potato": {
+      "file": "potato_model.pth",
+      "size_bytes": 44787851,
+      "sha256": "e98c656fc2c9b50c4e84882c3d80231af596870a1849defef553d8240ca0f49a"
+    },
+    "pepper": {
+      "file": "pepper_model.pth",
+      "size_bytes": 44785803,
+      "sha256": "f665832b781ee11afc3a93be4634516c214c030539d5676ed1b04fdeb77e13c3"
+    },
+    "banana": {
+      "file": "banana_model.pth",
+      "size_bytes": 44787851,
+      "sha256": "6e8607bafd04dccc9355f9e032505c02dff69d3ef67a091431ae847afd1860f6"
+    },
+    "cotton": {
+      "file": "cotton_model.pth",
+      "size_bytes": 44787851,
+      "sha256": "1ee6bb2dd2fa810feb17b171f9467f7b45618d95a4039f7234642db6dd9ecca1"
+    },
+    "mango": {
+      "file": "mango_model.pth",
+      "size_bytes": 44787723,
+      "sha256": "1948751b829d2e73cac2f3a220743a2e47866d9d13be0aae976d35931183cd37"
+    },
+    "onion": {
+      "file": "onion_model.pth",
+      "size_bytes": 44787723,
+      "sha256": "4a0e8fabcb7f9f40927f25e128d0c6c4462b430bc392407625af851f609cbe40"
+    },
+    "rice": {
+      "file": "rice_model.pth",
+      "size_bytes": 44789643,
+      "sha256": "aedb22610805881dd910f8c952bec15884482b32123dbb72032ad29476e433bc"
+    },
+    "sugarcane": {
+      "file": "sugarcane_model.pth",
+      "size_bytes": 44790283,
+      "sha256": "dfeadf38c9e5e0e41ca8b8141d96b43dd4227d066f07b2ffa791d2f841e915dc"
+    }
+  },
+  "leaf_detector": {
+    "file": "yolov8n.pt",
+    "size_bytes": 6549796,
+    "sha256": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+    "note": "Ultralytics YOLOv8n weights used for leaf localisation; if absent, ultralytics would try to download them at import time."
+  }
+}

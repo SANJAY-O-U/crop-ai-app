@@ -8,12 +8,16 @@ router = APIRouter()
 
 
 @router.get("/block/{block_id}/forecast", response_model=PointForecast)
-async def get_block_forecast(block_id: str, days: int = Query(default=7, ge=1, le=16)):
+def get_block_forecast(block_id: str, days: int = Query(default=7, ge=1, le=16)):
     """
     Block-level forecast — the coarse input to the downscaling engine.
     Resolves the block's centroid via the geospatial module, then fetches a
     single forecast for that point (see app/weather/service.py for provider
-    selection and offline fallback behaviour).
+    selection, caching and fallback behaviour).
+
+    Declared `def` (not `async def`) on purpose: the provider call is blocking I/O, so FastAPI runs it in its
+    threadpool instead of stalling the event loop. A provider failure becomes HTTP 502/503 when WEATHER_FALLBACK=error;
+    otherwise the response is an explicitly labelled mock fallback (see app/weather/service.py).
     """
     block = geo_service.get_block(block_id)
     if block is None:

@@ -28,9 +28,20 @@ scientific standing — read the comments on each:
      not hidden.
 """
 
-from app.weather.schemas import DailyWeather, PointForecast
+import math
+
+from app.weather.schemas import ELEVATION_BOUNDS_M, DailyWeather, PointForecast
 
 TEMPERATURE_LAPSE_RATE_C_PER_M = 0.0065
+
+# Robustness guards (Production Candidate V1). They never change the equations below: they only decide WHEN the
+# equations are applied. An elevation difference larger than any relief inside one block almost certainly means a
+# wrong elevation value (e.g. 9000 m vs 0 m would give a 58 C shift), so the block value is kept instead.
+MAX_PLAUSIBLE_ELEVATION_DELTA_M = 3000.0
+STATUS_APPLIED = "applied"
+STATUS_UNAVAILABLE = "elevation_unavailable"
+STATUS_INVALID = "elevation_invalid"
+STATUS_IMPLAUSIBLE = "elevation_delta_implausible"
 
 # --- Placeholder heuristics below (see module docstring, point 2) ---
 RAINFALL_OROGRAPHIC_FACTOR_PER_100M = 0.03    # +3% rainfall per 100m elevation gain
@@ -40,16 +51,45 @@ WIND_FACTOR_PER_100M = 0.02                   # +2% wind speed per 100m elevatio
 _RAINFALL_FACTOR_BOUNDS = (0.5, 1.6)  # clamp so large elevation deltas can't produce absurd multipliers
 
 
-def build_adjustment_metadata(block_elevation_m: float | None, panchayat_elevation_m: float | None) -> dict:
+def _valid_elevation(value) -> bool:
+    return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)         and ELEVATION_BOUNDS_M[0] <= value <= ELEVATION_BOUNDS_M[1]
+
+
+def classify_elevations(block_elevation_m, panchayat_elevation_m) -> str:
+    """Decide whether the baseline can be applied. Returns one of the STATUS_* constants (documented in
+    docs/PRODUCTION_READINESS.md)."""
     if block_elevation_m is None or panchayat_elevation_m is None:
+        return STATUS_UNAVAILABLE
+    if not (_valid_elevation(block_elevation_m) and _valid_elevation(panchayat_elevation_m)):
+        return STATUS_INVALID
+    if abs(panchayat_elevation_m - block_elevation_m) > MAX_PLAUSIBLE_ELEVATION_DELTA_M:
+        return STATUS_IMPLAUSIBLE
+    return STATUS_APPLIED
+
+
+_STATUS_NOTES = {
+    STATUS_UNAVAILABLE: "Elevation unavailable for one or both points — baseline returned the block value unmodified.",
+    STATUS_INVALID: "Elevation outside the valid range (or not a number) for one or both points — baseline returned the block value unmodified.",
+    STATUS_IMPLAUSIBLE: f"Elevation difference exceeds {MAX_PLAUSIBLE_ELEVATION_DELTA_M:.0f} m, which is implausible within one block — "
+                        "baseline returned the block value unmodified.",
+}
+
+
+def build_adjustment_metadata(block_elevation_m: float | None, panchayat_elevation_m: float | None) -> dict:
+    status = classify_elevations(block_elevation_m, panchayat_elevation_m)
+    if status != STATUS_APPLIED:
         return {
             "block_elevation_m": block_elevation_m,
             "panchayat_elevation_m": panchayat_elevation_m,
             "elevation_delta_m": None,
-            "note": "Elevation unavailable for one or both points — baseline returned the block value unmodified.",
+            "status": status,
+            "baseline_applied": False,
+            "note": _STATUS_NOTES[status],
         }
     delta = panchayat_elevation_m - block_elevation_m
     return {
+        "status": STATUS_APPLIED,
+        "baseline_applied": True,
         "block_elevation_m": block_elevation_m,
         "panchayat_elevation_m": panchayat_elevation_m,
         "elevation_delta_m": round(delta, 1),
@@ -67,8 +107,8 @@ def apply_baseline(
     panchayat_elevation_m: float | None,
 ) -> list[DailyWeather]:
     """Apply the elevation-aware adjustment to every day of a block forecast."""
-    if block_elevation_m is None or panchayat_elevation_m is None:
-        # No terrain data to work with — return the block's values unchanged
+    if classify_elevations(block_elevation_m, panchayat_elevation_m) != STATUS_APPLIED:
+        # No usable terrain data — return the block's values unchanged
         # rather than fabricating an adjustment.
         return list(block_forecast.daily)
 

@@ -1,5 +1,9 @@
 # CropCast — Phase 1 Development Notes
 
+> **Update:** this is the historical Phase 1 note. Current production behaviour (provenance, fallback policy, health/readiness, error contract,
+> deployment) is described in [`docs/PRODUCTION_READINESS.md`](docs/PRODUCTION_READINESS.md). The mock provider is now only used when
+> `WEATHER_PROVIDER=mock` or as an explicitly labelled fallback (disable with `WEATHER_FALLBACK=error`).
+
 Status: **foundation only**. This phase demonstrates the pipeline shape
 (`Block Weather → Panchayat → Downscaled Weather → Visualization`) required by
 SIH26074. It does **not** claim to solve SIH26074 — there is no trained ML

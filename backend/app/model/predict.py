@@ -8,6 +8,7 @@ import cv2
 from torchvision import transforms
 from PIL import Image
 from .model import load_model
+from app.model import artifacts
 from app.model.leaf_detector import detect_leaf
 from app.model.grad_cam import GradCAM, overlay_cam
 
@@ -95,8 +96,10 @@ def load_crop_model(crop):
     if crop not in _loaded_models:
         config = CROP_CONFIG[crop]
         model  = load_model(len(config["classes"]))
+        # weights_only=True: the artifacts are plain state_dicts (verified for all 9), so the safe loader is used and
+        # nothing is unpickled. The path is resolved against MODEL_DIR, not the process working directory.
         model.load_state_dict(
-            torch.load(config["model_path"], map_location="cpu")
+            torch.load(artifacts.resolve(config["model_path"]), map_location="cpu", weights_only=True)
         )
         model.eval()
         _loaded_models[crop] = model

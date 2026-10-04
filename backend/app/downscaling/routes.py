@@ -12,7 +12,7 @@ router = APIRouter()
 
 
 @router.get("/{panchayat_id}/forecast", response_model=DownscaledForecast)
-async def downscale_panchayat(panchayat_id: str, days: int = Query(default=7, ge=1, le=16)):
+def downscale_panchayat(panchayat_id: str, days: int = Query(default=7, ge=1, le=16)):
     try:
         return get_downscaled_forecast(panchayat_id, days)
     except UnknownPanchayatError:
@@ -22,7 +22,7 @@ async def downscale_panchayat(panchayat_id: str, days: int = Query(default=7, ge
 
 
 @router.get("/block/{block_id}/forecast", response_model=list[DownscaledForecast])
-async def downscale_block(block_id: str, days: int = Query(default=7, ge=1, le=16)):
+def downscale_block(block_id: str, days: int = Query(default=7, ge=1, le=16)):
     """All panchayats in a block, downscaled — powers the Weather Map / Dashboard views."""
     try:
         return get_downscaled_forecasts_for_block(block_id, days)

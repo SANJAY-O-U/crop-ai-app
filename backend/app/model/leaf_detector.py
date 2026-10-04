@@ -3,8 +3,20 @@ import numpy as np
 from PIL import Image, ImageDraw
 import cv2
 
+from app.model import artifacts
+
+
+def _yolo_weights() -> str:
+    """Prefer the local yolov8n.pt (MODEL_DIR, then backend/); otherwise the bare name, which keeps the previous
+    behaviour (ultralytics resolves or downloads it). Installing the file avoids any download at import time."""
+    for d in (artifacts.model_dir(), artifacts.BACKEND_DIR):
+        if (d / "yolov8n.pt").is_file():
+            return str(d / "yolov8n.pt")
+    return "yolov8n.pt"
+
+
 # Load YOLO model
-yolo_model = YOLO("yolov8n.pt")
+yolo_model = YOLO(_yolo_weights())
 
 
 def detect_leaf(image):

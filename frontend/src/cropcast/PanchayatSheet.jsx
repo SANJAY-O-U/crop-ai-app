@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { ChartSkeletons, HumidityChart, RainfallChart, TemperatureChart, WindChart } from "./charts";
-import { dayLabel, deltaVsBlock, formatKm, highlights, insightsOf, isNum, summarizeToday } from "./forecastModel";
+import { dayLabel, deltaVsBlock, formatKm, highlights, insightsOf, isNum, nowInTimezone, summarizeToday } from "./forecastModel";
 import { IconAlert, IconChevronDown, IconChevronUp, IconClose, IconCompare, IconDrops, IconInfo, IconLeaf, IconPin, IconRain, IconRefresh, IconSun, IconTable, IconWind } from "./icons";
 
 const dash = "—";
@@ -170,10 +170,11 @@ export default function PanchayatSheet({
     else if (delta > 80 && !expanded) onClose();
   };
 
+  const now = nowInTimezone(forecast?.block_source?.timezone);   // "Today" in the forecast's own timezone
   const today = summarizeToday(forecast);
-  const lab = today ? dayLabel(today.date) : null;
+  const lab = today ? dayLabel(today.date, now) : null;
   const insights = insightsOf(forecast);
-  const facts = highlights(forecast).slice(0, 3);
+  const facts = highlights(forecast, now).slice(0, 3);
   const daily = forecast?.daily ?? [];
   const isMocked = forecast?.block_source?.is_mocked;
   const name = panchayat?.panchayat_name ?? forecast?.panchayat_name ?? "Panchayat";
@@ -278,10 +279,10 @@ export default function PanchayatSheet({
             <section className="cc-section" aria-labelledby="cc-fc-h">
               <h3 id="cc-fc-h" className="cc-section-h">Next {daily.length} days <small>Forecast</small></h3>
               <div className="cc-charts">
-                <TemperatureChart daily={daily} />
-                <RainfallChart daily={daily} />
-                <HumidityChart daily={daily} />
-                <WindChart daily={daily} />
+                <TemperatureChart daily={daily} now={now} />
+                <RainfallChart daily={daily} now={now} />
+                <HumidityChart daily={daily} now={now} />
+                <WindChart daily={daily} now={now} />
               </div>
             </section>
 

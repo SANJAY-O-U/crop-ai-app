@@ -2,6 +2,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
+  nowInTimezone,
   coverage, deltaVsBlock, dayLabel, extent, formatKm, haversineKm, highlights, inkFor, insightsOf, layerColor,
   nearestPanchayat, parseISODate, seriesOf, summarizeToday, sum,
 } from "./forecastModel.js";
@@ -119,4 +120,22 @@ test("layer colours: bounded, safe on degenerate ranges, readable ink", () => {
   assert.equal(inkFor("rgb(255,255,255)"), "#0f1a12");
   assert.equal(inkFor("rgb(0,0,0)"), "#ffffff");
   assert.equal(inkFor("#c2410c"), "#ffffff");
+});
+
+test("nowInTimezone: 'today' follows the forecast's timezone, not the viewer's", () => {
+  // 2026-10-04 20:00 UTC is already 2026-10-05 01:30 in Asia/Kolkata (UTC+05:30, no DST)
+  const instant = new Date("2026-10-04T20:00:00Z");
+  const ist = nowInTimezone("Asia/Kolkata", instant);
+  assert.equal(`${ist.getFullYear()}-${ist.getMonth() + 1}-${ist.getDate()} ${ist.getHours()}:${ist.getMinutes()}`, "2026-10-5 1:30");
+  assert.equal(dayLabel("2026-10-05", ist).isToday, true);
+  assert.equal(dayLabel("2026-10-04", ist).isToday, false);
+  // a viewer in UTC-8 would otherwise still be on the 4th
+  const la = nowInTimezone("America/Los_Angeles", instant);
+  assert.equal(la.getDate(), 4);
+});
+
+test("nowInTimezone: missing or invalid timezone leaves the instant untouched", () => {
+  const instant = new Date("2026-10-04T20:00:00Z");
+  assert.equal(nowInTimezone(null, instant), instant);
+  assert.equal(nowInTimezone("Not/AZone", instant), instant);
 });

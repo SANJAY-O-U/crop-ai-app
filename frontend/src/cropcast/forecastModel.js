@@ -39,6 +39,21 @@ function sameLocalDay(a, b) {
 }
 
 // "Today" is only claimed when the forecast date equals the viewer's local date.
+// The forecast's dates are LOCAL dates in the provider's timezone (backend: block_source.timezone, Asia/Kolkata for the
+// pilot). "Today" must therefore be evaluated in that timezone, not in the viewer's. Returns a Date whose local
+// year/month/day/hour equal the wall clock in `timeZone` (or `now` unchanged if the zone is missing/invalid).
+export function nowInTimezone(timeZone, now = new Date()) {
+  if (!timeZone) return now;
+  try {
+    const parts = Object.fromEntries(new Intl.DateTimeFormat("en-CA", {
+      timeZone, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23",
+    }).formatToParts(now).filter((p) => p.type !== "literal").map((p) => [p.type, Number(p.value)]));
+    return new Date(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute, parts.second);
+  } catch {
+    return now;
+  }
+}
+
 export function dayLabel(dateStr, now = new Date()) {
   const d = parseISODate(dateStr);
   if (!d) return { short: "—", long: "—", isToday: false };
